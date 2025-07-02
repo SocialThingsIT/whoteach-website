@@ -6,34 +6,22 @@ export const headerData = {
       text: 'Componenti',
       links: [
         {
-          text: 'SaaS',
-          href: getPermalink('/homes/saas'),
-        },
-        {
-          text: 'Startup',
-          href: getPermalink('/homes/startup'),
-        },
-        {
-          text: 'Mobile App',
-          href: getPermalink('/homes/mobile-app'),
-        },
-        {
-          text: 'Personal',
-          href: getPermalink('/homes/personal'),
-        },
+          text: 'First Component',
+          href: getPermalink('/components/first'),
+        }
       ],
     },
     {
       text: 'Prezzi',
-      href: '#',
+      href: getPermalink('/prices'),
     },
     {
       text: 'Clienti',
-      href: '#',
+      href: getPermalink('/clients'),
     },
     {
       text: 'Chi siamo',
-      href: '#',
+      href: getPermalink('/who-we-are'),
     },
     {
       text: 'Blog',
@@ -41,7 +29,7 @@ export const headerData = {
     },
     {
       text: 'Contatti',
-      href: '#',
+      href: getPermalink('/contact'),
     },
   ],
   actions: [{ text: 'Accedi', href: 'https://github.com/onwidget/astrowind', target: '_blank' }],
@@ -49,53 +37,35 @@ export const headerData = {
 
 export const footerData = {
   links: [
+    {},
     {
-      title: 'Product',
+      title: 'Azienda',
       links: [
-        { text: 'Features', href: '#' },
-        { text: 'Security', href: '#' },
-        { text: 'Team', href: '#' },
-        { text: 'Enterprise', href: '#' },
-        { text: 'Customer stories', href: '#' },
-        { text: 'Pricing', href: '#' },
-        { text: 'Resources', href: '#' },
-      ],
-    },
-    {
-      title: 'Platform',
-      links: [
-        { text: 'Developer API', href: '#' },
-        { text: 'Partners', href: '#' },
-        { text: 'Atom', href: '#' },
-        { text: 'Electron', href: '#' },
-        { text: 'AstroWind Desktop', href: '#' },
-      ],
-    },
-    {
-      title: 'Support',
-      links: [
-        { text: 'Docs', href: '#' },
-        { text: 'Community Forum', href: '#' },
-        { text: 'Professional Services', href: '#' },
-        { text: 'Skills', href: '#' },
-        { text: 'Status', href: '#' },
-      ],
-    },
-    {
-      title: 'Company',
-      links: [
-        { text: 'About', href: '#' },
+        { text: 'Contatti', href: '#' },
+        { text: 'Accedi a WhoTeachPlatform', href: '#' },
+        { text: 'Chi Siamo', href: '#' },
         { text: 'Blog', href: '#' },
-        { text: 'Careers', href: '#' },
-        { text: 'Press', href: '#' },
-        { text: 'Inclusion', href: '#' },
-        { text: 'Social Impact', href: '#' },
-        { text: 'Shop', href: '#' },
+        { text: 'Piani Tariffari', href: '#' }
       ],
     },
+    {
+      title: 'Moduli di WhoTeach',
+      links: [
+        { text: 'Learning Management System', href: '#' },
+        { text: 'WhoTeach AI - Recommender System', href: '#' },
+        { text: 'WhoTeach AI - Generative AI', href: '#' },
+        { text: 'Live ', href: '#' },
+      ],
+    },
+    {
+      title: 'Assistenza',
+      links: [
+        { text: 'Contatti', href: '#' }
+      ],
+    }
   ],
   secondaryLinks: [
-    { text: 'Terms', href: getPermalink('/terms') },
+    { text: 'Termini e condizioni', href: getPermalink('/terms') },
     { text: 'Privacy Policy', href: getPermalink('/privacy') },
   ],
   socialLinks: [
@@ -103,10 +73,5 @@ export const footerData = {
     { ariaLabel: 'Instagram', icon: 'tabler:brand-instagram', href: '#' },
     { ariaLabel: 'Facebook', icon: 'tabler:brand-facebook', href: '#' },
     { ariaLabel: 'RSS', icon: 'tabler:rss', href: getAsset('/rss.xml') },
-    { ariaLabel: 'Github', icon: 'tabler:brand-github', href: 'https://github.com/onwidget/astrowind' },
-  ],
-  footNote: `
-    <img class="w-5 h-5 md:w-6 md:h-6 md:-mt-0.5 bg-cover mr-1.5 rtl:mr-0 rtl:ml-1.5 float-left rtl:float-right rounded-sm" src="https://onwidget.com/favicon/favicon-32x32.png" alt="onWidget logo" loading="lazy"></img>
-    Made by <a class="text-blue-600 underline dark:text-muted" href="https://onwidget.com/"> onWidget</a> · All rights reserved.
-  `,
+  ]
 };

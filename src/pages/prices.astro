@@ -1,0 +1,165 @@
+---
+import Layout from '~/layouts/PageLayout.astro';
+
+import Header from '~/components/widgets/Header.astro';
+import Pricing from '~/components/widgets/Pricing.astro';
+import Features2 from '~/components/widgets/Features2.astro';
+
+import { headerData } from '~/navigation';
+import BlogLatestPosts from '~/components/widgets/BlogLatestPosts.astro';
+
+const metadata = {
+  title: 'Prices',
+};
+---
+
+<Layout metadata={metadata}>
+  <Fragment slot="header">
+    <Header
+      {...headerData}
+      actions={[
+        {
+          variant: 'secondary',
+          text: 'Login',
+          href: '#',
+        },
+        {
+          variant: 'primary',
+          text: 'Sign Up',
+          href: '#',
+        },
+      ]}
+      isSticky
+    />
+  </Fragment>
+
+  <!-- Features Widget *************** potrebbe essere utilizzato in -->
+
+  <!-- <Features
+    id="features"
+    title="Why choose AstroWind?"
+    subtitle="Each of the following features enhances AstroWind's value proposition."
+    columns={2}
+    items={[
+      {
+        title: 'Integration of Astro 5.0 and Tailwind CSS',
+        description:
+          'Offers a powerful combination that enhances both the development process and the end-user experience. Also, allows to build dynamic and visually stunning websites with optimized performance.',
+        icon: 'tabler:layers-union',
+      },
+      {
+        title: 'Versatile design for startups, small businesses, and more',
+        description: `Easily customize AstroWind to harmonize with the unique branding and identity of your venture. AstroWind's versatile design adapts to suit your needs.`,
+        icon: 'tabler:artboard',
+      },
+      {
+        title: 'Effortless customization for portfolios and marketing sites',
+        description:
+          'With intuitive customization, easily showcase portfolio pieces, case studies, project highlights, and relevant content. Ideal for creative professionals and businesses looking to highlight their expertise.',
+        icon: 'tabler:writing',
+      },
+      {
+        title: 'Optimized landing pages and engaging blogs',
+        description: `Landing pages are strategically designed to captivate visitors and prompt specific actions. Additionally, the blog creation feature empowers sharing insights, engaging the audience.`,
+        icon: 'tabler:podium',
+      },
+      {
+        title: 'Fast loading times and production-ready code',
+        description: `Using Astro 5.0 ensures fast loading and seamless rendering, enhancing browsing. The code follows best practices, improving user experience, SEO, and reducing bounce rates.`,
+        icon: 'tabler:rocket',
+      },
+      {
+        title: 'SEO-optimized structure for enhanced visibility',
+        description: `Follows SEO best practices with clean code, semantic HTML markup, and fast loading, enhancing search engine rankings. AstroWind's SEO structure ensures visibility to potential customers and clients.`,
+        icon: 'tabler:eyeglass',
+      },
+    ]}
+  />-->
+
+  <Pricing
+    title="Prezzi"
+    prices={[
+      {
+        title: 'Ownership',
+        subtitle: 'Access to core features',
+        price: '49',
+        period: '/ Mese',
+        callToAction: {
+          target: '_blank',
+          text: 'Scopri di più',
+          href: '#',
+        },
+        items: [
+          { description: 'Lorem ipsum dolor', enabled: false },
+          { description: 'Sit amet', enabled: true },
+          { description: 'Consectetur adipiscing elit', enabled: true },
+        ],
+      },
+      {
+        title: 'White Label',
+        subtitle: 'Premium plan with pro features',
+        price: 99,
+        period: '/ Mese',
+        callToAction: {
+          target: '_blank',
+          text: 'Scopri di più',
+          href: '#',
+        },
+        hasRibbon: true,
+        ribbonTitle: 'CONSIGLIATO',
+        items: [
+          { description: 'Lorem ipsum dolor', enabled: true },
+          { description: 'Sit amet', enabled: true },
+          { description: 'Consectetur adipiscing elit', enabled: true },
+        ],
+      },
+    ]}
+  />
+
+  <!-- Features2 Widget ************** -->
+
+  <Features2
+    title="I moduli di WhoTeach"
+    subtitle="WhoTeach è la piattaforma di digital learning B2B sviluppata dal team per aiutare enti e aziende a creare ed erogare corsi online di qualità, con il supporto dell’IA e un uso più efficiente delle risorse."
+    items={[
+      {
+        title: 'Learning Management System',
+        description: "Il Learning Management System (LMS) è una piattaforma di gestione dell’apprendimento che permette di caricare, erogare e gestire corsi e contenuti di alta qualità, consentendo un’esperienza di apprendimento completa e gratificante, sia al docente che allo studente.",
+        icon: 'flat-color-icons:template',
+      },
+      {
+        title: 'WhoTeach AI - Recommender System',
+        description:
+          "WhoTeach AI – Recommender System è un sistema di raccomandazione (RS) che, tramite il Machine Learning e l’Intelligenza Artificiale (AI), aiuta gli esperti e docenti a creare e aggregare contenuti e materiale didattico, suggerendo i contenuti più adatti alle esigenze degli utenti, sulla base del loro profilo, delle competenze personali e delle risorse precedentemente visitate.",
+        icon: 'flat-color-icons:gallery',
+      },
+      {
+        title: 'WhoTeach - Generative AI',
+        description:
+          'Generative AI è un modulo di WhoTeach basato su un’interfaccia conversazionale potenziata da Large Language Models (LLM) di ultima generazione. Progettato per supportare docenti, instructional designer e formatori aziendali, questo strumento consente di generare materiali didattici completi in pochi minuti, risparmiando tempo prezioso nella pianificazione delle lezioni e nella creazione di contenuti.',
+        icon: 'flat-color-icons:approval',
+      },
+      {
+        title: 'Live',
+        description:
+          "La piattaforma Live permette di gestire classi online in un’aula virtuale dotata di numerose funzionalità.",
+        icon: 'flat-color-icons:document',
+      }
+    ]}
+  >
+    <Fragment slot="bg">
+      <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
+    </Fragment>
+  </Features2>
+
+  <!-- BlogLatestPost Widget **************** Lo lascerei-->
+
+  <BlogLatestPosts
+    id="blog"
+    title="Il nostro blog"
+  >
+    <Fragment slot="bg">
+      <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
+    </Fragment>
+  </BlogLatestPosts>
+</Layout>
