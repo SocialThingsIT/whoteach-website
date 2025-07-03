@@ -195,6 +195,7 @@ export interface ItemGrid {
   columns?: number;
   defaultIcon?: string;
   classes?: Record<string, string>;
+  centeredIcons?: boolean;
 }
 
 export interface Collapse {
@@ -218,6 +219,7 @@ export interface Hero extends Omit<Headline, 'classes'>, Omit<Widget, 'isDark' |
   content?: string;
   actions?: string | CallToAction[];
   image?: string | unknown;
+  textAlign?: string;
 }
 
 export interface Team extends Omit<Headline, 'classes'>, Widget {
@@ -248,6 +250,7 @@ export interface Features extends Omit<Headline, 'classes'>, Widget {
   items?: Array<Item>;
   columns?: number;
   defaultIcon?: string;
+  centeredIcons?: boolean;
   callToAction1?: CallToAction;
   callToAction2?: CallToAction;
   isReversed?: boolean;

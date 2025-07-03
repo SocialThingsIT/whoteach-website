@@ -2,14 +2,11 @@
 import Layout from '~/layouts/PageLayout.astro';
 
 import Hero from '~/components/widgets/Hero.astro';
-import Note from '~/components/widgets/Note.astro';
-import Features from '~/components/widgets/Features.astro';
-import Steps from '~/components/widgets/Steps.astro';
 import Content from '~/components/widgets/Content.astro';
 import BlogLatestPosts from '~/components/widgets/BlogLatestPosts.astro';
-import FAQs from '~/components/widgets/FAQs.astro';
+import Features2 from '~/components/widgets/Features2.astro';
 import Stats from '~/components/widgets/Stats.astro';
-import CallToAction from '~/components/widgets/CallToAction.astro';
+import Testimonials from '~/components/widgets/Testimonials.astro';
 
 const metadata = {
   title: 'HOME',
@@ -21,6 +18,7 @@ const metadata = {
   <!-- Hero Widget ******************* -->
 
   <Hero
+    textAlign="left"
     actions={[
       {
         variant: 'primary',
@@ -32,133 +30,189 @@ const metadata = {
       { text: 'Guarda come funziona', href: '#features' },
     ]}
   >
-    <Fragment slot="title">
-      La piattaforma smart per la formazione digitale
-    </Fragment>
+    <Fragment slot="title"> Un'unica piattaforma per tutta la tua formazione </Fragment>
 
     <Fragment slot="subtitle">
-      Una piattaforma pensata per enti di formazione e aziende che vogliono gestire corsi, docenti e studenti in modo semplice, centralizzato e accessibile da ogni dispositivo.
+      Una piattaforma pensata per enti di formazione e aziende che vogliono gestire corsi, docenti e studenti in modo
+      semplice, centralizzato e accessibile da ogni dispositivo.
     </Fragment>
   </Hero>
 
   <Content
     isReversed
-    title="I nostri moduli"
-    subtitle='WhoTeach è la piattaforma di digital learning B2B sviluppata dal team per aiutare enti e aziende a creare ed erogare corsi online di qualità, con il supporto dell’IA e un uso più efficiente delle risorse.'
-    items={[
-      {
-        title: 'Creazione di contenuti',
-      },
-      {
-        title: 'Gestione dei corsi',
-      },
-      {
-        title: 'Modalità asincrona',
-      },
-    ]}
+    title="Dalla creazione all’erogazione: ecco cosa puoi fare con WhoTeach"
+    subtitle="WhoTeach è la piattaforma di digital learning B2B sviluppata dal team per aiutare enti e aziende a creare ed erogare corsi online di qualità, con il supporto dell’IA e un uso più efficiente delle risorse."
     image={{
       src: 'https://images.unsplash.com/photo-1519389950473-47ba0277781c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80',
       alt: 'Colorful Image',
     }}
   >
     <Fragment slot="content">
-      <h3 class="text-2xl font-bold tracking-tight sm:text-3xl mb-2">Learning Management System</h3>
+      <p class="font-bold tracking-tight mb-2">Learning Management System</p>
     </Fragment>
-
-    <Fragment slot="bg">
-      <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
-    </Fragment>
-  </Content>
-
-  <Content
-    isAfterContent
-    items={[
-      {
-        title: 'Supporto nella creazione e aggiornamento dei corsi',
-      },
-      {
-        title: 'Veloce',
-      },
-      {
-        title: 'Economico',
-      }
-    ]}
-    image={{
-      src: 'https://images.unsplash.com/photo-1600132806370-bf17e65e942f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2194&q=80',
-      alt: 'Blueprint Image',
-    }}
-  >
     <Fragment slot="content">
-      <h3 class="text-2xl font-bold tracking-tight sm:text-3xl mb-2">WhoTeach AI - Recommender System</h3>
+      <h3 class="text-2xl font-bold tracking-tight sm:text-3xl mb-2">
+        Gestisci corsi, materiali e certificazioni da un unico spazio
+      </h3>
     </Fragment>
 
-    <Fragment slot="bg">
-      <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
+    <Fragment slot="content">
+      <h3 class="font-bold tracking-tight mb-2">
+        Organizza i tuoi contenuti formativi in modo flessibile, monitora l’avanzamento degli utenti e rilascia
+        certificati in automatico. Tutto è tracciato, conforme e facilmente personalizzabile, anche con il tuo brand.
+      </h3>
     </Fragment>
   </Content>
 
   <Content
     isReversed
-    isAfterContent
-    items={[
-      {
-        title: 'Creazione di materiali didattici da zero',
-      },
-      {
-        title: 'Creazione di quiz e slide per la valutazione delle conoscenze',
-      },
-      {
-        title: 'Creazione di riassunti e altro',
-      },
-    ]}
     image={{
-      src: 'https://images.unsplash.com/photo-1611462985358-60d3498e0364?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80',
-      alt: 'Astronauts Image',
+      src: 'https://images.unsplash.com/photo-1519389950473-47ba0277781c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80',
+      alt: 'Colorful Image',
     }}
   >
     <Fragment slot="content">
-      <h3 class="text-2xl font-bold tracking-tight sm:text-3xl mb-2">WhoTeach AI - Recommender System</h3>
+      <p class="font-bold tracking-tight mb-2">Aule virtuali</p>
+    </Fragment>
+    <Fragment slot="content">
+      <h3 class="text-2xl font-bold tracking-tight sm:text-3xl mb-2">
+        Tieni lezioni interattive, efficaci e coinvolgenti
+      </h3>
     </Fragment>
 
-    <Fragment slot="bg">
-      <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
+    <Fragment slot="content">
+      <h3 class="font-bold tracking-tight mb-2">
+        Crea lezioni sincrone efficaci in un ambiente digitale completo, progettato per facilitare l’apprendimento e la collaborazione tra docenti e partecipanti.
+      </h3>
     </Fragment>
   </Content>
 
   <Content
-    isAfterContent
-    items={[
-      {
-        title: 'Accesso ad un\'aula virtuale per lezioni sincrone',
-      },
-      {
-        title: 'Svariate funzionalità di apprendimento',
-      },
-      {
-        title: 'Promuove la collaborazione interattiva tra docenti e studenti',
-      }
-    ]}
+    isReversed
     image={{
-      src: 'https://images.unsplash.com/photo-1600132806370-bf17e65e942f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2194&q=80',
-      alt: 'Blueprint Image',
+      src: 'https://images.unsplash.com/photo-1519389950473-47ba0277781c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80',
+      alt: 'Colorful Image',
     }}
   >
     <Fragment slot="content">
-      <h3 class="text-2xl font-bold tracking-tight sm:text-3xl mb-2">Live</h3>
+      <p class="font-bold tracking-tight mb-2">Recommender System</p>
+    </Fragment>
+    <Fragment slot="content">
+      <h3 class="text-2xl font-bold tracking-tight sm:text-3xl mb-2">
+        Per costruire corsi migliori, in meno tempo
+      </h3>
     </Fragment>
 
-    <Fragment slot="bg">
-      <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
+    <Fragment slot="content">
+      <h3 class="font-bold tracking-tight mb-2">
+        Il sistema di raccomandazione intelligente ti aiuta a trovare rapidamente i contenuti più adatti per ogni corso. Analizza input, preferenze e obiettivi per proporti risorse pertinenti, aggiornate e coerenti.
+      </h3>
     </Fragment>
   </Content>
 
-  <BlogLatestPosts
-    id="blog"
-    title="Il nostro blog"
+  <Content
+    isReversed
+    image={{
+      src: 'https://images.unsplash.com/photo-1519389950473-47ba0277781c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80',
+      alt: 'Colorful Image',
+    }}
   >
+    <Fragment slot="content">
+      <p class="font-bold tracking-tight mb-2">Generative AI</p>
+    </Fragment>
+    <Fragment slot="content">
+      <h3 class="text-2xl font-bold tracking-tight sm:text-3xl mb-2">
+        Crea lezioni complete in pochi minuti, con l’aiuto dell’AI
+      </h3>
+    </Fragment>
+
+    <Fragment slot="content">
+      <h3 class="font-bold tracking-tight mb-2">
+        Scrivi un prompt, scegli il formato e ottieni contenuti didattici originali: testi, slide, diagrammi e quiz vengono generati in automatico, pronti per essere usati o personalizzati.
+      </h3>
+    </Fragment>
+  </Content>
+
+  
+  <Features2
+    title="Come viene usata WhoTeach?"
+    subtitle='WhoTeach è la piattaforma di digital learning B2B sviluppata dal team per aiutare enti e aziende a creare ed erogare corsi online di qualità, con il supporto dell’IA e un uso più efficiente delle risorse.'
+    centeredIcons={true}
+    items={[
+      {
+        title: 'Upskilling e reskilling',
+        icon: 'flat-color-icons:template',
+      },
+      {
+        title: 'Formazione obbligatoria',
+        icon: 'flat-color-icons:gallery',
+      },
+      {
+        title: 'Onboarding',
+        icon: 'flat-color-icons:approval',
+      },
+      {
+        title: 'Client training',
+        icon: 'flat-color-icons:document',
+      }
+    ]}
+  >
+    <Fragment slot="bg">
+      <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
+    </Fragment>
+  </Features2>
+
+  <Testimonials
+    title="What our users say?"
+    testimonials={[
+      {
+        testimonial: `It's made exploring and downloading website templates a breeze. The interface is intuitive, and I had no trouble finding the perfect template for my project. It's an app that truly empowers users.`,
+        name: 'Cary Kennedy',
+        job: 'Film director',
+        image: {
+          src: 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80',
+          alt: 'Cary Kennedy Image',
+        },
+      },
+      {
+        testimonial: `The app's seamless download process and intuitive layout have made selecting templates an enjoyable experience. Being able to preview and experiment with different designs before committing has saved me time and ensured I get the perfect look for my website.`,
+        name: 'Josh Wilkinson',
+        job: 'Product Manager',
+        image: {
+          src: 'https://images.unsplash.com/flagged/photo-1570612861542-284f4c12e75f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80',
+          alt: 'Josh Wilkinson Image',
+        },
+      },
+      {
+        testimonial:
+          'I was able to download and use a professional website template within minutes. The step-by-step process and user-friendly interface made it easy for me to create a website that looks as if it was designed by a pro.',
+        name: 'Sidney Hansen',
+        job: 'Decorator',
+        image: {
+          src: 'https://images.unsplash.com/photo-1512361436605-a484bdb34b5f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80',
+          alt: 'Sidney Hansen Image',
+        },
+      },
+    ]}
+    callToAction={{
+      target: '_blank',
+      text: 'Read more testimonials',
+      href: 'https://github.com/onwidget/astrowind',
+      icon: 'tabler:chevron-right',
+    }}
+  />
+  
+  <Stats
+    stats={[
+      { title: 'Studenti che hanno già usato WhoTeach', amount: '+12.000' },
+      { title: 'Valutazione della nostra assistenza clienti (fonte: Capterra)', amount: '4.5/5' },
+      { title: 'Risparmio medio sui costi per la creazione di materiali didattici', amount: '20%' }
+    ]}
+  />
+
+  <BlogLatestPosts id="blog" title="Il nostro blog">
     <Fragment slot="bg">
       <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
     </Fragment>
   </BlogLatestPosts>
-
 </Layout>

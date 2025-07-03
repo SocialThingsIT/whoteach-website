@@ -15,7 +15,10 @@ const {
 
   id,
   bg = await Astro.slots.render('bg'),
+  textAlign = 'center', // 'center' or 'left'
 } = Astro.props;
+
+const isLeftAlign = textAlign === 'left';
 ---
 
 <section class="relative md:-mt-[76px] not-prose" {...id ? { id } : {}}>
@@ -27,11 +30,11 @@ const {
   <div class="relative max-w-7xl mx-auto px-4 sm:px-6">
     <div class="pt-0 md:pt-[76px] pointer-events-none"></div>
     <div class="py-12 md:py-20">
-      <div class="text-center pb-10 md:pb-16 max-w-5xl mx-auto">
+      <div class={`pb-10 md:pb-16 max-w-5xl ${isLeftAlign ? '' : 'text-center mx-auto'}`}>
         {
           tagline && (
             <p
-              class="text-base text-secondary dark:text-blue-200 font-bold tracking-wide uppercase intersect-once intersect-quarter motion-safe:md:opacity-0 motion-safe:md:intersect:animate-fade"
+              class={`text-base text-secondary dark:text-blue-200 font-bold tracking-wide uppercase intersect-once intersect-quarter motion-safe:md:opacity-0 motion-safe:md:intersect:animate-fade ${isLeftAlign ? 'text-left' : ''}`}
               set:html={tagline}
             />
           )
@@ -39,23 +42,23 @@ const {
         {
           title && (
             <h1
-              class="text-5xl md:text-6xl font-bold leading-tighter tracking-tighter mb-4 font-heading intersect-once intersect-quarter motion-safe:md:opacity-0 motion-safe:md:intersect:animate-fade"
+              class={`text-5xl md:text-6xl font-bold leading-tighter tracking-tighter mb-4 font-heading intersect-once intersect-quarter motion-safe:md:opacity-0 motion-safe:md:intersect:animate-fade ${isLeftAlign ? 'text-left' : ''}`}
               set:html={title}
             />
           )
         }
-        <div class="max-w-3xl mx-auto">
+        <div class={`max-w-3xl ${isLeftAlign ? '' : 'mx-auto'}`}>
           {
             subtitle && (
               <p
-                class="text-xl mb-6 intersect-once intersect-quarter motion-safe:md:opacity-0 motion-safe:md:intersect:animate-fade"
+                class={`text-xl mb-6 intersect-once intersect-quarter motion-safe:md:opacity-0 motion-safe:md:intersect:animate-fade ${isLeftAlign ? 'text-left' : ''}`}
                 set:html={subtitle}
               />
             )
           }
           {
             actions && (
-              <div class="max-w-xs sm:max-w-md m-auto flex flex-nowrap flex-col sm:flex-row sm:justify-center gap-4 intersect-once intersect-quarter motion-safe:md:opacity-0 motion-safe:md:intersect:animate-fade">
+              <div class={`max-w-xs sm:max-w-md ${isLeftAlign ? '' : 'm-auto'} flex flex-nowrap flex-col sm:flex-row ${isLeftAlign ? 'sm:justify-start' : 'sm:justify-center'} gap-4 intersect-once intersect-quarter motion-safe:md:opacity-0 motion-safe:md:intersect:animate-fade`}>
                 {Array.isArray(actions) ? (
                   actions.map((action) => (
                     <div class="flex w-full sm:w-auto">
