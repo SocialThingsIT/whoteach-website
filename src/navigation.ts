@@ -6,8 +6,24 @@ export const headerData = {
       text: 'Componenti',
       links: [
         {
-          text: 'First Component',
-          href: getPermalink('/components/first'),
+          text: 'La piattaforma',
+          href: getPermalink('/components/the-platform'),
+        },
+        {
+          text: 'Recommender System',
+          href: getPermalink('/components/recommender-system'),
+        },
+        {
+          text: 'Generative AI',
+          href: getPermalink('/components/generative-ai'),
+        },
+        {
+          text: 'Aule Virtuali',
+          href: getPermalink('/components/virtual-room'),
+        },
+        {
+          text: 'LMS',
+          href: getPermalink('/components/lms'),
         }
       ],
     },

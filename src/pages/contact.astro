@@ -3,6 +3,8 @@ import Layout from '~/layouts/PageLayout.astro';
 import HeroText from '~/components/widgets/HeroText.astro';
 import ContactUs from '~/components/widgets/Contact.astro';
 import Features2 from '~/components/widgets/Features2.astro';
+import Hero from '~/components/widgets/Hero.astro';
+import Content from '~/components/widgets/Content.astro';
 
 const metadata = {
   title: 'Contact',
@@ -12,12 +14,87 @@ const metadata = {
 <Layout metadata={metadata}>
   <!-- HeroText Widget ******************* -->
 
-  <HeroText tagline="Contact" title="Let's Connect!" />
+  <Hero
+    textAlign="left"
+  >
+    <Fragment slot="title"> Sempre a tua disposizione </Fragment>
+
+    <Fragment slot="subtitle">
+      Ogni realtà ha esigenze uniche, e scegliere la piattaforma giusta per la formazione non è sempre facile. 
+      Per questo siamo qui: pronti ad ascoltarti, rispondere alle tue domande e guidarti verso la soluzione più adatta.
+    </Fragment>
+  </Hero>
+
+  <Content
+    image={{
+      src: 'https://images.unsplash.com/photo-1519389950473-47ba0277781c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80',
+      alt: 'Colorful Image',
+    }}
+  >
+    <Fragment slot="content">
+      <h3 class="text-2xl font-bold tracking-tight sm:text-3xl mb-2">Fai il primo passo con noi</h3>
+    </Fragment>
+    <Fragment slot="content">
+      <p class="tracking-tight mb-2">
+        Stai cercando una piattaforma che rispecchi davvero le esigenze formative della tua realtà? 
+        Vuoi capire concretamente come WhoTeach può aiutarti a progettare un ecosistema didattico su misura, 
+        con costi chiari e funzionalità che fanno davvero la differenza? <br>
+        <b>Compila il form</b> e inizia oggi il tuo percorso con noi:
+      </p>
+    </Fragment>
+
+    <Fragment slot="content">
+      <ul class="tracking-tight mb-2" style="list-style-type: circle">
+        <li>Ricevi la <b>brochure</b> completa </li>
+        <li>Prenota una <b>demo</b> personalizzata</li>
+        <li>Ottieni un’<b>offerta su misura</b>, pensata per i tuoi obiettivi e la tua organizzazione</li>
+      </ul>
+    </Fragment>
+  </Content>
+
+  <Content
+    image={{
+      src: 'https://images.unsplash.com/photo-1519389950473-47ba0277781c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80',
+      alt: 'Colorful Image',
+    }}
+  >
+    <Fragment slot="content">
+      <h3 class="text-2xl font-bold tracking-tight sm:text-3xl mb-2">Conosciamoci meglio</h3>
+    </Fragment>
+    <Fragment slot="content">
+      <p class="tracking-tight mb-2">
+        Hai <b>domande</b> su WhoTeach o vuoi conoscere meglio la nostra realtà? Che tu stia cercando <b>informazioni</b>, 
+        valutando una possibile <b>collaborazione</b> o esplorando nuove <b>sinergie</b>, siamo qui per ascoltarti.
+      </p>
+    </Fragment>
+  </Content>
+
+  <Content
+    image={{
+      src: 'https://images.unsplash.com/photo-1519389950473-47ba0277781c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80',
+      alt: 'Colorful Image',
+    }}
+  >
+    <Fragment slot="content">
+      <p class="font-bold tracking-tight mb-2">Iscriviti alla nostra newsletter</p>
+    </Fragment>
+    <Fragment slot="content">
+      <h3 class="text-2xl font-bold tracking-tight sm:text-3xl mb-2">Le novità che ti aiutano a formare meglio</h3>
+    </Fragment>
+
+    <Fragment slot="content">
+      <ul class="tracking-tight mb-2" style="list-style-type: circle">
+        <li><b>Articoli, risorse e strumenti</b> efficaci per chi lavora con la formazione</li>
+        <li><b>Finanziamenti e bandi:</b> le opportunità che aiutano le tue idee a decollare</li>
+        <li><b>Contenuti selezionati.</b> Niente spam, solo cose utili</li>
+      </ul>
+    </Fragment>
+  </Content>
 
   <ContactUs
     id="form"
-    title="Drop us a message today!"
-    subtitle="For quicker answers, explore our FAQs section. You may find the solution you're looking  for right there! If not, our support team is delighted to help you."
+    title="Contattaci"
+    subtitle="Per qualsiasi dubbio o domanda, non esitare a contattarci!"
     inputs={[
       {
         type: 'text',
@@ -35,45 +112,9 @@ const metadata = {
     }}
     disclaimer={{
       label:
-        'By submitting this contact form, you acknowledge and agree to the collection of your personal information.',
+        'Inviando questo form acconsenti al trattamento dei tuoi dati personali necessario all\'invio di una email ai nostri recapiti',
     }}
-    description="Our support team typically responds within 24 business hours."
+    description="Il nostro team solitamente risponde entro 2 giorni lavorativi"
   />
 
-  <!-- Features2 Widget ************** -->
-
-  <Features2
-    title="We are here to help!"
-    items={[
-      {
-        title: 'General support',
-        description: `Chat with us for inquiries related to account management, website navigation, payment issues, accessing purchased templates or general questions about the website's functionality.`,
-      },
-      {
-        title: 'Contact sales',
-        description:
-          'Chat with us for questions about purchases, customization options, licensing for commercial use, inquiries about specific template, etc.',
-      },
-      {
-        title: 'Technical support',
-        description:
-          'Chat with us when facing issues like template installation, problems editing difficulties, compatibility issues with software or download errors, or other technical challenges related to using the templates.',
-      },
-      {
-        title: 'Phone',
-        description: '+1 (234) 567-890',
-        icon: 'tabler:headset',
-      },
-      {
-        title: 'Email',
-        description: 'contact@support.com',
-        icon: 'tabler:mail',
-      },
-      {
-        title: 'Location',
-        description: '1234 Lorem Ipsum St, 12345, Miami, EEUU',
-        icon: 'tabler:map-pin',
-      },
-    ]}
-  />
 </Layout>

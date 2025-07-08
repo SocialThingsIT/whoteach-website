@@ -1,0 +1,88 @@
+---
+import Layout from '~/layouts/PageLayout.astro';
+
+import Hero from '~/components/widgets/Hero.astro';
+import Content from '~/components/widgets/Content.astro';
+
+const metadata = {
+  title: 'VIRTUAL ROOM',
+  ignoreTitleTemplate: true,
+};
+---
+
+<Layout metadata={metadata}>
+  <Hero textAlign="left">
+    <Fragment slot="title"> Lezioni live tracciate, gestite e sempre fruibili </Fragment>
+    <Fragment slot="content">
+      <b>Le Aule Virtuali </b> di WhoTeach trasformano la formazione sincrona in un’esperienza interattiva, fluida e sempre sotto controllo. Conduci lezioni live, crea gruppi di lavoro, registra ogni attività e offri ai tuoi partecipanti un ambiente coinvolgente, tracciabile e pronto per ogni esigenza.
+    </Fragment>
+  </Hero>
+
+  <Content
+    isReversed
+    title="Aule Virtuali di WhoTeach"
+    subtitle="La formazione sincrona è un’occasione preziosa per creare relazione, confronto e apprendimento attivo. Con le Aule Virtuali puoi offrire esperienze didattiche online che replicano l’efficacia della lezione in presenza, arricchendola con strumenti digitali e tracciabilità. L’ambiente virtuale è semplice da gestire, flessibile e professionale: ogni docente può mantenere il controllo dell’aula, suddividere i partecipanti in gruppi, caricare materiali e interagire in tempo reale. Tutto è registrato, tracciato e disponibile anche in modalità asincrona, nel rispetto dei requisiti degli enti finanziatori. In questo modo, la tua lezione non si esaurisce in un’ora di diretta, ma diventa un asset formativo certificabile, accessibile e durevole."
+    image={{
+      src: 'https://images.unsplash.com/photo-1519389950473-47ba0277781c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80',
+      alt: 'Colorful Image',
+    }}
+  >
+    <Fragment slot="content">
+      <h3 class="text-2xl font-bold tracking-tight sm:text-3xl mb-2">
+        Lezioni registrate e sempre accessibili in HTML5
+      </h3>
+    </Fragment>
+
+    <Fragment slot="content">
+      <p class="tracking-tight mb-2">
+        Conserva il valore di ogni lezione nel tempo: grazie al formato HTML5, le sessioni registrate sono sempre accessibili, da qualsiasi dispositivo e senza bisogno di installazioni. Rendi la formazione davvero inclusiva, permettendo a ogni partecipante di rivedere i contenuti con calma, consolidare le competenze apprese e apprendere secondo i propri ritmi.
+        <br>
+        Ogni contenuto diventa una risorsa continua, pronta a essere riutilizzata, condivisa o aggiornata quando serve.
+      </p>
+    </Fragment>
+  </Content>
+
+  <Content
+    image={{
+      src: 'https://images.unsplash.com/photo-1519389950473-47ba0277781c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80',
+      alt: 'Colorful Image',
+    }}
+  >
+    <Fragment slot="content">
+      <h3 class="text-2xl font-bold tracking-tight sm:text-3xl mb-2">
+        Report intelligenti su presenze, tempi e attività
+      </h3>
+    </Fragment>
+
+    <Fragment slot="content">
+      <p class="tracking-tight mb-2">
+        Tieni tutto sotto controllo, senza fatica. Con WhoTeach puoi monitorare con precisione ogni accesso, attività svolta e tempi sulla piattaforma.
+        <br>
+        I nostri report sono già ottimizzati per la rendicontazione verso enti come Forma.Temp e ANPAL, così puoi concentrarti sulla formazione e lasciare a noi la burocrazia.
+      </p>
+    </Fragment>
+  </Content>
+
+  <Content
+    isReversed
+    image={{
+      src: 'https://images.unsplash.com/photo-1519389950473-47ba0277781c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80',
+      alt: 'Colorful Image',
+    }}
+  >
+    <Fragment slot="content">
+      <h3 class="text-2xl font-bold tracking-tight sm:text-3xl mb-2">
+        Gestione unificata di materiali, gruppi e note live
+      </h3>
+    </Fragment>
+
+    <Fragment slot="content">
+      <p class="tracking-tight mb-2">
+        Con WhoTeach, tutto ciò che serve è in un unico posto. Organizza materiali didattici, gestisci gruppi di utenti e prendi note live, senza mai perdere il filo.
+        <br>
+        Offri esperienze formative strutturate e coinvolgenti, mantenendo coerenza e controllo in ogni fase del programma, dall’avvio fino alla conclusione del corso.
+      </p>
+    </Fragment>
+  </Content>
+
+</Layout>

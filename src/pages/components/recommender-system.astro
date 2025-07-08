@@ -1,0 +1,116 @@
+---
+import Layout from '~/layouts/PageLayout.astro';
+
+import Hero from '~/components/widgets/Hero.astro';
+import Content from '~/components/widgets/Content.astro';
+import Stats from '~/components/widgets/Stats.astro';
+
+const metadata = {
+  title: 'RECOMMENDER SYSTEM',
+  ignoreTitleTemplate: true,
+};
+---
+
+<Layout metadata={metadata}>
+  <Hero textAlign="left">
+    <Fragment slot="title"> Percorsi smart, su misura, tracciabili </Fragment>
+    <Fragment slot="content">
+      WhoTeach <b>Recommender System</b> guida ogni utente verso il contenuto giusto, al momento giusto. Analizza competenze,
+      interessi e attività per offrire percorsi su misura, dinamici e sempre rilevanti, trasformando ogni esperienza formativa
+      in un cammino davvero personale.
+    </Fragment>
+  </Hero>
+
+  <Content
+    isReversed
+    title="WhoTeach Recommender System"
+    subtitle="Chi si occupa di formazione sa che i contenuti generici non bastano. Serve una piattaforma che adatti i percorsi alle reali esigenze degli utenti. Il Recommender System di WhoTeach analizza profili, competenze e attività per suggerire risorse coerenti e personalizzate, semplificando la progettazione e migliorando l’apprendimento.    Grazie all’Explainable AI, ogni suggerimento è motivato e trasparente. I contenuti vengono selezionati da repository interni ed esterni, filtrabili per tema e qualità. Il risultato? Più engagement, didattica più efficace e percorsi che evolvono nel tempo."
+    image={{
+      src: 'https://images.unsplash.com/photo-1519389950473-47ba0277781c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80',
+      alt: 'Colorful Image',
+    }}
+  >
+    <Fragment slot="content">
+      <h3 class="text-2xl font-bold tracking-tight sm:text-3xl mb-2">
+        Intelligenza Artificiale Trasparente e Orientata all’Apprendimento
+      </h3>
+    </Fragment>
+
+    <Fragment slot="content">
+      <p class="tracking-tight mb-2">
+        Con WhoTeach, <b>l’AI non è una scatola nera</b>, ma uno strumento che guida, spiega e valorizza. I suggerimenti
+        sono precisi e facilmente comprensibili, costruiti su misura per ogni utente e sempre in linea con gli obiettivi
+        formativi.
+        <br />
+        Una tecnologia pensata per supportare chi insegna e stimolare chi impara, con percorsi chiari, coerenti e verificabili.
+      </p>
+    </Fragment>
+  </Content>
+
+  <Content
+    image={{
+      src: 'https://images.unsplash.com/photo-1519389950473-47ba0277781c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80',
+      alt: 'Colorful Image',
+    }}
+  >
+    <Fragment slot="content">
+      <h3 class="text-2xl font-bold tracking-tight sm:text-3xl mb-2">
+        Repository Integrati, Filtrabili e Sempre Aggiornati
+      </h3>
+    </Fragment>
+
+    <Fragment slot="content">
+      <p class="tracking-tight mb-2">
+        Accedi a una <b>libreria dinamica</b> dove ogni risorsa è a portata di clic. Integra facilmente contenuti da fonti
+        aperte o a pagamento, seleziona ciò che davvero conta per i tuoi obiettivi formativi e mantieni il pieno controllo
+        sulla qualità dei materiali.
+        <br />
+        Con WhoTeach, hai sempre a disposizione il meglio, aggiornato e pronto all’uso.
+      </p>
+    </Fragment>
+  </Content>
+
+  <Content
+    isReversed
+    image={{
+      src: 'https://images.unsplash.com/photo-1519389950473-47ba0277781c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80',
+      alt: 'Colorful Image',
+    }}
+  >
+    <Fragment slot="content">
+      <h3 class="text-2xl font-bold tracking-tight sm:text-3xl mb-2">Percorsi Intelligenti che Evolvono con l’Uso</h3>
+    </Fragment>
+
+    <Fragment slot="content">
+      <p class="tracking-tight mb-2">
+        Costruisci <b>esperienze formative</b> sempre più <b>efficaci</b>, senza partire da zero ogni volta.
+        <br />
+        Il sistema apprende dalle interazioni, ottimizza i suggerimenti e ti aiuta a creare percorsi sempre più mirati, aggiornati
+        e in linea con i reali bisogni dei tuoi utenti.
+        <br />
+        Meno lavoro manuale, più impatto.
+      </p>
+    </Fragment>
+  </Content>
+
+  <Content
+    image={{
+      src: 'https://images.unsplash.com/photo-1519389950473-47ba0277781c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80',
+      alt: 'Colorful Image',
+    }}
+  >
+    <Fragment slot="content">
+      <h3 class="text-2xl font-bold tracking-tight sm:text-3xl mb-2">Innovazione solida, pensata per durare</h3>
+    </Fragment>
+
+    <Fragment slot="content">
+      <p class="tracking-tight mb-2">
+        Il cuore tecnologico di WhoTeach non è solo avanzato, ma anche unico. <b>Due brevetti</b> uno sul dataset
+        proprietario e uno sull’algoritmo di raccomandazione <b>sono attualmente</b> in fase di approvazione. 
+        <br>
+        Un riconoscimento importante che tutela il nostro lavoro di ricerca e sviluppo e garantisce ai nostri clienti un
+        vantaggio competitivo concreto, affidabile e sostenibile nel tempo.
+      </p>
+    </Fragment>
+  </Content>
+</Layout>

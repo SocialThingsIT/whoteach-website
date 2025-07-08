@@ -1,0 +1,96 @@
+---
+import Layout from '~/layouts/PageLayout.astro';
+
+import Hero from '~/components/widgets/Hero.astro';
+import Content from '~/components/widgets/Content.astro';
+
+const metadata = {
+  title: 'GENERATIVE AI',
+  ignoreTitleTemplate: true,
+};
+---
+
+<Layout metadata={metadata}>
+  <Hero textAlign="left">
+    <Fragment slot="title"> Contenuti didattici di qualità, in pochi minuti </Fragment>
+    <Fragment slot="content">
+      <b>WhoTeach Generative AI</b> è il tuo alleato per creare corsi completi in pochi minuti, con testi, slide e quiz pronti
+      all’uso. Basta una richiesta: l’intelligenza artificiale trasforma le tue idee in contenuti didattici coerenti, coinvolgenti
+      e subito fruibili.
+    </Fragment>
+  </Hero>
+
+  <Content
+    isReversed
+    title="WhoTeach Generative AI"
+    subtitle="Progettare un corso efficace richiede tempo e competenze specifiche. La Generative AI di WhoTeach rivoluziona questo processo: testi, slide, mappe, quiz e altro vengono generati in pochi clic, in linea con gli obiettivi formativi e facilmente personalizzabili. Grazie all’interfaccia conversazionale basata su LLM, puoi dialogare con l’AI anche senza competenze tecniche, ottenendo contenuti coerenti, accessibili e già strutturati. Niente ridondanze, narrazione fluida e corsi pronti all’uso in una frazione del tempo. Scopri cosa può fare l’Intelligenza Artificiale quando è davvero al servizio della formazione."
+    image={{
+      src: 'https://images.unsplash.com/photo-1519389950473-47ba0277781c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80',
+      alt: 'Colorful Image',
+    }}
+  >
+    <Fragment slot="content">
+      <h3 class="text-2xl font-bold tracking-tight sm:text-3xl mb-2">
+        Contenuti didattici completi, generati in un attimo
+      </h3>
+    </Fragment>
+
+    <Fragment slot="content">
+      <p class="tracking-tight mb-2">
+        Crea <b>materiali di qualità in una frazione del tempo.</b> Con l’AI di WhoTeach puoi generare testi, slide, quiz
+        e mappe concettuali in pochi minuti, pronti per essere usati o adattati.
+        <br />
+        Ogni contenuto è <b>esportabile</b> in HTML o PowerPoint, per offrirti la massima flessibilità possibile senza rinunciare
+        alla coerenza didattica.
+      </p>
+    </Fragment>
+  </Content>
+
+  <Content
+    image={{
+      src: 'https://images.unsplash.com/photo-1519389950473-47ba0277781c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80',
+      alt: 'Colorful Image',
+    }}
+  >
+    <Fragment slot="content">
+      <h3 class="text-2xl font-bold tracking-tight sm:text-3xl mb-2">
+        Interfaccia conversazionale. Semplice ed efficiente.
+      </h3>
+    </Fragment>
+
+    <Fragment slot="content">
+      <p class="tracking-tight mb-2">
+        Non serve essere esperti per progettare corsi di qualità. Con l’interfaccia conversazionale di WhoTeach ti basta
+        scrivere <b>in linguaggio naturale:</b> l’AI interpreta le tue idee, le organizza in contenuti coerenti e ti aiuta
+        a strutturare percorsi formativi completi in modo intuitivo e veloce.
+        <br />
+        Una nuova esperienza di authoring, pensata nello specifico per chi insegna davvero.
+      </p>
+    </Fragment>
+  </Content>
+
+  <Content
+    isReversed
+    image={{
+      src: 'https://images.unsplash.com/photo-1519389950473-47ba0277781c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80',
+      alt: 'Colorful Image',
+    }}
+  >
+    <Fragment slot="content">
+      <h3 class="text-2xl font-bold tracking-tight sm:text-3xl mb-2">
+        Materiali coerenti, Inclusivi e coinvolgenti by Design
+      </h3>
+    </Fragment>
+
+    <Fragment slot="content">
+      <p class="tracking-tight mb-2">
+        Dimentica contenuti frammentati o poco accessibili. WhoTeach ti aiuta a creare <b>materiali didattici chiari,
+        coinvolgenti e pensati per tutti:</b> la narrazione è fluida, i contenuti sono coerenti e ogni persona può sentirsi
+        parte del percorso formativo, indipendentemente dal livello di partenza o da qualunque esigenza specifica.
+        <br>
+        Inclusività e coinvolgimento non sono un’aggiunta, bensì una scelta progettuale.
+      </p>
+    </Fragment>
+  </Content>
+
+</Layout>

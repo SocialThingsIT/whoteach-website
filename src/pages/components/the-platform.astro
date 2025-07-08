@@ -1,0 +1,165 @@
+---
+import Layout from '~/layouts/PageLayout.astro';
+
+import Hero from '~/components/widgets/Hero.astro';
+import Content from '~/components/widgets/Content.astro';
+import Stats from '~/components/widgets/Stats.astro';
+import Features from '~/components/widgets/Features.astro';
+import Steps from '~/components/widgets/Steps.astro';
+import Features2 from '~/components/widgets/Features2.astro';
+
+const metadata = {
+  title: 'LA PIATTAFORMA',
+  ignoreTitleTemplate: true,
+};
+---
+
+<Layout metadata={metadata}>
+  <Hero actions={[{ text: 'Prenota una demo', href: '#demo' }]}>
+    <Fragment slot="title"> La piattaforma completa per il tuo Corporate Training </Fragment>
+    <Fragment slot="subtitle"> Tutte le attività di formazione in un unico ecosistema personalizzabile </Fragment>
+  </Hero>
+
+  <Features
+    id="features"
+    title="Una sola suite, per ogni esigenza"
+    subtitle="WhoTeach è una piattaforma professionale di Digital Learning B2B progettata per supportare enti di formazione, aziende e team HR nella gestione completa dei percorsi formativi. Combina in un unico ambiente tutto ciò che serve per progettare, erogare e misurare la formazione aziendale, riducendo i costi operativi e migliorando l’esperienza sia per chi insegna che per chi apprende."
+    items={[
+      {
+        title: 'Un ecosistema, non solo un LMS',
+        description:
+          'WhoTeach non si limita a gestire contenuti: ti offre un ambiente modulare e integrato dove puoi creare corsi, gestire aule virtuali, personalizzare percorsi e certificare i risultati. Tutto è connesso, tutto parla la stessa lingua: quella della formazione efficace.',
+        icon: 'tabler:brand-tailwind',
+      },
+      {
+        title: 'Potenza dell’AI, semplicità d’uso',
+        description:
+          'Grazie alla Generative AI integrata, puoi produrre materiali didattici completi in pochi minuti: testi, slide, mappe, quiz. E con il nostro sistema di raccomandazione intelligente, ogni utente riceve suggerimenti personalizzati, senza duplicazioni né contenuti generici.',
+        icon: 'tabler:components',
+      },
+      {
+        title: 'Esperienza personalizzabile, anche in white-label',
+        description:
+          'WhoTeach si adatta alla tua organizzazione, non il contrario. Interfaccia, accessi, funzionalità e identità visiva sono completamente configurabili, anche in modalità white-label, per offrire una piattaforma su misura per te e i tuoi clienti.',
+        icon: 'tabler:list-check',
+      },
+      {
+        title: 'Controllo e tracciabilità senza stress',
+        description:
+          'Ogni corso è tracciato e certificabile in automatico. I report sono conformi alle normative dei finanziamenti pubblici e personalizzabili in base alle esigenze del tuo ente. Hai tutto sotto controllo, senza complicazioni.',
+        icon: 'tabler:rocket',
+      },
+    ]}
+  />
+
+  <Content
+    isReversed
+    title="Con WhoTeach, l’intelligenza artificiale non è solo un'aggiunta"
+    subtitle="... è parte integrante dell’esperienza! Non parliamo di AI generica, ma di strumenti concreti progettati per rendere più efficace il tuo lavoro quotidiano."
+    image={{
+      src: 'https://images.unsplash.com/photo-1519389950473-47ba0277781c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80',
+      alt: 'Colorful Image',
+    }}
+  >
+    <Fragment slot="content">
+      <p class="font-bold tracking-tight mb-2">Crea i tuoi contenuti didattici in pochi click</p>
+    </Fragment>
+    <Fragment slot="content">
+      <p class="tracking-tight mb-2">
+        Genera materiali didattici completi in pochi minuti – testi, slide, quiz, mappe concettuali. Puoi partire dagli
+        obiettivi formativi o dialogare con un’interfaccia conversazionale semplice da usare. Nessuna competenza tecnica
+        richiesta.
+      </p>
+    </Fragment>
+  </Content>
+
+  <Content
+    isReversed
+    image={{
+      src: 'https://images.unsplash.com/photo-1519389950473-47ba0277781c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80',
+      alt: 'Colorful Image',
+    }}
+  >
+    <Fragment slot="content">
+      <p class="font-bold tracking-tight mb-2">Costruisce percorsi formativi efficaci</p>
+    </Fragment>
+    <Fragment slot="content">
+      <p class="tracking-tight mb-2">
+        Il nostro sistema di raccomandazione AI analizza competenze, ruoli e comportamenti per suggerire contenuti e
+        percorsi su misura, aiutandoti a offrire la formazione giusta, alla persona giusta, nel momento giusto.
+      </p>
+    </Fragment>
+  </Content>
+
+  <Steps
+    title="Il valore che ci distingue"
+    items={[
+      {
+        title: '1 - Personalizzazione totale',
+        description:
+          "Ogni azienda ha esigenze diverse. Per questo il nostro team lavora al tuo fianco per personalizzare l’interfaccia, le funzionalità e i flussi operativi, anche in modalità white-label. WhoTeach si adatta al tuo brand, ai tuoi obiettivi, alla tua organizzazione.",
+        icon: 'tabler:package',
+      },
+      {
+        title: '2 - Reportistica immediata',
+        description:
+          "Alla fine di ogni sessione, hai tutti i dati già pronti: presenze, interazioni, avanzamento, certificazioni. La reportistica è completamente automatizzata e conforme alle richieste degli enti finanziatori. Nessuna fatica, nessun ritardo.",
+        icon: 'tabler:letter-case',
+      },
+      {
+        title: '3 - Intelligenza Artificiale didattica',
+        description:
+          'La nostra AI non è generica: è progettata specificamente per la formazione. Ti aiuta a creare materiali coerenti, personalizzati e aggiornati, suggerisce percorsi e contenuti su misura, e semplifica ogni fase della progettazione didattica.',
+        icon: 'tabler:paint',
+      },
+      {
+        title: '4 - Supporto clienti ',
+        description:
+          'Il nostro customer care è tra i più apprezzati del settore. Hai un problema? Ti basta una mail o una chiamata e siamo subito operativi, per te e per i tuoi utenti. Veloci, competenti, sempre presenti.',
+        icon: 'tabler:paint',
+      }
+    ]}
+    image={{
+      src: 'https://images.unsplash.com/photo-1616198814651-e71f960c3180?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=987&q=80',
+      alt: 'Steps image',
+    }}
+  />
+
+  <Features2
+    tagline="SOLUZIONE MODULARE"
+    title="La tua formula"
+    subtitle='Ogni azienda è diversa. Per questo la soluzione modulare di WhoTeach ti permette di attivare solo ciò che ti serve, per quanto ti serve.'
+    centeredIcons={true}
+    items={[
+      {
+        title: 'Learning Management System (LMS)',
+        icon: 'flat-color-icons:template',
+      },
+      {
+        title: 'Recommender System',
+        icon: 'flat-color-icons:gallery',
+      },
+      {
+        title: 'Aule virtuali',
+        icon: 'flat-color-icons:approval',
+      },
+      {
+        title: 'Generative AI',
+        icon: 'flat-color-icons:document',
+      }
+    ]}
+  >
+    <Fragment slot="bg">
+      <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
+    </Fragment>
+  </Features2>
+
+  <Stats
+    title='Abbiamo un impatto concreto sulle organizzazioni'
+    stats={[
+      { title: 'riduzione dei costi', amount: '20%' },
+      { title: 'risparmio di tempo', amount: '50%' },
+      { title: 'miglioramento della qualità dei corsi', amount: '40%' }
+    ]}
+  />
+</Layout>
