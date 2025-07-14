@@ -7,11 +7,19 @@ import BlogLatestPosts from '~/components/widgets/BlogLatestPosts.astro';
 import Features2 from '~/components/widgets/Features2.astro';
 import Stats from '~/components/widgets/Stats.astro';
 import Testimonials from '~/components/widgets/Testimonials.astro';
+import RotatingText from '~/components/reactbits/RotatingText';
+import CircularText from '~/components/reactbits/CircularText';
+import InfiniteSlider from '~/components/custom-react/InfiniteSlider';
+import type { Image } from '~/types';
 
 const metadata = {
   title: 'HOME',
   ignoreTitleTemplate: true,
 };
+
+const images: Image[] = await Astro.glob('/src/assets/images/whoteach-slider-logos/*').then((files) => {
+  return files.map((file) => file.default);
+});
 ---
 
 <Layout metadata={metadata}>
@@ -27,10 +35,38 @@ const metadata = {
         target: '_blank',
         icon: 'tabler:download',
       },
-      { text: 'Guarda come funziona', href: '#features' },
+      {
+        variant: 'secondary',
+        text: 'Guarda come funziona',
+        href: '#features',
+      },
     ]}
   >
-    <Fragment slot="title"> Un'unica piattaforma per tutta la tua formazione </Fragment>
+    <Fragment slot="title">
+      <div class="mx-a">
+        La soluzione per la tua <br />
+        <RotatingText
+          client:visible
+          texts={['formazione', 'crescita', 'innovazione', 'carriera', 'organizzazione', 'evoluzione']}
+          mainClassName="px-2 sm:px-2 md:px-3 text-accent bg-primary overflow-hidden py-0.5 sm:py-1 md:py-2 justify-center inline-flex rounded-lg"
+          staggerFrom={'last'}
+          initial={{ y: '100%' }}
+          animate={{ y: 0 }}
+          exit={{ y: '-120%' }}
+          staggerDuration={0.025}
+          splitLevelClassName="overflow-hidden pb-0.5 sm:pb-1 md:pb-1"
+          transition={{ type: 'spring', damping: 30, stiffness: 400 }}
+          rotationInterval={2000}
+        />
+      </div>
+      <CircularText
+        client:visible
+        text="BENVENUTO*SU*WHOTEACH*"
+        onHover="pause"
+        spinDuration={20}
+        className="absolute -right-20 -top-20 text-primary hidden xl:block"
+      />
+    </Fragment>
 
     <Fragment slot="subtitle">
       Una piattaforma pensata per enti di formazione e aziende che vogliono gestire corsi, docenti e studenti in modo
@@ -38,9 +74,11 @@ const metadata = {
     </Fragment>
   </Hero>
 
+  <InfiniteSlider client:only="react" duration={30} pauseOnHover={false} images={images} />
+
   <Content
     isReversed
-    title="Dalla creazione all’erogazione: ecco cosa puoi fare con WhoTeach"
+    title="Dalla creazione all'erogazione: ecco cosa puoi fare con WhoTeach"
     subtitle="WhoTeach è la piattaforma di digital learning B2B sviluppata dal team per aiutare enti e aziende a creare ed erogare corsi online di qualità, con il supporto dell’IA e un uso più efficiente delle risorse."
     image={{
       src: 'https://images.unsplash.com/photo-1519389950473-47ba0277781c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80',
@@ -82,7 +120,8 @@ const metadata = {
 
     <Fragment slot="content">
       <h3 class="font-bold tracking-tight mb-2">
-        Crea lezioni sincrone efficaci in un ambiente digitale completo, progettato per facilitare l’apprendimento e la collaborazione tra docenti e partecipanti.
+        Crea lezioni sincrone efficaci in un ambiente digitale completo, progettato per facilitare l’apprendimento e la
+        collaborazione tra docenti e partecipanti.
       </h3>
     </Fragment>
   </Content>
@@ -98,14 +137,13 @@ const metadata = {
       <p class="font-bold tracking-tight mb-2">Recommender System</p>
     </Fragment>
     <Fragment slot="content">
-      <h3 class="text-2xl font-bold tracking-tight sm:text-3xl mb-2">
-        Per costruire corsi migliori, in meno tempo
-      </h3>
+      <h3 class="text-2xl font-bold tracking-tight sm:text-3xl mb-2">Per costruire corsi migliori, in meno tempo</h3>
     </Fragment>
 
     <Fragment slot="content">
       <h3 class="font-bold tracking-tight mb-2">
-        Il sistema di raccomandazione intelligente ti aiuta a trovare rapidamente i contenuti più adatti per ogni corso. Analizza input, preferenze e obiettivi per proporti risorse pertinenti, aggiornate e coerenti.
+        Il sistema di raccomandazione intelligente ti aiuta a trovare rapidamente i contenuti più adatti per ogni corso.
+        Analizza input, preferenze e obiettivi per proporti risorse pertinenti, aggiornate e coerenti.
       </h3>
     </Fragment>
   </Content>
@@ -128,15 +166,15 @@ const metadata = {
 
     <Fragment slot="content">
       <h3 class="font-bold tracking-tight mb-2">
-        Scrivi un prompt, scegli il formato e ottieni contenuti didattici originali: testi, slide, diagrammi e quiz vengono generati in automatico, pronti per essere usati o personalizzati.
+        Scrivi un prompt, scegli il formato e ottieni contenuti didattici originali: testi, slide, diagrammi e quiz
+        vengono generati in automatico, pronti per essere usati o personalizzati.
       </h3>
     </Fragment>
   </Content>
 
-  
   <Features2
     title="Come viene usata WhoTeach?"
-    subtitle='WhoTeach è la piattaforma di digital learning B2B sviluppata dal team per aiutare enti e aziende a creare ed erogare corsi online di qualità, con il supporto dell’IA e un uso più efficiente delle risorse.'
+    subtitle="WhoTeach è la piattaforma di digital learning B2B sviluppata dal team per aiutare enti e aziende a creare ed erogare corsi online di qualità, con il supporto dell’IA e un uso più efficiente delle risorse."
     centeredIcons={true}
     items={[
       {
@@ -154,7 +192,7 @@ const metadata = {
       {
         title: 'Client training',
         icon: 'flat-color-icons:document',
-      }
+      },
     ]}
   >
     <Fragment slot="bg">
@@ -201,12 +239,18 @@ const metadata = {
       icon: 'tabler:chevron-right',
     }}
   />
-  
+
   <Stats
     stats={[
       { title: 'Studenti che hanno già usato WhoTeach', amount: '+12.000' },
-      { title: 'Valutazione della nostra assistenza clienti (fonte: Capterra)', amount: '4.5/5' },
-      { title: 'Risparmio medio sui costi per la creazione di materiali didattici', amount: '20%' }
+      {
+        title: 'Valutazione della nostra assistenza clienti (fonte: Capterra)',
+        amount: '4.5/5',
+      },
+      {
+        title: 'Risparmio medio sui costi per la creazione di materiali didattici',
+        amount: '20%',
+      },
     ]}
   />
 

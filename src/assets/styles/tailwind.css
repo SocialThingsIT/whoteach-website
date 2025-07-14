@@ -21,17 +21,16 @@
 }
 
 @layer components {
-  
   .btn {
-    @apply inline-flex items-center justify-center rounded-full border-none bg-[#FFCF20] font-medium text-center text-base text-page leading-snug transition py-3.5 px-6 md:px-8 ease-in duration-200 focus:ring-blue-500 focus:ring-offset-blue-200 focus:ring-2 focus:ring-offset-2 hover:bg-[#fddd6d] dark:text-[#2D3647] dark:border-slate-500 dark:hover:bg-[#fddd6d] dark:hover:border-slate-800 cursor-pointer;
+    @apply inline-flex font-semibold items-center justify-center rounded-full border-none text-center text-base text-page leading-snug transition py-3 px-6 md:px-8 ease-in duration-200 focus:ring-offset-blue-200 focus:ring-2 ring focus:ring-offset-2 dark:text-[#2D3647] dark:border-slate-500 cursor-pointer;
   }
 
   .btn-primary {
-    @apply btn font-semibold bg-[#FFCF20] text-[#2D3647] border-primary hover:bg-secondary hover:border-secondary hover:text-white dark:text-white dark:bg-primary dark:border-primary dark:hover:border-secondary dark:hover:bg-[#fddd6d];
+    @apply btn text-secondary bg-accent border-primary hover:border-secondary hover:bg-[#fddd6d] dark:text-white dark:bg-primary dark:border-primary dark:hover:border-secondary dark:hover:bg-[#fddd6d] ring-accent hover:ring-[#fddd6d];
   }
 
   .btn-secondary {
-    @apply btn;
+    @apply btn ring-primary text-primary hover:bg-primary hover:text-white;
   }
 
   .btn-tertiary {
