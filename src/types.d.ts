@@ -1,12 +1,18 @@
 import type { AstroComponentFactory } from 'astro/runtime/server/index.js';
 import type { HTMLAttributes, ImageMetadata } from 'astro/types';
 
-export type Image = {
-  src: string;
-  width: number;
-  height: number;
-  format: string;
-};
+export interface Card {
+  image: {
+    src: string;
+    alt?: string;
+  };
+  title: string;
+  description?: string;
+  cta?: {
+    text: string;
+    href: string;
+  };
+}
 
 export interface Post {
   /** A unique ID number that identifies a post. */
@@ -227,6 +233,7 @@ export interface Hero extends Omit<Headline, 'classes'>, Omit<Widget, 'isDark' |
   actions?: string | CallToAction[];
   image?: string | unknown;
   textAlign?: string;
+  slider?: React.ReactNode | string;
 }
 
 export interface Team extends Omit<Headline, 'classes'>, Widget {

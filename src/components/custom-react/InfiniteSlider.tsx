@@ -1,5 +1,5 @@
 import Slider from 'react-infinite-logo-slider';
-import type { Image } from '~/types';
+import { useEffect, useState } from 'react';
 
 type InfiniteSliderProps = {
   width?: string;
@@ -7,7 +7,7 @@ type InfiniteSliderProps = {
   pauseOnHover?: boolean;
   blurBorders?: boolean;
   blurBorderColor?: string;
-  images: Image[];
+  imagePaths: string[];
 };
 
 const InfiniteSlider = ({
@@ -16,8 +16,18 @@ const InfiniteSlider = ({
   pauseOnHover = true,
   blurBorders = true,
   blurBorderColor = '#fff',
-  images = [],
+  imagePaths = [],
 }: InfiniteSliderProps) => {
+  const [isClient, setIsClient] = useState(false);
+
+  useEffect(() => {
+    setIsClient(true);
+  }, []);
+
+  if (!isClient) {
+    return <div className="h-24 bg-gray-100 animate-pulse rounded"></div>; // Loading placeholder
+  }
+
   return (
     <Slider
       width={width}
@@ -26,9 +36,9 @@ const InfiniteSlider = ({
       blurBorders={blurBorders}
       blurBorderColor={blurBorderColor}
     >
-      {images.map((image: { src: string }, index: number) => (
+      {imagePaths.map((src: string, index: number) => (
         <Slider.Slide key={index}>
-          <img src={image.src} alt={`Slide ${index + 1}`} className="w-36" />
+          <img src={src} alt={`Slide ${index + 1}`} className="w-36" loading="lazy" />
         </Slider.Slide>
       ))}
     </Slider>

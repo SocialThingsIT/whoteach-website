@@ -10,15 +10,19 @@ import Testimonials from '~/components/widgets/Testimonials.astro';
 import RotatingText from '~/components/reactbits/RotatingText';
 import CircularText from '~/components/reactbits/CircularText';
 import InfiniteSlider from '~/components/custom-react/InfiniteSlider';
-import type { Image } from '~/types';
+import CardContent from '~/components/widgets/CardContent.astro';
+
+import hrImage from '../assets/images/whoteach-images/hr.png';
+import aziendeImage from '../assets/images/whoteach-images/aziende-pmi.png';
+import istitutiImage from '../assets/images/whoteach-images/istituti-di-formazione.png';
 
 const metadata = {
   title: 'HOME',
   ignoreTitleTemplate: true,
 };
 
-const images: Image[] = await Astro.glob('/src/assets/images/whoteach-slider-logos/*').then((files) => {
-  return files.map((file) => file.default);
+const imagePaths = await Astro.glob('/src/assets/images/whoteach-slider-logos/*').then((files) => {
+  return files.map((file) => file.default.src); // Just get the src paths
 });
 ---
 
@@ -72,9 +76,48 @@ const images: Image[] = await Astro.glob('/src/assets/images/whoteach-slider-log
       Una piattaforma pensata per enti di formazione e aziende che vogliono gestire corsi, docenti e studenti in modo
       semplice, centralizzato e accessibile da ogni dispositivo.
     </Fragment>
+
+    <Fragment slot="slider">
+      <div class="mt-12">
+        <InfiniteSlider client:visible duration={30} pauseOnHover={false} imagePaths={imagePaths} />
+      </div>
+    </Fragment>
   </Hero>
 
-  <InfiniteSlider client:only="react" duration={30} pauseOnHover={false} images={images} />
+  <CardContent
+    title="La soluzione di Digital Learning completa per..."
+    columns={3}
+    containerClasses="bg-section mt-12"
+    content={[
+      {
+        image: {
+          src: hrImage.src,
+          alt: 'Office',
+        },
+        title: 'Human Resources',
+        description:
+          'Crea percorsi formativi strutturati, traccia tutto in automatico e certifica la crescita reale delle persone',
+      },
+      {
+        image: {
+          src: aziendeImage.src,
+          alt: 'Meeting Room',
+        },
+        title: 'Aziende e PMI',
+        description:
+          'Per assolvere gli obblighi normativi, aggiornare le competenze del tuo team e potenziare la produttività della tua realtà',
+      },
+      {
+        image: {
+          src: istitutiImage.src,
+          alt: 'Man teaching a class',
+        },
+        title: 'Istituti di Formazione',
+        description:
+          'Produci la reportistica richiesta dagli enti finanziatori con un’unica piattaforma conforme e personalizzabile',
+      },
+    ]}
+  />
 
   <Content
     isReversed
@@ -103,7 +146,6 @@ const images: Image[] = await Astro.glob('/src/assets/images/whoteach-slider-log
   </Content>
 
   <Content
-    isReversed
     image={{
       src: 'https://images.unsplash.com/photo-1519389950473-47ba0277781c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80',
       alt: 'Colorful Image',
@@ -149,7 +191,6 @@ const images: Image[] = await Astro.glob('/src/assets/images/whoteach-slider-log
   </Content>
 
   <Content
-    isReversed
     image={{
       src: 'https://images.unsplash.com/photo-1519389950473-47ba0277781c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80',
       alt: 'Colorful Image',

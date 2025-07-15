@@ -9,6 +9,8 @@ const {
   subtitle = await Astro.slots.render('subtitle'),
   tagline,
 
+  slider = await Astro.slots.render('slider'),
+
   content = await Astro.slots.render('content'),
   actions = await Astro.slots.render('actions'),
   image = await Astro.slots.render('image'),
@@ -42,7 +44,7 @@ const isLeftAlign = textAlign === 'left';
         {
           title && (
             <h1
-              class={`text-5xl md:text-6xl text-primary font-bold leading-tighter tracking-tighter mb-4 font-heading intersect-once intersect-quarter motion-safe:md:opacity-0 motion-safe:md:intersect:animate-fade ${isLeftAlign ? 'text-left' : ''}`}
+              class={`text-5xl md:text-5xl text-primary font-bold leading-tighter tracking-tighter mb-4 font-heading intersect-once intersect-quarter motion-safe:md:opacity-0 motion-safe:md:intersect:animate-fade ${isLeftAlign ? 'text-left' : ''}`}
               set:html={title}
             />
           )
@@ -100,5 +102,12 @@ const isLeftAlign = textAlign === 'left';
         }
       </div>
     </div>
+    {
+      slider && (
+        <div class="mt-8">
+          <Fragment set:html={slider} />
+        </div>
+      )
+    }
   </div>
 </section>
