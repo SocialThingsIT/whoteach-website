@@ -81,6 +81,12 @@ export default defineConfig({
   },
 
   vite: {
+    optimizeDeps: {
+      include: ['@toast-ui/editor']
+    },
+    ssr: {
+      noExternal: ['@toast-ui/editor']
+    },
     resolve: {
       alias: {
         '~': path.resolve(__dirname, './src'),

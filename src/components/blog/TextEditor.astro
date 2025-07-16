@@ -1,0 +1,121 @@
+---
+export interface Props {
+  height?: string;
+  initialValue?: string;
+  placeholder?: string;
+  id?: string;
+}
+
+const { 
+  height = "400px", 
+  initialValue = "", 
+  placeholder = "Enter your text here...",
+  id = "editor"
+} = Astro.props;
+---
+
+<div class="toast-ui-editor-container">
+  <div 
+    id={id} 
+    class="toast-ui-editor"
+    data-height={height}
+    data-initial-value={initialValue}
+    data-placeholder={placeholder}
+  ></div>
+</div>
+
+<script>
+import Editor from '@toast-ui/editor';
+import '@toast-ui/editor/dist/toastui-editor.css';
+
+document.addEventListener('DOMContentLoaded', () => {
+  const editorElements = document.querySelectorAll('.toast-ui-editor');
+  
+  editorElements.forEach(editorElement => {
+    const height = editorElement.getAttribute('data-height') || '400px';
+    const initialValue = editorElement.getAttribute('data-initial-value') || '';
+    const placeholder = editorElement.getAttribute('data-placeholder') || 'Enter your text here...';
+
+    const editor = new Editor({
+      el: editorElement,
+      height: height,
+      initialEditType: 'markdown',
+      previewStyle: 'vertical',
+      initialValue: initialValue,
+      placeholder: placeholder,
+      toolbarItems: [
+        ['heading', 'bold', 'italic', 'strike'],
+        ['hr', 'quote'],
+        ['ul', 'ol', 'task', 'indent', 'outdent'],
+        ['table', 'image', 'link'],
+        ['code', 'codeblock']
+      ]
+    });
+
+    editorElement.toastEditor = editor;
+  });
+});
+
+window.getEditorContent = function(editorId = 'editor') {
+  const editorElement = document.getElementById(editorId);
+  return editorElement?.toastEditor?.getMarkdown() || '';
+};
+
+window.getEditorHTML = function(editorId = 'editor') {
+  const editorElement = document.getElementById(editorId);
+  return editorElement?.toastEditor?.getHTML() || '';
+};
+
+window.setEditorContent = function(content, editorId = 'editor') {
+  const editorElement = document.getElementById(editorId);
+  editorElement?.toastEditor?.setMarkdown(content);
+};
+
+window.clearEditor = function(editorId = 'editor') {
+  const editorElement = document.getElementById(editorId);
+  editorElement?.toastEditor?.setMarkdown('');
+};
+</script>
+
+<style>
+.toast-ui-editor-container {
+  width: 100%;
+  margin: 1rem 0;
+}
+
+.toast-ui-editor {
+  border: 1px solid #e5e7eb;
+  border-radius: 0.375rem;
+}
+
+.toastui-editor-defaultUI {
+  border: none;
+}
+
+.toastui-editor-main {
+  border-radius: 0.375rem;
+}
+
+.toastui-editor-md-container,
+.toastui-editor-md-splitter,
+.toastui-editor-md-preview {
+  background: var(--tw-bg-opacity, 1);
+}
+
+@media (prefers-color-scheme: dark) {
+  .toast-ui-editor {
+    border-color: #374151;
+  }
+  
+  .toastui-editor-defaultUI {
+    background: #1f2937;
+    color: #f9fafb;
+  }
+  
+  .toastui-editor-md-container,
+  .toastui-editor-md-preview {
+    background: #1f2937;
+    color: #f9fafb;
+  }
+}
+</style>
