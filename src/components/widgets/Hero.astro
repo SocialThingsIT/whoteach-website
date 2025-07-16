@@ -17,93 +17,140 @@ const {
 
   id,
   bg = await Astro.slots.render('bg'),
-  textAlign = 'center', // 'center' or 'left'
+  textAlign = 'center', // 'center', 'left', or 'side' for the side-by-side layout
+  callToAction,
 } = Astro.props;
 
 const isLeftAlign = textAlign === 'left';
+const isSideLayout = textAlign === 'side';
 ---
 
-<section class="relative not-prose" {...id ? { id } : {}}>
-  <div class="absolute inset-0 pointer-events-none" aria-hidden="true">
+<section class="not-prose relative" {...id ? { id } : {}}>
+  <div class="pointer-events-none absolute inset-0" aria-hidden="true">
     <slot name="bg">
       {bg ? <Fragment set:html={bg} /> : null}
     </slot>
   </div>
-  <div class="relative mt-6 max-w-7xl mx-auto px-4 sm:px-6">
-    <div class="pt-0 md:pt-6 pointer-events-none"></div>
-    <div class="py-4 md:py-10">
-      <div class={` max-w-4xl ${isLeftAlign ? 'lg:text-left' : 'lg:text-center'} mx-auto text-center`}>
-        {
-          tagline && (
-            <p
-              class={`text-base text-secondary dark:text-blue-200 font-bold tracking-wide uppercase intersect-once intersect-quarter motion-safe:md:opacity-0 motion-safe:md:intersect:animate-fade ${isLeftAlign ? 'text-left' : ''}`}
-              set:html={tagline}
-            />
-          )
-        }
-        {
-          title && (
-            <h1
-              class={`text-5xl md:text-5xl text-primary font-bold leading-tighter tracking-tighter mb-4 font-heading intersect-once intersect-quarter motion-safe:md:opacity-0 motion-safe:md:intersect:animate-fade ${isLeftAlign ? 'text-left' : ''}`}
-              set:html={title}
-            />
-          )
-        }
-        <div class={`max-w-3xl mt-8 ${isLeftAlign ? '' : 'mx-auto'}`}>
-          {
-            subtitle && (
-              <p
-                class={`text-xl mb-6 intersect-once intersect-quarter motion-safe:md:opacity-0 motion-safe:md:intersect:animate-fade ${isLeftAlign ? 'text-left' : ''}`}
-                set:html={subtitle}
-              />
-            )
-          }
-          {
-            actions && (
-              <div
-                class={`${isLeftAlign ? '' : 'm-auto'} flex flex-nowrap flex-col sm:flex-row ${isLeftAlign ? 'sm:justify-start' : 'sm:justify-center'} gap-4 intersect-once intersect-quarter motion-safe:md:opacity-0 motion-safe:md:intersect:animate-fade`}
-              >
-                {Array.isArray(actions) ? (
-                  actions.map((action) => (
-                    <div class="flex w-full sm:w-auto">
-                      <Button {...(action || {})} class="w-full sm:mb-0" />
-                    </div>
-                  ))
-                ) : (
-                  <Fragment set:html={actions} />
-                )}
-              </div>
-            )
-          }
-        </div>
-        {content && <Fragment set:html={content} />}
-      </div>
-      <div
-        class="intersect-once intercept-no-queue intersect-quarter motion-safe:md:opacity-0 motion-safe:md:intersect:animate-fade"
-      >
-        {
-          image && (
-            <div class="relative m-auto max-w-5xl">
-              {typeof image === 'string' ? (
-                <Fragment set:html={image} />
-              ) : (
-                <Image
-                  class="mx-auto rounded-md w-full"
-                  widths={[400, 768, 1024, 2040]}
-                  sizes="(max-width: 767px) 400px, (max-width: 1023px) 768px, (max-width: 2039px) 1024px, 2040px"
-                  loading="eager"
-                  width={1024}
-                  height={576}
-                  {...image}
+  <div class="relative mx-auto mt-6 max-w-7xl px-4 sm:px-6">
+    <div class="pointer-events-none pt-0 md:pt-6"></div>
+
+    {
+      isSideLayout ? (
+        <div class="py-4 md:py-10">
+          <div class="grid grid-cols-1 items-center gap-8 lg:grid-cols-2">
+            <div class="order-2 flex flex-col lg:order-1">
+              {tagline && (
+                <p
+                  class="intersect-once intersect-quarter text-left text-base font-bold uppercase tracking-wide text-secondary dark:text-blue-200 motion-safe:md:opacity-0 motion-safe:md:intersect:animate-fade"
+                  set:html={tagline}
                 />
               )}
+              {title && (
+                <h1
+                  class="leading-tighter intersect-once intersect-quarter mb-4 text-left font-heading text-5xl font-bold tracking-tighter text-primary md:text-5xl motion-safe:md:opacity-0 motion-safe:md:intersect:animate-fade"
+                  set:html={title}
+                />
+              )}
+              {subtitle && (
+                <p
+                  class="intersect-once intersect-quarter mb-6 text-left text-xl motion-safe:md:opacity-0 motion-safe:md:intersect:animate-fade"
+                  set:html={subtitle}
+                />
+              )}
+              {content && <Fragment set:html={content} />}
+
+              {/* CTA button for side layout */}
+              {callToAction && (
+                <div class="mt-6">
+                  <Button {...callToAction} />
+                </div>
+              )}
             </div>
-          )
-        }
-      </div>
-    </div>
+
+            <div class="intersect-once intercept-no-queue intersect-quarter order-1 motion-safe:md:opacity-0 motion-safe:md:intersect:animate-fade lg:order-2">
+              {image && (
+                <div class="relative">
+                  {typeof image === 'string' ? (
+                    <Fragment set:html={image} />
+                  ) : (
+                    <Image
+                      class="mx-auto h-auto w-full rounded-md"
+                      widths={[400, 768, 1024, 2040]}
+                      sizes="(max-width: 767px) 400px, (max-width: 1023px) 768px, (max-width: 2039px) 1024px, 2040px"
+                      layout="constrained"
+                      {...image}
+                    />
+                  )}
+                </div>
+              )}
+            </div>
+          </div>
+        </div>
+      ) : (
+        <div class="py-4 md:py-10">
+          <div class={`max-w-4xl ${isLeftAlign ? 'lg:text-left' : 'lg:text-center'} mx-auto text-center`}>
+            {tagline && (
+              <p
+                class={`intersect-once intersect-quarter text-base font-bold uppercase tracking-wide text-secondary dark:text-blue-200 motion-safe:md:opacity-0 motion-safe:md:intersect:animate-fade ${isLeftAlign ? 'text-left' : ''}`}
+                set:html={tagline}
+              />
+            )}
+            {title && (
+              <h1
+                class={`leading-tighter intersect-once intersect-quarter mb-4 font-heading text-5xl font-bold tracking-tighter text-primary md:text-5xl motion-safe:md:opacity-0 motion-safe:md:intersect:animate-fade ${isLeftAlign ? 'text-left' : ''}`}
+                set:html={title}
+              />
+            )}
+            <div class={`mt-8 max-w-3xl ${isLeftAlign ? '' : 'mx-auto'}`}>
+              {subtitle && (
+                <p
+                  class={`intersect-once intersect-quarter mb-6 text-xl motion-safe:md:opacity-0 motion-safe:md:intersect:animate-fade ${isLeftAlign ? 'text-left' : ''}`}
+                  set:html={subtitle}
+                />
+              )}
+              {actions && (
+                <div
+                  class={`${isLeftAlign ? '' : 'm-auto'} flex flex-col flex-nowrap sm:flex-row ${isLeftAlign ? 'sm:justify-start' : 'sm:justify-center'} intersect-once intersect-quarter gap-4 motion-safe:md:opacity-0 motion-safe:md:intersect:animate-fade`}
+                >
+                  {Array.isArray(actions) ? (
+                    actions.map((action) => (
+                      <div class="flex w-full sm:w-auto">
+                        <Button {...(action || {})} class="w-full sm:mb-0" />
+                      </div>
+                    ))
+                  ) : (
+                    <Fragment set:html={actions} />
+                  )}
+                </div>
+              )}
+            </div>
+            {content && <Fragment set:html={content} />}
+          </div>
+          <div class="intersect-once intercept-no-queue intersect-quarter motion-safe:md:opacity-0 motion-safe:md:intersect:animate-fade">
+            {image && (
+              <div class="relative m-auto max-w-5xl">
+                {typeof image === 'string' ? (
+                  <Fragment set:html={image} />
+                ) : (
+                  <Image
+                    class="mx-auto w-full rounded-md"
+                    widths={[400, 768, 1024, 2040]}
+                    sizes="(max-width: 767px) 400px, (max-width: 1023px) 768px, (max-width: 2039px) 1024px, 2040px"
+                    loading="eager"
+                    width={1024}
+                    height={576}
+                    {...image}
+                  />
+                )}
+              </div>
+            )}
+          </div>
+        </div>
+      )
+    }
+
     {
-      slider && (
+      slider && !isSideLayout && (
         <div class="mt-8">
           <Fragment set:html={slider} />
         </div>

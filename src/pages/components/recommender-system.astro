@@ -3,7 +3,9 @@ import Layout from '~/layouts/PageLayout.astro';
 
 import Hero from '~/components/widgets/Hero.astro';
 import Content from '~/components/widgets/Content.astro';
-import Stats from '~/components/widgets/Stats.astro';
+// import Stats from '~/components/widgets/Stats.astro';
+
+import heroComponente from '~/assets/images/whoteach-images/hero-componente.png';
 
 const metadata = {
   title: 'RECOMMENDER SYSTEM',
@@ -12,14 +14,20 @@ const metadata = {
 ---
 
 <Layout metadata={metadata}>
-  <Hero textAlign="left">
-    <Fragment slot="title"> Percorsi smart, su misura, tracciabili </Fragment>
-    <Fragment slot="content">
-      WhoTeach <b>Recommender System</b> guida ogni utente verso il contenuto giusto, al momento giusto. Analizza competenze,
-      interessi e attività per offrire percorsi su misura, dinamici e sempre rilevanti, trasformando ogni esperienza formativa
-      in un cammino davvero personale.
-    </Fragment>
-  </Hero>
+  <Hero
+    textAlign="side"
+    title="Gestisci, personalizza e certifica la formazione"
+    subtitle="WhoTeach LMS è la base solida per erogare formazione asincrona scalabile, personalizzata e conforme. Carica, organizza e gestisci contenuti didattici con la massima libertà, offrendo a ogni utente un'esperienza coinvolgente, tracciabile e certificabile."
+    image={{
+      src: heroComponente,
+      alt: 'Ambiente di studio moderno',
+    }}
+    callToAction={{
+      text: 'Prenota una demo',
+      href: '/contatti',
+      variant: 'primary',
+    }}
+  />
 
   <Content
     isReversed
@@ -31,13 +39,13 @@ const metadata = {
     }}
   >
     <Fragment slot="content">
-      <h3 class="text-2xl font-bold tracking-tight sm:text-3xl mb-2">
+      <h3 class="mb-2 text-2xl font-bold tracking-tight sm:text-3xl">
         Intelligenza Artificiale Trasparente e Orientata all’Apprendimento
       </h3>
     </Fragment>
 
     <Fragment slot="content">
-      <p class="tracking-tight mb-2">
+      <p class="mb-2 tracking-tight">
         Con WhoTeach, <b>l’AI non è una scatola nera</b>, ma uno strumento che guida, spiega e valorizza. I suggerimenti
         sono precisi e facilmente comprensibili, costruiti su misura per ogni utente e sempre in linea con gli obiettivi
         formativi.
@@ -54,13 +62,13 @@ const metadata = {
     }}
   >
     <Fragment slot="content">
-      <h3 class="text-2xl font-bold tracking-tight sm:text-3xl mb-2">
+      <h3 class="mb-2 text-2xl font-bold tracking-tight sm:text-3xl">
         Repository Integrati, Filtrabili e Sempre Aggiornati
       </h3>
     </Fragment>
 
     <Fragment slot="content">
-      <p class="tracking-tight mb-2">
+      <p class="mb-2 tracking-tight">
         Accedi a una <b>libreria dinamica</b> dove ogni risorsa è a portata di clic. Integra facilmente contenuti da fonti
         aperte o a pagamento, seleziona ciò che davvero conta per i tuoi obiettivi formativi e mantieni il pieno controllo
         sulla qualità dei materiali.
@@ -78,11 +86,11 @@ const metadata = {
     }}
   >
     <Fragment slot="content">
-      <h3 class="text-2xl font-bold tracking-tight sm:text-3xl mb-2">Percorsi Intelligenti che Evolvono con l’Uso</h3>
+      <h3 class="mb-2 text-2xl font-bold tracking-tight sm:text-3xl">Percorsi Intelligenti che Evolvono con l’Uso</h3>
     </Fragment>
 
     <Fragment slot="content">
-      <p class="tracking-tight mb-2">
+      <p class="mb-2 tracking-tight">
         Costruisci <b>esperienze formative</b> sempre più <b>efficaci</b>, senza partire da zero ogni volta.
         <br />
         Il sistema apprende dalle interazioni, ottimizza i suggerimenti e ti aiuta a creare percorsi sempre più mirati, aggiornati
@@ -100,14 +108,14 @@ const metadata = {
     }}
   >
     <Fragment slot="content">
-      <h3 class="text-2xl font-bold tracking-tight sm:text-3xl mb-2">Innovazione solida, pensata per durare</h3>
+      <h3 class="mb-2 text-2xl font-bold tracking-tight sm:text-3xl">Innovazione solida, pensata per durare</h3>
     </Fragment>
 
     <Fragment slot="content">
-      <p class="tracking-tight mb-2">
-        Il cuore tecnologico di WhoTeach non è solo avanzato, ma anche unico. <b>Due brevetti</b> uno sul dataset
-        proprietario e uno sull’algoritmo di raccomandazione <b>sono attualmente</b> in fase di approvazione. 
-        <br>
+      <p class="mb-2 tracking-tight">
+        Il cuore tecnologico di WhoTeach non è solo avanzato, ma anche unico. <b>Due brevetti</b> uno sul dataset proprietario
+        e uno sull’algoritmo di raccomandazione <b>sono attualmente</b> in fase di approvazione.
+        <br />
         Un riconoscimento importante che tutela il nostro lavoro di ricerca e sviluppo e garantisce ai nostri clienti un
         vantaggio competitivo concreto, affidabile e sostenibile nel tempo.
       </p>

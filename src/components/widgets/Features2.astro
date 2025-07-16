@@ -20,8 +20,8 @@ const {
 } = Astro.props;
 ---
 
-<div class="bg-[#EBEBEB]">
-  <WidgetWrapper id={id} isDark={isDark} containerClass={`max-w-7xl mx-auto ${classes?.container ?? ''}`} bg={bg}>
+<WidgetWrapper id={id} isDark={isDark} containerClass={`max-w-7xl mx-auto ${classes?.container ?? ''}`} bg={bg}>
+  <div class="gap-16 lg:flex">
     <Headline
       title={title}
       subtitle={subtitle}
@@ -34,12 +34,14 @@ const {
       defaultIcon={defaultIcon}
       centeredIcons={centeredIcons}
       classes={{
-        container: 'gap-4 md:gap-6',
+        container: 'gap-4 md:gap-6 mx-auto',
         panel:
-          'rounded-lg shadow-[0_4px_30px_rgba(0,0,0,0.1)] dark:shadow-[0_4px_30px_rgba(0,0,0,0.1)] backdrop-blur border border-[#ffffff29] bg-white dark:bg-slate-900 p-6',
+          'rounded-lg shadow-[0_4px_30px_rgba(0,0,0,0.1)] dark:shadow-[0_4px_30px_rgba(0,0,0,0.1)] backdrop-blur border-2 border-primary bg-white dark:bg-slate-900 p-6',
+        // panel:
+        //   'rounded-lg shadow-[0_4px_30px_rgba(0,0,0,0.1)] border-4 border-primary dark:shadow-[0_4px_30px_rgba(0,0,0,0.1)] backdrop-blur border border-[#ffffff29] bg-white dark:bg-slate-900 p-6',
         icon: centeredIcons ? 'w-16 h-16 mb-6 text-primary' : 'w-12 h-12 mb-6 text-primary',
         ...((classes?.items as Record<string, never>) ?? {}),
       }}
     />
-  </WidgetWrapper>
-</div>
+  </div>
+</WidgetWrapper>

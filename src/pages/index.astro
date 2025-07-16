@@ -6,15 +6,22 @@ import Content from '~/components/widgets/Content.astro';
 import BlogLatestPosts from '~/components/widgets/BlogLatestPosts.astro';
 import Features2 from '~/components/widgets/Features2.astro';
 import Stats from '~/components/widgets/Stats.astro';
-import Testimonials from '~/components/widgets/Testimonials.astro';
 import RotatingText from '~/components/reactbits/RotatingText';
 import CircularText from '~/components/reactbits/CircularText';
 import InfiniteSlider from '~/components/custom-react/InfiniteSlider';
 import CardContent from '~/components/widgets/CardContent.astro';
+// import Testimonials from '~/components/widgets/Testimonials.astro';
 
 import hrImage from '../assets/images/whoteach-images/hr.png';
 import aziendeImage from '../assets/images/whoteach-images/aziende-pmi.png';
 import istitutiImage from '../assets/images/whoteach-images/istituti-di-formazione.png';
+
+import lms from '../assets/images/whoteach-images/lms.png';
+import recommenderSystem from '../assets/images/whoteach-images/recommender-system.jpg';
+import generativeAI from '../assets/images/whoteach-images/gen-ai.jpg';
+import auleVirtuali from '../assets/images/whoteach-images/aule-virtuali.jpg';
+import Button from '~/components/ui/Button.astro';
+import Quote from '~/components/widgets/Quote.astro';
 
 const metadata = {
   title: 'HOME',
@@ -68,7 +75,7 @@ const imagePaths = await Astro.glob('/src/assets/images/whoteach-slider-logos/*'
         text="BENVENUTO*SU*WHOTEACH*"
         onHover="pause"
         spinDuration={20}
-        className="absolute -right-20 -top-20 text-primary hidden xl:block"
+        className="absolute -right-20 -top-20 hidden text-primary xl:block"
       />
     </Fragment>
 
@@ -122,101 +129,111 @@ const imagePaths = await Astro.glob('/src/assets/images/whoteach-slider-logos/*'
   <Content
     isReversed
     title="Dalla creazione all'erogazione: ecco cosa puoi fare con WhoTeach"
-    subtitle="WhoTeach è la piattaforma di digital learning B2B sviluppata dal team per aiutare enti e aziende a creare ed erogare corsi online di qualità, con il supporto dell’IA e un uso più efficiente delle risorse."
     image={{
-      src: 'https://images.unsplash.com/photo-1519389950473-47ba0277781c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80',
+      src: lms,
       alt: 'Colorful Image',
     }}
   >
     <Fragment slot="content">
-      <p class="font-bold tracking-tight mb-2">Learning Management System</p>
+      <p class="mb-1 text-sm uppercase tracking-tight">Learning Management System</p>
     </Fragment>
     <Fragment slot="content">
-      <h3 class="text-2xl font-bold tracking-tight sm:text-3xl mb-2">
+      <h3 class="mb-2 text-2xl font-semibold tracking-tight text-primary sm:text-3xl">
         Gestisci corsi, materiali e certificazioni da un unico spazio
       </h3>
     </Fragment>
 
     <Fragment slot="content">
-      <h3 class="font-bold tracking-tight mb-2">
-        Organizza i tuoi contenuti formativi in modo flessibile, monitora l’avanzamento degli utenti e rilascia
+      <p class="mb-2 mt-6 tracking-tight">
+        Organizza i tuoi contenuti formativi in modo flessibile, monitora l'avanzamento degli utenti e rilascia
         certificati in automatico. Tutto è tracciato, conforme e facilmente personalizzabile, anche con il tuo brand.
-      </h3>
+      </p>
     </Fragment>
   </Content>
 
   <Content
     image={{
-      src: 'https://images.unsplash.com/photo-1519389950473-47ba0277781c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80',
+      src: auleVirtuali,
       alt: 'Colorful Image',
     }}
   >
     <Fragment slot="content">
-      <p class="font-bold tracking-tight mb-2">Aule virtuali</p>
+      <p class="mb-1 text-sm uppercase tracking-tight">Aule virtuali</p>
     </Fragment>
     <Fragment slot="content">
-      <h3 class="text-2xl font-bold tracking-tight sm:text-3xl mb-2">
+      <h3 class="mb-2 text-2xl font-semibold tracking-tight text-primary sm:text-3xl">
         Tieni lezioni interattive, efficaci e coinvolgenti
       </h3>
     </Fragment>
 
     <Fragment slot="content">
-      <h3 class="font-bold tracking-tight mb-2">
+      <p class="mb-2 mt-6 tracking-tight">
         Crea lezioni sincrone efficaci in un ambiente digitale completo, progettato per facilitare l’apprendimento e la
         collaborazione tra docenti e partecipanti.
-      </h3>
+      </p>
     </Fragment>
   </Content>
 
   <Content
     isReversed
     image={{
-      src: 'https://images.unsplash.com/photo-1519389950473-47ba0277781c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80',
+      src: recommenderSystem,
       alt: 'Colorful Image',
     }}
   >
     <Fragment slot="content">
-      <p class="font-bold tracking-tight mb-2">Recommender System</p>
+      <p class="mb-1 text-sm uppercase tracking-tight">Recommender System</p>
     </Fragment>
     <Fragment slot="content">
-      <h3 class="text-2xl font-bold tracking-tight sm:text-3xl mb-2">Per costruire corsi migliori, in meno tempo</h3>
+      <h3 class="mb-2 text-2xl font-semibold tracking-tight text-primary sm:text-3xl">
+        Per costruire corsi migliori, in meno tempo
+      </h3>
     </Fragment>
 
     <Fragment slot="content">
-      <h3 class="font-bold tracking-tight mb-2">
+      <p class="mb-2 mt-6 tracking-tight">
         Il sistema di raccomandazione intelligente ti aiuta a trovare rapidamente i contenuti più adatti per ogni corso.
         Analizza input, preferenze e obiettivi per proporti risorse pertinenti, aggiornate e coerenti.
-      </h3>
+      </p>
     </Fragment>
   </Content>
 
   <Content
     image={{
-      src: 'https://images.unsplash.com/photo-1519389950473-47ba0277781c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80',
+      src: generativeAI,
       alt: 'Colorful Image',
     }}
   >
     <Fragment slot="content">
-      <p class="font-bold tracking-tight mb-2">Generative AI</p>
+      <p class="mb-1 text-sm uppercase tracking-tight">Generative AI</p>
     </Fragment>
     <Fragment slot="content">
-      <h3 class="text-2xl font-bold tracking-tight sm:text-3xl mb-2">
-        Crea lezioni complete in pochi minuti, con l’aiuto dell’AI
+      <h3 class="mb-2 text-2xl font-semibold tracking-tight text-primary sm:text-3xl">
+        Crea lezioni complete in pochi minuti, con l'aiuto dell'AI
       </h3>
     </Fragment>
 
     <Fragment slot="content">
-      <h3 class="font-bold tracking-tight mb-2">
+      <p class="mb-2 mt-6 tracking-tight">
         Scrivi un prompt, scegli il formato e ottieni contenuti didattici originali: testi, slide, diagrammi e quiz
         vengono generati in automatico, pronti per essere usati o personalizzati.
-      </h3>
+      </p>
     </Fragment>
   </Content>
+
+  <div class="mx-auto mb-12 w-fit md:mb-16 lg:mb-20">
+    <Button variant="primary" class="mx-auto" href="#">Scopri WhoTeach</Button>
+  </div>
 
   <Features2
     title="Come viene usata WhoTeach?"
     subtitle="WhoTeach è la piattaforma di digital learning B2B sviluppata dal team per aiutare enti e aziende a creare ed erogare corsi online di qualità, con il supporto dell’IA e un uso più efficiente delle risorse."
     centeredIcons={true}
+    classes={{
+      headline: {
+        container: 'basis-1/3',
+      },
+    }}
     items={[
       {
         title: 'Upskilling e reskilling',
@@ -235,13 +252,9 @@ const imagePaths = await Astro.glob('/src/assets/images/whoteach-slider-logos/*'
         icon: 'flat-color-icons:document',
       },
     ]}
-  >
-    <Fragment slot="bg">
-      <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
-    </Fragment>
-  </Features2>
+  />
 
-  <Testimonials
+  <!-- <Testimonials
     title="What our users say?"
     testimonials={[
       {
@@ -279,11 +292,25 @@ const imagePaths = await Astro.glob('/src/assets/images/whoteach-slider-logos/*'
       href: 'https://github.com/onwidget/astrowind',
       icon: 'tabler:chevron-right',
     }}
-  />
+  /> -->
+  <Quote
+    quote="Tutti sono stati molto soddisfatti dalla piattaforma anche per l'eccellente supporto da parte del fornitore sia in fase di personalizzazione della piattaforma sia in fase operativa"
+    author="Bruno"
+    role="Consulente IT"
+    rating={4.5}
+    source="Fonte: Capterra"
+    classes={{
+      container: 'md:pt-24 md:pb-8',
+    }}
+  >
+    <Fragment slot="bg">
+      <div class="absolute inset-0 bg-section dark:bg-transparent"></div>
+    </Fragment></Quote
+  >
 
   <Stats
     stats={[
-      { title: 'Studenti che hanno già usato WhoTeach', amount: '+12.000' },
+      { title: 'Studenti che hanno già usato WhoTeach', amount: '100K+' },
       {
         title: 'Valutazione della nostra assistenza clienti (fonte: Capterra)',
         amount: '4.5/5',
@@ -293,11 +320,15 @@ const imagePaths = await Astro.glob('/src/assets/images/whoteach-slider-logos/*'
         amount: '20%',
       },
     ]}
-  />
+  >
+    <Fragment slot="bg">
+      <div class="absolute inset-0 bg-section dark:bg-transparent"></div>
+    </Fragment>
+  </Stats>
 
   <BlogLatestPosts id="blog" title="Il nostro blog">
     <Fragment slot="bg">
-      <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
+      <div class="absolute inset-0 bg-white dark:bg-transparent"></div>
     </Fragment>
   </BlogLatestPosts>
 </Layout>
