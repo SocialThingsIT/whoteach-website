@@ -8,17 +8,42 @@ import Features from '~/components/widgets/Features.astro';
 import Steps from '~/components/widgets/Steps.astro';
 import Features2 from '~/components/widgets/Features2.astro';
 
+import heroComponente from '~/assets/images/whoteach-images/hero-componente.png';
+import whoteachCorso from '~/assets/images/whoteach-images/whoteach-corso.png';
+import Headline from '~/components/ui/Headline.astro';
+import Button from '~/components/ui/Button.astro';
+import InfiniteSlider from '~/components/custom-react/InfiniteSlider';
+import Whitelabel from '~/components/widgets/Whitelabel.astro';
+import VideoPlayer from '~/components/custom-react/VideoPlayer';
+
 const metadata = {
   title: 'LA PIATTAFORMA',
   ignoreTitleTemplate: true,
 };
+
+const imagePaths = await Astro.glob('/src/assets/images/whoteach-slider-logos/*').then((files) => {
+  return files.map((file) => file.default.src); // Just get the src paths
+});
 ---
 
 <Layout metadata={metadata}>
-  <Hero actions={[{ text: 'Prenota una demo', href: '#demo' }]}>
-    <Fragment slot="title"> La piattaforma completa per il tuo Corporate Training </Fragment>
-    <Fragment slot="subtitle"> Tutte le attività di formazione in un unico ecosistema personalizzabile </Fragment>
-  </Hero>
+  <Hero
+    textAlign="side"
+    title="La piattaforma completa per il tuo Corporate Training"
+    subtitle="Tutte le attività di formazione in un unico ecosistema personalizzabile"
+    image={{
+      src: heroComponente,
+      alt: 'Ambiente di studio moderno',
+    }}
+    callToAction={{
+      text: 'Prenota una demo',
+      href: '/contatti',
+      variant: 'primary',
+    }}
+  />
+
+  <!-- <VideoPlayer src="https://drive.google.com/file/d/1oT8pZHg-qrConl-WnObEklRPox9NUeIs/view?usp=sharing" /> -->
+  <div class="my-20"><VideoPlayer /></div>
 
   <Features
     id="features"
@@ -60,79 +85,77 @@ const metadata = {
       src: 'https://images.unsplash.com/photo-1519389950473-47ba0277781c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80',
       alt: 'Colorful Image',
     }}
+    callToAction={{
+      variant: 'secondary',
+      text: 'Scopri di più',
+      href: '/',
+    }}
   >
-    <Fragment slot="content">
-      <p class="font-bold tracking-tight mb-2">Crea i tuoi contenuti didattici in pochi click</p>
+    <Fragment slot="bg">
+      <div class="absolute inset-0 bg-section dark:bg-transparent"></div>
     </Fragment>
     <Fragment slot="content">
-      <p class="tracking-tight mb-2">
-        Genera materiali didattici completi in pochi minuti – testi, slide, quiz, mappe concettuali. Puoi partire dagli
-        obiettivi formativi o dialogare con un’interfaccia conversazionale semplice da usare. Nessuna competenza tecnica
+      <p class="mb-1 text-sm uppercase tracking-tight">GENERATIVE AI</p>
+    </Fragment>
+    <Fragment slot="content">
+      <h3 class="mb-2 text-2xl font-semibold tracking-tight text-primary">
+        Crea i tuoi contenuti didattici in pochi click
+      </h3>
+    </Fragment>
+    <Fragment slot="content">
+      <p class="mb-2 tracking-tight">
+        Genera materiali didattici completi in pochi minuti - testi, slide, quiz, mappe concettuali. Puoi partire dagli
+        obiettivi formativi o dialogare con un'interfaccia conversazionale semplice da usare. Nessuna competenza tecnica
         richiesta.
       </p>
     </Fragment>
   </Content>
 
   <Content
-    isReversed
+    isAfterContent
     image={{
       src: 'https://images.unsplash.com/photo-1519389950473-47ba0277781c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80',
       alt: 'Colorful Image',
     }}
+    callToAction={{
+      variant: 'secondary',
+      text: 'Scopri di più',
+      href: '/',
+    }}
   >
-    <Fragment slot="content">
-      <p class="font-bold tracking-tight mb-2">Costruisce percorsi formativi efficaci</p>
+    <Fragment slot="bg">
+      <div class="absolute inset-0 bg-section dark:bg-transparent"></div>
     </Fragment>
     <Fragment slot="content">
-      <p class="tracking-tight mb-2">
-        Il nostro sistema di raccomandazione AI analizza competenze, ruoli e comportamenti per suggerire contenuti e
-        percorsi su misura, aiutandoti a offrire la formazione giusta, alla persona giusta, nel momento giusto.
+      <p class="mb-1 text-sm uppercase tracking-tight">RECOMMENDER SYSTEM</p>
+    </Fragment>
+    <Fragment slot="content">
+      <h3 class="mb-2 text-2xl font-semibold tracking-tight text-primary">
+        Per costruire corsi migliori, in meno tempo
+      </h3>
+    </Fragment>
+    <Fragment slot="content">
+      <p class="mb-2 tracking-tight">
+        Crea lezioni sincrone efficaci in un ambiente digitale completo, progettato per facilitare l'apprendimento e la
+        collaborazione tra docenti e partecipanti.
       </p>
     </Fragment>
   </Content>
 
-  <Steps
-    title="Il valore che ci distingue"
-    items={[
-      {
-        title: '1 - Personalizzazione totale',
-        description:
-          "Ogni azienda ha esigenze diverse. Per questo il nostro team lavora al tuo fianco per personalizzare l’interfaccia, le funzionalità e i flussi operativi, anche in modalità white-label. WhoTeach si adatta al tuo brand, ai tuoi obiettivi, alla tua organizzazione.",
-        icon: 'tabler:package',
-      },
-      {
-        title: '2 - Reportistica immediata',
-        description:
-          "Alla fine di ogni sessione, hai tutti i dati già pronti: presenze, interazioni, avanzamento, certificazioni. La reportistica è completamente automatizzata e conforme alle richieste degli enti finanziatori. Nessuna fatica, nessun ritardo.",
-        icon: 'tabler:letter-case',
-      },
-      {
-        title: '3 - Intelligenza Artificiale didattica',
-        description:
-          'La nostra AI non è generica: è progettata specificamente per la formazione. Ti aiuta a creare materiali coerenti, personalizzati e aggiornati, suggerisce percorsi e contenuti su misura, e semplifica ogni fase della progettazione didattica.',
-        icon: 'tabler:paint',
-      },
-      {
-        title: '4 - Supporto clienti ',
-        description:
-          'Il nostro customer care è tra i più apprezzati del settore. Hai un problema? Ti basta una mail o una chiamata e siamo subito operativi, per te e per i tuoi utenti. Veloci, competenti, sempre presenti.',
-        icon: 'tabler:paint',
-      }
-    ]}
-    image={{
-      src: 'https://images.unsplash.com/photo-1616198814651-e71f960c3180?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=987&q=80',
-      alt: 'Steps image',
-    }}
-  />
-
   <Features2
     tagline="SOLUZIONE MODULARE"
     title="La tua formula"
-    subtitle='Ogni azienda è diversa. Per questo la soluzione modulare di WhoTeach ti permette di attivare solo ciò che ti serve, per quanto ti serve.'
+    subtitle="Ogni azienda è diversa. Per questo la soluzione modulare di WhoTeach ti permette di attivare solo ciò che ti serve, per quanto ti serve."
     centeredIcons={true}
+    classes={{
+      headline: {
+        container: 'basis-1/3',
+        subtitle: 'mb-20',
+      },
+    }}
     items={[
       {
-        title: 'Learning Management System (LMS)',
+        title: 'Learning Management System',
         icon: 'flat-color-icons:template',
       },
       {
@@ -146,20 +169,112 @@ const metadata = {
       {
         title: 'Generative AI',
         icon: 'flat-color-icons:document',
-      }
+      },
+    ]}
+  />
+
+  <Whitelabel
+    title="Whitelabel"
+    subtitle="Fai spazio alle tue esigenze"
+    content="Non adattarti a soluzioni standard. Con WhoTeach in modalità whitelabel, hai il pieno controllo: un ecosistema di digital learning che parla la lingua del tuo brand, si integra con i tuoi processi e cresce con la tua organizzazione."
+    content2="Interfaccia grafica su misura, funzionalità modulari, report avanzati, e-commerce B2B, gestione degli accessi, spazio illimitato: ogni dettaglio è pensato per offrirti la flessibilità e la potenza che cerchi, senza compromessi."
+    items={[
+      {
+        title: 'Interfaccia grafica personalizzabile',
+        description:
+          "Personalizza completamente l'aspetto della piattaforma con i tuoi colori, logo e stile, offrendo un'esperienza coerente con l'identità del tuo brand.",
+      },
+      {
+        title: 'E-commerce B2B integrato',
+        description:
+          'Vendi i tuoi corsi direttamente dalla piattaforma con un sistema e-commerce professionale pensato per il contesto business-to-business.',
+      },
+      {
+        title: 'Reportistica personalizzata e avanzata',
+        description:
+          'Accedi a report dettagliati e personalizzabili per monitorare ogni aspetto della formazione, con dati pronti per la rendicontazione verso enti finanziatori.',
+      },
+      {
+        title: 'Temporizzazione degli accessi',
+        description:
+          'Controlla con precisione quando e per quanto tempo gli utenti possono accedere ai contenuti, creando percorsi formativi strutturati e sequenziali.',
+      },
+      {
+        title: 'Spazio di archiviazione illimitato',
+        description:
+          'Carica tutti i contenuti formativi che desideri senza preoccuparti dei limiti di spazio, garantendo scalabilità alla tua offerta formativa.',
+      },
     ]}
   >
     <Fragment slot="bg">
-      <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
+      <div class="absolute inset-0 bg-section dark:bg-transparent"></div>
     </Fragment>
-  </Features2>
+  </Whitelabel>
+
+  <Steps
+    title="Il valore che ci distingue"
+    items={[
+      {
+        title: '1 - Personalizzazione totale',
+        description:
+          'Ogni azienda ha esigenze diverse. Per questo il nostro team lavora al tuo fianco per personalizzare l’interfaccia, le funzionalità e i flussi operativi, anche in modalità white-label. WhoTeach si adatta al tuo brand, ai tuoi obiettivi, alla tua organizzazione.',
+        icon: 'tabler:package',
+      },
+      {
+        title: '2 - Reportistica immediata',
+        description:
+          'Alla fine di ogni sessione, hai tutti i dati già pronti: presenze, interazioni, avanzamento, certificazioni. La reportistica è completamente automatizzata e conforme alle richieste degli enti finanziatori. Nessuna fatica, nessun ritardo.',
+        icon: 'tabler:letter-case',
+      },
+      {
+        title: '3 - Intelligenza Artificiale didattica',
+        description:
+          'La nostra AI non è generica: è progettata specificamente per la formazione. Ti aiuta a creare materiali coerenti, personalizzati e aggiornati, suggerisce percorsi e contenuti su misura, e semplifica ogni fase della progettazione didattica.',
+        icon: 'tabler:paint',
+      },
+      {
+        title: '4 - Supporto clienti ',
+        description:
+          'Il nostro customer care è tra i più apprezzati del settore. Hai un problema? Ti basta una mail o una chiamata e siamo subito operativi, per te e per i tuoi utenti. Veloci, competenti, sempre presenti.',
+        icon: 'tabler:paint',
+      },
+    ]}
+    image={{
+      src: whoteachCorso,
+      alt: 'Steps image',
+    }}
+    classes={{
+      items: {
+        title: 'text-primary',
+      },
+    }}
+  />
+
+  <div
+    class="intersect-once intercept-no-queue intersect-quarter mx-auto mb-12 flex w-fit flex-col items-center md:mb-16 motion-safe:md:opacity-0 motion-safe:md:intersect:animate-fade lg:mb-20"
+  >
+    <Headline
+      title={'Vuoi capire se fa per te?'}
+      subtitle={'Un nostro consulente è a disposizione per ascoltare le tue esigenze e capire come WhoTeach possa supportare il tuo progetto di formazione'}
+      textAlign="center"
+      classes={{
+        // container: 'max-w-xl lg:max-w-2xl',
+        title: 'text-3xl md:text-4xl font-bold tracking-tighter mb-4 font-heading text-primary',
+        subtitle: 'max-w-3xl text-xl text-muted dark:text-slate-400',
+      }}
+    />
+    <Button variant="primary" class="mx-auto w-fit" href="#">Prenota una demo</Button>
+  </div>
 
   <Stats
-    title='Abbiamo un impatto concreto sulle organizzazioni'
+    title="Abbiamo un impatto concreto sulle organizzazioni"
     stats={[
       { title: 'riduzione dei costi', amount: '20%' },
       { title: 'risparmio di tempo', amount: '50%' },
-      { title: 'miglioramento della qualità dei corsi', amount: '40%' }
+      { title: 'miglioramento della qualità dei corsi', amount: '40%' },
     ]}
   />
+  <div class="mx-auto max-w-7xl pb-16 pt-12">
+    <InfiniteSlider client:visible duration={30} pauseOnHover={false} imagePaths={imagePaths} />
+  </div>
 </Layout>
