@@ -61,7 +61,8 @@ export const footerData = {
         { text: 'Accedi a WhoTeachPlatform', href: '#' },
         { text: 'Chi Siamo', href: '#' },
         { text: 'Blog', href: '#' },
-        { text: 'Piani Tariffari', href: '#' }
+        { text: 'Piani Tariffari', href: '#' },
+        { text: 'Editor News', href: getPermalink('/text-editor') }
       ],
     },
     {
