@@ -77,5 +77,29 @@ const {
 </WidgetWrapper>
 
 <style>
-  /* ...existing styles... */
+  .quote-content {
+    position: relative;
+  }
+
+  .quote-content::before,
+  .quote-content::after {
+    font-family: 'Inter', Arial, sans-serif;
+    font-size: 8rem;
+    line-height: 1;
+    opacity: 0.3;
+    color: var(--tw-text-opacity-primary);
+    position: absolute;
+  }
+
+  .quote-content::before {
+    content: '“';
+    left: 0rem;
+    top: -4rem;
+  }
+
+  .quote-content::after {
+    content: '”';
+    right: 0rem;
+    bottom: -2rem;
+  }
 </style>

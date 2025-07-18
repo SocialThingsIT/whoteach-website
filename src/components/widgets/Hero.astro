@@ -1,28 +1,28 @@
 ---
-import Image from '~/components/common/Image.astro';
-import Button from '~/components/ui/Button.astro';
+import Image from "~/components/common/Image.astro";
+import Button from "~/components/ui/Button.astro";
 
-import type { Hero as Props } from '~/types';
+import type { Hero as Props } from "~/types";
 
 const {
-  title = await Astro.slots.render('title'),
-  subtitle = await Astro.slots.render('subtitle'),
+  title = await Astro.slots.render("title"),
+  subtitle = await Astro.slots.render("subtitle"),
   tagline,
 
-  slider = await Astro.slots.render('slider'),
+  slider = await Astro.slots.render("slider"),
 
-  content = await Astro.slots.render('content'),
-  actions = await Astro.slots.render('actions'),
-  image = await Astro.slots.render('image'),
+  content = await Astro.slots.render("content"),
+  actions = await Astro.slots.render("actions"),
+  image = await Astro.slots.render("image"),
 
   id,
-  bg = await Astro.slots.render('bg'),
-  textAlign = 'center', // 'center', 'left', or 'side' for the side-by-side layout
+  bg = await Astro.slots.render("bg"),
+  textAlign = "center", // 'center', 'left', or 'side' for the side-by-side layout
   callToAction,
 } = Astro.props;
 
-const isLeftAlign = textAlign === 'left';
-const isSideLayout = textAlign === 'side';
+const isLeftAlign = textAlign === "left";
+const isSideLayout = textAlign === "side";
 ---
 
 <section class="not-prose relative" {...id ? { id } : {}}>
@@ -62,7 +62,10 @@ const isSideLayout = textAlign === 'side';
               {/* CTA button for side layout */}
               {callToAction && (
                 <div class="mt-6">
-                  <Button {...callToAction} />
+                  <Button
+                    class="motion-safe:md:opacity-0 motion-safe:md:intersect:animate-fade"
+                    {...callToAction}
+                  />
                 </div>
               )}
             </div>
@@ -70,7 +73,7 @@ const isSideLayout = textAlign === 'side';
             <div class="intersect-once intercept-no-queue intersect-quarter order-1 motion-safe:md:opacity-0 motion-safe:md:intersect:animate-fade lg:order-2">
               {image && (
                 <div class="relative">
-                  {typeof image === 'string' ? (
+                  {typeof image === "string" ? (
                     <Fragment set:html={image} />
                   ) : (
                     <Image
@@ -88,29 +91,31 @@ const isSideLayout = textAlign === 'side';
         </div>
       ) : (
         <div class="py-4 md:py-10">
-          <div class={`max-w-4xl ${isLeftAlign ? 'lg:text-left' : 'lg:text-center'} mx-auto text-center`}>
+          <div
+            class={`max-w-4xl ${isLeftAlign ? "lg:text-left" : "lg:text-center"} mx-auto text-center`}
+          >
             {tagline && (
               <p
-                class={`intersect-once intersect-quarter text-base font-bold uppercase tracking-wide text-secondary dark:text-blue-200 motion-safe:md:opacity-0 motion-safe:md:intersect:animate-fade ${isLeftAlign ? 'text-left' : ''}`}
+                class={`intersect-once intersect-quarter text-base font-bold uppercase tracking-wide text-secondary dark:text-blue-200 motion-safe:md:opacity-0 motion-safe:md:intersect:animate-fade ${isLeftAlign ? "text-left" : ""}`}
                 set:html={tagline}
               />
             )}
             {title && (
               <h1
-                class={`leading-tighter intersect-once intersect-quarter mb-4 font-heading text-5xl font-bold tracking-tighter text-primary md:text-5xl motion-safe:md:opacity-0 motion-safe:md:intersect:animate-fade ${isLeftAlign ? 'text-left' : ''}`}
+                class={`leading-tighter intersect-once intersect-quarter mb-4 font-heading text-5xl font-bold tracking-tighter text-primary md:text-5xl motion-safe:md:opacity-0 motion-safe:md:intersect:animate-fade ${isLeftAlign ? "text-left" : ""}`}
                 set:html={title}
               />
             )}
-            <div class={`mt-8 max-w-3xl ${isLeftAlign ? '' : 'mx-auto'}`}>
+            <div class={`mt-8 max-w-3xl ${isLeftAlign ? "" : "mx-auto"}`}>
               {subtitle && (
                 <p
-                  class={`intersect-once intersect-quarter mb-6 text-xl motion-safe:md:opacity-0 motion-safe:md:intersect:animate-fade ${isLeftAlign ? 'text-left' : ''}`}
+                  class={`intersect-once intersect-quarter mb-6 text-xl motion-safe:md:opacity-0 motion-safe:md:intersect:animate-fade ${isLeftAlign ? "text-left" : ""}`}
                   set:html={subtitle}
                 />
               )}
               {actions && (
                 <div
-                  class={`${isLeftAlign ? '' : 'm-auto'} flex flex-col flex-nowrap sm:flex-row ${isLeftAlign ? 'sm:justify-start' : 'sm:justify-center'} intersect-once intersect-quarter gap-4 motion-safe:md:opacity-0 motion-safe:md:intersect:animate-fade`}
+                  class={`${isLeftAlign ? "" : "m-auto"} flex flex-col flex-nowrap sm:flex-row ${isLeftAlign ? "sm:justify-start" : "sm:justify-center"} intersect-once intersect-quarter gap-4 motion-safe:md:opacity-0 motion-safe:md:intersect:animate-fade`}
                 >
                   {Array.isArray(actions) ? (
                     actions.map((action) => (
@@ -129,7 +134,7 @@ const isSideLayout = textAlign === 'side';
           <div class="intersect-once intercept-no-queue intersect-quarter motion-safe:md:opacity-0 motion-safe:md:intersect:animate-fade">
             {image && (
               <div class="relative m-auto max-w-5xl">
-                {typeof image === 'string' ? (
+                {typeof image === "string" ? (
                   <Fragment set:html={image} />
                 ) : (
                   <Image

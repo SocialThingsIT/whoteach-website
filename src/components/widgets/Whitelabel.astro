@@ -1,0 +1,61 @@
+---
+import type { Whitelabel as Props } from '~/types';
+import Headline from '~/components/ui/Headline.astro';
+import WidgetWrapper from '~/components/ui/WidgetWrapper.astro';
+import ItemGrid from '~/components/ui/ItemGrid.astro';
+
+const {
+  title = await Astro.slots.render('title'),
+  subtitle = await Astro.slots.render('subtitle'),
+  tagline,
+  content = await Astro.slots.render('content'),
+  content2 = await Astro.slots.render('content2'),
+  items = [],
+  columns = 1,
+  defaultIcon = 'tabler:check',
+
+  id,
+  isDark = false,
+  classes = {},
+  bg = await Astro.slots.render('bg'),
+} = Astro.props;
+---
+
+<WidgetWrapper id={id} isDark={isDark} containerClass={`max-w-7xl mx-auto ${classes?.container ?? ''}`} bg={bg}>
+  <div class="mx-auto py-8 md:py-16">
+    <div class="md:flex md:gap-16">
+      <!-- Left column with title and text -->
+      <div class="mb-8 md:mb-0 md:w-1/2">
+        <Headline
+          title={title}
+          subtitle={subtitle}
+          tagline={tagline}
+          classes={{
+            container: 'mb-8 md:mb-12',
+            title: 'text-4xl lg:text-5xl font-bold leading-tight tracking-tight font-heading text-primary',
+            subtitle: 'text-2xl text-muted mt-2 mb-6 font-medium',
+          }}
+        />
+
+        {content && <div class="mb-8 text-lg text-muted dark:text-slate-400" set:html={content} />}
+        {content2 && <div class="text-lg text-muted dark:text-slate-400" set:html={content2} />}
+      </div>
+
+      <!-- Right column with items -->
+      <div class="md:w-1/2">
+        <ItemGrid
+          items={items}
+          columns={columns}
+          defaultIcon={defaultIcon}
+          classes={{
+            container: 'gap-y-4 md:gap-y-6',
+            panel: 'flex max-w-none',
+            icon: 'flex h-7 w-7 items-center justify-center rounded-full bg-green-600 dark:bg-green-700 text-gray-50 p-1',
+            title: 'text-lg font-medium leading-6',
+            description: 'text-muted dark:text-slate-400 mt-2',
+          }}
+        />
+      </div>
+    </div>
+  </div>
+</WidgetWrapper>

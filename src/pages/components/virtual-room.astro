@@ -1,8 +1,10 @@
 ---
 import Layout from '~/layouts/PageLayout.astro';
-
 import Hero from '~/components/widgets/Hero.astro';
 import Content from '~/components/widgets/Content.astro';
+import heroComponente from '~/assets/images/whoteach-images/hero-componente.png';
+import Button from '~/components/ui/Button.astro';
+import Headline from '~/components/ui/Headline.astro';
 
 const metadata = {
   title: 'VIRTUAL ROOM',
@@ -11,78 +13,118 @@ const metadata = {
 ---
 
 <Layout metadata={metadata}>
-  <Hero textAlign="left">
-    <Fragment slot="title"> Lezioni live tracciate, gestite e sempre fruibili </Fragment>
-    <Fragment slot="content">
-      <b>Le Aule Virtuali </b> di WhoTeach trasformano la formazione sincrona in un’esperienza interattiva, fluida e sempre sotto controllo. Conduci lezioni live, crea gruppi di lavoro, registra ogni attività e offri ai tuoi partecipanti un ambiente coinvolgente, tracciabile e pronto per ogni esigenza.
-    </Fragment>
-  </Hero>
+  <Hero
+    textAlign="side"
+    title="Lezioni live tracciate, gestite e sempre fruibili"
+    subtitle="Le Aule Virtuali di WhoTeach trasformano la formazione sincrona in un’esperienza interattiva, flessibile e sempre sotto controllo. Conduci lezioni live, crea gruppi di lavoro, registra ogni attività e offri a tutti i partecipanti un ambiente coinvolgente, tracciabile e pronto per ogni esigenza."
+    image={{
+      src: heroComponente,
+      alt: 'Ambiente di studio moderno',
+    }}
+    callToAction={{
+      text: 'Prenota una demo',
+      href: '/contatti',
+      variant: 'primary',
+    }}
+  />
 
   <Content
-    isReversed
+    largeImage
     title="Aule Virtuali di WhoTeach"
-    subtitle="La formazione sincrona è un’occasione preziosa per creare relazione, confronto e apprendimento attivo. Con le Aule Virtuali puoi offrire esperienze didattiche online che replicano l’efficacia della lezione in presenza, arricchendola con strumenti digitali e tracciabilità. L’ambiente virtuale è semplice da gestire, flessibile e professionale: ogni docente può mantenere il controllo dell’aula, suddividere i partecipanti in gruppi, caricare materiali e interagire in tempo reale. Tutto è registrato, tracciato e disponibile anche in modalità asincrona, nel rispetto dei requisiti degli enti finanziatori. In questo modo, la tua lezione non si esaurisce in un’ora di diretta, ma diventa un asset formativo certificabile, accessibile e durevole."
+    isReversed
     image={{
-      src: 'https://images.unsplash.com/photo-1519389950473-47ba0277781c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80',
-      alt: 'Colorful Image',
+      src: 'https://images.unsplash.com/photo-1519389950473-47ba0277781c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80',
+      alt: 'Lezioni HTML5',
     }}
+    items={[
+      {
+        title: 'Formato HTML5 universale',
+        description:
+          'Le sessioni registrate sono sempre accessibili da qualsiasi dispositivo, senza bisogno di installazioni.',
+      },
+      {
+        title: 'Formazione inclusiva',
+        description:
+          'Ogni partecipante può rivedere i contenuti con calma, consolidare le competenze e apprendere secondo i propri ritmi.',
+      },
+      {
+        title: 'Risorse continue e aggiornabili',
+        description:
+          'Ogni contenuto diventa una risorsa pronta a essere riutilizzata, condivisa e aggiornata quando serve.',
+      },
+    ]}
   >
     <Fragment slot="content">
-      <h3 class="text-2xl font-bold tracking-tight sm:text-3xl mb-2">
+      <h3 class="mb-2 text-2xl font-semibold tracking-tight text-primary">
         Lezioni registrate e sempre accessibili in HTML5
       </h3>
     </Fragment>
-
-    <Fragment slot="content">
-      <p class="tracking-tight mb-2">
-        Conserva il valore di ogni lezione nel tempo: grazie al formato HTML5, le sessioni registrate sono sempre accessibili, da qualsiasi dispositivo e senza bisogno di installazioni. Rendi la formazione davvero inclusiva, permettendo a ogni partecipante di rivedere i contenuti con calma, consolidare le competenze apprese e apprendere secondo i propri ritmi.
-        <br>
-        Ogni contenuto diventa una risorsa continua, pronta a essere riutilizzata, condivisa o aggiornata quando serve.
-      </p>
-    </Fragment>
   </Content>
 
   <Content
+    largeImage
     image={{
-      src: 'https://images.unsplash.com/photo-1519389950473-47ba0277781c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80',
-      alt: 'Colorful Image',
+      src: 'https://images.unsplash.com/photo-1519389950473-47ba0277781c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80',
+      alt: 'Report presenze',
     }}
+    items={[
+      {
+        title: 'Tutto sotto controllo',
+        description: 'Monitora con precisione ogni lezione, attività svolta e tempi sulla piattaforma, senza fatica.',
+      },
+      {
+        title: 'Report ottimizzati per enti',
+        description:
+          'Report già pronti per la rendicontazione verso Forma.Temp e ANPAL: meno burocrazia, più formazione.',
+      },
+    ]}
   >
     <Fragment slot="content">
-      <h3 class="text-2xl font-bold tracking-tight sm:text-3xl mb-2">
+      <h3 class="mb-2 text-2xl font-semibold tracking-tight text-primary">
         Report intelligenti su presenze, tempi e attività
       </h3>
     </Fragment>
-
-    <Fragment slot="content">
-      <p class="tracking-tight mb-2">
-        Tieni tutto sotto controllo, senza fatica. Con WhoTeach puoi monitorare con precisione ogni accesso, attività svolta e tempi sulla piattaforma.
-        <br>
-        I nostri report sono già ottimizzati per la rendicontazione verso enti come Forma.Temp e ANPAL, così puoi concentrarti sulla formazione e lasciare a noi la burocrazia.
-      </p>
-    </Fragment>
   </Content>
 
   <Content
+    largeImage
     isReversed
     image={{
-      src: 'https://images.unsplash.com/photo-1519389950473-47ba0277781c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80',
-      alt: 'Colorful Image',
+      src: 'https://images.unsplash.com/photo-1519389950473-47ba0277781c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80',
+      alt: 'Gestione materiali',
     }}
+    items={[
+      {
+        title: 'Tutto in un unico posto',
+        description:
+          'Organizza materiali didattici, gestisci gruppi di utenti e prendi note live, senza mai perdere il filo.',
+      },
+      {
+        title: 'Esperienze formative strutturate e coinvolgenti',
+        description:
+          'Mantieni coerenza e controllo in ogni fase del programma, dall’avvio fino alla conclusione del corso.',
+      },
+    ]}
   >
     <Fragment slot="content">
-      <h3 class="text-2xl font-bold tracking-tight sm:text-3xl mb-2">
+      <h3 class="mb-2 text-2xl font-semibold tracking-tight text-primary">
         Gestione unificata di materiali, gruppi e note live
       </h3>
     </Fragment>
-
-    <Fragment slot="content">
-      <p class="tracking-tight mb-2">
-        Con WhoTeach, tutto ciò che serve è in un unico posto. Organizza materiali didattici, gestisci gruppi di utenti e prendi note live, senza mai perdere il filo.
-        <br>
-        Offri esperienze formative strutturate e coinvolgenti, mantenendo coerenza e controllo in ogni fase del programma, dall’avvio fino alla conclusione del corso.
-      </p>
-    </Fragment>
   </Content>
 
-</Layout>
+  <div
+    class="intersect-once intercept-no-queue intersect-quarter mx-auto mb-12 flex w-fit flex-col items-center md:mb-16 motion-safe:md:opacity-0 motion-safe:md:intersect:animate-fade lg:mb-20"
+  >
+    <Headline
+      title="Vuoi capire se fa per te?"
+      subtitle="Un nostro consulente è a disposizione per ascoltare le tue esigenze e capire come WhoTeach possa supportare il tuo progetto di formazione"
+      textAlign="center"
+      classes={{
+        title: 'text-3xl md:text-4xl font-bold tracking-tighter mb-4 font-heading text-primary',
+        subtitle: 'max-w-3xl text-xl text-muted dark:text-slate-400',
+      }}
+    />
+    <Button variant="primary" class="mx-auto w-fit" href="#">Prenota una demo</Button>
+  </div></Layout
+>

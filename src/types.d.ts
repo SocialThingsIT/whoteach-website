@@ -1,6 +1,14 @@
 import type { AstroComponentFactory } from 'astro/runtime/server/index.js';
 import type { HTMLAttributes, ImageMetadata } from 'astro/types';
 
+export interface Whitelabel extends Omit<Headline, 'classes'>, Widget {
+  content?: string;
+  content2?: string;
+  items?: Array<Item>;
+  columns?: number;
+  defaultIcon?: string;
+}
+
 export interface Card {
   image: {
     src: string;
@@ -102,7 +110,7 @@ export interface MetaDataTwitter {
 }
 
 export interface Image {
-  src: string;
+  src: string | ImageMetadata;
   alt?: string;
 }
 
@@ -122,6 +130,8 @@ export interface Headline {
   title?: string;
   subtitle?: string;
   tagline?: string;
+
+  textAlign?: 'center' | 'left';
   classes?: Record<string, string>;
 }
 
@@ -290,8 +300,10 @@ export interface Steps extends Omit<Headline, 'classes'>, Widget {
 export interface Content extends Omit<Headline, 'classes'>, Widget {
   content?: string;
   image?: string | unknown;
+  largeImage?: boolean;
   items?: Array<Item>;
   columns?: number;
+  start?: 'top' | 'middle';
   isReversed?: boolean;
   isAfterContent?: boolean;
   callToAction?: CallToAction;

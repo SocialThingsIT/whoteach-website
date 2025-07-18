@@ -9,7 +9,7 @@ const { items = [], columns, defaultIcon = '', classes = {}, centeredIcons = fal
 const {
   container: containerClass = '',
   panel: panelClass = '',
-  title: titleClass = '',
+  title: titleClass = 'text-primary',
   description: descriptionClass = '',
   icon: defaultIconClass = 'text-primary',
 } = classes;
@@ -21,11 +21,11 @@ const {
       class={twMerge(
         `grid gap-8 gap-x-12 sm:gap-y-8 ${
           columns === 4
-            ? 'lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-2'
+            ? 'sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4'
             : columns === 3
-              ? 'lg:grid-cols-3 sm:grid-cols-2'
+              ? 'sm:grid-cols-2 lg:grid-cols-3'
               : columns === 2
-                ? 'sm:grid-cols-2 '
+                ? 'sm:grid-cols-2'
                 : ''
         }`,
         containerClass
@@ -34,8 +34,8 @@ const {
       {items.map(({ title, description, icon, callToAction, classes: itemClasses = {} }) => (
         <div
           class={twMerge(
-            'relative flex flex-col intersect-once intersect-quarter intercept-no-queue motion-safe:md:opacity-0 motion-safe:md:intersect:animate-fade',
-            centeredIcons ? 'text-center items-center' : '',
+            'intersect-once intersect-quarter intercept-no-queue relative flex flex-col motion-safe:md:opacity-0 motion-safe:md:intersect:animate-fade',
+            centeredIcons ? 'items-center text-center' : '',
             panelClass,
             itemClasses?.panel
           )}
@@ -43,12 +43,12 @@ const {
           {(icon || defaultIcon) && (
             <Icon
               name={icon || defaultIcon}
-              class={twMerge('mb-2', centeredIcons ? 'w-16 h-16' : 'w-10 h-10', defaultIconClass, itemClasses?.icon)}
+              class={twMerge('mb-2', centeredIcons ? 'h-16 w-16' : 'h-10 w-10', defaultIconClass, itemClasses?.icon)}
             />
           )}
           <div class={twMerge('text-xl font-bold', titleClass, itemClasses?.title)}>{title}</div>
           {description && (
-            <p class={twMerge('text-muted mt-2', descriptionClass, itemClasses?.description)} set:html={description} />
+            <p class={twMerge('mt-2 text-muted', descriptionClass, itemClasses?.description)} set:html={description} />
           )}
           {callToAction && (
             <div class="mt-2">
