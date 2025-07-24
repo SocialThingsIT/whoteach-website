@@ -1,36 +1,34 @@
 ---
-import Layout from "~/layouts/PageLayout.astro";
+import Layout from '~/layouts/PageLayout.astro';
 
-import Hero from "~/components/widgets/Hero.astro";
-import Content from "~/components/widgets/Content.astro";
-import BlogLatestPosts from "~/components/widgets/BlogLatestPosts.astro";
-import Features2 from "~/components/widgets/Features2.astro";
-import Stats from "~/components/widgets/Stats.astro";
-import RotatingText from "~/components/reactbits/RotatingText";
-import CircularText from "~/components/reactbits/CircularText";
-import InfiniteSlider from "~/components/custom-react/InfiniteSlider";
-import CardContent from "~/components/widgets/CardContent.astro";
+import Hero from '~/components/widgets/Hero.astro';
+import Content from '~/components/widgets/Content.astro';
+import BlogLatestPosts from '~/components/widgets/BlogLatestPosts.astro';
+import Features2 from '~/components/widgets/Features2.astro';
+import Stats from '~/components/widgets/Stats.astro';
+import RotatingText from '~/components/reactbits/RotatingText';
+import CircularText from '~/components/reactbits/CircularText';
+import InfiniteSlider from '~/components/custom-react/InfiniteSlider';
+import CardContent from '~/components/widgets/CardContent.astro';
 // import Testimonials from '~/components/widgets/Testimonials.astro';
 
-import hrImage from "../assets/images/whoteach-images/hr.png";
-import aziendeImage from "../assets/images/whoteach-images/aziende-pmi.png";
-import istitutiImage from "../assets/images/whoteach-images/istituti-di-formazione.png";
+import hrImage from '../assets/images/whoteach-images/hr.png';
+import aziendeImage from '../assets/images/whoteach-images/aziende-pmi.png';
+import istitutiImage from '../assets/images/whoteach-images/istituti-di-formazione.png';
 
-import lms from "../assets/images/whoteach-images/lms.png";
-import recommenderSystem from "../assets/images/whoteach-images/recommender-system.jpg";
-import generativeAI from "../assets/images/whoteach-images/gen-ai.jpg";
-import auleVirtuali from "../assets/images/whoteach-images/aule-virtuali.jpg";
-import Button from "~/components/ui/Button.astro";
-import Quote from "~/components/widgets/Quote.astro";
+import lms from '../assets/images/whoteach-images/lms.png';
+import recommenderSystem from '../assets/images/whoteach-images/recommender-system.jpg';
+import generativeAI from '../assets/images/whoteach-images/gen-ai.jpg';
+import auleVirtuali from '../assets/images/whoteach-images/aule-virtuali.jpg';
+import Button from '~/components/ui/Button.astro';
+import Quote from '~/components/widgets/Quote.astro';
 
 const metadata = {
-  title: "HOME",
+  title: 'HOME',
   ignoreTitleTemplate: true,
 };
 
-const imagePaths = await Astro.glob(
-  "/src/assets/images/whoteach-slider-logos/*"
-).then((files) => {
+const imagePaths = await Astro.glob('/src/assets/images/whoteach-slider-logos/*').then((files) => {
   return files.map((file) => file.default.src); // Just get the src paths
 });
 ---
@@ -41,16 +39,16 @@ const imagePaths = await Astro.glob(
   <Hero
     actions={[
       {
-        variant: "primary",
-        text: "Scarica la brochure",
-        href: "https://github.com/onwidget/astrowind",
-        target: "_blank",
-        icon: "tabler:download",
+        variant: 'primary',
+        text: 'Scarica la brochure',
+        href: 'https://github.com/onwidget/astrowind',
+        target: '_blank',
+        icon: 'tabler:download',
       },
       {
-        variant: "secondary",
-        text: "Guarda come funziona",
-        href: "#features",
+        variant: 'secondary',
+        text: 'Guarda come funziona',
+        href: '#features',
       },
     ]}
   >
@@ -59,22 +57,15 @@ const imagePaths = await Astro.glob(
         La soluzione per la tua <br />
         <RotatingText
           client:visible
-          texts={[
-            "formazione",
-            "crescita",
-            "innovazione",
-            "carriera",
-            "organizzazione",
-            "evoluzione",
-          ]}
+          texts={['formazione', 'crescita', 'innovazione', 'carriera', 'organizzazione', 'evoluzione']}
           mainClassName="px-2 sm:px-2 md:px-3 text-accent bg-primary overflow-hidden py-0.5 sm:py-1 md:py-2 justify-center inline-flex rounded-lg"
-          staggerFrom={"last"}
-          initial={{ y: "100%" }}
+          staggerFrom={'last'}
+          initial={{ y: '100%' }}
           animate={{ y: 0 }}
-          exit={{ y: "-120%" }}
+          exit={{ y: '-120%' }}
           staggerDuration={0.025}
           splitLevelClassName="overflow-hidden pb-0.5 sm:pb-1 md:pb-1"
-          transition={{ type: "spring", damping: 30, stiffness: 400 }}
+          transition={{ type: 'spring', damping: 30, stiffness: 400 }}
           rotationInterval={2000}
         />
       </div>
@@ -88,19 +79,13 @@ const imagePaths = await Astro.glob(
     </Fragment>
 
     <Fragment slot="subtitle">
-      Una piattaforma pensata per enti di formazione e aziende che vogliono
-      gestire corsi, docenti e studenti in modo semplice, centralizzato e
-      accessibile da ogni dispositivo.
+      Una piattaforma pensata per enti di formazione e aziende che vogliono gestire corsi, docenti e studenti in modo
+      semplice, centralizzato e accessibile da ogni dispositivo.
     </Fragment>
 
     <Fragment slot="slider">
       <div class="mt-12">
-        <InfiniteSlider
-          client:visible
-          duration={30}
-          pauseOnHover={false}
-          imagePaths={imagePaths}
-        />
+        <InfiniteSlider client:visible duration={30} pauseOnHover={false} imagePaths={imagePaths} />
       </div>
     </Fragment>
   </Hero>
@@ -113,29 +98,29 @@ const imagePaths = await Astro.glob(
       {
         image: {
           src: hrImage.src,
-          alt: "Office",
+          alt: 'Office',
         },
-        title: "Human Resources",
+        title: 'Human Resources',
         description:
-          "Crea percorsi formativi strutturati, traccia tutto in automatico e certifica la crescita reale delle persone",
+          'Crea percorsi formativi strutturati, traccia tutto in automatico e certifica la crescita reale delle persone',
       },
       {
         image: {
           src: aziendeImage.src,
-          alt: "Meeting Room",
+          alt: 'Meeting Room',
         },
-        title: "Aziende e PMI",
+        title: 'Aziende e PMI',
         description:
-          "Per assolvere gli obblighi normativi, aggiornare le competenze del tuo team e potenziare la produttività della tua realtà",
+          'Per assolvere gli obblighi normativi, aggiornare le competenze del tuo team e potenziare la produttività della tua realtà',
       },
       {
         image: {
           src: istitutiImage.src,
-          alt: "Man teaching a class",
+          alt: 'Man teaching a class',
         },
-        title: "Istituti di Formazione",
+        title: 'Istituti di Formazione',
         description:
-          "Produci la reportistica richiesta dagli enti finanziatori con un’unica piattaforma conforme e personalizzabile",
+          'Produci la reportistica richiesta dagli enti finanziatori con un’unica piattaforma conforme e personalizzabile',
       },
     ]}
   />
@@ -145,28 +130,22 @@ const imagePaths = await Astro.glob(
     title="Dalla creazione all'erogazione: ecco cosa puoi fare con WhoTeach"
     image={{
       src: lms,
-      alt: "Colorful Image",
+      alt: 'Colorful Image',
     }}
   >
     <Fragment slot="content">
-      <p class="mb-1 text-sm uppercase tracking-tight">
-        Learning Management System
-      </p>
+      <p class="mb-1 text-sm uppercase tracking-tight">Learning Management System</p>
     </Fragment>
     <Fragment slot="content">
-      <h3
-        class="mb-2 text-2xl font-semibold tracking-tight text-primary sm:text-3xl"
-      >
+      <h3 class="mb-2 text-2xl font-semibold tracking-tight text-primary sm:text-3xl">
         Gestisci corsi, materiali e certificazioni da un unico spazio
       </h3>
     </Fragment>
 
     <Fragment slot="content">
       <p class="mb-2 mt-6 tracking-tight">
-        Organizza i tuoi contenuti formativi in modo flessibile, monitora
-        l'avanzamento degli utenti e rilascia certificati in automatico. Tutto è
-        tracciato, conforme e facilmente personalizzabile, anche con il tuo
-        brand.
+        Organizza i tuoi contenuti formativi in modo flessibile, monitora l'avanzamento degli utenti e rilascia
+        certificati in automatico. Tutto è tracciato, conforme e facilmente personalizzabile, anche con il tuo brand.
       </p>
     </Fragment>
   </Content>
@@ -174,25 +153,22 @@ const imagePaths = await Astro.glob(
   <Content
     image={{
       src: auleVirtuali,
-      alt: "Colorful Image",
+      alt: 'Colorful Image',
     }}
   >
     <Fragment slot="content">
       <p class="mb-1 text-sm uppercase tracking-tight">Aule virtuali</p>
     </Fragment>
     <Fragment slot="content">
-      <h3
-        class="mb-2 text-2xl font-semibold tracking-tight text-primary sm:text-3xl"
-      >
+      <h3 class="mb-2 text-2xl font-semibold tracking-tight text-primary sm:text-3xl">
         Tieni lezioni interattive, efficaci e coinvolgenti
       </h3>
     </Fragment>
 
     <Fragment slot="content">
       <p class="mb-2 mt-6 tracking-tight">
-        Crea lezioni sincrone efficaci in un ambiente digitale completo,
-        progettato per facilitare l’apprendimento e la collaborazione tra
-        docenti e partecipanti.
+        Crea lezioni sincrone efficaci in un ambiente digitale completo, progettato per facilitare l’apprendimento e la
+        collaborazione tra docenti e partecipanti.
       </p>
     </Fragment>
   </Content>
@@ -201,26 +177,22 @@ const imagePaths = await Astro.glob(
     isReversed
     image={{
       src: recommenderSystem,
-      alt: "Colorful Image",
+      alt: 'Colorful Image',
     }}
   >
     <Fragment slot="content">
       <p class="mb-1 text-sm uppercase tracking-tight">Recommender System</p>
     </Fragment>
     <Fragment slot="content">
-      <h3
-        class="mb-2 text-2xl font-semibold tracking-tight text-primary sm:text-3xl"
-      >
+      <h3 class="mb-2 text-2xl font-semibold tracking-tight text-primary sm:text-3xl">
         Per costruire corsi migliori, in meno tempo
       </h3>
     </Fragment>
 
     <Fragment slot="content">
       <p class="mb-2 mt-6 tracking-tight">
-        Il sistema di raccomandazione intelligente ti aiuta a trovare
-        rapidamente i contenuti più adatti per ogni corso. Analizza input,
-        preferenze e obiettivi per proporti risorse pertinenti, aggiornate e
-        coerenti.
+        Il sistema di raccomandazione intelligente ti aiuta a trovare rapidamente i contenuti più adatti per ogni corso.
+        Analizza input, preferenze e obiettivi per proporti risorse pertinenti, aggiornate e coerenti.
       </p>
     </Fragment>
   </Content>
@@ -228,25 +200,22 @@ const imagePaths = await Astro.glob(
   <Content
     image={{
       src: generativeAI,
-      alt: "Illustrazione di un cubo tecnologico illuminato, circondato da circuiti elettronici.",
+      alt: 'Illustrazione di un cubo tecnologico illuminato, circondato da circuiti elettronici.',
     }}
   >
     <Fragment slot="content">
       <p class="mb-1 text-sm uppercase tracking-tight">Generative AI</p>
     </Fragment>
     <Fragment slot="content">
-      <h3
-        class="mb-2 text-2xl font-semibold tracking-tight text-primary sm:text-3xl"
-      >
+      <h3 class="mb-2 text-2xl font-semibold tracking-tight text-primary sm:text-3xl">
         Crea lezioni complete in pochi minuti, con l'aiuto dell'AI
       </h3>
     </Fragment>
 
     <Fragment slot="content">
       <p class="mb-2 mt-6 tracking-tight">
-        Scrivi un prompt, scegli il formato e ottieni contenuti didattici
-        originali: testi, slide, diagrammi e quiz vengono generati in
-        automatico, pronti per essere usati o personalizzati.
+        Scrivi un prompt, scegli il formato e ottieni contenuti didattici originali: testi, slide, diagrammi e quiz
+        vengono generati in automatico, pronti per essere usati o personalizzati.
       </p>
     </Fragment>
   </Content>
@@ -261,25 +230,25 @@ const imagePaths = await Astro.glob(
     centeredIcons={true}
     classes={{
       headline: {
-        container: "basis-1/3",
+        container: 'basis-1/3',
       },
     }}
     items={[
       {
-        title: "Upskilling e reskilling",
-        icon: "flat-color-icons:template",
+        title: 'Upskilling e reskilling',
+        icon: 'flat-color-icons:template',
       },
       {
-        title: "Formazione obbligatoria",
-        icon: "flat-color-icons:gallery",
+        title: 'Formazione obbligatoria',
+        icon: 'flat-color-icons:gallery',
       },
       {
-        title: "Onboarding",
-        icon: "flat-color-icons:approval",
+        title: 'Onboarding',
+        icon: 'flat-color-icons:approval',
       },
       {
-        title: "Client training",
-        icon: "flat-color-icons:document",
+        title: 'Client training',
+        icon: 'flat-color-icons:document',
       },
     ]}
   />
@@ -330,7 +299,7 @@ const imagePaths = await Astro.glob(
     rating={4.5}
     source="Fonte: Capterra"
     classes={{
-      container: "md:pt-24 md:pb-8",
+      container: 'md:pt-24 md:pb-8',
     }}
   >
     <Fragment slot="bg">
@@ -340,15 +309,14 @@ const imagePaths = await Astro.glob(
 
   <Stats
     stats={[
-      { title: "Studenti che hanno già usato WhoTeach", amount: "100K+" },
+      { title: 'Studenti che hanno già usato WhoTeach', amount: '100K+' },
       {
-        title: "Valutazione della nostra assistenza clienti (fonte: Capterra)",
-        amount: "4.5/5",
+        title: 'Valutazione della nostra assistenza clienti (fonte: Capterra)',
+        amount: '4.5/5',
       },
       {
-        title:
-          "Risparmio medio sui costi per la creazione di materiali didattici",
-        amount: "20%",
+        title: 'Risparmio medio sui costi per la creazione di materiali didattici',
+        amount: '20%',
       },
     ]}
   >

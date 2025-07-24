@@ -33,64 +33,109 @@ const {
   containerClass={`max-w-7xl mx-auto ${isAfterContent ? 'pt-0 md:pt-0 lg:pt-0' : ''} ${classes?.container ?? ''}`}
   bg={bg}
 >
-  <Headline
-    title={title}
-    subtitle={subtitle}
-    tagline={tagline}
-    classes={{
-      // container: 'max-w-xl lg:max-w-2xl',
-      title: 'text-3xl md:text-4xl font-bold tracking-tighter mb-4 font-heading text-primary',
+  <!-- Per mobile: Headline seguito immediatamente dall'immagine -->
+  <div class="block md:hidden">
+    <Headline
+      title={title}
+      subtitle={subtitle}
+      tagline={tagline}
+      classes={{
+        title: 'text-3xl font-bold tracking-tighter mb-4 font-heading text-primary',
+        subtitle: 'text-xl text-muted dark:text-slate-400 mb-16',
+      }}
+    />
 
-      subtitle: 'text-xl text-muted dark:text-slate-400',
-    }}
-  />
-  <div class="mx-auto">
-    <div class={`md:flex md:justify-center ${isReversed ? 'md:flex-row-reverse' : ''} md:gap-10`}>
-      <div class={`md:basis-full max-w-[60ch] ${start === 'middle' ? 'self-center' : ''}`}>
-        {content && <div class="mb-8 text-lg dark:text-slate-400" set:html={content} />}
+    <!-- Contenuto testuale solo su mobile -->
+    {content && <div class="mb-6 text-base dark:text-slate-400" set:html={content} />}
 
-        {
-          callToAction && (
-            <div class="mb-8 text-primary">
-              <Button variant="link" {...callToAction} />
-            </div>
-          )
-        }
+    {
+      image && (
+        <div class="mb-6 mt-4">
+          {typeof image === 'string' ? (
+            <Fragment class="mx-auto rounded-lg bg-gray-500 shadow-lg" set:html={image} />
+          ) : (
+            <Image
+              width={400}
+              height={300}
+              widths={[300, 400]}
+              sizes="(max-width: 768px) 100vw"
+              layout="constrained"
+              class="mx-auto rounded-xl"
+              {...image}
+            />
+          )}
+        </div>
+      )
+    }
 
-        <ItemGrid
-          items={items}
-          columns={columns}
-          defaultIcon="tabler:check"
-          classes={{
-            container: `gap-y-4 md:gap-y-8`,
-            panel: 'max-w-none',
-            title: 'text-lg font-medium leading-6 ml-2 rtl:ml-0 rtl:mr-2',
-            description: 'text-muted dark:text-slate-400 ml-2 rtl:ml-0 rtl:mr-2',
-            icon: 'flex h-7 w-7 items-center justify-center rounded-full bg-green-600 dark:bg-green-700 text-gray-50 p-1',
-            action: 'text-lg font-medium leading-6 dark:text-white ml-2 rtl:ml-0 rtl:mr-2',
-          }}
-        />
-      </div>
-      <div aria-hidden="true" class={`mt-10 md:mt-0 ${largeImage ? 'w-2/5' : ''}`}>
-        {
-          image && (
-            <div class="relative m-auto max-w-4xl">
-              {typeof image === 'string' ? (
-                <Fragment class="mx-auto rounded-lg bg-gray-500 shadow-lg" set:html={image} />
-              ) : (
-                <Image
-                  width={400}
-                  height={400}
-                  widths={[300, 576]}
-                  sizes="(max-width: 768px) 75vw, 324px"
-                  layout="constrained"
-                  class="mx-auto rounded-2xl"
-                  {...image}
-                />
-              )}
-            </div>
-          )
-        }
+    {
+      callToAction && (
+        <div class="mb-8 text-primary">
+          <Button variant="secondary" class="w-full py-3" {...callToAction} />
+        </div>
+      )
+    }
+  </div>
+
+  <!-- Layout desktop originale -->
+  <div class="hidden md:block">
+    <Headline
+      title={title}
+      subtitle={subtitle}
+      tagline={tagline}
+      classes={{
+        title: 'text-4xl font-bold tracking-tighter mb-4 font-heading text-primary',
+        subtitle: 'text-xl text-muted dark:text-slate-400',
+      }}
+    />
+    <div class="mx-auto">
+      <div class={`flex justify-center ${isReversed ? 'flex-row-reverse' : ''} gap-10`}>
+        <div class={`md:basis-full max-w-[60ch] ${start === 'middle' ? 'self-center' : ''}`}>
+          {content && <div class="mb-8 text-lg dark:text-slate-400" set:html={content} />}
+
+          {
+            callToAction && (
+              <div class="mb-8 text-primary">
+                <Button variant="link" {...callToAction} />
+              </div>
+            )
+          }
+
+          <ItemGrid
+            items={items}
+            columns={columns}
+            defaultIcon="tabler:check"
+            classes={{
+              container: `gap-y-4 md:gap-y-8`,
+              panel: 'max-w-none',
+              title: 'text-lg font-medium leading-6 ml-2 rtl:ml-0 rtl:mr-2',
+              description: 'text-muted dark:text-slate-400 ml-2 rtl:ml-0 rtl:mr-2',
+              icon: 'flex h-7 w-7 items-center justify-center rounded-full bg-green-600 dark:bg-green-700 text-gray-50 p-1',
+              action: 'text-lg font-medium leading-6 dark:text-white ml-2 rtl:ml-0 rtl:mr-2',
+            }}
+          />
+        </div>
+        <div aria-hidden="true" class={`mt-10 md:mt-0 ${largeImage ? 'w-2/5' : ''}`}>
+          {
+            image && (
+              <div class="relative m-auto max-w-4xl">
+                {typeof image === 'string' ? (
+                  <Fragment class="mx-auto rounded-lg bg-gray-500 shadow-lg" set:html={image} />
+                ) : (
+                  <Image
+                    width={400}
+                    height={400}
+                    widths={[300, 576]}
+                    sizes="(max-width: 768px) 75vw, 324px"
+                    layout="constrained"
+                    class="mx-auto rounded-2xl"
+                    {...image}
+                  />
+                )}
+              </div>
+            )
+          }
+        </div>
       </div>
     </div>
   </div>

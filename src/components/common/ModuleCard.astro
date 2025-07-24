@@ -1,0 +1,97 @@
+---
+// filepath: c:\Users\citru\Documents\GitHub\whoteach-website\src\components\common\ModuleCard.astro
+import { Icon } from 'astro-icon/components';
+import { twMerge } from 'tailwind-merge';
+import Image from '~/components/common/Image.astro';
+import Button from '~/components/ui/Button.astro';
+
+export interface Props {
+  title: string;
+  description: string;
+  icon?: string;
+  iconImage?: string | unknown;
+  features?: Array<string>;
+  callToAction?: {
+    text: string;
+    href: string;
+    icon?: string;
+    target?: string;
+    variant?: 'primary' | 'secondary' | 'tertiary' | 'link';
+  };
+  classes?: {
+    icon?: string;
+  };
+}
+
+const {
+  title,
+  description,
+  icon,
+  iconImage = await Astro.slots.render('iconImage'),
+  features = [],
+  callToAction = {
+    text: 'Prenota una demo',
+    href: '/contatti',
+    variant: 'secondary',
+  },
+  classes = {},
+} = Astro.props as Props;
+
+const defaultIcon = 'tabler:school';
+const defaultIconClass = 'text-primary dark:text-slate-200 border-primary dark:border-blue-700';
+---
+
+<div class="flex h-full flex-col items-center rounded-lg p-6 transition duration-300 dark:bg-slate-900">
+  <!-- Icona con lo stile richiesto -->
+  <div class="mb-5 flex justify-center">
+    {
+      iconImage ? (
+        typeof iconImage === 'string' ? (
+          <Fragment set:html={iconImage} />
+        ) : (
+          <Image width={40} height={40} class="object-contain" {...iconImage} />
+        )
+      ) : (
+        <Icon
+          name={icon || defaultIcon}
+          class={twMerge(
+            'h-10 w-10 rounded-full bg-accent p-2 text-primary ring ring-primary',
+            defaultIconClass,
+            classes?.icon
+          )}
+        />
+      )
+    }
+  </div>
+
+  <!-- Titolo -->
+  <h3 class="mb-3 text-center text-2xl font-bold leading-tight text-primary dark:text-white">{title}</h3>
+
+  <!-- Descrizione -->
+  <p class="mb-5 text-center text-secondary">{description}</p>
+
+  <!-- Lista funzionalità -->
+  {
+    features && features.length > 0 && (
+      <ul class="mb-6 w-full list-disc space-y-3 text-left text-sm">
+        {features.map((feature) => (
+          <li class="text-secondary">
+            <span class="dark:text-gray-300">{feature}</span>
+          </li>
+        ))}
+      </ul>
+    )
+  }
+
+  <div class="mt-auto w-full pt-4">
+    <Button
+      variant={callToAction.variant || 'secondary'}
+      href={callToAction.href}
+      target={callToAction.target}
+      class="w-full justify-center rounded-full"
+    >
+      {callToAction.text}
+      {callToAction.icon && <Icon name={callToAction.icon} class="ml-2 h-5 w-5" />}
+    </Button>
+  </div>
+</div>

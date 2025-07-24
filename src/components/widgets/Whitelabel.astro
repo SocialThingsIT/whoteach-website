@@ -3,6 +3,7 @@ import type { Whitelabel as Props } from '~/types';
 import Headline from '~/components/ui/Headline.astro';
 import WidgetWrapper from '~/components/ui/WidgetWrapper.astro';
 import ItemGrid from '~/components/ui/ItemGrid.astro';
+import Button from '../ui/Button.astro';
 
 const {
   title = await Astro.slots.render('title'),
@@ -10,6 +11,7 @@ const {
   tagline,
   content = await Astro.slots.render('content'),
   content2 = await Astro.slots.render('content2'),
+  cta = await Astro.slots.render('cta'),
   items = [],
   columns = 1,
   defaultIcon = 'tabler:check',
@@ -39,6 +41,16 @@ const {
 
         {content && <div class="mb-8 text-lg text-muted dark:text-slate-400" set:html={content} />}
         {content2 && <div class="text-lg text-muted dark:text-slate-400" set:html={content2} />}
+        <!-- Call to Action Button -->
+        {
+          cta && (
+            <div class="mt-8">
+              {typeof cta === 'object' && cta.href && cta.text && (
+                <Button variant="secondary" class="py-3" href={cta.href} text={cta.text} />
+              )}
+            </div>
+          )
+        }
       </div>
 
       <!-- Right column with items -->

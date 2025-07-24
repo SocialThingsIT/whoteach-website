@@ -37,7 +37,7 @@ const {
     </div>
     {
       image && (
-        <div class="relative flex md:basis-1/2 md:items-center md:justify-center">
+        <div class="relative hidden md:flex md:basis-1/2 md:items-center md:justify-center">
           {typeof image === 'string' ? (
             <Fragment set:html={image} />
           ) : (
