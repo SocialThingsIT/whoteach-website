@@ -24,7 +24,7 @@ export const headerData = {
         {
           text: 'LMS',
           href: getPermalink('/components/lms'),
-        }
+        },
       ],
     },
     {
@@ -53,7 +53,6 @@ export const headerData = {
 
 export const footerData = {
   links: [
-    {},
     {
       title: 'Azienda',
       links: [
@@ -61,7 +60,7 @@ export const footerData = {
         { text: 'Accedi a WhoTeachPlatform', href: '#' },
         { text: 'Chi Siamo', href: '#' },
         { text: 'Blog', href: '#' },
-        { text: 'Piani Tariffari', href: '#' }
+        { text: 'Piani Tariffari', href: '#' },
       ],
     },
     {
@@ -75,10 +74,8 @@ export const footerData = {
     },
     {
       title: 'Assistenza',
-      links: [
-        { text: 'Contatti', href: '#' }
-      ],
-    }
+      links: [{ text: 'Contatti', href: '#' }],
+    },
   ],
   secondaryLinks: [
     { text: 'Termini e condizioni', href: getPermalink('/terms') },
@@ -89,5 +86,5 @@ export const footerData = {
     { ariaLabel: 'Instagram', icon: 'tabler:brand-instagram', href: '#' },
     { ariaLabel: 'Facebook', icon: 'tabler:brand-facebook', href: '#' },
     { ariaLabel: 'RSS', icon: 'tabler:rss', href: getAsset('/rss.xml') },
-  ]
+  ],
 };

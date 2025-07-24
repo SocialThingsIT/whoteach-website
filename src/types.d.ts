@@ -1,10 +1,29 @@
 import type { AstroComponentFactory } from 'astro/runtime/server/index.js';
 import type { HTMLAttributes, ImageMetadata } from 'astro/types';
 
+export interface ModuleCard {
+  title: string;
+  description: string;
+  icon?: string;
+  iconImage?: any;
+  features?: Array<string>;
+  callToAction?: {
+    text: string;
+    href: string;
+    icon?: string;
+    target?: string;
+    variant?: 'primary' | 'secondary' | 'tertiary' | 'link';
+  };
+}
+
 export interface Whitelabel extends Omit<Headline, 'classes'>, Widget {
   content?: string;
   content2?: string;
   items?: Array<Item>;
+  cta?: {
+    text: string;
+    href: string;
+  };
   columns?: number;
   defaultIcon?: string;
 }
