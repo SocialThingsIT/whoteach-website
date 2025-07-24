@@ -61,6 +61,7 @@ export const footerData = {
         { text: 'Chi Siamo', href: '#' },
         { text: 'Blog', href: '#' },
         { text: 'Piani Tariffari', href: '#' },
+        { text: 'Editor News', href: getPermalink('/text-editor') }
       ],
     },
     {
