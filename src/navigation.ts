@@ -6,10 +6,6 @@ export const headerData = {
       text: 'Componenti',
       links: [
         {
-          text: 'La piattaforma',
-          href: getPermalink('/components/the-platform'),
-        },
-        {
           text: 'Recommender System',
           href: getPermalink('/components/recommender-system'),
         },
@@ -32,8 +28,8 @@ export const headerData = {
       href: getPermalink('/prices'),
     },
     {
-      text: 'Clienti',
-      href: getPermalink('/clients'),
+      text: 'Piattaforma',
+      href: getPermalink('/the-platform'),
     },
     {
       text: 'Chi siamo',
@@ -61,7 +57,7 @@ export const footerData = {
         { text: 'Chi Siamo', href: '#' },
         { text: 'Blog', href: '#' },
         { text: 'Piani Tariffari', href: '#' },
-        { text: 'Editor News', href: getPermalink('/text-editor') }
+        { text: 'Editor News', href: getPermalink('/text-editor') },
       ],
     },
     {

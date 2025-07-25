@@ -4,6 +4,7 @@ import Layout from '~/layouts/PageLayout.astro';
 import Hero from '~/components/widgets/Hero.astro';
 import Content from '~/components/widgets/Content.astro';
 import Stats from '~/components/widgets/Stats.astro';
+import Headline from '~/components/ui/Headline.astro';
 
 const metadata = {
   title: 'CHI SIAMO',
@@ -12,69 +13,143 @@ const metadata = {
 ---
 
 <Layout metadata={metadata}>
-  <Hero
-    textAlign="left"
-  >
-    <Fragment slot="title"> Aiutiamo le organizzazioni a crescere, partendo dalle persone </Fragment>
-    <Fragment slot="subtitle"> Vogliamo ripensare il modo in cui si fa formazione </Fragment>
-    <Fragment slot="content"> WhoTeach nasce da una visione ambiziosa e da un’esigenza urgente: ripensare il modo in cui si fa formazione. Tutto ha origine da una tesi di dottorato in Informatica, dove il nostro CEO Francesco Epifania esplora il potenziale dell’Intelligenza Artificiale applicata alla condivisione della conoscenza.
-    <br>Da lì, l’intuizione si trasforma in un progetto concreto: <b>un ecosistema digitale per l’apprendimento</b>, sviluppato all’interno di un programma europeo e arricchito dalla collaborazione con università e partner internazionali.
-    <br>Oggi WhoTeach è molto più di una piattaforma: è la soluzione <b>SaaS B2B</b> per la formazione aziendale, progettata per chi cerca uno strumento davvero flessibile, intelligente e pronto a evolvere con le sfide del mondo del lavoro. </Fragment>
+  <Hero textAlign="center">
+    <Fragment slot="title">Aiutiamo le organizzazioni a crescere, partendo dalle persone</Fragment>
   </Hero>
 
+  <Headline
+    classes={{
+      container:
+        'intersect-once intersect-quarter motion-safe:md:opacity-0 motion-safe:md:intersect:animate-fade max-w-5xl px-4 sm:px-6 mx-auto mt-20',
+      title: 'mb-2 text-2xl font-bold tracking-tight text-primary sm:text-4xl',
+      subtitle: 'text-xl text-muted dark:text-slate-400',
+    }}
+  >
+    <Fragment slot="title">
+      <h2 class="mb-2 text-2xl font-bold tracking-tight text-primary sm:text-4xl">
+        Vogliamo ripensare il modo in cui si fa formazione
+      </h2>
+    </Fragment>
+
+    <Fragment slot="subtitle">
+      <div class="mb-2 mt-8 text-lg tracking-tight text-muted dark:text-slate-400">
+        <p>
+          WhoTeach nasce da una visione ambiziosa e da un'esigenza urgente: ripensare il modo in cui si fa formazione.
+          Tutto ha origine da una tesi di dottorato in Informatica, dove il nostro CEO Francesco Epifania esplora il
+          potenziale dell'Intelligenza Artificiale applicata alla condivisione della conoscenza.
+        </p>
+
+        <p>
+          Da lì, l'intuizione si trasforma in un progetto concreto:
+          <strong>un ecosistema digitale per l'apprendimento</strong>, sviluppato all'interno di un programma europeo e
+          arricchito dalla collaborazione con università e partner internazionali.
+        </p>
+
+        <p>
+          Oggi WhoTeach è molto più di una piattaforma: è la soluzione <strong>SaaS B2B</strong> per la formazione aziendale,
+          progettata per chi cerca uno strumento davvero flessibile, intelligente e pronto a evolvere con le sfide del mondo
+          del lavoro.
+        </p>
+      </div>
+    </Fragment>
+  </Headline>
+
   <Content
+    isReversed
     image={{
       src: 'https://images.unsplash.com/photo-1519389950473-47ba0277781c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80',
       alt: 'Colorful Image',
     }}
+    callToAction={{
+      variant: 'secondary',
+      text: 'Scopri di più',
+      href: '/',
+    }}
   >
-    <Fragment slot="content">
-      <h3 class="text-2xl font-bold tracking-tight sm:text-3xl mb-2">Crediamo che l’apprendimento sia il vantaggio competitivo più solido</h3>
+    <Fragment slot="bg">
+      <div class="absolute inset-0 bg-section dark:bg-transparent"></div>
     </Fragment>
     <Fragment slot="content">
-      <p class="tracking-tight mb-2">
-        Aiutiamo aziende, enti e formatori a creare ed erogare <b>percorsi didattici di alta qualità</b>, semplificando l’accesso alle opportunità di upskilling e reskilling.
-        <br>
-        <br>
-        Per noi, la formazione non è un costo da sostenere, ma <b>un investimento che genera valore</b> nel tempo. Perché quando le persone crescono, le organizzazioni evolvono.
+      <h3 class="mb-2 text-2xl font-bold tracking-tight text-primary sm:text-3xl">
+        Crediamo che l'apprendimento sia il vantaggio competitivo più solido
+      </h3>
+    </Fragment>
+    <Fragment slot="content">
+      <p class="mb-2 mt-8 tracking-tight">
+        Aiutiamo aziende, enti e formatori a creare ed erogare <strong>percorsi didattici di alta qualità</strong>,
+        semplificando l'accesso alle opportunità di upskilling e reskilling.
+      </p>
+      <p>
+        Per noi, la formazione non è un costo da sostenere, ma <strong>un investimento che genera valore</strong> nel tempo.
+        Perché quando le persone crescono, le organizzazioni evolvono.
       </p>
     </Fragment>
   </Content>
 
   <Content
+    isAfterContent
     image={{
       src: 'https://images.unsplash.com/photo-1519389950473-47ba0277781c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80',
       alt: 'Colorful Image',
     }}
+    callToAction={{
+      variant: 'secondary',
+      text: 'Scopri di più',
+      href: '/',
+    }}
   >
-    <Fragment slot="content">
-      <h3 class="text-2xl font-bold tracking-tight sm:text-3xl mb-2">Un ecosistema per chi crede nella crescita continua</h3>
+    <Fragment slot="bg">
+      <div class="absolute inset-0 bg-section dark:bg-transparent"></div>
     </Fragment>
     <Fragment slot="content">
-      <p class="tracking-tight mb-2">
-        Tecnologia avanzata, sì. Ma <b>al servizio delle persone.</b> Perché crediamo che la vera innovazione sia quella che rende l’apprendimento più semplice, accessibile e motivante, per chi insegna e per chi impara.
-        <br>
-        <br>
-        In un mercato che cambia alla velocità delle competenze, l’intelligenza artificiale è per noi la chiave per ridurre il gap, accelerare l’upskilling e trasformare la formazione in un vantaggio competitivo.
+      <h3 class="mb-2 text-2xl font-bold tracking-tight text-primary sm:text-3xl">
+        Un ecosistema per chi crede nella crescita continua
+      </h3>
+    </Fragment>
+    <Fragment slot="content">
+      <p class="mb-2 mt-8 tracking-tight">
+        Tecnologia avanzata, sì. Ma <strong>al servizio delle persone.</strong> Perché crediamo che la vera innovazione sia
+        quella che rende l'apprendimento più semplice, accessibile e motivante, per chi insegna e per chi impara.
+      </p>
+      <p>
+        In un mercato che cambia alla velocità delle competenze, l'intelligenza artificiale è per noi la chiave per
+        ridurre il gap, accelerare l'upskilling e trasformare la formazione in un vantaggio competitivo.
       </p>
     </Fragment>
   </Content>
 
   <Stats
-    title='Abbiamo un impatto concreto sulle organizzazioni'
+    title="Abbiamo un impatto concreto sulle organizzazioni"
     stats={[
       { title: 'riduzione dei costi', amount: '20%' },
       { title: 'risparmio di tempo', amount: '50%' },
-      { title: 'miglioramento della qualità dei corsi', amount: '40%' }
+      { title: 'miglioramento della qualità dei corsi', amount: '40%' },
     ]}
   />
 
-  <Hero
-    textAlign="left"
+  <Headline
+    classes={{
+      container:
+        'intersect-once intersect-quarter motion-safe:md:opacity-0 motion-safe:md:intersect:animate-fade max-w-5xl px-4 sm:px-6 mx-auto mt-20',
+      title: 'mb-2 text-2xl font-bold tracking-tight text-primary sm:text-4xl',
+      subtitle: 'text-xl text-muted dark:text-slate-400',
+    }}
   >
-    <Fragment slot="subtitle"> Insieme a chi investe sul futuro </Fragment>
-    <Fragment slot="content"> Siamo al fianco di imprese e istituzioni che credono nell’innovazione come leva per crescere.
-      <br><br>Collaboriamo ogni giorno con enti formativi e aziende che hanno scelto la nostra piattaforma per trasformare le attività di training in esperienze digitali evolute, scalabili e misurabili. Una rete in continua espansione, unita da un obiettivo comune: rendere la formazione un asset strategico per il futuro.
-    </Hero>
+    <Fragment slot="title">
+      <h2 class="mb-2 text-2xl font-bold tracking-tight text-primary sm:text-4xl">Insieme a chi investe sul futuro</h2>
+    </Fragment>
 
+    <Fragment slot="subtitle">
+      <div class="mb-2 mt-8 text-lg tracking-tight text-muted dark:text-slate-400">
+        <p>Siamo al fianco di imprese e istituzioni che credono nell'innovazione come leva per crescere.</p>
+
+        <p>
+          Collaboriamo ogni giorno con enti formativi e aziende che hanno scelto la nostra piattaforma per trasformare
+          le attività di training in esperienze digitali evolute, scalabili e misurabili. Una rete in continua
+          espansione, unita da un obiettivo comune: rendere la formazione un asset strategico per il futuro.
+        </p>
+      </div>
+    </Fragment>
+  </Headline>
+  <h1 class="my-20 text-center text-6xl font-black text-primary">!!! TODO: SLIDERS CLIENTI !!!</h1>
 </Layout>
