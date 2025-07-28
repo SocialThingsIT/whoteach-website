@@ -9,6 +9,8 @@ import Steps from '~/components/widgets/Steps.astro';
 import Features2 from '~/components/widgets/Features2.astro';
 
 import heroComponente from '~/assets/images/whoteach-images/hero-componente.png';
+import recommenderSystem from '~/assets/images/whoteach-images/recommender-system.jpg';
+import generativeAI from '~/assets/images/whoteach-images/gen-ai.jpg';
 import whoteachCorso from '~/assets/images/whoteach-images/whoteach-corso.png';
 import Headline from '~/components/ui/Headline.astro';
 import Button from '~/components/ui/Button.astro';
@@ -17,8 +19,7 @@ import Whitelabel from '~/components/widgets/Whitelabel.astro';
 import VideoPlayer from '~/components/custom-react/VideoPlayer';
 
 const metadata = {
-  title: 'LA PIATTAFORMA',
-  ignoreTitleTemplate: true,
+  title: 'Platform',
 };
 
 const imagePaths = await Astro.glob('/src/assets/images/whoteach-slider-logos/*').then((files) => {
@@ -84,7 +85,7 @@ const imagePaths = await Astro.glob('/src/assets/images/whoteach-slider-logos/*'
     title="Con WhoTeach, l’intelligenza artificiale non è solo un'aggiunta"
     subtitle="... è parte integrante dell’esperienza! Non parliamo di AI generica, ma di strumenti concreti progettati per rendere più efficace il tuo lavoro quotidiano."
     image={{
-      src: 'https://images.unsplash.com/photo-1519389950473-47ba0277781c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80',
+      src: generativeAI,
       alt: 'Colorful Image',
     }}
     callToAction={{
@@ -116,7 +117,7 @@ const imagePaths = await Astro.glob('/src/assets/images/whoteach-slider-logos/*'
   <Content
     isAfterContent
     image={{
-      src: 'https://images.unsplash.com/photo-1519389950473-47ba0277781c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80',
+      src: recommenderSystem,
       alt: 'Colorful Image',
     }}
     callToAction={{

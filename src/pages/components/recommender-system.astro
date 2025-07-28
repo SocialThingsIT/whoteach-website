@@ -3,31 +3,32 @@ import Layout from '~/layouts/PageLayout.astro';
 
 import Hero from '~/components/widgets/Hero.astro';
 import Content from '~/components/widgets/Content.astro';
-// import Stats from '~/components/widgets/Stats.astro';
-
-import heroComponente from '~/assets/images/whoteach-images/hero-componente.png';
 import Button from '~/components/ui/Button.astro';
 import Headline from '~/components/ui/Headline.astro';
 
+import recommenderSystem from '~/assets/images/whoteach-images/recommender-system.jpg';
+
 const metadata = {
-  title: 'RECOMMENDER SYSTEM',
-  ignoreTitleTemplate: true,
+  title: 'Recommender System',
 };
 ---
 
 <Layout metadata={metadata}>
   <Hero
     textAlign="side"
-    title="Gestisci, personalizza e certifica la formazione"
-    subtitle="WhoTeach LMS è la base solida per erogare formazione asincrona scalabile, personalizzata e conforme. Carica, organizza e gestisci contenuti didattici con la massima libertà, offrendo a ogni utente un'esperienza coinvolgente, tracciabile e certificabile."
+    title="Percorsi smart, su misura, tracciabili"
+    subtitle="WhoTeach Recommender System guida ogni utente verso il contenuto giusto, al momento giusto. Analizza competenze, interessi e attività per offrire percorsi su misura, dinamici e sempre rilevanti, trasformando ogni esperienza formativa in un cammino davvero personale."
     image={{
-      src: heroComponente,
+      src: recommenderSystem,
       alt: 'Ambiente di studio moderno',
     }}
     callToAction={{
       text: 'Prenota una demo',
       href: '/contatti',
       variant: 'primary',
+    }}
+    classes={{
+      image: 'aspect-16/9',
     }}
   />
 

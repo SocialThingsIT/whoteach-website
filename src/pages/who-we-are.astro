@@ -5,11 +5,18 @@ import Hero from '~/components/widgets/Hero.astro';
 import Content from '~/components/widgets/Content.astro';
 import Stats from '~/components/widgets/Stats.astro';
 import Headline from '~/components/ui/Headline.astro';
+import InfiniteSlider from '~/components/custom-react/InfiniteSlider';
 
 const metadata = {
-  title: 'CHI SIAMO',
-  ignoreTitleTemplate: true,
+  title: 'About us',
 };
+
+const imagePaths = await Astro.glob('/src/assets/images/whoteach-slider-logos/*').then((files) => {
+  return files.map((file) => file.default.src); // Just get the src paths
+});
+const partnerPaths = await Astro.glob('/src/assets/images/whoteach-slider-logo-partners/*').then((files) => {
+  return files.map((file) => file.default.src); // Just get the src paths
+});
 ---
 
 <Layout metadata={metadata}>
@@ -151,5 +158,28 @@ const metadata = {
       </div>
     </Fragment>
   </Headline>
-  <h1 class="my-20 text-center text-6xl font-black text-primary">!!! TODO: SLIDERS CLIENTI !!!</h1>
+
+  <div
+    class="intersect-once intercept-no-queue intersect-quarter my-20 motion-safe:md:opacity-0 motion-safe:md:intersect:animate-fade"
+  >
+    <Headline
+      classes={{
+        container: 'max-w-5xl px-4 sm:px-6 mx-auto mb-10',
+        title: 'mb-2 text-2xl font-bold tracking-tight text-primary sm:text-3xl',
+      }}
+      title="Ci hanno dato fiducia"
+    />
+    <InfiniteSlider client:load duration={30} pauseOnHover={false} imagePaths={imagePaths} />
+  </div>
+
+  <div class="my-20">
+    <Headline
+      classes={{
+        container: 'max-w-5xl px-4 sm:px-6 mx-auto mb-10',
+        title: 'mb-20 text-2xl font-bold tracking-tight text-primary sm:text-3xl',
+      }}
+      title="I nostri partner"
+    />
+    <InfiniteSlider client:visible duration={12} pauseOnHover={false} imagePaths={partnerPaths} />
+  </div>
 </Layout>

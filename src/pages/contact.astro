@@ -1,100 +1,39 @@
 ---
 import Layout from '~/layouts/PageLayout.astro';
-import HeroText from '~/components/widgets/HeroText.astro';
 import ContactUs from '~/components/widgets/Contact.astro';
-import Features2 from '~/components/widgets/Features2.astro';
 import Hero from '~/components/widgets/Hero.astro';
-import Content from '~/components/widgets/Content.astro';
+import heroContact from '~/assets/images/whoteach-images/hero-demo-contatto.png';
+import InfiniteSlider from '~/components/custom-react/InfiniteSlider';
 
 const metadata = {
-  title: 'Contact',
+  title: 'Contact us',
 };
+
+const imagePaths = await Astro.glob('/src/assets/images/whoteach-slider-logos/*').then((files) => {
+  return files.map((file) => file.default.src); // Just get the src paths
+});
 ---
 
 <Layout metadata={metadata}>
-  <!-- HeroText Widget ******************* -->
-
   <Hero
-    textAlign="left"
+    textAlign="side"
+    image={{
+      src: heroContact,
+      alt: 'Operatori al lavoro in un call center, utilizzando computer e cuffie per gestire le comunicazioni',
+    }}
   >
     <Fragment slot="title"> Sempre a tua disposizione </Fragment>
 
     <Fragment slot="subtitle">
-      Ogni realtà ha esigenze uniche, e scegliere la piattaforma giusta per la formazione non è sempre facile. 
-      Per questo siamo qui: pronti ad ascoltarti, rispondere alle tue domande e guidarti verso la soluzione più adatta.
+      Ogni realtà ha esigenze uniche, e scegliere la piattaforma giusta per la formazione non è sempre facile. Per
+      questo siamo qui: pronti ad ascoltarti, rispondere alle tue domande e guidarti verso la soluzione più adatta.
     </Fragment>
   </Hero>
 
-  <Content
-    image={{
-      src: 'https://images.unsplash.com/photo-1519389950473-47ba0277781c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80',
-      alt: 'Colorful Image',
-    }}
-  >
-    <Fragment slot="content">
-      <h3 class="text-2xl font-bold tracking-tight sm:text-3xl mb-2">Fai il primo passo con noi</h3>
-    </Fragment>
-    <Fragment slot="content">
-      <p class="tracking-tight mb-2">
-        Stai cercando una piattaforma che rispecchi davvero le esigenze formative della tua realtà? 
-        Vuoi capire concretamente come WhoTeach può aiutarti a progettare un ecosistema didattico su misura, 
-        con costi chiari e funzionalità che fanno davvero la differenza? <br>
-        <b>Compila il form</b> e inizia oggi il tuo percorso con noi:
-      </p>
-    </Fragment>
-
-    <Fragment slot="content">
-      <ul class="tracking-tight mb-2" style="list-style-type: circle">
-        <li>Ricevi la <b>brochure</b> completa </li>
-        <li>Prenota una <b>demo</b> personalizzata</li>
-        <li>Ottieni un’<b>offerta su misura</b>, pensata per i tuoi obiettivi e la tua organizzazione</li>
-      </ul>
-    </Fragment>
-  </Content>
-
-  <Content
-    image={{
-      src: 'https://images.unsplash.com/photo-1519389950473-47ba0277781c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80',
-      alt: 'Colorful Image',
-    }}
-  >
-    <Fragment slot="content">
-      <h3 class="text-2xl font-bold tracking-tight sm:text-3xl mb-2">Conosciamoci meglio</h3>
-    </Fragment>
-    <Fragment slot="content">
-      <p class="tracking-tight mb-2">
-        Hai <b>domande</b> su WhoTeach o vuoi conoscere meglio la nostra realtà? Che tu stia cercando <b>informazioni</b>, 
-        valutando una possibile <b>collaborazione</b> o esplorando nuove <b>sinergie</b>, siamo qui per ascoltarti.
-      </p>
-    </Fragment>
-  </Content>
-
-  <Content
-    image={{
-      src: 'https://images.unsplash.com/photo-1519389950473-47ba0277781c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80',
-      alt: 'Colorful Image',
-    }}
-  >
-    <Fragment slot="content">
-      <p class="font-bold tracking-tight mb-2">Iscriviti alla nostra newsletter</p>
-    </Fragment>
-    <Fragment slot="content">
-      <h3 class="text-2xl font-bold tracking-tight sm:text-3xl mb-2">Le novità che ti aiutano a formare meglio</h3>
-    </Fragment>
-
-    <Fragment slot="content">
-      <ul class="tracking-tight mb-2" style="list-style-type: circle">
-        <li><b>Articoli, risorse e strumenti</b> efficaci per chi lavora con la formazione</li>
-        <li><b>Finanziamenti e bandi:</b> le opportunità che aiutano le tue idee a decollare</li>
-        <li><b>Contenuti selezionati.</b> Niente spam, solo cose utili</li>
-      </ul>
-    </Fragment>
-  </Content>
-
   <ContactUs
     id="form"
-    title="Contattaci"
-    subtitle="Per qualsiasi dubbio o domanda, non esitare a contattarci!"
+    title="Fai il primo passo con noi"
+    subtitle="Ti interessa la piattaforma? Compila il form e ricevi subito la brochure con dettagli, moduli e piani disponibili."
     inputs={[
       {
         type: 'text',
@@ -112,9 +51,12 @@ const metadata = {
     }}
     disclaimer={{
       label:
-        'Inviando questo form acconsenti al trattamento dei tuoi dati personali necessario all\'invio di una email ai nostri recapiti',
+        "Inviando questo form acconsenti al trattamento dei tuoi dati personali necessario all'invio di una email ai nostri recapiti",
     }}
     description="Il nostro team solitamente risponde entro 2 giorni lavorativi"
   />
 
+  <div class="mb-20 mt-10">
+    <InfiniteSlider client:visible duration={30} pauseOnHover={false} imagePaths={imagePaths} />
+  </div>
 </Layout>

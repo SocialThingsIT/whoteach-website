@@ -19,6 +19,7 @@ const {
   bg = await Astro.slots.render('bg'),
   textAlign = 'left', // 'center', 'left', or 'side' for the side-by-side layout
   callToAction,
+  classes = {},
 } = Astro.props;
 
 const isLeftAlign = textAlign === 'left';
@@ -37,7 +38,8 @@ const isSideLayout = textAlign === 'side';
     {
       isSideLayout ? (
         <div class="py-4 md:py-10">
-          <div class="grid grid-cols-1 items-center gap-8 lg:grid-cols-2">
+          {/* <div class="grid grid-cols-1 items-center gap-8 lg:grid-cols-2"> */}
+          <div class="flex flex-col items-center gap-8 lg:flex-row">
             <div class="order-2 flex flex-col lg:order-1">
               {tagline && (
                 <p
@@ -68,18 +70,22 @@ const isSideLayout = textAlign === 'side';
               )}
             </div>
 
-            <div class="intersect-once intercept-no-queue intersect-quarter order-1 motion-safe:md:opacity-0 motion-safe:md:intersect:animate-fade lg:order-2">
+            <div
+              class={`${classes.image ? classes.image : ''} intersect-once intercept-no-queue intersect-quarter order-1 motion-safe:md:opacity-0 motion-safe:md:intersect:animate-fade lg:order-2 lg:min-w-[560px]`}
+            >
               {image && (
                 <div class="relative">
                   {typeof image === 'string' ? (
                     <Fragment set:html={image} />
                   ) : (
                     <Image
-                      class="mx-auto h-auto w-full rounded-3xl"
+                      class="ml-auto aspect-video h-auto w-full rounded-3xl object-cover"
                       widths={[400, 768, 1024, 2040]}
                       sizes="(max-width: 767px) 400px, (max-width: 1023px) 768px, (max-width: 2039px) 1024px, 2040px"
                       layout="constrained"
                       {...image}
+                      width={1200}
+                      height={900}
                     />
                   )}
                 </div>
