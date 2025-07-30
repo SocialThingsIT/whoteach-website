@@ -1,38 +1,21 @@
 export const USER_ROLES = {
   ADMIN: 'admin',
-  TEACHER: 'teacher',
-  STUDENT: 'student'
+  EDITOR: 'editor',
 };
 
 export const ROLE_PERMISSIONS = {
   [USER_ROLES.ADMIN]: {
-    canManageUsers: true,
-    canCreateCourses: true,
-    canEditAllContent: true,
-    canViewAnalytics: true,
-    canAccessAdminPanel: true
+    canManageNews: true
   },
-  [USER_ROLES.TEACHER]: {
-    canManageUsers: false,
-    canCreateCourses: true,
-    canEditAllContent: false,
-    canViewAnalytics: true,
-    canAccessAdminPanel: false
-  },
-  [USER_ROLES.STUDENT]: {
-    canManageUsers: false,
-    canCreateCourses: false,
-    canEditAllContent: false,
-    canViewAnalytics: false,
-    canAccessAdminPanel: false
+  [USER_ROLES.EDITOR]: {
+    canManageNews: true
   }
 };
 
 export const getRoleDisplayName = (role) => {
   const roleNames = {
     [USER_ROLES.ADMIN]: 'Amministratore',
-    [USER_ROLES.TEACHER]: 'Insegnante',
-    [USER_ROLES.STUDENT]: 'Studente'
+    [USER_ROLES.EDITOR]: 'Editor'
   };
   return roleNames[role] || 'Utente';
 };

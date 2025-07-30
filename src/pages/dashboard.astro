@@ -39,51 +39,18 @@ import Layout from '~/layouts/PageLayout.astro';
           </div>
         </div>
 
-        <div id="student-dashboard" class="hidden">
-          <div class="bg-white dark:bg-slate-900 rounded-lg shadow-lg p-8">
-            <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-4">Area Studente</h3>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-              <div class="bg-blue-50 dark:bg-blue-900/20 p-6 rounded-lg">
-                <h4 class="font-semibold text-blue-900 dark:text-blue-100 mb-2">I Miei Corsi</h4>
-                <p class="text-blue-700 dark:text-blue-300 text-sm mb-4">Accedi ai tuoi corsi iscritti</p>
-                <button class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded text-sm">
-                  Visualizza Corsi
-                </button>
-              </div>
-              <div class="bg-green-50 dark:bg-green-900/20 p-6 rounded-lg">
-                <h4 class="font-semibold text-green-900 dark:text-green-100 mb-2">Progressi</h4>
-                <p class="text-green-700 dark:text-green-300 text-sm mb-4">Visualizza i tuoi progressi di apprendimento</p>
-                <button class="bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded text-sm">
-                  Vedi Progressi
-                </button>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div id="teacher-dashboard" class="hidden">
+        <div id="editor-dashboard" class="hidden">
           <div class="bg-white dark:bg-slate-900 rounded-lg shadow-lg p-8">
             <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-4">Area Insegnante</h3>
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-              <div class="bg-blue-50 dark:bg-blue-900/20 p-6 rounded-lg">
-                <h4 class="font-semibold text-blue-900 dark:text-blue-100 mb-2">Gestione Corsi</h4>
-                <p class="text-blue-700 dark:text-blue-300 text-sm mb-4">Crea e gestisci i tuoi corsi</p>
-                <button class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded text-sm">
-                  Gestisci Corsi
-                </button>
-              </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
               <div class="bg-green-50 dark:bg-green-900/20 p-6 rounded-lg">
-                <h4 class="font-semibold text-green-900 dark:text-green-100 mb-2">Studenti</h4>
-                <p class="text-green-700 dark:text-green-300 text-sm mb-4">Visualizza i progressi degli studenti</p>
-                <button class="bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded text-sm">
-                  Vedi Studenti
-                </button>
-              </div>
-              <div class="bg-purple-50 dark:bg-purple-900/20 p-6 rounded-lg">
-                <h4 class="font-semibold text-purple-900 dark:text-purple-100 mb-2">Analytics</h4>
-                <p class="text-purple-700 dark:text-purple-300 text-sm mb-4">Statistiche e analisi</p>
-                <button class="bg-purple-600 hover:bg-purple-700 text-white px-4 py-2 rounded text-sm">
-                  Vedi Analytics
+                <h4 class="font-semibent text-green-900 dark:text-green-100 mb-2">Content Management</h4>
+                <p class="text-green-700 dark:text-green-300 text-sm mb-4">Gestisci tutti i contenuti</p>
+                <button 
+                  id="manage-content-btn-editor"
+                  class="bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded text-sm"
+                >
+                  Gestisci Contenuti
                 </button>
               </div>
             </div>
@@ -91,37 +58,105 @@ import Layout from '~/layouts/PageLayout.astro';
         </div>
 
         <div id="admin-dashboard" class="hidden">
-          <div class="bg-white dark:bg-slate-900 rounded-lg shadow-lg p-8">
+          <div class="bg-white dark:bg-slate-900 rounded-lg shadow-lg p-8 mb-8">
             <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-4">Area Amministratore</h3>
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
               <div class="bg-red-50 dark:bg-red-900/20 p-6 rounded-lg">
                 <h4 class="font-semibold text-red-900 dark:text-red-100 mb-2">Gestione Utenti</h4>
                 <p class="text-red-700 dark:text-red-300 text-sm mb-4">Amministra utenti e ruoli</p>
-                <button class="bg-red-600 hover:bg-red-700 text-white px-4 py-2 rounded text-sm">
+                <button 
+                  id="manage-users-btn"
+                  class="bg-red-600 hover:bg-red-700 text-white px-4 py-2 rounded text-sm"
+                >
                   Gestisci Utenti
-                </button>
-              </div>
-              <div class="bg-blue-50 dark:bg-blue-900/20 p-6 rounded-lg">
-                <h4 class="font-semibold text-blue-900 dark:text-blue-100 mb-2">Sistema</h4>
-                <p class="text-blue-700 dark:text-blue-300 text-sm mb-4">Configurazioni di sistema</p>
-                <button class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded text-sm">
-                  Configurazioni
                 </button>
               </div>
               <div class="bg-green-50 dark:bg-green-900/20 p-6 rounded-lg">
                 <h4 class="font-semibent text-green-900 dark:text-green-100 mb-2">Content Management</h4>
                 <p class="text-green-700 dark:text-green-300 text-sm mb-4">Gestisci tutti i contenuti</p>
-                <button class="bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded text-sm">
+                <button 
+                  id="manage-content-btn"
+                  class="bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded text-sm"
+                >
                   Gestisci Contenuti
                 </button>
               </div>
-              <div class="bg-purple-50 dark:bg-purple-900/20 p-6 rounded-lg">
-                <h4 class="font-semibold text-purple-900 dark:text-purple-100 mb-2">Analytics Avanzate</h4>
-                <p class="text-purple-700 dark:text-purple-300 text-sm mb-4">Statistiche complete</p>
-                <button class="bg-purple-600 hover:bg-purple-700 text-white px-4 py-2 rounded text-sm">
-                  Analytics Complete
+            </div>
+          </div>
+
+          <div id="user-management-section" class="hidden bg-white dark:bg-slate-900 rounded-lg shadow-lg p-8 mb-8">
+            <div class="flex justify-between items-center mb-6">
+              <h3 class="text-xl font-semibold text-gray-900 dark:text-white">Gestione Utenti</h3>
+              <div class="space-x-2">
+                <button 
+                  id="save-changes-btn"
+                  class="bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded text-sm disabled:opacity-50 disabled:cursor-not-allowed"
+                  disabled
+                >
+                  Salva
+                </button>
+                <button 
+                  id="cancel-changes-btn"
+                  class="bg-gray-600 hover:bg-gray-700 text-white px-4 py-2 rounded text-sm"
+                >
+                  Cancella
                 </button>
               </div>
+            </div>
+
+            <div id="users-loading" class="text-center py-8">
+              <div class="animate-spin rounded-full h-16 w-16 border-b-2 border-blue-600 mx-auto"></div>
+              <p class="mt-4 text-gray-600 dark:text-gray-400">Caricamento utenti...</p>
+            </div>
+
+            <div id="users-table-container" class="hidden overflow-x-auto">
+              <table class="min-w-full divide-y divide-gray-200 dark:divide-gray-700">
+                <thead class="bg-gray-50 dark:bg-gray-800">
+                  <tr>
+                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">
+                      Email
+                    </th>
+                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">
+                      Ruolo
+                    </th>
+                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">
+                      Azioni
+                    </th>
+                  </tr>
+                </thead>
+                <tbody id="users-table-body" class="bg-white dark:bg-slate-900 divide-y divide-gray-200 dark:divide-gray-700">
+                </tbody>
+              </table>
+            </div>
+
+            <div id="users-error" class="hidden text-center py-8">
+              <p class="text-red-600 dark:text-red-400">Errore nel caricamento degli utenti</p>
+            </div>
+          </div>
+
+          <div id="content-management-section" class="hidden bg-white dark:bg-slate-900 rounded-lg shadow-lg p-8">
+            <div class="flex justify-between items-center mb-6">
+              <h3 class="text-xl font-semibold text-gray-900 dark:text-white">Gestione Contenuti</h3>
+              <button 
+                id="create-new-post-btn"
+                class="bg-blue-600 hover:bg-blue-700 text-white px-6 py-2 rounded text-sm"
+              >
+                Crea Nuovo Post
+              </button>
+            </div>
+
+            <div id="posts-loading" class="text-center py-8">
+              <div class="animate-spin rounded-full h-16 w-16 border-b-2 border-blue-600 mx-auto"></div>
+              <p class="mt-4 text-gray-600 dark:text-gray-400">Caricamento contenuti...</p>
+            </div>
+
+            <div id="posts-list-container" class="hidden">
+              <ul id="posts-list" class="space-y-8">
+              </ul>
+            </div>
+
+            <div id="posts-error" class="hidden text-center py-8">
+              <p class="text-red-600 dark:text-red-400">Errore nel caricamento dei contenuti</p>
             </div>
           </div>
         </div>
@@ -136,6 +171,146 @@ import Layout from '~/layouts/PageLayout.astro';
         >
           Vai al Login
         </a>
+      </div>
+    </div>
+
+    <div id="delete-modal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 hidden">
+      <div class="bg-white dark:bg-slate-800 rounded-lg p-6 max-w-md w-mx">
+        <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-4">Conferma Eliminazione</h3>
+        <p class="text-gray-600 dark:text-gray-400 mb-6">Sei sicuro di voler eliminare questo post? Questa azione non può essere annullata.</p>
+        <div class="flex space-x-4">
+          <button 
+            id="confirm-delete-btn"
+            class="bg-red-600 hover:bg-red-700 text-white px-4 py-2 rounded text-sm"
+          >
+            Elimina
+          </button>
+          <button 
+            id="cancel-delete-btn"
+            class="bg-gray-600 hover:bg-gray-700 text-white px-4 py-2 rounded text-sm"
+          >
+            Annulla
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div id="editor-modal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 hidden overflow-y-auto">
+      <div class="bg-white dark:bg-slate-800 rounded-lg p-6 max-w-6xl w-full mx-4 my-8 max-h-[90vh] overflow-y-auto">
+        <div class="flex justify-between items-center mb-6">
+          <h3 id="editor-modal-title" class="text-xl font-semibold text-gray-900 dark:text-white">Editor Post</h3>
+          <button 
+            id="close-editor-btn"
+            class="text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-200"
+          >
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+            </svg>
+          </button>
+        </div>
+
+        <div class="mb-6 grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div>
+            <label for="modal-post-title" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+              Titolo
+            </label>
+            <input 
+              type="text" 
+              id="modal-post-title" 
+              placeholder="Inserisci il titolo..."
+              class="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 dark:bg-gray-700 dark:text-white"
+            />
+          </div>
+          
+          <div>
+            <label for="modal-post-excerpt" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+              Estratto
+            </label>
+            <input 
+              type="text" 
+              id="modal-post-excerpt" 
+              placeholder="Inserisci l'estratto..."
+              class="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 dark:bg-gray-700 dark:text-white"
+            />
+          </div>
+          
+          <div>
+            <label for="modal-post-tags" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+              Tags (separati da virgola)
+            </label>
+            <input 
+              type="text" 
+              id="modal-post-tags" 
+              placeholder="tag1, tag2, tag3"
+              class="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 dark:bg-gray-700 dark:text-white"
+            />
+          </div>
+          
+          <div>
+            <label for="modal-post-category" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+              Categoria
+            </label>
+            <input 
+              type="text" 
+              id="modal-post-category" 
+              placeholder="Inserisci la categoria..."
+              class="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 dark:bg-gray-700 dark:text-white"
+            />
+          </div>
+          
+          <div>
+            <label for="modal-post-author" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+              Autore
+            </label>
+            <input 
+              type="text" 
+              id="modal-post-author" 
+              placeholder="Inserisci l'autore..."
+              class="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 dark:bg-gray-700 dark:text-white"
+            />
+          </div>
+          
+          <div>
+            <label for="modal-post-image" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+              URL Immagine
+            </label>
+            <input 
+              type="url" 
+              id="modal-post-image" 
+              placeholder="https://example.com/image.jpg"
+              class="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 dark:bg-gray-700 dark:text-white"
+            />
+          </div>
+        </div>
+
+        <div class="mb-6">
+          <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+            Contenuto
+          </label>
+          <div 
+            id="modal-editor" 
+            class="toast-ui-editor"
+            data-height="400px"
+            data-initial-value=""
+            data-placeholder="Scrivi il contenuto del post in markdown..."
+          ></div>
+        </div>
+        
+        <div class="flex space-x-4">
+          <button 
+            id="save-post-btn"
+            class="bg-green-600 hover:bg-green-700 text-white px-6 py-2 rounded-md transition-colors font-medium"
+          >
+            Salva Post
+          </button>
+          
+          <button 
+            id="cancel-editor-btn"
+            class="bg-gray-600 hover:bg-gray-700 text-white px-6 py-2 rounded-md transition-colors font-medium"
+          >
+            Annulla
+          </button>
+        </div>
       </div>
     </div>
   </section>
@@ -154,9 +329,130 @@ import Layout from '~/layouts/PageLayout.astro';
   const userUid = document.getElementById('user-uid');
   const roleBadge = document.getElementById('role-badge');
   
-  const studentDashboard = document.getElementById('student-dashboard');
-  const teacherDashboard = document.getElementById('teacher-dashboard');
+  const editorDashboard = document.getElementById('editor-dashboard');
   const adminDashboard = document.getElementById('admin-dashboard');
+  
+  const manageUsersBtn = document.getElementById('manage-users-btn');
+  const userManagementSection = document.getElementById('user-management-section');
+  const usersLoading = document.getElementById('users-loading');
+  const usersTableContainer = document.getElementById('users-table-container');
+  const usersTableBody = document.getElementById('users-table-body');
+  const usersError = document.getElementById('users-error');
+  const saveChangesBtn = document.getElementById('save-changes-btn');
+  const cancelChangesBtn = document.getElementById('cancel-changes-btn');
+
+  const manageContentBtn = document.getElementById('manage-content-btn');
+  const manageContentBtnEditor = document.getElementById('manage-content-btn-editor');
+  const contentManagementSection = document.getElementById('content-management-section');
+  const postsLoading = document.getElementById('posts-loading');
+  const postsListContainer = document.getElementById('posts-list-container');
+  const postsList = document.getElementById('posts-list');
+  const postsError = document.getElementById('posts-error');
+  const createNewPostBtn = document.getElementById('create-new-post-btn');
+
+  const deleteModal = document.getElementById('delete-modal');
+  const confirmDeleteBtn = document.getElementById('confirm-delete-btn');
+  const cancelDeleteBtn = document.getElementById('cancel-delete-btn');
+
+  const editorModal = document.getElementById('editor-modal');
+  const editorModalTitle = document.getElementById('editor-modal-title');
+  const closeEditorBtn = document.getElementById('close-editor-btn');
+  const savePostBtn = document.getElementById('save-post-btn');
+  const cancelEditorBtn = document.getElementById('cancel-editor-btn');
+
+  let allUsers = [];
+  let originalRoles = {};
+  let hasChanges = false;
+  let allPosts = [];
+  let currentEditingPost = null;
+  let postToDelete = null;
+  let modalEditor = null;
+
+  const mockUsers = [
+    { uid: 'user1', email: 'admin@example.com', role: 'ADMIN' },
+    { uid: 'user2', email: 'editor@example.com', role: 'EDITOR' },
+    { uid: 'user3', email: 'user1@example.com', role: null },
+    { uid: 'user4', email: 'user2@example.com', role: null },
+    { uid: 'user5', email: 'teacher@example.com', role: 'EDITOR' }
+  ];
+
+  const mockPosts = [
+    {
+      id: 'post1',
+      title: 'Get started with AstroWind to create a website using Astro and Tailwind CSS',
+      excerpt: 'Start your web journey with AstroWind – harness Astro and Tailwind CSS for a stunning site. Explore our guide now.',
+      publishDate: '2023-08-12T00:00:00Z',
+      author: 'John Smith',
+      category: 'Tutorials',
+      tags: ['astro', 'tailwind css'],
+      image: 'https://images.unsplash.com/photo-1516996087931-5ae405802f9f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80',
+      content: `Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+
+## Getting Started
+
+Lorem ipsum dolor sit amet consectetur adipiscing elit proin, aenean litora volutpat urna egestas magnis arcu non, cras ut cursus et sed morbi lectus.`
+    },
+    {
+      id: 'post2',
+      title: 'Advanced Astro Techniques',
+      excerpt: 'Discover advanced techniques for building better websites with Astro framework.',
+      publishDate: '2023-08-15T00:00:00Z',
+      author: 'Jane Doe',
+      category: 'Development',
+      tags: ['astro', 'javascript'],
+      image: 'https://images.unsplash.com/photo-1555066931-4365d14bab8c?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80',
+      content: `# Advanced Astro Techniques
+
+In this post, we'll explore some advanced techniques for building better websites with the Astro framework.
+
+## Component Islands
+
+Astro's component islands architecture allows you to build faster websites by shipping less JavaScript to the browser.`
+    }
+  ];
+
+  const initializeToastEditor = () => {
+    const script = document.createElement('script');
+    script.src = 'https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/codemirror.min.js';
+    script.onload = () => {
+      const cssLink = document.createElement('link');
+      cssLink.rel = 'stylesheet';
+      cssLink.href = 'https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/codemirror.min.css';
+      document.head.appendChild(cssLink);
+
+      const editorScript = document.createElement('script');
+      editorScript.src = 'https://cdnjs.cloudflare.com/ajax/libs/tui-editor/1.4.10/tui-editor-Editor-full.min.js';
+      editorScript.onload = () => {
+        const editorCss = document.createElement('link');
+        editorCss.rel = 'stylesheet';
+        editorCss.href = 'https://cdnjs.cloudflare.com/ajax/libs/tui-editor/1.4.10/tui-editor.min.css';
+        document.head.appendChild(editorCss);
+        
+        const editorContentCss = document.createElement('link');
+        editorContentCss.rel = 'stylesheet';
+        editorContentCss.href = 'https://cdnjs.cloudflare.com/ajax/libs/tui-editor/1.4.10/tui-editor-contents.min.css';
+        document.head.appendChild(editorContentCss);
+      };
+      document.head.appendChild(editorScript);
+    };
+    document.head.appendChild(script);
+  };
+
+  const createModalEditor = () => {
+    if (typeof tui !== 'undefined' && tui.Editor) {
+      const editorElement = document.getElementById('modal-editor');
+      if (editorElement && !modalEditor) {
+        modalEditor = new tui.Editor({
+          el: editorElement,
+          height: '400px',
+          initialEditType: 'markdown',
+          previewStyle: 'vertical',
+          initialValue: '',
+          placeholder: 'Scrivi il contenuto del post in markdown...'
+        });
+      }
+    }
+  };
 
   isLoading.subscribe((loading) => {
     if (!loading) {
@@ -172,10 +468,12 @@ import Layout from '~/layouts/PageLayout.astro';
       if (userEmail) userEmail.textContent = currentUser.email || '';
       if (userUid) userUid.textContent = currentUser.uid || '';
     } else {
-      dashboardContent?.classList.add('hidden');
+      dashboardContent?.classList.remove('hidden');
       notAuthenticated?.classList.remove('hidden');
     }
   });
+
+  adminDashboard?.classList.remove('hidden');
 
   userRole.subscribe((role) => {
     if (role) {
@@ -188,19 +486,15 @@ import Layout from '~/layouts/PageLayout.astro';
         roleBadge.className = `mt-2 inline-flex items-center px-3 py-1 rounded-full text-sm font-medium ${getRoleBadgeClasses(role)}`;
       }
       
-      studentDashboard?.classList.add('hidden');
-      teacherDashboard?.classList.add('hidden');
       adminDashboard?.classList.add('hidden');
+      editorDashboard?.classList.add('hidden');
       
       switch (role) {
-        case USER_ROLES.STUDENT:
-          studentDashboard?.classList.remove('hidden');
-          break;
-        case USER_ROLES.TEACHER:
-          teacherDashboard?.classList.remove('hidden');
-          break;
         case USER_ROLES.ADMIN:
           adminDashboard?.classList.remove('hidden');
+          break;
+        case USER_ROLES.EDITOR:
+          editorDashboard?.classList.remove('hidden');
           break;
       }
     }
@@ -210,14 +504,180 @@ import Layout from '~/layouts/PageLayout.astro';
     switch (role) {
       case USER_ROLES.ADMIN:
         return 'bg-red-100 text-red-800 dark:bg-red-900/20 dark:text-red-300';
-      case USER_ROLES.TEACHER:
+      case USER_ROLES.EDITOR:
         return 'bg-blue-100 text-blue-800 dark:bg-blue-900/20 dark:text-blue-300';
-      case USER_ROLES.STUDENT:
-        return 'bg-green-100 text-green-800 dark:bg-green-900/20 dark:text-green-300';
       default:
         return 'bg-gray-100 text-gray-800 dark:bg-gray-900/20 dark:text-gray-300';
     }
   };
+
+  const fetchUsers = async () => {
+    try {
+      usersLoading?.classList.remove('hidden');
+      usersTableContainer?.classList.add('hidden');
+      usersError?.classList.add('hidden');
+
+      await new Promise(resolve => setTimeout(resolve, 1000));
+      
+      allUsers = [...mockUsers];
+      originalRoles = {};
+      
+      allUsers.forEach(user => {
+        originalRoles[user.uid] = user.role;
+      });
+
+      renderUsersTable();
+      
+      usersLoading?.classList.add('hidden');
+      usersTableContainer?.classList.remove('hidden');
+    } catch (error) {
+      console.error('Error fetching users:', error);
+      usersLoading?.classList.add('hidden');
+      usersError?.classList.remove('hidden');
+    }
+  };
+
+  const renderUsersTable = () => {
+    if (!usersTableBody) return;
+    
+    usersTableBody.innerHTML = '';
+    
+    allUsers.forEach((user) => {
+      const row = document.createElement('tr');
+      row.className = 'hover:bg-gray-50 dark:hover:bg-gray-800';
+      
+      row.innerHTML = `
+        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900 dark:text-white">
+          ${user.email}
+        </td>
+        <td class="px-6 py-4 whitespace-nowrap">
+          <select 
+            class="role-select border border-gray-300 dark:border-gray-600 rounded-md px-3 py-1 bg-white dark:bg-gray-700 text-gray-900 dark:text-white text-sm"
+            data-user-id="${user.uid}"
+          >
+            <option value="">Nessun Ruolo</option>
+            <option value="${USER_ROLES.ADMIN}" ${user.role === USER_ROLES.ADMIN ? 'selected' : ''}>
+              ${getRoleDisplayName(USER_ROLES.ADMIN)}
+            </option>
+            <option value="${USER_ROLES.EDITOR}" ${user.role === USER_ROLES.EDITOR ? 'selected' : ''}>
+              ${getRoleDisplayName(USER_ROLES.EDITOR)}
+            </option>
+          </select>
+        </td>
+        <td class="px-6 py-4 whitespace-nowrap text-sm">
+          <button 
+            class="remove-role-btn text-red-600 hover:text-red-800 dark:text-red-400 dark:hover:text-red-300"
+            data-user-id="${user.uid}"
+          >
+            Rimuovi
+          </button>
+        </td>
+      `;
+      
+      usersTableBody.appendChild(row);
+    });
+    
+    document.querySelectorAll('.role-select').forEach(select => {
+      select.addEventListener('change', handleRoleChange);
+    });
+    
+    document.querySelectorAll('.remove-role-btn').forEach(btn => {
+      btn.addEventListener('click', handleRemoveRole);
+    });
+  };
+
+  const handleRoleChange = (e) => {
+    const userId = e.target.dataset.userId;
+    const newRole = e.target.value || null;
+
+    const userIndex = allUsers.findIndex((u) => u.uid === userId);
+    if (userIndex !== -1) {
+      allUsers[userIndex].role = newRole;
+    }
+
+    checkForChanges();
+  };
+
+  const handleRemoveRole = (e) => {
+    const userId = e.target.dataset.userId;
+    const userIndex = allUsers.findIndex((u) => u.uid === userId);
+
+    if (userIndex !== -1) {
+      allUsers[userIndex].role = null;
+      const select = document.querySelector(`select[data-user-id="${userId}"]`);
+      if (select) select.value = '';
+    }
+
+    checkForChanges();
+  };
+
+  const checkForChanges = () => {
+    hasChanges = allUsers.some((user) => originalRoles[user.uid] !== user.role);
+
+    if (saveChangesBtn) {
+      saveChangesBtn.disabled = !hasChanges;
+    }
+  };
+
+  const saveChanges = async () => {
+    try {
+      saveChangesBtn.disabled = true;
+      saveChangesBtn.textContent = 'Salvando...';
+
+      const updatePromises = allUsers
+        .filter((user) => originalRoles[user.uid] !== user.role)
+        .map(async (user) => {
+          const userRef = doc(db, 'users', user.uid);
+
+          if (user.role) {
+            return updateDoc(userRef, { role: user.role });
+          } else {
+            return updateDoc(userRef, { role: deleteField() });
+          }
+        });
+
+      await Promise.all(updatePromises);
+
+      allUsers.forEach((user) => {
+        originalRoles[user.uid] = user.role;
+      });
+
+      hasChanges = false;
+      saveChangesBtn.disabled = true;
+      saveChangesBtn.textContent = 'Salva';
+
+      alert('Modifiche salvate con successo!');
+    } catch (error) {
+      console.error('Error saving changes:', error);
+      alert('Errore nel salvare le modifiche');
+      saveChangesBtn.disabled = false;
+      saveChangesBtn.textContent = 'Salva';
+    }
+  };
+
+  const cancelChanges = () => {
+    allUsers.forEach((user) => {
+      user.role = originalRoles[user.uid];
+    });
+
+    renderUsersTable();
+    hasChanges = false;
+    if (saveChangesBtn) saveChangesBtn.disabled = true;
+  };
+
+  manageUsersBtn?.addEventListener('click', () => {
+    const isVisible = !userManagementSection?.classList.contains('hidden');
+
+    if (isVisible) {
+      userManagementSection?.classList.add('hidden');
+    } else {
+      userManagementSection?.classList.remove('hidden');
+      fetchUsers();
+    }
+  });
+
+  saveChangesBtn?.addEventListener('click', saveChanges);
+  cancelChangesBtn?.addEventListener('click', cancelChanges);
 
   logoutBtn?.addEventListener('click', async () => {
     const result = await logout();
