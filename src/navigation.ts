@@ -48,7 +48,6 @@ export const headerData = {
       href: getPermalink('/contact'),
     },
   ],
-  actions: [{ text: 'Accedi', href: 'https://github.com/onwidget/astrowind', target: '_blank' }],
 };
 
 export const footerData = {
@@ -56,26 +55,26 @@ export const footerData = {
     {
       title: 'Azienda',
       links: [
-        { text: 'Contatti', href: '#' },
-        { text: 'Accedi a WhoTeachPlatform', href: '#' },
-        { text: 'Chi Siamo', href: '#' },
-        { text: 'Blog', href: '#' },
-        { text: 'Piani Tariffari', href: '#' },
+        { text: 'Contatti', href: getPermalink('/contact') },
+        { text: 'Accedi a WhoTeachPlatform', href: getPermalink('/login') },
+        { text: 'Chi Siamo', href: getPermalink('/who-we-are') },
+        { text: 'Blog', href: getBlogPermalink() },
+        { text: 'Piani Tariffari', href: getPermalink('/prices') },
         { text: 'Editor News', href: getPermalink('/text-editor') }
       ],
     },
     {
       title: 'Moduli di WhoTeach',
       links: [
-        { text: 'Learning Management System', href: '#' },
-        { text: 'WhoTeach AI - Recommender System', href: '#' },
-        { text: 'WhoTeach AI - Generative AI', href: '#' },
-        { text: 'Live ', href: '#' },
+        { text: 'Learning Management System', href: getPermalink('/components/lms') },
+        { text: 'WhoTeach AI - Recommender System', href: getPermalink('/components/recommender-system') },
+        { text: 'WhoTeach AI - Generative AI', href: getPermalink('/components/generative-ai') },
+        { text: 'Live ', href: getPermalink('/components/virtual-room') },
       ],
     },
     {
       title: 'Assistenza',
-      links: [{ text: 'Contatti', href: '#' }],
+      links: [{ text: 'Contatti', href: getPermalink('/contact') }],
     },
   ],
   secondaryLinks: [

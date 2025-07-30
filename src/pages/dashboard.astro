@@ -1,0 +1,228 @@
+---
+import Layout from '~/layouts/PageLayout.astro';
+---
+
+<Layout metadata={{ title: 'Dashboard - WhoTeach' }}>
+  <section class="py-16 md:py-20">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6">
+      <div id="loading" class="text-center">
+        <div class="animate-spin rounded-full h-32 w-32 border-b-2 border-blue-600 mx-auto"></div>
+        <p class="mt-4 text-gray-600 dark:text-gray-400">Caricamento...</p>
+      </div>
+
+      <div id="dashboard-content" class="hidden">
+        <div class="flex justify-between items-center mb-8">
+          <div>
+            <h1 class="text-3xl font-bold text-gray-900 dark:text-white">Dashboard</h1>
+            <p id="role-badge" class="mt-2 inline-flex items-center px-3 py-1 rounded-full text-sm font-medium"></p>
+          </div>
+          <button
+            id="logout-btn"
+            class="bg-red-600 hover:bg-red-700 text-white font-medium py-2 px-4 rounded-md transition duration-300 ease-in-out"
+          >
+            Logout
+          </button>
+        </div>
+
+        <div class="bg-white dark:bg-slate-900 rounded-lg shadow-lg p-8 mb-8">
+          <h2 class="text-2xl font-semibold text-gray-900 dark:text-white mb-4">Benvenuto!</h2>
+          <div id="user-info" class="space-y-2">
+            <p class="text-gray-600 dark:text-gray-400">
+              Email: <span id="user-email" class="font-medium text-gray-900 dark:text-white"></span>
+            </p>
+            <p class="text-gray-600 dark:text-gray-400">
+              Ruolo: <span id="user-role" class="font-medium text-gray-900 dark:text-white"></span>
+            </p>
+            <p class="text-gray-600 dark:text-gray-400">
+              UID: <span id="user-uid" class="font-medium text-gray-900 dark:text-white"></span>
+            </p>
+          </div>
+        </div>
+
+        <div id="student-dashboard" class="hidden">
+          <div class="bg-white dark:bg-slate-900 rounded-lg shadow-lg p-8">
+            <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-4">Area Studente</h3>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div class="bg-blue-50 dark:bg-blue-900/20 p-6 rounded-lg">
+                <h4 class="font-semibold text-blue-900 dark:text-blue-100 mb-2">I Miei Corsi</h4>
+                <p class="text-blue-700 dark:text-blue-300 text-sm mb-4">Accedi ai tuoi corsi iscritti</p>
+                <button class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded text-sm">
+                  Visualizza Corsi
+                </button>
+              </div>
+              <div class="bg-green-50 dark:bg-green-900/20 p-6 rounded-lg">
+                <h4 class="font-semibold text-green-900 dark:text-green-100 mb-2">Progressi</h4>
+                <p class="text-green-700 dark:text-green-300 text-sm mb-4">Visualizza i tuoi progressi di apprendimento</p>
+                <button class="bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded text-sm">
+                  Vedi Progressi
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div id="teacher-dashboard" class="hidden">
+          <div class="bg-white dark:bg-slate-900 rounded-lg shadow-lg p-8">
+            <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-4">Area Insegnante</h3>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+              <div class="bg-blue-50 dark:bg-blue-900/20 p-6 rounded-lg">
+                <h4 class="font-semibold text-blue-900 dark:text-blue-100 mb-2">Gestione Corsi</h4>
+                <p class="text-blue-700 dark:text-blue-300 text-sm mb-4">Crea e gestisci i tuoi corsi</p>
+                <button class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded text-sm">
+                  Gestisci Corsi
+                </button>
+              </div>
+              <div class="bg-green-50 dark:bg-green-900/20 p-6 rounded-lg">
+                <h4 class="font-semibold text-green-900 dark:text-green-100 mb-2">Studenti</h4>
+                <p class="text-green-700 dark:text-green-300 text-sm mb-4">Visualizza i progressi degli studenti</p>
+                <button class="bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded text-sm">
+                  Vedi Studenti
+                </button>
+              </div>
+              <div class="bg-purple-50 dark:bg-purple-900/20 p-6 rounded-lg">
+                <h4 class="font-semibold text-purple-900 dark:text-purple-100 mb-2">Analytics</h4>
+                <p class="text-purple-700 dark:text-purple-300 text-sm mb-4">Statistiche e analisi</p>
+                <button class="bg-purple-600 hover:bg-purple-700 text-white px-4 py-2 rounded text-sm">
+                  Vedi Analytics
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div id="admin-dashboard" class="hidden">
+          <div class="bg-white dark:bg-slate-900 rounded-lg shadow-lg p-8">
+            <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-4">Area Amministratore</h3>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+              <div class="bg-red-50 dark:bg-red-900/20 p-6 rounded-lg">
+                <h4 class="font-semibold text-red-900 dark:text-red-100 mb-2">Gestione Utenti</h4>
+                <p class="text-red-700 dark:text-red-300 text-sm mb-4">Amministra utenti e ruoli</p>
+                <button class="bg-red-600 hover:bg-red-700 text-white px-4 py-2 rounded text-sm">
+                  Gestisci Utenti
+                </button>
+              </div>
+              <div class="bg-blue-50 dark:bg-blue-900/20 p-6 rounded-lg">
+                <h4 class="font-semibold text-blue-900 dark:text-blue-100 mb-2">Sistema</h4>
+                <p class="text-blue-700 dark:text-blue-300 text-sm mb-4">Configurazioni di sistema</p>
+                <button class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded text-sm">
+                  Configurazioni
+                </button>
+              </div>
+              <div class="bg-green-50 dark:bg-green-900/20 p-6 rounded-lg">
+                <h4 class="font-semibent text-green-900 dark:text-green-100 mb-2">Content Management</h4>
+                <p class="text-green-700 dark:text-green-300 text-sm mb-4">Gestisci tutti i contenuti</p>
+                <button class="bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded text-sm">
+                  Gestisci Contenuti
+                </button>
+              </div>
+              <div class="bg-purple-50 dark:bg-purple-900/20 p-6 rounded-lg">
+                <h4 class="font-semibold text-purple-900 dark:text-purple-100 mb-2">Analytics Avanzate</h4>
+                <p class="text-purple-700 dark:text-purple-300 text-sm mb-4">Statistiche complete</p>
+                <button class="bg-purple-600 hover:bg-purple-700 text-white px-4 py-2 rounded text-sm">
+                  Analytics Complete
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div id="not-authenticated" class="hidden text-center">
+        <h1 class="text-3xl font-bold text-gray-900 dark:text-white mb-4">Accesso richiesto</h1>
+        <p class="text-gray-600 dark:text-gray-400 mb-8">Devi effettuare l'accesso per visualizzare questa pagina.</p>
+        <a
+          href="/login"
+          class="bg-blue-600 hover:bg-blue-700 text-white font-medium py-2 px-4 rounded-md transition duration-300 ease-in-out"
+        >
+          Vai al Login
+        </a>
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<script>
+  import { user, userRole, isLoading, logout } from '~/utils/auth';
+  import { USER_ROLES, getRoleDisplayName } from '~/utils/roles';
+
+  const loading = document.getElementById('loading');
+  const dashboardContent = document.getElementById('dashboard-content');
+  const notAuthenticated = document.getElementById('not-authenticated');
+  const logoutBtn = document.getElementById('logout-btn');
+  const userEmail = document.getElementById('user-email');
+  const userRoleElement = document.getElementById('user-role');
+  const userUid = document.getElementById('user-uid');
+  const roleBadge = document.getElementById('role-badge');
+  
+  const studentDashboard = document.getElementById('student-dashboard');
+  const teacherDashboard = document.getElementById('teacher-dashboard');
+  const adminDashboard = document.getElementById('admin-dashboard');
+
+  isLoading.subscribe((loading) => {
+    if (!loading) {
+      document.getElementById('loading')?.classList.add('hidden');
+    }
+  });
+
+  user.subscribe((currentUser) => {
+    if (currentUser) {
+      dashboardContent?.classList.remove('hidden');
+      notAuthenticated?.classList.add('hidden');
+      
+      if (userEmail) userEmail.textContent = currentUser.email || '';
+      if (userUid) userUid.textContent = currentUser.uid || '';
+    } else {
+      dashboardContent?.classList.add('hidden');
+      notAuthenticated?.classList.remove('hidden');
+    }
+  });
+
+  userRole.subscribe((role) => {
+    if (role) {
+      const roleDisplayName = getRoleDisplayName(role);
+      
+      if (userRoleElement) userRoleElement.textContent = roleDisplayName;
+      
+      if (roleBadge) {
+        roleBadge.textContent = roleDisplayName;
+        roleBadge.className = `mt-2 inline-flex items-center px-3 py-1 rounded-full text-sm font-medium ${getRoleBadgeClasses(role)}`;
+      }
+      
+      studentDashboard?.classList.add('hidden');
+      teacherDashboard?.classList.add('hidden');
+      adminDashboard?.classList.add('hidden');
+      
+      switch (role) {
+        case USER_ROLES.STUDENT:
+          studentDashboard?.classList.remove('hidden');
+          break;
+        case USER_ROLES.TEACHER:
+          teacherDashboard?.classList.remove('hidden');
+          break;
+        case USER_ROLES.ADMIN:
+          adminDashboard?.classList.remove('hidden');
+          break;
+      }
+    }
+  });
+
+  const getRoleBadgeClasses = (role) => {
+    switch (role) {
+      case USER_ROLES.ADMIN:
+        return 'bg-red-100 text-red-800 dark:bg-red-900/20 dark:text-red-300';
+      case USER_ROLES.TEACHER:
+        return 'bg-blue-100 text-blue-800 dark:bg-blue-900/20 dark:text-blue-300';
+      case USER_ROLES.STUDENT:
+        return 'bg-green-100 text-green-800 dark:bg-green-900/20 dark:text-green-300';
+      default:
+        return 'bg-gray-100 text-gray-800 dark:bg-gray-900/20 dark:text-gray-300';
+    }
+  };
+
+  logoutBtn?.addEventListener('click', async () => {
+    const result = await logout();
+    if (result.success) {
+      window.location.href = '/';
+    }
+  });
+</script>

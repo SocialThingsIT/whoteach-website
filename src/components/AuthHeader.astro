@@ -1,0 +1,81 @@
+---
+interface Props {
+  class?: string;
+}
+
+const { class: className = '' } = Astro.props;
+---
+
+<div id="auth-header" class={className}>
+  <div id="auth-loading" class="hidden">
+    <div class="w-6 h-6 border-2 border-blue-600 border-t-transparent rounded-full animate-spin"></div>
+  </div>
+  
+  <div id="auth-logged-out">
+    <a
+      href="/login"
+      class="bg-blue-600 hover:bg-blue-700 text-white font-medium py-2 px-4 rounded-md transition duration-300 ease-in-out"
+    >
+      Accedi
+    </a>
+  </div>
+
+  <div id="auth-logged-in" class="hidden">
+    <div class="flex items-center space-x-4">
+      <span id="user-email-header" class="text-gray-700 dark:text-gray-300"></span>
+      <a
+        href="/dashboard"
+        class="bg-green-600 hover:bg-green-700 text-white font-medium py-2 px-4 rounded-md transition duration-300 ease-in-out"
+      >
+        Dashboard
+      </a>
+      <button
+        id="logout-header-btn"
+        class="bg-red-600 hover:bg-red-700 text-white font-medium py-2 px-4 rounded-md transition duration-300 ease-in-out"
+      >
+        Logout
+      </button>
+    </div>
+  </div>
+</div>
+
+<script>
+  import { user, isLoading, logout } from '~/utils/auth';
+
+  const authLoading = document.getElementById('auth-loading');
+  const authLoggedOut = document.getElementById('auth-logged-out');
+  const authLoggedIn = document.getElementById('auth-logged-in');
+  const userEmailHeader = document.getElementById('user-email-header');
+  const logoutHeaderBtn = document.getElementById('logout-header-btn');
+
+  isLoading.subscribe((loading) => {
+    if (loading) {
+      authLoading?.classList.remove('hidden');
+      authLoggedOut?.classList.add('hidden');
+      authLoggedIn?.classList.add('hidden');
+    } else {
+      authLoading?.classList.add('hidden');
+    }
+  });
+
+  user.subscribe((currentUser) => {
+    if (currentUser) {
+      authLoggedOut?.classList.add('hidden');
+      authLoggedIn?.classList.remove('hidden');
+      
+      if (userEmailHeader) {
+        userEmailHeader.textContent = currentUser.email?.split('@')[0] || '';
+      }
+    } else {
+      authLoggedIn?.classList.add('hidden');
+      authLoggedOut?.classList.remove('hidden');
+    }
+  });
+
+  logoutHeaderBtn?.addEventListener('click', async () => {
+    const result = await logout();
+    if (result.success) {
+      window.location.href = '/';
+    }
+  });
+</script>

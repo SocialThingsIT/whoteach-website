@@ -8,6 +8,7 @@ import Button from '~/components/ui/Button.astro';
 import { getHomePermalink } from '~/utils/permalinks';
 import { trimSlash, getAsset } from '~/utils/permalinks';
 import type { CallToAction } from '~/types';
+import AuthHeader from '../AuthHeader.astro';
 
 interface Link {
   text?: string;
@@ -128,6 +129,7 @@ const currentPath = `/${trimSlash(new URL(Astro.url).pathname)}`;
           ))
         }
       </ul>
+      <AuthHeader class="flex items-center" />
     </nav>
     <div
       class:list={[

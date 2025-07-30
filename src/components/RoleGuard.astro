@@ -1,0 +1,119 @@
+---
+interface Props {
+  requiredRole?: string;
+  requiredPermission?: string;
+  fallbackMessage?: string;
+  redirectTo?: string;
+  class?: string;
+}
+
+const { 
+  requiredRole, 
+  requiredPermission, 
+  fallbackMessage = 'Non hai i permessi necessari per accedere a questa sezione.',
+  redirectTo,
+  class: className = ''
+} = Astro.props;
+---
+
+<div id={`role-guard-${Math.random().toString(36).substr(2, 9)}`} class={className}>
+  <div class="role-guard-loading hidden">
+    <div class="animate-spin rounded-full h-8 w-8 border-b-2 border-blue-600 mx-auto"></div>
+  </div>
+  
+  <div class="role-guard-unauthorized hidden">
+    <div class="bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-800 rounded-lg p-6 text-center">
+      <div class="mx-auto flex items-center justify-center h-12 w-12 rounded-full bg-red-100 dark:bg-red-900/30 mb-4">
+        <svg class="h-6 w-6 text-red-600 dark:text-red-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-2.5L13.732 4c-.77-.833-1.964-.833-2.732 0L3.732 16.5c-.77.833.192 2.5 1.732 2.5z" />
+        </svg>
+      </div>
+      <h3 class="text-lg font-medium text-red-900 dark:text-red-100 mb-2">
+        Accesso Negato
+      </h3>
+      <p class="text-red-700 dark:text-red-300 mb-4">
+        {fallbackMessage}
+      </p>
+      {redirectTo && (
+        <a
+          href={redirectTo}
+          class="bg-red-600 hover:bg-red-700 text-white font-medium py-2 px-4 rounded-md transition duration-300 ease-in-out"
+        >
+          Torna Indietro
+        </a>
+      )}
+    </div>
+  </div>
+  
+  <div class="role-guard-content">
+    <slot />
+  </div>
+</div>
+
+<script define:vars={{ requiredRole, requiredPermission, redirectTo }}>
+  import { user, userRole, isLoading } from '~/utils/auth';
+  import { hasPermission } from '~/utils/roles';
+
+  const guardElement = document.currentScript.parentElement;
+  const loading = guardElement.querySelector('.role-guard-loading');
+  const unauthorized = guardElement.querySelector('.role-guard-unauthorized');
+  const content = guardElement.querySelector('.role-guard-content');
+
+  let hasAccess = false;
+
+  const checkAccess = (currentUser, currentRole) => {
+    if (!currentUser) {
+      return false;
+    }
+
+    if (requiredRole && currentRole !== requiredRole) {
+      return false;
+    }
+
+    if (requiredPermission && !hasPermission(currentRole, requiredPermission)) {
+      return false;
+    }
+
+    return true;
+  };
+
+  const updateVisibility = (currentUser, currentRole, isLoadingState) => {
+    if (isLoadingState) {
+      loading?.classList.remove('hidden');
+      unauthorized?.classList.add('hidden');
+      content?.classList.add('hidden');
+      return;
+    }
+
+    loading?.classList.add('hidden');
+    hasAccess = checkAccess(currentUser, currentRole);
+
+    if (hasAccess) {
+      unauthorized?.classList.add('hidden');
+      content?.classList.remove('hidden');
+    } else {
+      content?.classList.add('hidden');
+      unauthorized?.classList.remove('hidden');
+      
+      if (redirectTo && !currentUser) {
+        setTimeout(() => {
+          window.location.href = redirectTo;
+        }, 2000);
+      }
+    }
+  };
+
+  isLoading.subscribe((loadingState) => {
+    updateVisibility(user.get(), userRole.get(), loadingState);
+  });
+
+  user.subscribe((currentUser) => {
+    updateVisibility(currentUser, userRole.get(), isLoading.get());
+  });
+
+  userRole.subscribe((currentRole) => {
+    updateVisibility(user.get(), currentRole, isLoading.get());
+  });
+
+  updateVisibility(user.get(), userRole.get(), isLoading.get());
+</script>
