@@ -1,0 +1,258 @@
+---
+// i18n helpers
+import { t } from '~/utils/i18n';
+import type { Lang } from '~/utils/i18n';
+
+// Astro components
+import Layout from '~/layouts/PageLayout.astro';
+import Hero from '~/components/widgets/Hero.astro';
+import Content from '~/components/widgets/Content.astro';
+import BlogLatestPosts from '~/components/widgets/BlogLatestPosts.astro';
+import Features2 from '~/components/widgets/Features2.astro';
+import Stats from '~/components/widgets/Stats.astro';
+import RotatingText from '~/components/reactbits/RotatingText';
+import CircularText from '~/components/reactbits/CircularText';
+import InfiniteSlider from '~/components/custom-react/InfiniteSlider';
+import CardContent from '~/components/widgets/CardContent.astro';
+import Button from '~/components/ui/Button.astro';
+import Quote from '~/components/widgets/Quote.astro';
+// import Testimonials from '~/components/widgets/Testimonials.astro';
+
+// Images
+import hrImage from '~/assets/images/whoteach-images/hr.png';
+import aziendeImage from '~/assets/images/whoteach-images/aziende-pmi.png';
+import istitutiImage from '~/assets/images/whoteach-images/istituti-di-formazione.png';
+import lms from '~/assets/images/whoteach-images/lms.jpg';
+import recommenderSystem from '~/assets/images/whoteach-images/recommender-system.jpg';
+import generativeAI from '~/assets/images/whoteach-images/gen-ai.jpg';
+import auleVirtuali from '~/assets/images/whoteach-images/aule-virtuali.jpg';
+import type { Stat } from '~/types';
+
+/**
+ * 1️⃣  Generate one static page per language
+ */
+export async function getStaticPaths() {
+  const langs: Lang[] = ['it', 'en'];
+  return langs.map((lang) => ({ params: { lang } }));
+}
+
+/**
+ * 2️⃣  Current locale comes from the dynamic segment [lang]
+ */
+const { lang } = Astro.params as { lang: Lang };
+
+/**
+ * 3️⃣  Localised metadata
+ */
+const metadata = {
+  title: t(lang, 'site.title'),
+};
+
+/**
+ * 4️⃣  Slider logos (unchanged)
+ */
+const imagePaths = await Astro.glob('/src/assets/images/whoteach-slider-logos/*').then((files) =>
+  files.map((file) => file.default.src)
+);
+
+/**
+ * 5️⃣  Feature items – keep same icons, translate titles
+ */
+const featureIcons = [
+  'flat-color-icons:template',
+  'flat-color-icons:gallery',
+  'flat-color-icons:approval',
+  'flat-color-icons:document',
+];
+const featureTitles = t<string[]>(lang, 'features.items');
+const featureItems = featureTitles.map((title, i) => ({ title, icon: featureIcons[i] }));
+
+/**
+ * 6️⃣  Stats block – directly from JSON array
+ */
+const stats = t<Stat[]>(lang, 'stats');
+---
+
+<Layout metadata={metadata}>
+  <!--  ⭐ HERO  ******************************************************************* -->
+  <Hero
+    actions={[
+      {
+        variant: 'primary',
+        text: t(lang, 'hero.action.primary'),
+        href: 'https://github.com/onwidget/astrowind',
+        target: '_blank',
+        icon: 'tabler:download',
+      },
+      {
+        variant: 'secondary',
+        text: t(lang, 'hero.action.secondary'),
+        href: '#features',
+      },
+    ]}
+  >
+    <Fragment slot="title">
+      <div>
+        {t(lang, 'hero.title')}
+        <RotatingText
+          client:visible
+          texts={t(lang, 'hero.rotatingTexts')}
+          mainClassName="px-2 sm:px-2 md:px-3 text-accent bg-primary overflow-hidden py-0.5 sm:py-1 md:py-2 justify-center inline-flex rounded-lg"
+          staggerFrom="last"
+          initial={{ y: '100%' }}
+          animate={{ y: 0 }}
+          exit={{ y: '-120%' }}
+          staggerDuration={0.025}
+          splitLevelClassName="overflow-hidden pb-0.5 sm:pb-1 md:pb-1"
+          transition={{ type: 'spring', damping: 30, stiffness: 400 }}
+          rotationInterval={2000}
+        />
+      </div>
+      <CircularText
+        client:visible
+        text={t(lang, 'hero.circularText')}
+        onHover="pause"
+        spinDuration={20}
+        className="absolute -right-20 -top-20 hidden text-primary xl:block"
+      />
+    </Fragment>
+
+    <Fragment slot="subtitle">{t(lang, 'hero.subtitle')}</Fragment>
+
+    <Fragment slot="slider">
+      <div class="mt-12">
+        <InfiniteSlider client:visible duration={30} pauseOnHover={false} imagePaths={imagePaths} />
+      </div>
+    </Fragment>
+  </Hero>
+
+  <!--  ⭐ CARD CONTENT ************************************************************* -->
+  <CardContent
+    title={t(lang, 'cardContent.title')}
+    columns={3}
+    containerClasses="bg-section mt-12"
+    content={[
+      {
+        image: { src: hrImage.src, alt: t(lang, 'cardContent.hr.alt') },
+        title: t(lang, 'cardContent.hr.title'),
+        description: t(lang, 'cardContent.hr.description'),
+      },
+      {
+        image: { src: aziendeImage.src, alt: t(lang, 'cardContent.aziende.alt') },
+        title: t(lang, 'cardContent.aziende.title'),
+        description: t(lang, 'cardContent.aziende.description'),
+      },
+      {
+        image: { src: istitutiImage.src, alt: t(lang, 'cardContent.istituti.alt') },
+        title: t(lang, 'cardContent.istituti.title'),
+        description: t(lang, 'cardContent.istituti.description'),
+      },
+    ]}
+  />
+
+  <!--  ⭐ CONTENT SECTIONS ********************************************************* -->
+  <Content isReversed title={t(lang, 'content.lms.title')} image={{ src: lms, alt: 'LMS image' }}>
+    <Fragment slot="content">
+      <p class="mb-1 text-sm uppercase tracking-tight">{t(lang, 'content.lms.section')}</p>
+    </Fragment>
+    <Fragment slot="content">
+      <h3 class="mb-2 text-2xl font-semibold tracking-tight text-primary sm:text-3xl">
+        {t(lang, 'content.lms.title')}
+      </h3>
+    </Fragment>
+    <Fragment slot="content">
+      <p class="mb-2 mt-6 tracking-tight">{t(lang, 'content.lms.description')}</p>
+    </Fragment>
+  </Content>
+
+  <Content image={{ src: auleVirtuali, alt: 'Virtual classroom image' }} title={t(lang, 'content.aule.title')}>
+    <Fragment slot="content">
+      <p class="mb-1 text-sm uppercase tracking-tight">{t(lang, 'content.aule.section')}</p>
+    </Fragment>
+    <Fragment slot="content">
+      <h3 class="mb-2 text-2xl font-semibold tracking-tight text-primary sm:text-3xl">
+        {t(lang, 'content.aule.title')}
+      </h3>
+    </Fragment>
+    <Fragment slot="content">
+      <p class="mb-2 mt-6 tracking-tight">{t(lang, 'content.aule.description')}</p>
+    </Fragment>
+  </Content>
+
+  <Content
+    isReversed
+    image={{ src: recommenderSystem, alt: 'Recommender system' }}
+    title={t(lang, 'content.recommender.title')}
+  >
+    <Fragment slot="content">
+      <p class="mb-1 text-sm uppercase tracking-tight">{t(lang, 'content.recommender.section')}</p>
+    </Fragment>
+    <Fragment slot="content">
+      <h3 class="mb-2 text-2xl font-semibold tracking-tight text-primary sm:text-3xl">
+        {t(lang, 'content.recommender.title')}
+      </h3>
+    </Fragment>
+    <Fragment slot="content">
+      <p class="mb-2 mt-6 tracking-tight">{t(lang, 'content.recommender.description')}</p>
+    </Fragment>
+  </Content>
+
+  <Content image={{ src: generativeAI, alt: 'Generative AI illustration' }} title={t(lang, 'content.ai.title')}>
+    <Fragment slot="content">
+      <p class="mb-1 text-sm uppercase tracking-tight">{t(lang, 'content.ai.section')}</p>
+    </Fragment>
+    <Fragment slot="content">
+      <h3 class="mb-2 text-2xl font-semibold tracking-tight text-primary sm:text-3xl">
+        {t(lang, 'content.ai.title')}
+      </h3>
+    </Fragment>
+    <Fragment slot="content">
+      <p class="mb-2 mt-6 tracking-tight">{t(lang, 'content.ai.description')}</p>
+    </Fragment>
+  </Content>
+
+  <!--  ⭐ CTA BUTTON **************************************************************** -->
+  <div class="mx-auto mb-12 w-fit md:mb-16 lg:mb-20">
+    <Button variant="primary" class="mx-auto" href="#">
+      {t(lang, 'content.cta')}
+    </Button>
+  </div>
+
+  <!--  ⭐ FEATURES ****************************************************************** -->
+  <Features2
+    id="features"
+    title={t(lang, 'features.title')}
+    subtitle={t(lang, 'features.subtitle')}
+    centeredIcons={true}
+    classes={{ headline: { container: 'basis-1/3' } }}
+    items={featureItems}
+  />
+
+  <!--  ⭐ QUOTE ********************************************************************* -->
+  <Quote
+    quote={t(lang, 'quote.text')}
+    author={t(lang, 'quote.author')}
+    role={t(lang, 'quote.role')}
+    rating={4.5}
+    source={t(lang, 'quote.source')}
+    classes={{ container: 'md:pt-24 md:pb-8' }}
+  >
+    <Fragment slot="bg">
+      <div class="absolute inset-0 bg-section dark:bg-transparent"></div>
+    </Fragment>
+  </Quote>
+
+  <!--  ⭐ STATS ********************************************************************* -->
+  <Stats stats={stats}>
+    <Fragment slot="bg">
+      <div class="absolute inset-0 bg-section dark:bg-transparent"></div>
+    </Fragment>
+  </Stats>
+
+  <!--  ⭐ BLOG ********************************************************************** -->
+  <BlogLatestPosts id="blog" title={t(lang, 'blog.title')}>
+    <Fragment slot="bg">
+      <div class="absolute inset-0 bg-white dark:bg-transparent"></div>
+    </Fragment>
+  </BlogLatestPosts>
+</Layout>

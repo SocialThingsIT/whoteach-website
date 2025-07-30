@@ -1,0 +1,84 @@
+{
+  "site": {
+    "title": "WhoTeach - Piattaforma di Digital Learning"
+  },
+  "hero": {
+    "title": "La soluzione per la tua ",
+    "rotatingTexts": ["formazione", "crescita", "innovazione", "carriera", "organizzazione", "evoluzione"],
+    "circularText": "BENVENUTO*SU*WHOTEACH*",
+    "subtitle": "Una piattaforma pensata per enti di formazione e aziende che vogliono gestire corsi, docenti e studenti in modo semplice, centralizzato e accessibile da ogni dispositivo.",
+    "action": {
+      "primary": "Scarica la brochure",
+      "secondary": "Guarda come funziona"
+    }
+  },
+  "cardContent": {
+    "title": "La soluzione di Digital Learning completa per...",
+    "hr": {
+      "alt": "Ufficio",
+      "title": "Human Resources",
+      "description": "Crea percorsi formativi strutturati, traccia tutto in automatico e certifica la crescita reale delle persone"
+    },
+    "aziende": {
+      "alt": "Sala riunioni",
+      "title": "Aziende e PMI",
+      "description": "Per assolvere gli obblighi normativi, aggiornare le competenze del tuo team e potenziare la produttività della tua realtà"
+    },
+    "istituti": {
+      "alt": "Insegnante durante una lezione",
+      "title": "Istituti di Formazione",
+      "description": "Produci la reportistica richiesta dagli enti finanziatori con un'unica piattaforma conforme e personalizzabile"
+    }
+  },
+  "content": {
+    "lms": {
+      "section": "Learning Management System",
+      "title": "Gestisci corsi, materiali e certificazioni da un unico spazio",
+      "description": "Organizza i tuoi contenuti formativi in modo flessibile, monitora l'avanzamento degli utenti e rilascia certificati in automatico. Tutto è tracciato, conforme e facilmente personalizzabile, anche con il tuo brand."
+    },
+    "aule": {
+      "section": "Aule virtuali",
+      "title": "Tieni lezioni interattive, efficaci e coinvolgenti",
+      "description": "Crea lezioni sincrone efficaci in un ambiente digitale completo, progettato per facilitare l'apprendimento e la collaborazione tra docenti e partecipanti."
+    },
+    "recommender": {
+      "section": "Recommender System",
+      "title": "Per costruire corsi migliori, in meno tempo",
+      "description": "Il sistema di raccomandazione intelligente ti aiuta a trovare rapidamente i contenuti più adatti per ogni corso. Analizza input, preferenze e obiettivi per proporti risorse pertinenti, aggiornate e coerenti."
+    },
+    "ai": {
+      "section": "Generative AI",
+      "title": "Crea lezioni complete in pochi minuti, con l'aiuto dell'AI",
+      "description": "Scrivi un prompt, scegli il formato e ottieni contenuti didattici originali: testi, slide, diagrammi e quiz vengono generati in automatico, pronti per essere usati o personalizzati."
+    },
+    "cta": "Scopri WhoTeach"
+  },
+  "features": {
+    "title": "Come viene usata WhoTeach?",
+    "subtitle": "WhoTeach è la piattaforma di digital learning B2B sviluppata dal team per aiutare enti e aziende a creare ed erogare corsi online di qualità, con il supporto dell'IA e un uso più efficiente delle risorse.",
+    "items": ["Upskilling e reskilling", "Formazione obbligatoria", "Onboarding", "Client training"]
+  },
+  "quote": {
+    "text": "Tutti sono stati molto soddisfatti dalla piattaforma anche per l'eccellente supporto da parte del fornitore sia in fase di personalizzazione della piattaforma sia in fase operativa",
+    "author": "Bruno",
+    "role": "Consulente IT",
+    "source": "Fonte: Capterra"
+  },
+  "stats": [
+    {
+      "title": "Studenti che hanno già usato WhoTeach",
+      "amount": "100K+"
+    },
+    {
+      "title": "Valutazione della nostra assistenza clienti (fonte: Capterra)",
+      "amount": "4.5/5"
+    },
+    {
+      "title": "Risparmio medio sui costi per la creazione di materiali didattici",
+      "amount": "20%"
+    }
+  ],
+  "blog": {
+    "title": "Il nostro blog"
+  }
+}

@@ -1,0 +1,84 @@
+{
+  "site": {
+    "title": "WhoTeach - Digital Learning Platform"
+  },
+  "hero": {
+    "title": "The solution for your ",
+    "rotatingTexts": ["training", "growth", "innovation", "career", "organization", "evolution"],
+    "circularText": "WELCOME*TO*WHOTEACH*",
+    "subtitle": "A platform designed for training institutions and companies that want to manage courses, teachers and students in a simple, centralized way, accessible from any device.",
+    "action": {
+      "primary": "Download brochure",
+      "secondary": "See how it works"
+    }
+  },
+  "cardContent": {
+    "title": "The complete Digital Learning solution for...",
+    "hr": {
+      "alt": "Office",
+      "title": "Human Resources",
+      "description": "Create structured training paths, track everything automatically and certify people's real growth"
+    },
+    "aziende": {
+      "alt": "Meeting room",
+      "title": "Companies and SMEs",
+      "description": "To fulfill regulatory obligations, update your team's skills and enhance your business's productivity"
+    },
+    "istituti": {
+      "alt": "Teacher during a class",
+      "title": "Training Institutions",
+      "description": "Produce the reporting required by funding bodies with a single compliant and customizable platform"
+    }
+  },
+  "content": {
+    "lms": {
+      "section": "Learning Management System",
+      "title": "Manage courses, materials and certifications from a single space",
+      "description": "Organize your training content flexibly, monitor user progress and automatically issue certificates. Everything is tracked, compliant and easily customizable, even with your brand."
+    },
+    "aule": {
+      "section": "Virtual classrooms",
+      "title": "Hold interactive, effective and engaging lessons",
+      "description": "Create effective synchronous lessons in a complete digital environment, designed to facilitate learning and collaboration between teachers and participants."
+    },
+    "recommender": {
+      "section": "Recommender System",
+      "title": "To build better courses, in less time",
+      "description": "The intelligent recommendation system helps you quickly find the most suitable content for each course. It analyzes inputs, preferences and objectives to offer you relevant, updated and coherent resources."
+    },
+    "ai": {
+      "section": "Generative AI",
+      "title": "Create complete lessons in minutes, with AI assistance",
+      "description": "Write a prompt, choose the format and get original educational content: texts, slides, diagrams and quizzes are automatically generated, ready to be used or customized."
+    },
+    "cta": "Discover WhoTeach"
+  },
+  "features": {
+    "title": "How is WhoTeach used?",
+    "subtitle": "WhoTeach is the B2B digital learning platform developed by the team to help institutions and companies create and deliver quality online courses, with AI support and more efficient use of resources.",
+    "items": ["Upskilling and reskilling", "Mandatory training", "Onboarding", "Client training"]
+  },
+  "quote": {
+    "text": "Everyone was very satisfied with the platform, also for the excellent support from the provider both during platform customization and operational phase",
+    "author": "Bruno",
+    "role": "IT Consultant",
+    "source": "Source: Capterra"
+  },
+  "stats": [
+    {
+      "title": "Students who have already used WhoTeach",
+      "amount": "100K+"
+    },
+    {
+      "title": "Rating of our customer support (source: Capterra)",
+      "amount": "4.5/5"
+    },
+    {
+      "title": "Average cost savings for creating educational materials",
+      "amount": "20%"
+    }
+  ],
+  "blog": {
+    "title": "Our blog"
+  }
+}
