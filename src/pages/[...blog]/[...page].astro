@@ -1,52 +1,48 @@
 ---
-import type { InferGetStaticPropsType, GetStaticPaths } from 'astro';
-
 import Layout from '~/layouts/PageLayout.astro';
 import BlogList from '~/components/blog/List.astro';
 import Headline from '~/components/blog/Headline.astro';
 import Pagination from '~/components/blog/Pagination.astro';
-// import PostTags from "~/components/blog/Tags.astro";
+import { getBlogPosts } from '~/utils/blogService';
 
-import { blogListRobots, getStaticPathsBlogList } from '~/utils/blog';
 
-export const prerender = true;
+export const prerender = false;
 
-export const getStaticPaths = (async ({ paginate }) => {
-  return await getStaticPathsBlogList({ paginate });
-}) satisfies GetStaticPaths;
+const url = new URL(Astro.request.url);
+const currentPage = parseInt(url.searchParams.get('page') || '1');
+const postsPerPage = 10;
 
-type Props = InferGetStaticPropsType<typeof getStaticPaths>;
-
-const { page } = Astro.props as Props;
-const currentPage = page.currentPage ?? 1;
-
-// const allCategories = await findCategories();
-// const allTags = await findTags();
+const { posts, hasNextPage, hasPrevPage } = await getBlogPosts(postsPerPage, currentPage);
 
 const metadata = {
   title: `Blog${currentPage > 1 ? ` — Page ${currentPage}` : ''}`,
   robots: {
-    index: blogListRobots?.index && currentPage === 1,
-    follow: blogListRobots?.follow,
+    index: currentPage === 1,
+    follow: true,
   },
   openGraph: {
     type: 'blog',
   },
+};
+
+const pageData = {
+  data: posts,
+  currentPage,
+  url: {
+    prev: hasPrevPage ? (currentPage === 2 ? '/blog' : `/blog?page=${currentPage - 1}`) : undefined,
+    next: hasNextPage ? `/blog?page=${currentPage + 1}` : undefined,
+  }
 };
 ---
 
 <Layout metadata={metadata}>
   <section class="px-6 sm:px-6 py-12 sm:py-16 lg:py-20 mx-auto max-w-4xl">
     <Headline
-      subtitle="A statically generated blog example with news, tutorials, resources and other interesting content related to AstroWind"
+      subtitle="A dynamically generated blog with news, tutorials, resources and other interesting content from Firestore"
     >
       The Blog
     </Headline>
-    <BlogList posts={page.data} />
-    <Pagination prevUrl={page.url.prev} nextUrl={page.url.next} />
-    <!--
-      <PostTags tags={allCategories} class="mb-2" title="Search by Categories:" isCategory />
-      <PostTags tags={allTags}  title="Search by Tags:" />
-    -->
+    <BlogList posts={pageData.data} />
+    <Pagination prevUrl={pageData.url.prev} nextUrl={pageData.url.next} />
   </section>
 </Layout>
