@@ -30,8 +30,12 @@ export default defineConfig({
     defaultLocale: 'it',
     locales: ['it', 'en'],
     routing: {
-      prefixDefaultLocale: false, // URL = "/" per IT, "/en/" per EN
+      prefixDefaultLocale: true,
     },
+  },
+
+  redirects: {
+    '/': '/it',
   },
 
   integrations: [

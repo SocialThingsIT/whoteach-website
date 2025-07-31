@@ -2,6 +2,7 @@
 // i18n helpers
 import { t } from '~/utils/i18n';
 import type { Lang } from '~/utils/i18n';
+import { link } from '~/utils/routes';
 
 // Astro components
 import Layout from '~/layouts/PageLayout.astro';
@@ -71,6 +72,8 @@ const featureItems = featureTitles.map((title, i) => ({ title, icon: featureIcon
  * 6️⃣  Stats block – directly from JSON array
  */
 const stats = t<Stat[]>(lang, 'stats');
+
+console.log(link(lang, 'prices'));
 ---
 
 <Layout metadata={metadata}>
@@ -80,8 +83,7 @@ const stats = t<Stat[]>(lang, 'stats');
       {
         variant: 'primary',
         text: t(lang, 'hero.action.primary'),
-        href: 'https://github.com/onwidget/astrowind',
-        target: '_blank',
+        href: link(lang, 'prices'),
         icon: 'tabler:download',
       },
       {
@@ -94,6 +96,7 @@ const stats = t<Stat[]>(lang, 'stats');
     <Fragment slot="title">
       <div>
         {t(lang, 'hero.title')}
+        <br />
         <RotatingText
           client:visible
           texts={t(lang, 'hero.rotatingTexts')}

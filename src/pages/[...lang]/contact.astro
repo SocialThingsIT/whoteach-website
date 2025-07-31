@@ -1,0 +1,84 @@
+---
+// filepath: c:\Users\citru\Documents\GitHub\whoteach-website\src\pages\[...lang]\contact.astro
+import Layout from '~/layouts/PageLayout.astro';
+import ContactUs from '~/components/widgets/Contact.astro';
+import Hero from '~/components/widgets/Hero.astro';
+import InfiniteSlider from '~/components/custom-react/InfiniteSlider';
+
+// i18n helpers
+import { t } from '~/utils/i18n';
+import type { Lang } from '~/utils/i18n';
+import { link } from '~/utils/routes';
+
+// Images
+import heroContact from '~/assets/images/whoteach-images/hero-demo-contatto.png';
+
+/**
+ * Generate one static page per language
+ */
+export async function getStaticPaths() {
+  const langs: Lang[] = ['it', 'en'];
+  return langs.map((lang) => ({ params: { lang } }));
+}
+
+/**
+ * Current locale comes from the dynamic segment [lang]
+ */
+const { lang } = Astro.params as { lang: Lang };
+
+/**
+ * Localised metadata
+ */
+const metadata = {
+  title: t(lang, 'contact.title'),
+};
+
+const imagePaths = await Astro.glob('/src/assets/images/whoteach-slider-logos/*').then((files) => {
+  return files.map((file) => file.default.src);
+});
+---
+
+<Layout metadata={metadata}>
+  <Hero
+    textAlign="side"
+    image={{
+      src: heroContact,
+      alt: t(lang, 'contact.hero.imageAlt'),
+    }}
+  >
+    <Fragment slot="title">{t(lang, 'contact.hero.title')}</Fragment>
+
+    <Fragment slot="subtitle">
+      {t(lang, 'contact.hero.subtitle')}
+    </Fragment>
+  </Hero>
+
+  <ContactUs
+    id="form"
+    title={t(lang, 'contact.form.title')}
+    subtitle={t(lang, 'contact.form.subtitle')}
+    inputs={[
+      {
+        type: 'text',
+        name: 'name',
+        label: t(lang, 'contact.form.name'),
+      },
+      {
+        type: 'email',
+        name: 'email',
+        label: t(lang, 'contact.form.email'),
+      },
+    ]}
+    textarea={{
+      label: t(lang, 'contact.form.message'),
+    }}
+    disclaimer={{
+      label: t(lang, 'contact.form.disclaimer'),
+    }}
+    description={t(lang, 'contact.form.description')}
+  />
+
+  <div class="mb-20 mt-10">
+    <InfiniteSlider client:visible duration={30} pauseOnHover={false} imagePaths={imagePaths} />
+  </div>
+</Layout>

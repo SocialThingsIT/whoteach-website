@@ -1,0 +1,191 @@
+---
+import Layout from '~/layouts/PageLayout.astro';
+import Hero from '~/components/widgets/Hero.astro';
+import Content from '~/components/widgets/Content.astro';
+import Button from '~/components/ui/Button.astro';
+import Headline from '~/components/ui/Headline.astro';
+
+// i18n helpers
+import { t } from '~/utils/i18n';
+import type { Lang } from '~/utils/i18n';
+import { link } from '~/utils/routes';
+
+// Images
+import recommenderSystem from '~/assets/images/whoteach-images/recommender-system.jpg';
+
+/**
+ * Generate one static page per language
+ */
+export async function getStaticPaths() {
+  const langs: Lang[] = ['it', 'en'];
+  return langs.map((lang) => ({ params: { lang } }));
+}
+
+/**
+ * Current locale comes from the dynamic segment [lang]
+ */
+const { lang } = Astro.params as { lang: Lang };
+
+/**
+ * Localised metadata
+ */
+const metadata = {
+  title: t(lang, 'components.recommender.title'),
+};
+---
+
+<Layout metadata={metadata}>
+  <Hero
+    textAlign="side"
+    title={t(lang, 'components.recommender.hero.title')}
+    subtitle={t(lang, 'components.recommender.hero.subtitle')}
+    image={{
+      src: recommenderSystem,
+      alt: t(lang, 'components.recommender.hero.imageAlt'),
+    }}
+    callToAction={{
+      text: t(lang, 'components.recommender.hero.cta'),
+      href: link(lang, 'contact'),
+      variant: 'primary',
+    }}
+    classes={{
+      image: 'aspect-16/9',
+    }}
+  />
+
+  <Content
+    isReversed
+    largeImage
+    title={t(lang, 'components.recommender.content.title')}
+    start="top"
+    classes={{
+      title: 'text-red md:text-3xl',
+    }}
+    image={{
+      src: 'https://images.unsplash.com/photo-1519389950473-47ba0277781c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80',
+      alt: t(lang, 'components.recommender.content.section1.imageAlt'),
+    }}
+    items={[
+      {
+        title: t(lang, 'components.recommender.content.section1.items.0.title'),
+        description: t(lang, 'components.recommender.content.section1.items.0.description'),
+      },
+      {
+        title: t(lang, 'components.recommender.content.section1.items.1.title'),
+        description: t(lang, 'components.recommender.content.section1.items.1.description'),
+      },
+    ]}
+  >
+    <Fragment slot="content">
+      <h3 class="mb-2 text-2xl font-semibold tracking-tight text-primary sm:text-3xl">
+        {t(lang, 'components.recommender.content.section1.heading')}
+      </h3>
+    </Fragment>
+  </Content>
+
+  <Content
+    largeImage
+    image={{
+      src: 'https://images.unsplash.com/photo-1519389950473-47ba0277781c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80',
+      alt: t(lang, 'components.recommender.content.section2.imageAlt'),
+    }}
+    items={[
+      {
+        title: t(lang, 'components.recommender.content.section2.items.0.title'),
+        description: t(lang, 'components.recommender.content.section2.items.0.description'),
+      },
+      {
+        title: t(lang, 'components.recommender.content.section2.items.1.title'),
+        description: t(lang, 'components.recommender.content.section2.items.1.description'),
+      },
+      {
+        title: t(lang, 'components.recommender.content.section2.items.2.title'),
+        description: t(lang, 'components.recommender.content.section2.items.2.description'),
+      },
+      {
+        title: t(lang, 'components.recommender.content.section2.items.3.title'),
+        description: t(lang, 'components.recommender.content.section2.items.3.description'),
+      },
+    ]}
+  >
+    <Fragment slot="content">
+      <h3 class="mb-2 text-2xl font-semibold tracking-tight text-primary sm:text-3xl">
+        {t(lang, 'components.recommender.content.section2.heading')}
+      </h3>
+    </Fragment>
+  </Content>
+
+  <Content
+    isReversed
+    largeImage
+    image={{
+      src: 'https://images.unsplash.com/photo-1519389950473-47ba0277781c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80',
+      alt: t(lang, 'components.recommender.content.section3.imageAlt'),
+    }}
+    items={[
+      {
+        title: t(lang, 'components.recommender.content.section3.items.0.title'),
+        description: t(lang, 'components.recommender.content.section3.items.0.description'),
+      },
+      {
+        title: t(lang, 'components.recommender.content.section3.items.1.title'),
+        description: t(lang, 'components.recommender.content.section3.items.1.description'),
+      },
+      {
+        title: t(lang, 'components.recommender.content.section3.items.2.title'),
+        description: t(lang, 'components.recommender.content.section3.items.2.description'),
+      },
+    ]}
+  >
+    <Fragment slot="content">
+      <h3 class="mb-2 text-2xl font-semibold tracking-tight text-primary sm:text-3xl">
+        {t(lang, 'components.recommender.content.section3.heading')}
+      </h3>
+    </Fragment>
+  </Content>
+
+  <Content
+    largeImage
+    image={{
+      src: 'https://images.unsplash.com/photo-1519389950473-47ba0277781c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80',
+      alt: t(lang, 'components.recommender.content.section4.imageAlt'),
+    }}
+    items={[
+      {
+        title: t(lang, 'components.recommender.content.section4.items.0.title'),
+        description: t(lang, 'components.recommender.content.section4.items.0.description'),
+      },
+      {
+        title: t(lang, 'components.recommender.content.section4.items.1.title'),
+        description: t(lang, 'components.recommender.content.section4.items.1.description'),
+      },
+      {
+        title: t(lang, 'components.recommender.content.section4.items.2.title'),
+        description: t(lang, 'components.recommender.content.section4.items.2.description'),
+      },
+    ]}
+  >
+    <Fragment slot="content">
+      <h3 class="mb-2 text-2xl font-semibold tracking-tight text-primary sm:text-3xl">
+        {t(lang, 'components.recommender.content.section4.heading')}
+      </h3>
+    </Fragment>
+  </Content>
+
+  <div
+    class="intersect-once intercept-no-queue intersect-quarter mx-auto mb-12 flex w-fit flex-col items-center md:mb-16 motion-safe:md:opacity-0 motion-safe:md:intersect:animate-fade lg:mb-20"
+  >
+    <Headline
+      title={t(lang, 'components.recommender.cta.title')}
+      subtitle={t(lang, 'components.recommender.cta.subtitle')}
+      textAlign="center"
+      classes={{
+        title: 'text-3xl md:text-4xl font-bold tracking-tighter mb-4 font-heading text-primary',
+        subtitle: 'max-w-3xl text-xl text-muted dark:text-slate-400',
+      }}
+    />
+    <Button variant="primary" class="mx-auto w-fit" href={link(lang, 'contact')}>
+      {t(lang, 'components.recommender.cta.button')}
+    </Button>
+  </div>
+</Layout>

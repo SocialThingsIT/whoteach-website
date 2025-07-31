@@ -1,0 +1,195 @@
+---
+// filepath: c:\Users\citru\Documents\GitHub\whoteach-website\src\pages\[...lang]\about.astro
+import Layout from '~/layouts/PageLayout.astro';
+import Hero from '~/components/widgets/Hero.astro';
+import Content from '~/components/widgets/Content.astro';
+import Stats from '~/components/widgets/Stats.astro';
+import Headline from '~/components/ui/Headline.astro';
+import InfiniteSlider from '~/components/custom-react/InfiniteSlider';
+
+// i18n helpers
+import { t } from '~/utils/i18n';
+import type { Lang } from '~/utils/i18n';
+import { link } from '~/utils/routes';
+
+/**
+ * Generate one static page per language
+ */
+export async function getStaticPaths() {
+  const langs: Lang[] = ['it', 'en'];
+  return langs.map((lang) => ({ params: { lang } }));
+}
+
+/**
+ * Current locale comes from the dynamic segment [lang]
+ */
+const { lang } = Astro.params as { lang: Lang };
+
+/**
+ * Localised metadata
+ */
+const metadata = {
+  title: t(lang, 'about.title'),
+};
+
+const imagePaths = await Astro.glob('/src/assets/images/whoteach-slider-logos/*').then((files) => {
+  return files.map((file) => file.default.src);
+});
+
+const partnerPaths = await Astro.glob('/src/assets/images/whoteach-slider-logo-partners/*').then((files) => {
+  return files.map((file) => file.default.src);
+});
+---
+
+<Layout metadata={metadata}>
+  <Hero textAlign="center">
+    <Fragment slot="title">{t(lang, 'about.hero.title')}</Fragment>
+  </Hero>
+
+  <Headline
+    classes={{
+      container:
+        'intersect-once intersect-quarter motion-safe:md:opacity-0 motion-safe:md:intersect:animate-fade max-w-5xl px-4 sm:px-6 mx-auto mt-20',
+      title: 'mb-2 text-2xl font-bold tracking-tight text-primary sm:text-4xl',
+      subtitle: 'text-xl text-muted dark:text-slate-400',
+    }}
+  >
+    <Fragment slot="title">
+      <h2 class="mb-2 text-2xl font-bold tracking-tight text-primary sm:text-4xl">
+        {t(lang, 'about.vision.title')}
+      </h2>
+    </Fragment>
+
+    <Fragment slot="subtitle">
+      <div class="mb-2 mt-8 text-lg tracking-tight text-muted dark:text-slate-400">
+        <p>
+          {t(lang, 'about.vision.paragraph1')}
+        </p>
+
+        <p>
+          {t(lang, 'about.vision.paragraph2')}
+        </p>
+
+        <p>
+          {t(lang, 'about.vision.paragraph3')}
+        </p>
+      </div>
+    </Fragment>
+  </Headline>
+
+  <Content
+    isReversed
+    image={{
+      src: 'https://images.unsplash.com/photo-1519389950473-47ba0277781c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80',
+      alt: t(lang, 'about.belief.imageAlt'),
+    }}
+    callToAction={{
+      variant: 'secondary',
+      text: t(lang, 'about.belief.cta'),
+      href: link(lang, 'home'),
+    }}
+  >
+    <Fragment slot="bg">
+      <div class="absolute inset-0 bg-section dark:bg-transparent"></div>
+    </Fragment>
+    <Fragment slot="content">
+      <h3 class="mb-2 text-2xl font-bold tracking-tight text-primary sm:text-3xl">
+        {t(lang, 'about.belief.title')}
+      </h3>
+    </Fragment>
+    <Fragment slot="content">
+      <p class="mb-2 mt-8 tracking-tight">
+        {t(lang, 'about.belief.paragraph1')}
+      </p>
+      <p>
+        {t(lang, 'about.belief.paragraph2')}
+      </p>
+    </Fragment>
+  </Content>
+
+  <Content
+    isAfterContent
+    image={{
+      src: 'https://images.unsplash.com/photo-1519389950473-47ba0277781c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80',
+      alt: t(lang, 'about.ecosystem.imageAlt'),
+    }}
+    callToAction={{
+      variant: 'secondary',
+      text: t(lang, 'about.ecosystem.cta'),
+      href: link(lang, 'home'),
+    }}
+  >
+    <Fragment slot="bg">
+      <div class="absolute inset-0 bg-section dark:bg-transparent"></div>
+    </Fragment>
+    <Fragment slot="content">
+      <h3 class="mb-2 text-2xl font-bold tracking-tight text-primary sm:text-3xl">
+        {t(lang, 'about.ecosystem.title')}
+      </h3>
+    </Fragment>
+    <Fragment slot="content">
+      <p class="mb-2 mt-8 tracking-tight">
+        {t(lang, 'about.ecosystem.paragraph1')}
+      </p>
+      <p>
+        {t(lang, 'about.ecosystem.paragraph2')}
+      </p>
+    </Fragment>
+  </Content>
+
+  <Stats
+    title={t(lang, 'about.stats.title')}
+    stats={[
+      { title: t(lang, 'about.stats.items.0.title'), amount: t(lang, 'about.stats.items.0.amount') },
+      { title: t(lang, 'about.stats.items.1.title'), amount: t(lang, 'about.stats.items.1.amount') },
+      { title: t(lang, 'about.stats.items.2.title'), amount: t(lang, 'about.stats.items.2.amount') },
+    ]}
+  />
+
+  <Headline
+    classes={{
+      container:
+        'intersect-once intersect-quarter motion-safe:md:opacity-0 motion-safe:md:intersect:animate-fade max-w-5xl px-4 sm:px-6 mx-auto mt-20',
+      title: 'mb-2 text-2xl font-bold tracking-tight text-primary sm:text-4xl',
+      subtitle: 'text-xl text-muted dark:text-slate-400',
+    }}
+  >
+    <Fragment slot="title">
+      <h2 class="mb-2 text-2xl font-bold tracking-tight text-primary sm:text-4xl">{t(lang, 'about.partners.title')}</h2>
+    </Fragment>
+
+    <Fragment slot="subtitle">
+      <div class="mb-2 mt-8 text-lg tracking-tight text-muted dark:text-slate-400">
+        <p>{t(lang, 'about.partners.paragraph1')}</p>
+
+        <p>
+          {t(lang, 'about.partners.paragraph2')}
+        </p>
+      </div>
+    </Fragment>
+  </Headline>
+
+  <div
+    class="intersect-once intercept-no-queue intersect-quarter my-20 motion-safe:md:opacity-0 motion-safe:md:intersect:animate-fade"
+  >
+    <Headline
+      classes={{
+        container: 'max-w-5xl px-4 sm:px-6 mx-auto mb-10',
+        title: 'mb-2 text-2xl font-bold tracking-tight text-primary sm:text-3xl',
+      }}
+      title={t(lang, 'about.clients.title')}
+    />
+    <InfiniteSlider client:load duration={30} pauseOnHover={false} imagePaths={imagePaths} />
+  </div>
+
+  <div class="my-20">
+    <Headline
+      classes={{
+        container: 'max-w-5xl px-4 sm:px-6 mx-auto mb-10',
+        title: 'mb-20 text-2xl font-bold tracking-tight text-primary sm:text-3xl',
+      }}
+      title={t(lang, 'about.ourPartners.title')}
+    />
+    <InfiniteSlider client:visible duration={12} pauseOnHover={false} imagePaths={partnerPaths} />
+  </div>
+</Layout>

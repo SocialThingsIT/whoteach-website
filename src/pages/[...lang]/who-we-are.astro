@@ -1,27 +1,49 @@
 ---
+// filepath: c:\Users\citru\Documents\GitHub\whoteach-website\src\pages\[...lang]\about.astro
 import Layout from '~/layouts/PageLayout.astro';
-
 import Hero from '~/components/widgets/Hero.astro';
 import Content from '~/components/widgets/Content.astro';
 import Stats from '~/components/widgets/Stats.astro';
 import Headline from '~/components/ui/Headline.astro';
 import InfiniteSlider from '~/components/custom-react/InfiniteSlider';
 
+// i18n helpers
+import { t } from '~/utils/i18n';
+import type { Lang } from '~/utils/i18n';
+import { link } from '~/utils/routes';
+
+/**
+ * Generate one static page per language
+ */
+export async function getStaticPaths() {
+  const langs: Lang[] = ['it', 'en'];
+  return langs.map((lang) => ({ params: { lang } }));
+}
+
+/**
+ * Current locale comes from the dynamic segment [lang]
+ */
+const { lang } = Astro.params as { lang: Lang };
+
+/**
+ * Localised metadata
+ */
 const metadata = {
-  title: 'About us',
+  title: t(lang, 'about.title'),
 };
 
 const imagePaths = await Astro.glob('/src/assets/images/whoteach-slider-logos/*').then((files) => {
-  return files.map((file) => file.default.src); // Just get the src paths
+  return files.map((file) => file.default.src);
 });
+
 const partnerPaths = await Astro.glob('/src/assets/images/whoteach-slider-logo-partners/*').then((files) => {
-  return files.map((file) => file.default.src); // Just get the src paths
+  return files.map((file) => file.default.src);
 });
 ---
 
 <Layout metadata={metadata}>
   <Hero textAlign="center">
-    <Fragment slot="title">Aiutiamo le organizzazioni a crescere, partendo dalle persone</Fragment>
+    <Fragment slot="title">{t(lang, 'about.hero.title')}</Fragment>
   </Hero>
 
   <Headline
@@ -34,28 +56,22 @@ const partnerPaths = await Astro.glob('/src/assets/images/whoteach-slider-logo-p
   >
     <Fragment slot="title">
       <h2 class="mb-2 text-2xl font-bold tracking-tight text-primary sm:text-4xl">
-        Vogliamo ripensare il modo in cui si fa formazione
+        {t(lang, 'about.vision.title')}
       </h2>
     </Fragment>
 
     <Fragment slot="subtitle">
       <div class="mb-2 mt-8 text-lg tracking-tight text-muted dark:text-slate-400">
         <p>
-          WhoTeach nasce da una visione ambiziosa e da un'esigenza urgente: ripensare il modo in cui si fa formazione.
-          Tutto ha origine da una tesi di dottorato in Informatica, dove il nostro CEO Francesco Epifania esplora il
-          potenziale dell'Intelligenza Artificiale applicata alla condivisione della conoscenza.
+          {t(lang, 'about.vision.paragraph1')}
         </p>
 
         <p>
-          Da lì, l'intuizione si trasforma in un progetto concreto:
-          <strong>un ecosistema digitale per l'apprendimento</strong>, sviluppato all'interno di un programma europeo e
-          arricchito dalla collaborazione con università e partner internazionali.
+          {t(lang, 'about.vision.paragraph2')}
         </p>
 
         <p>
-          Oggi WhoTeach è molto più di una piattaforma: è la soluzione <strong>SaaS B2B</strong> per la formazione aziendale,
-          progettata per chi cerca uno strumento davvero flessibile, intelligente e pronto a evolvere con le sfide del mondo
-          del lavoro.
+          {t(lang, 'about.vision.paragraph3')}
         </p>
       </div>
     </Fragment>
@@ -65,12 +81,12 @@ const partnerPaths = await Astro.glob('/src/assets/images/whoteach-slider-logo-p
     isReversed
     image={{
       src: 'https://images.unsplash.com/photo-1519389950473-47ba0277781c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80',
-      alt: 'Colorful Image',
+      alt: t(lang, 'about.belief.imageAlt'),
     }}
     callToAction={{
       variant: 'secondary',
-      text: 'Scopri di più',
-      href: '/',
+      text: t(lang, 'about.belief.cta'),
+      href: link(lang, 'home'),
     }}
   >
     <Fragment slot="bg">
@@ -78,17 +94,15 @@ const partnerPaths = await Astro.glob('/src/assets/images/whoteach-slider-logo-p
     </Fragment>
     <Fragment slot="content">
       <h3 class="mb-2 text-2xl font-bold tracking-tight text-primary sm:text-3xl">
-        Crediamo che l'apprendimento sia il vantaggio competitivo più solido
+        {t(lang, 'about.belief.title')}
       </h3>
     </Fragment>
     <Fragment slot="content">
       <p class="mb-2 mt-8 tracking-tight">
-        Aiutiamo aziende, enti e formatori a creare ed erogare <strong>percorsi didattici di alta qualità</strong>,
-        semplificando l'accesso alle opportunità di upskilling e reskilling.
+        {t(lang, 'about.belief.paragraph1')}
       </p>
       <p>
-        Per noi, la formazione non è un costo da sostenere, ma <strong>un investimento che genera valore</strong> nel tempo.
-        Perché quando le persone crescono, le organizzazioni evolvono.
+        {t(lang, 'about.belief.paragraph2')}
       </p>
     </Fragment>
   </Content>
@@ -97,12 +111,12 @@ const partnerPaths = await Astro.glob('/src/assets/images/whoteach-slider-logo-p
     isAfterContent
     image={{
       src: 'https://images.unsplash.com/photo-1519389950473-47ba0277781c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80',
-      alt: 'Colorful Image',
+      alt: t(lang, 'about.ecosystem.imageAlt'),
     }}
     callToAction={{
       variant: 'secondary',
-      text: 'Scopri di più',
-      href: '/',
+      text: t(lang, 'about.ecosystem.cta'),
+      href: link(lang, 'home'),
     }}
   >
     <Fragment slot="bg">
@@ -110,27 +124,25 @@ const partnerPaths = await Astro.glob('/src/assets/images/whoteach-slider-logo-p
     </Fragment>
     <Fragment slot="content">
       <h3 class="mb-2 text-2xl font-bold tracking-tight text-primary sm:text-3xl">
-        Un ecosistema per chi crede nella crescita continua
+        {t(lang, 'about.ecosystem.title')}
       </h3>
     </Fragment>
     <Fragment slot="content">
       <p class="mb-2 mt-8 tracking-tight">
-        Tecnologia avanzata, sì. Ma <strong>al servizio delle persone.</strong> Perché crediamo che la vera innovazione sia
-        quella che rende l'apprendimento più semplice, accessibile e motivante, per chi insegna e per chi impara.
+        {t(lang, 'about.ecosystem.paragraph1')}
       </p>
       <p>
-        In un mercato che cambia alla velocità delle competenze, l'intelligenza artificiale è per noi la chiave per
-        ridurre il gap, accelerare l'upskilling e trasformare la formazione in un vantaggio competitivo.
+        {t(lang, 'about.ecosystem.paragraph2')}
       </p>
     </Fragment>
   </Content>
 
   <Stats
-    title="Abbiamo un impatto concreto sulle organizzazioni"
+    title={t(lang, 'about.stats.title')}
     stats={[
-      { title: 'riduzione dei costi', amount: '20%' },
-      { title: 'risparmio di tempo', amount: '50%' },
-      { title: 'miglioramento della qualità dei corsi', amount: '40%' },
+      { title: t(lang, 'about.stats.items.0.title'), amount: t(lang, 'about.stats.items.0.amount') },
+      { title: t(lang, 'about.stats.items.1.title'), amount: t(lang, 'about.stats.items.1.amount') },
+      { title: t(lang, 'about.stats.items.2.title'), amount: t(lang, 'about.stats.items.2.amount') },
     ]}
   />
 
@@ -143,17 +155,15 @@ const partnerPaths = await Astro.glob('/src/assets/images/whoteach-slider-logo-p
     }}
   >
     <Fragment slot="title">
-      <h2 class="mb-2 text-2xl font-bold tracking-tight text-primary sm:text-4xl">Insieme a chi investe sul futuro</h2>
+      <h2 class="mb-2 text-2xl font-bold tracking-tight text-primary sm:text-4xl">{t(lang, 'about.partners.title')}</h2>
     </Fragment>
 
     <Fragment slot="subtitle">
       <div class="mb-2 mt-8 text-lg tracking-tight text-muted dark:text-slate-400">
-        <p>Siamo al fianco di imprese e istituzioni che credono nell'innovazione come leva per crescere.</p>
+        <p>{t(lang, 'about.partners.paragraph1')}</p>
 
         <p>
-          Collaboriamo ogni giorno con enti formativi e aziende che hanno scelto la nostra piattaforma per trasformare
-          le attività di training in esperienze digitali evolute, scalabili e misurabili. Una rete in continua
-          espansione, unita da un obiettivo comune: rendere la formazione un asset strategico per il futuro.
+          {t(lang, 'about.partners.paragraph2')}
         </p>
       </div>
     </Fragment>
@@ -167,7 +177,7 @@ const partnerPaths = await Astro.glob('/src/assets/images/whoteach-slider-logo-p
         container: 'max-w-5xl px-4 sm:px-6 mx-auto mb-10',
         title: 'mb-2 text-2xl font-bold tracking-tight text-primary sm:text-3xl',
       }}
-      title="Ci hanno dato fiducia"
+      title={t(lang, 'about.clients.title')}
     />
     <InfiniteSlider client:load duration={30} pauseOnHover={false} imagePaths={imagePaths} />
   </div>
@@ -178,7 +188,7 @@ const partnerPaths = await Astro.glob('/src/assets/images/whoteach-slider-logo-p
         container: 'max-w-5xl px-4 sm:px-6 mx-auto mb-10',
         title: 'mb-20 text-2xl font-bold tracking-tight text-primary sm:text-3xl',
       }}
-      title="I nostri partner"
+      title={t(lang, 'about.ourPartners.title')}
     />
     <InfiniteSlider client:visible duration={12} pauseOnHover={false} imagePaths={partnerPaths} />
   </div>

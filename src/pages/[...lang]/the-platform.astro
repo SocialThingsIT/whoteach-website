@@ -1,0 +1,290 @@
+---
+// filepath: c:\Users\citru\Documents\GitHub\whoteach-website\src\pages\[...lang]\platform.astro
+import Layout from '~/layouts/PageLayout.astro';
+import Hero from '~/components/widgets/Hero.astro';
+import Content from '~/components/widgets/Content.astro';
+import Stats from '~/components/widgets/Stats.astro';
+import Features from '~/components/widgets/Features.astro';
+import Steps from '~/components/widgets/Steps.astro';
+import Features2 from '~/components/widgets/Features2.astro';
+import Headline from '~/components/ui/Headline.astro';
+import Button from '~/components/ui/Button.astro';
+import InfiniteSlider from '~/components/custom-react/InfiniteSlider';
+import Whitelabel from '~/components/widgets/Whitelabel.astro';
+import VideoPlayer from '~/components/custom-react/VideoPlayer';
+
+// i18n helpers
+import { t } from '~/utils/i18n';
+import type { Lang } from '~/utils/i18n';
+import { link } from '~/utils/routes';
+
+// Images
+import heroComponente from '~/assets/images/whoteach-images/hero-componente.png';
+import recommenderSystem from '~/assets/images/whoteach-images/recommender-system.jpg';
+import generativeAI from '~/assets/images/whoteach-images/gen-ai.jpg';
+import whoteachCorso from '~/assets/images/whoteach-images/whoteach-corso.png';
+
+/**
+ * Generate one static page per language
+ */
+export async function getStaticPaths() {
+  const langs: Lang[] = ['it', 'en'];
+  return langs.map((lang) => ({ params: { lang } }));
+}
+
+/**
+ * Current locale comes from the dynamic segment [lang]
+ */
+const { lang } = Astro.params as { lang: Lang };
+
+/**
+ * Localised metadata
+ */
+const metadata = {
+  title: t(lang, 'platform.title'),
+};
+
+const imagePaths = await Astro.glob('/src/assets/images/whoteach-slider-logos/*').then((files) => {
+  return files.map((file) => file.default.src);
+});
+---
+
+<Layout metadata={metadata}>
+  <Hero
+    textAlign="side"
+    title={t(lang, 'platform.hero.title')}
+    subtitle={t(lang, 'platform.hero.subtitle')}
+    image={{
+      src: heroComponente,
+      alt: t(lang, 'platform.hero.imageAlt'),
+    }}
+    callToAction={{
+      text: t(lang, 'platform.hero.cta'),
+      href: link(lang, 'contact'),
+      variant: 'primary',
+    }}
+  />
+
+  <div class="my-20">
+    <VideoPlayer client:visible src="https://youtu.be/z_1_FwE3V4E" playing={true} muted={true} controls={true} />
+  </div>
+
+  <Features
+    id="features"
+    title={t(lang, 'platform.features.title')}
+    subtitle={t(lang, 'platform.features.subtitle')}
+    items={[
+      {
+        title: t(lang, 'platform.features.items.0.title'),
+        description: t(lang, 'platform.features.items.0.description'),
+        icon: 'tabler:brand-tailwind',
+      },
+      {
+        title: t(lang, 'platform.features.items.1.title'),
+        description: t(lang, 'platform.features.items.1.description'),
+        icon: 'tabler:components',
+      },
+      {
+        title: t(lang, 'platform.features.items.2.title'),
+        description: t(lang, 'platform.features.items.2.description'),
+        icon: 'tabler:list-check',
+      },
+      {
+        title: t(lang, 'platform.features.items.3.title'),
+        description: t(lang, 'platform.features.items.3.description'),
+        icon: 'tabler:rocket',
+      },
+    ]}
+  />
+
+  <Content
+    isReversed
+    title={t(lang, 'platform.ai.title')}
+    subtitle={t(lang, 'platform.ai.subtitle')}
+    image={{
+      src: generativeAI,
+      alt: t(lang, 'platform.ai.imageAlt'),
+    }}
+    callToAction={{
+      variant: 'secondary',
+      text: t(lang, 'platform.ai.cta'),
+      href: link(lang, 'home'),
+    }}
+  >
+    <Fragment slot="bg">
+      <div class="absolute inset-0 bg-section dark:bg-transparent"></div>
+    </Fragment>
+    <Fragment slot="content">
+      <p class="mb-1 text-sm uppercase tracking-tight">{t(lang, 'platform.ai.label')}</p>
+    </Fragment>
+    <Fragment slot="content">
+      <h3 class="mb-2 text-2xl font-semibold tracking-tight text-primary sm:text-3xl">
+        {t(lang, 'platform.ai.headline')}
+      </h3>
+    </Fragment>
+    <Fragment slot="content">
+      <p class="mb-2 tracking-tight">
+        {t(lang, 'platform.ai.description')}
+      </p>
+    </Fragment>
+  </Content>
+
+  <Content
+    isAfterContent
+    image={{
+      src: recommenderSystem,
+      alt: t(lang, 'platform.recommender.imageAlt'),
+    }}
+    callToAction={{
+      variant: 'secondary',
+      text: t(lang, 'platform.recommender.cta'),
+      href: link(lang, 'home'),
+    }}
+  >
+    <Fragment slot="bg">
+      <div class="absolute inset-0 bg-section dark:bg-transparent"></div>
+    </Fragment>
+    <Fragment slot="content">
+      <p class="mb-1 text-sm uppercase tracking-tight">{t(lang, 'platform.recommender.label')}</p>
+    </Fragment>
+    <Fragment slot="content">
+      <h3 class="mb-2 text-2xl font-semibold tracking-tight text-primary sm:text-3xl">
+        {t(lang, 'platform.recommender.headline')}
+      </h3>
+    </Fragment>
+    <Fragment slot="content">
+      <p class="mb-2 tracking-tight">
+        {t(lang, 'platform.recommender.description')}
+      </p>
+    </Fragment>
+  </Content>
+
+  <Features2
+    tagline={t(lang, 'platform.modules.tagline')}
+    title={t(lang, 'platform.modules.title')}
+    subtitle={t(lang, 'platform.modules.subtitle')}
+    centeredIcons={true}
+    classes={{
+      headline: {
+        container: 'basis-1/3',
+        subtitle: 'mb-20',
+      },
+    }}
+    items={[
+      {
+        title: t(lang, 'platform.modules.items.0'),
+        icon: 'flat-color-icons:template',
+      },
+      {
+        title: t(lang, 'platform.modules.items.1'),
+        icon: 'flat-color-icons:gallery',
+      },
+      {
+        title: t(lang, 'platform.modules.items.2'),
+        icon: 'flat-color-icons:approval',
+      },
+      {
+        title: t(lang, 'platform.modules.items.3'),
+        icon: 'flat-color-icons:document',
+      },
+    ]}
+  />
+
+  <Whitelabel
+    title={t(lang, 'platform.whitelabel.title')}
+    subtitle={t(lang, 'platform.whitelabel.subtitle')}
+    content={t(lang, 'platform.whitelabel.content')}
+    content2={t(lang, 'platform.whitelabel.content2')}
+    items={[
+      {
+        title: t(lang, 'platform.whitelabel.items.0.title'),
+        description: t(lang, 'platform.whitelabel.items.0.description'),
+      },
+      {
+        title: t(lang, 'platform.whitelabel.items.1.title'),
+        description: t(lang, 'platform.whitelabel.items.1.description'),
+      },
+      {
+        title: t(lang, 'platform.whitelabel.items.2.title'),
+        description: t(lang, 'platform.whitelabel.items.2.description'),
+      },
+      {
+        title: t(lang, 'platform.whitelabel.items.3.title'),
+        description: t(lang, 'platform.whitelabel.items.3.description'),
+      },
+      {
+        title: t(lang, 'platform.whitelabel.items.4.title'),
+        description: t(lang, 'platform.whitelabel.items.4.description'),
+      },
+    ]}
+  >
+    <Fragment slot="bg">
+      <div class="absolute inset-0 bg-section dark:bg-transparent"></div>
+    </Fragment>
+  </Whitelabel>
+
+  <Steps
+    title={t(lang, 'platform.values.title')}
+    items={[
+      {
+        title: t(lang, 'platform.values.items.0.title'),
+        description: t(lang, 'platform.values.items.0.description'),
+        icon: 'tabler:package',
+      },
+      {
+        title: t(lang, 'platform.values.items.1.title'),
+        description: t(lang, 'platform.values.items.1.description'),
+        icon: 'tabler:letter-case',
+      },
+      {
+        title: t(lang, 'platform.values.items.2.title'),
+        description: t(lang, 'platform.values.items.2.description'),
+        icon: 'tabler:paint',
+      },
+      {
+        title: t(lang, 'platform.values.items.3.title'),
+        description: t(lang, 'platform.values.items.3.description'),
+        icon: 'tabler:paint',
+      },
+    ]}
+    image={{
+      src: whoteachCorso,
+      alt: t(lang, 'platform.values.imageAlt'),
+    }}
+    classes={{
+      items: {
+        title: 'text-primary',
+      },
+    }}
+  />
+
+  <div
+    class="intersect-once intercept-no-queue intersect-quarter mx-auto mb-12 flex w-fit flex-col items-center md:mb-16 motion-safe:md:opacity-0 motion-safe:md:intersect:animate-fade lg:mb-20"
+  >
+    <Headline
+      title={t(lang, 'platform.cta.title')}
+      subtitle={t(lang, 'platform.cta.subtitle')}
+      textAlign="center"
+      classes={{
+        title: 'text-3xl md:text-4xl font-bold tracking-tighter mb-4 font-heading text-primary',
+        subtitle: 'max-w-3xl text-xl text-muted dark:text-slate-400',
+      }}
+    />
+    <Button variant="primary" class="mx-auto w-fit" href={link(lang, 'contact')}
+      >{t(lang, 'platform.cta.button')}</Button
+    >
+  </div>
+
+  <Stats
+    title={t(lang, 'platform.stats.title')}
+    stats={[
+      { title: t(lang, 'platform.stats.items.0.title'), amount: t(lang, 'platform.stats.items.0.amount') },
+      { title: t(lang, 'platform.stats.items.1.title'), amount: t(lang, 'platform.stats.items.1.amount') },
+      { title: t(lang, 'platform.stats.items.2.title'), amount: t(lang, 'platform.stats.items.2.amount') },
+    ]}
+  />
+
+  <div class="mx-auto max-w-7xl pb-16 pt-12">
+    <InfiniteSlider client:visible duration={30} pauseOnHover={false} imagePaths={imagePaths} />
+  </div>
+</Layout>

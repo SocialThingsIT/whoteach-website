@@ -3,23 +3,35 @@ import Layout from '~/layouts/Layout.astro';
 import Header from '~/components/widgets/Header.astro';
 import Footer from '~/components/widgets/Footer.astro';
 
-import { headerData, footerData } from '~/navigation';
+import { getHeaderData, getFooterData, getHomeLink } from '~/navigation';
 
 import type { MetaData } from '~/types';
+import type { Lang } from '~/utils/i18n';
 
 export interface Props {
   metadata?: MetaData;
 }
 
 const { metadata } = Astro.props;
+
+// Get the current language from the URL
+const currentPath = Astro.url.pathname;
+const langMatch = currentPath.match(/^\/([a-z]{2})(?:\/|$)/);
+const lang = langMatch ? (langMatch[1] as Lang) : 'it'; // Default to 'it' if no match
+
+// Get header and footer data with the current language
+const headerData = getHeaderData(lang);
+const footerData = getFooterData(lang);
+
+const homeLink = getHomeLink(lang);
 ---
 
-<Layout metadata={metadata}>
+<Layout metadata={metadata} lang={lang}>
   <!--<slot name="announcement">
     <Announcement /> we can put if we release a new WhoTeach version
   </slot> -->
   <slot name="header">
-    <Header {...headerData} isSticky />
+    <Header {...headerData} homeLink={homeLink} lang={lang} isSticky />
   </slot>
   <main>
     <slot />

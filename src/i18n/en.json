@@ -80,5 +80,609 @@
   ],
   "blog": {
     "title": "Our blog"
+  },
+  "prices": {
+    "title": "Pricing - WhoTeach",
+    "hero": {
+      "title": "A platform designed to grow with you",
+      "subtitle": "Choose only the modules you really need and customize your plan based on your company's growth - starting from €250/year",
+      "imageAlt": "Chart showing economic growth with bars and coins, a symbol of financial success."
+    },
+    "note": {
+      "title": "Customize your platform",
+      "description": "Start with what you need today and add other modules in the future, without constraints"
+    },
+    "modules": {
+      "lms": {
+        "title": "Learning Management System",
+        "description": "Manage courses, users, and customized training paths in a single scalable and compliant environment.",
+        "features": [
+          "Cost is based on monthly active user tiers",
+          "Active users are those who access at least once a month",
+          "In case of tier overflow, a cost per additional user applies"
+        ]
+      },
+      "aule": {
+        "title": "Virtual classrooms",
+        "description": "Organize synchronous sessions in stable virtual environments, integrated with your training ecosystem.",
+        "features": [
+          "Fixed annual license for each activated virtual classroom",
+          "Automatic discounts based on the number of classrooms and the estimated occupancy rate",
+          "Each classroom manages up to 100 simultaneous participants"
+        ]
+      },
+      "recommender": {
+        "title": "WhoTeach AI - Recommender System",
+        "description": "Our recommendation system suggests content and activities based on user behavior and skills.",
+        "features": ["Annual activation for each enabled user"]
+      },
+      "generative": {
+        "title": "WhoTeach AI - Generative AI",
+        "description": "To create quizzes, texts, slides, and training paths, starting from simple prompts",
+        "features": ["Annual activation for each enabled user"]
+      }
+    },
+    "cta": "Book a demo",
+    "whitelabel": {
+      "title": "Whitelabel",
+      "subtitle": "Make room for your needs",
+      "content": "Don't adapt to standard solutions. With WhoTeach in whitelabel mode, you have full control: a digital learning ecosystem that speaks the language of your brand, integrates with your processes, and grows with your organization.",
+      "content2": "Custom graphic interface, modular functionality, advanced reporting, B2B e-commerce, access management, unlimited space: every detail is designed to offer you the flexibility and power you seek, without compromises.",
+      "items": [
+        {
+          "title": "Customizable graphic interface",
+          "description": "Completely customize the platform's appearance with your colors, logo, and style, offering a consistent experience with your brand identity."
+        },
+        {
+          "title": "Integrated B2B e-commerce",
+          "description": "Sell your courses directly from the platform with a professional e-commerce system designed for the business-to-business context."
+        },
+        {
+          "title": "Custom and advanced reporting",
+          "description": "Access detailed and customizable reports to monitor every aspect of training, with data ready for reporting to funding bodies."
+        },
+        {
+          "title": "Access timing",
+          "description": "Precisely control when and for how long users can access content, creating structured and sequential training paths."
+        },
+        {
+          "title": "Unlimited storage space",
+          "description": "Upload all the training content you want without worrying about space limits, ensuring scalability for your training offerings."
+        }
+      ]
+    },
+    "faqs": {
+      "title": "Frequently Asked Questions",
+      "subtitle": "Dive into the following questions to gain insights into the powerful features that WhoTeach offers and how it can elevate your training journey.",
+      "tagline": "FAQs",
+      "items": [
+        {
+          "title": "Why choose WhoTeach?",
+          "description": "WhoTeach offers a comprehensive and customizable training experience with integrated artificial intelligence tools that enhance learning effectiveness and reduce the time needed to create quality content."
+        },
+        {
+          "title": "What do I need to start?",
+          "description": "To get started with WhoTeach, you only need an internet connection and a device such as a computer, tablet, or smartphone. The platform is cloud-based, so it doesn't require complex installations."
+        },
+        {
+          "title": "How do I install WhoTeach?",
+          "description": "WhoTeach is a cloud solution, so no installation is required. Once your account is activated, you can immediately access all features through any modern web browser."
+        },
+        {
+          "title": "Does WhoTeach support integrations with other systems?",
+          "description": "Yes, WhoTeach offers APIs and connectors to integrate with HR systems, CRMs, SSO, and other business tools, allowing you to create a coherent and unified training ecosystem."
+        },
+        {
+          "title": "Can I start with just one module and add others in the future?",
+          "description": "Absolutely. WhoTeach's philosophy is scalability: you can start with the modules you need right away and add others as your organization grows or your needs change."
+        },
+        {
+          "title": "What kind of support is included in the plans?",
+          "description": "All WhoTeach plans include technical support via email. Advanced plans also include phone support, dedicated onboarding, and a personal account manager to help you get the most out of the platform."
+        }
+      ]
+    }
+  },
+  "contact": {
+    "title": "Contact Us - WhoTeach",
+    "hero": {
+      "title": "Always at your service",
+      "subtitle": "Every organization has unique needs, and choosing the right training platform isn't always easy. That's why we're here: ready to listen, answer your questions, and guide you to the most suitable solution.",
+      "imageAlt": "Operators working in a call center, using computers and headsets to manage communications"
+    },
+    "form": {
+      "title": "Take the first step with us",
+      "subtitle": "Interested in the platform? Fill out the form and immediately receive a brochure with details, modules, and available plans.",
+      "name": "Name",
+      "email": "Email",
+      "message": "Message",
+      "disclaimer": "By submitting this form, you consent to the processing of your personal data necessary to send an email to our contacts",
+      "description": "Our team usually responds within 2 business days"
+    }
+  },
+  "platform": {
+    "title": "The Platform - WhoTeach",
+    "hero": {
+      "title": "The complete platform for your Corporate Training",
+      "subtitle": "All training activities in one customizable ecosystem",
+      "imageAlt": "Modern learning environment",
+      "cta": "Book a demo"
+    },
+    "features": {
+      "title": "One suite for every need",
+      "subtitle": "WhoTeach is a professional B2B Digital Learning platform designed to support training institutions, companies, and HR teams in the complete management of training programs. It combines in a single environment everything needed to design, deliver, and measure corporate training, reducing operational costs and improving the experience for both teachers and learners.",
+      "items": [
+        {
+          "title": "An ecosystem, not just an LMS",
+          "description": "WhoTeach doesn't just manage content: it offers you a modular and integrated environment where you can create courses, manage virtual classrooms, customize paths, and certify results. Everything is connected, everything speaks the same language: that of effective training."
+        },
+        {
+          "title": "Power of AI, simplicity of use",
+          "description": "Thanks to integrated Generative AI, you can produce complete teaching materials in minutes: texts, slides, maps, quizzes. And with our intelligent recommendation system, each user receives personalized suggestions, without duplications or generic content."
+        },
+        {
+          "title": "Customizable experience, even in white-label",
+          "description": "WhoTeach adapts to your organization, not the other way around. Interface, access, functionality, and visual identity are completely configurable, even in white-label mode, to offer a platform tailored for you and your clients."
+        },
+        {
+          "title": "Control and traceability without stress",
+          "description": "Every course is tracked and automatically certifiable. Reports comply with public funding regulations and are customizable based on your institution's needs. You have everything under control, without complications."
+        }
+      ]
+    },
+    "ai": {
+      "title": "With WhoTeach, artificial intelligence is not just an add-on",
+      "subtitle": "... it's an integral part of the experience! We're not talking about generic AI, but concrete tools designed to make your daily work more effective.",
+      "label": "GENERATIVE AI",
+      "headline": "Create your educational content in a few clicks",
+      "description": "Generate complete teaching materials in minutes - texts, slides, quizzes, concept maps. You can start from training objectives or dialogue with a simple-to-use conversational interface. No technical expertise required.",
+      "imageAlt": "Colorful image of generative AI",
+      "cta": "Learn more"
+    },
+    "recommender": {
+      "label": "RECOMMENDER SYSTEM",
+      "headline": "To build better courses, in less time",
+      "description": "Create effective synchronous lessons in a complete digital environment, designed to facilitate learning and collaboration between teachers and participants.",
+      "imageAlt": "Image of the recommendation system",
+      "cta": "Learn more"
+    },
+    "modules": {
+      "tagline": "MODULAR SOLUTION",
+      "title": "Your formula",
+      "subtitle": "Every company is different. That's why WhoTeach's modular solution allows you to activate only what you need, for as long as you need it.",
+      "items": ["Learning Management System", "Recommender System", "Virtual classrooms", "Generative AI"]
+    },
+    "whitelabel": {
+      "title": "Whitelabel",
+      "subtitle": "Make room for your needs",
+      "content": "Don't adapt to standard solutions. With WhoTeach in whitelabel mode, you have full control: a digital learning ecosystem that speaks the language of your brand, integrates with your processes, and grows with your organization.",
+      "content2": "Custom graphic interface, modular functionality, advanced reporting, B2B e-commerce, access management, unlimited space: every detail is designed to offer you the flexibility and power you seek, without compromises.",
+      "items": [
+        {
+          "title": "Customizable graphic interface",
+          "description": "Completely customize the platform's appearance with your colors, logo, and style, offering a consistent experience with your brand identity."
+        },
+        {
+          "title": "Integrated B2B e-commerce",
+          "description": "Sell your courses directly from the platform with a professional e-commerce system designed for the business-to-business context."
+        },
+        {
+          "title": "Custom and advanced reporting",
+          "description": "Access detailed and customizable reports to monitor every aspect of training, with data ready for reporting to funding bodies."
+        },
+        {
+          "title": "Access timing",
+          "description": "Precisely control when and for how long users can access content, creating structured and sequential training paths."
+        },
+        {
+          "title": "Unlimited storage space",
+          "description": "Upload all the training content you want without worrying about space limits, ensuring scalability for your training offerings."
+        }
+      ]
+    },
+    "values": {
+      "title": "The value that distinguishes us",
+      "imageAlt": "Values image",
+      "items": [
+        {
+          "title": "1 - Total customization",
+          "description": "Every company has different needs. That's why our team works with you to customize the interface, features, and operational flows, even in white-label mode. WhoTeach adapts to your brand, your goals, your organization."
+        },
+        {
+          "title": "2 - Immediate reporting",
+          "description": "At the end of each session, you have all the data ready: attendance, interactions, progress, certifications. Reporting is fully automated and compliant with funding agency requirements. No effort, no delay."
+        },
+        {
+          "title": "3 - Educational Artificial Intelligence",
+          "description": "Our AI isn't generic: it's specifically designed for training. It helps you create coherent, personalized, and updated materials, suggests customized paths and content, and simplifies every phase of instructional design."
+        },
+        {
+          "title": "4 - Customer support",
+          "description": "Our customer care is among the most appreciated in the industry. Have a problem? Just an email or a call and we're immediately operational, for you and your users. Fast, competent, always present."
+        }
+      ]
+    },
+    "cta": {
+      "title": "Want to understand if it's right for you?",
+      "subtitle": "One of our consultants is available to listen to your needs and understand how WhoTeach can support your training project",
+      "button": "Book a demo"
+    },
+    "stats": {
+      "title": "We have a concrete impact on organizations",
+      "items": [
+        {
+          "title": "cost reduction",
+          "amount": "20%"
+        },
+        {
+          "title": "time savings",
+          "amount": "50%"
+        },
+        {
+          "title": "improvement in course quality",
+          "amount": "40%"
+        }
+      ]
+    }
+  },
+  "about": {
+    "title": "About Us - WhoTeach",
+    "hero": {
+      "title": "We help organizations grow, starting with people"
+    },
+    "vision": {
+      "title": "We want to rethink how training is done",
+      "paragraph1": "WhoTeach was born from an ambitious vision and an urgent need: to rethink how training is done. It all originates from a PhD thesis in Computer Science, where our CEO Francesco Epifania explores the potential of Artificial Intelligence applied to knowledge sharing.",
+      "paragraph2": "From there, the intuition transforms into a concrete project: a digital ecosystem for learning, developed within a European program and enriched by collaboration with universities and international partners.",
+      "paragraph3": "Today WhoTeach is much more than a platform: it's the B2B SaaS solution for corporate training, designed for those seeking a truly flexible, intelligent tool ready to evolve with the challenges of the working world."
+    },
+    "belief": {
+      "title": "We believe that learning is the most solid competitive advantage",
+      "paragraph1": "We help companies, institutions, and trainers create and deliver high-quality educational paths, simplifying access to upskilling and reskilling opportunities.",
+      "paragraph2": "For us, training is not a cost to bear, but an investment that generates value over time. Because when people grow, organizations evolve.",
+      "imageAlt": "Colorful image",
+      "cta": "Learn more"
+    },
+    "ecosystem": {
+      "title": "An ecosystem for those who believe in continuous growth",
+      "paragraph1": "Advanced technology, yes. But at the service of people. Because we believe that true innovation is what makes learning simpler, more accessible, and motivating, for both teachers and learners.",
+      "paragraph2": "In a market that changes at the speed of skills, artificial intelligence is for us the key to reducing the gap, accelerating upskilling, and transforming training into a competitive advantage.",
+      "imageAlt": "Colorful image",
+      "cta": "Learn more"
+    },
+    "stats": {
+      "title": "We have a concrete impact on organizations",
+      "items": [
+        {
+          "title": "cost reduction",
+          "amount": "20%"
+        },
+        {
+          "title": "time savings",
+          "amount": "50%"
+        },
+        {
+          "title": "improvement in course quality",
+          "amount": "40%"
+        }
+      ]
+    },
+    "partners": {
+      "title": "Together with those who invest in the future",
+      "paragraph1": "We stand alongside businesses and institutions that believe in innovation as a lever for growth.",
+      "paragraph2": "We collaborate every day with training institutions and companies that have chosen our platform to transform training activities into evolved, scalable, and measurable digital experiences. A continuously expanding network, united by a common goal: making training a strategic asset for the future."
+    },
+    "clients": {
+      "title": "They trusted us"
+    },
+    "ourPartners": {
+      "title": "Our partners"
+    }
+  },
+  "components": {
+    "virtualRoom": {
+      "title": "Virtual Classrooms - WhoTeach",
+      "hero": {
+        "title": "Live lessons tracked, managed, and always accessible",
+        "subtitle": "WhoTeach Virtual Classrooms transform synchronous training into an interactive, flexible, and always controlled experience. Conduct live lessons, create workgroups, record every activity, and offer all participants an engaging, trackable environment ready for any need.",
+        "imageAlt": "Modern learning environment",
+        "cta": "Book a demo"
+      },
+      "content": {
+        "title": "WhoTeach Virtual Classrooms",
+        "section1": {
+          "heading": "Recorded lessons always accessible in HTML5",
+          "imageAlt": "HTML5 Lessons",
+          "items": [
+            {
+              "title": "Universal HTML5 format",
+              "description": "Recorded sessions are always accessible from any device, without the need for installations."
+            },
+            {
+              "title": "Inclusive training",
+              "description": "Every participant can review the content at their own pace, consolidate skills, and learn according to their own rhythm."
+            },
+            {
+              "title": "Continuous and updatable resources",
+              "description": "Every content becomes a resource ready to be reused, shared, and updated when needed."
+            }
+          ]
+        },
+        "section2": {
+          "heading": "Intelligent reports on attendance, time, and activities",
+          "imageAlt": "Attendance reports",
+          "items": [
+            {
+              "title": "Everything under control",
+              "description": "Monitor with precision every lesson, activity carried out, and time spent on the platform, without effort."
+            },
+            {
+              "title": "Reports optimized for institutions",
+              "description": "Reports ready for submission to Forma.Temp and ANPAL: less bureaucracy, more training."
+            }
+          ]
+        },
+        "section3": {
+          "heading": "Unified management of materials, groups, and live notes",
+          "imageAlt": "Materials management",
+          "items": [
+            {
+              "title": "Everything in one place",
+              "description": "Organize teaching materials, manage user groups, and take live notes, without ever losing track."
+            },
+            {
+              "title": "Structured and engaging learning experiences",
+              "description": "Maintain consistency and control at every stage of the program, from the start to the conclusion of the course."
+            }
+          ]
+        }
+      },
+      "cta": {
+        "title": "Want to understand if it's right for you?",
+        "subtitle": "One of our consultants is available to listen to your needs and understand how WhoTeach can support your training project",
+        "button": "Book a demo"
+      }
+    },
+    "recommender": {
+      "title": "Recommender System - WhoTeach",
+      "hero": {
+        "title": "Smart, tailored, trackable learning paths",
+        "subtitle": "WhoTeach Recommender System guides each user to the right content at the right time. It analyzes skills, interests, and activities to offer tailored, dynamic, and always relevant paths, transforming every learning experience into a truly personal journey.",
+        "imageAlt": "Modern learning environment",
+        "cta": "Book a demo"
+      },
+      "content": {
+        "title": "WhoTeach Recommender System",
+        "section1": {
+          "heading": "Transparent and Learning-Oriented Artificial Intelligence",
+          "imageAlt": "Colorful Image",
+          "items": [
+            {
+              "title": "Precise and easily understandable suggestions",
+              "description": "With WhoTeach, AI offers clear and targeted indications, making every suggestion easy to interpret and apply to improve learning."
+            },
+            {
+              "title": "Customization tailored for each user",
+              "description": "Every learning path is adapted to the specific needs of the user, ensuring a unique experience aligned with personal goals."
+            }
+          ]
+        },
+        "section2": {
+          "heading": "Conversational interface. Simple and efficient.",
+          "imageAlt": "Colorful Image",
+          "items": [
+            {
+              "title": "Immediate access to a dynamic library",
+              "description": "Resources easily available and at your fingertips."
+            },
+            {
+              "title": "Simple integration of content",
+              "description": "Content from open or paid sources to enrich training paths."
+            },
+            {
+              "title": "Targeted selection for specific objectives",
+              "description": "Choose only what is relevant to optimize the effectiveness of materials."
+            },
+            {
+              "title": "Total control over quality",
+              "description": "Guarantee an excellent learning experience."
+            }
+          ]
+        },
+        "section3": {
+          "heading": "Intelligent Paths that Evolve with Use",
+          "imageAlt": "Colorful Image",
+          "items": [
+            {
+              "title": "Increasingly effective learning experiences",
+              "description": "Build targeted and updated learning paths, without starting from scratch each time."
+            },
+            {
+              "title": "Continuous learning of the system",
+              "description": "The system optimizes suggestions based on user interactions."
+            },
+            {
+              "title": "Reduction of manual work",
+              "description": "Automate the creation of learning paths to maximize impact."
+            }
+          ]
+        },
+        "section4": {
+          "heading": "Solid innovation, designed to last",
+          "imageAlt": "Colorful Image",
+          "items": [
+            {
+              "title": "Advanced and unique technology",
+              "description": "Two patents, one on the proprietary dataset and one on the recommendation algorithm, are currently in the approval phase."
+            },
+            {
+              "title": "Protection of research and development work",
+              "description": "An important recognition that protects WhoTeach's innovation."
+            },
+            {
+              "title": "Guaranteed competitive advantage",
+              "description": "Reliable and sustainable solutions over time for customers."
+            }
+          ]
+        }
+      },
+      "cta": {
+        "title": "Want to understand if it's right for you?",
+        "subtitle": "One of our consultants is available to listen to your needs and understand how WhoTeach can support your training project",
+        "button": "Book a demo"
+      }
+    },
+    "lms": {
+      "title": "Learning Management System - WhoTeach",
+      "hero": {
+        "title": "Manage, customize, and certify training",
+        "subtitle": "WhoTeach LMS is the solid foundation for delivering scalable, customizable, and compliant asynchronous training. Upload, organize, and manage educational content with maximum freedom, offering each user an engaging, trackable, and certifiable experience.",
+        "imageAlt": "Modern learning environment",
+        "cta": "Book a demo"
+      },
+      "content": {
+        "title": "WhoTeach LMS",
+        "section1": {
+          "heading": "Content always under control, in any format",
+          "imageAlt": "Content under control",
+          "items": [
+            {
+              "title": "Precise and strategic learning structure",
+              "description": "Combine video content, tests, downloadable materials, and interactive activities. Each module adapts to your methodology, following the order, duration, and rules that you define."
+            },
+            {
+              "title": "Personalized learning experiences",
+              "description": "Whether you want to design an intensive course or a long-term path, the platform offers you the freedom to create engaging and effective learning experiences."
+            }
+          ]
+        },
+        "section2": {
+          "heading": "Advanced customization of the user experience",
+          "imageAlt": "LMS Customization",
+          "items": [
+            {
+              "title": "Total adaptability",
+              "description": "WhoTeach adapts to you, not the other way around. Customize the graphical interface, define access levels, structure courses based on your workflows."
+            },
+            {
+              "title": "Identity and consistency",
+              "description": "Every element is designed to reflect your organizational identity and integrate with your processes, so as to offer a coherent and recognizable experience for both trainers and learners."
+            }
+          ]
+        },
+        "section3": {
+          "heading": "Tracked data, certified results, ready-to-use reports",
+          "imageAlt": "LMS Reports",
+          "items": [
+            {
+              "title": "Monitoring and control",
+              "description": "With WhoTeach you always have control over every phase of training: monitor user activities in real time, verify the effectiveness of paths with tests and tracking, and generate with one click all the documentation necessary for funding bodies and audits."
+            },
+            {
+              "title": "Quality management and compliance",
+              "description": "Managing quality and compliance becomes simple, fast, and integrated into your workflow."
+            }
+          ]
+        }
+      },
+      "cta": {
+        "title": "Want to understand if it's right for you?",
+        "subtitle": "One of our consultants is available to listen to your needs and understand how WhoTeach can support your training project",
+        "button": "Book a demo"
+      }
+    },
+    "generativeAI": {
+      "title": "Generative AI - WhoTeach",
+      "hero": {
+        "title": "Quality educational content in just minutes",
+        "subtitle": "WhoTeach Generative AI is your ally for creating complete courses in just minutes, with ready-to-use texts, slides, and quizzes. Just one request: artificial intelligence transforms your ideas into coherent, engaging, and immediately usable educational content.",
+        "imageAlt": "Modern learning environment",
+        "cta": "Book a demo"
+      },
+      "content": {
+        "title": "WhoTeach Generative AI",
+        "section1": {
+          "heading": "Complete educational content, generated in an instant",
+          "imageAlt": "Colorful Image",
+          "items": [
+            {
+              "title": "Quick creation of teaching materials",
+              "description": "Generate texts, slides, quizzes, and concept maps in minutes, ready to be used or adapted."
+            },
+            {
+              "title": "Maximum flexibility in formats",
+              "description": "Export any content in HTML or PowerPoint to adapt it to your needs."
+            },
+            {
+              "title": "Guaranteed educational consistency",
+              "description": "Materials designed to maintain a clear and coherent structure."
+            }
+          ]
+        },
+        "section2": {
+          "heading": "Integrated, Filterable, and Always Updated Repositories",
+          "imageAlt": "Colorful Image",
+          "items": [
+            {
+              "title": "Immediate access to a dynamic library",
+              "description": "Resources easily available and at your fingertips."
+            },
+            {
+              "title": "Simple integration of content",
+              "description": "Content from open or paid sources to enrich training paths."
+            },
+            {
+              "title": "Targeted selection for specific objectives",
+              "description": "Choose only what is relevant to optimize the effectiveness of materials."
+            },
+            {
+              "title": "Total control over quality",
+              "description": "Guarantee an excellent learning experience."
+            }
+          ]
+        },
+        "section3": {
+          "heading": "Conversational interface. Simple and efficient",
+          "imageAlt": "Colorful Image",
+          "items": [
+            {
+              "title": "Intuitive design of quality courses",
+              "description": "With WhoTeach's conversational interface, just write in natural language: AI interprets your ideas and organizes them into coherent content."
+            },
+            {
+              "title": "Quick structuring of training paths",
+              "description": "AI helps you create complete paths intuitively and quickly, without the need for advanced skills."
+            },
+            {
+              "title": "Innovative authoring experience",
+              "description": "A solution designed for those who really teach, with tools designed to simplify the creation process."
+            }
+          ]
+        },
+        "section4": {
+          "heading": "Coherent, Inclusive, and Engaging Materials by Design",
+          "imageAlt": "Colorful Image",
+          "items": [
+            {
+              "title": "Clear and engaging teaching materials",
+              "description": "WhoTeach helps you create content designed for everyone, with a fluid and coherent narrative."
+            },
+            {
+              "title": "Inclusivity for every need",
+              "description": "Every person can feel part of the training path, regardless of the starting level or specific needs."
+            },
+            {
+              "title": "Engagement as a design choice",
+              "description": "Inclusivity and engagement are not an addition, but a fundamental design choice."
+            }
+          ]
+        }
+      },
+      "cta": {
+        "title": "Want to understand if it's right for you?",
+        "subtitle": "One of our consultants is available to listen to your needs and understand how WhoTeach can support your training project",
+        "button": "Book a demo"
+      }
+    }
   }
 }
