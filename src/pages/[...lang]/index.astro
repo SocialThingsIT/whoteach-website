@@ -154,7 +154,7 @@ console.log(link(lang, 'prices'));
   />
 
   <!--  ⭐ CONTENT SECTIONS ********************************************************* -->
-  <Content isReversed title={t(lang, 'content.lms.title')} image={{ src: lms, alt: 'LMS image' }}>
+  <Content isReversed title={t(lang, 'content.title')} image={{ src: lms, alt: 'LMS image' }}>
     <Fragment slot="content">
       <p class="mb-1 text-sm uppercase tracking-tight">{t(lang, 'content.lms.section')}</p>
     </Fragment>
@@ -168,7 +168,7 @@ console.log(link(lang, 'prices'));
     </Fragment>
   </Content>
 
-  <Content image={{ src: auleVirtuali, alt: 'Virtual classroom image' }} title={t(lang, 'content.aule.title')}>
+  <Content isAfterContent image={{ src: auleVirtuali, alt: 'Virtual classroom image' }}>
     <Fragment slot="content">
       <p class="mb-1 text-sm uppercase tracking-tight">{t(lang, 'content.aule.section')}</p>
     </Fragment>
@@ -182,11 +182,7 @@ console.log(link(lang, 'prices'));
     </Fragment>
   </Content>
 
-  <Content
-    isReversed
-    image={{ src: recommenderSystem, alt: 'Recommender system' }}
-    title={t(lang, 'content.recommender.title')}
-  >
+  <Content isAfterContent isReversed image={{ src: recommenderSystem, alt: 'Recommender system' }}>
     <Fragment slot="content">
       <p class="mb-1 text-sm uppercase tracking-tight">{t(lang, 'content.recommender.section')}</p>
     </Fragment>
@@ -200,7 +196,7 @@ console.log(link(lang, 'prices'));
     </Fragment>
   </Content>
 
-  <Content image={{ src: generativeAI, alt: 'Generative AI illustration' }} title={t(lang, 'content.ai.title')}>
+  <Content isAfterContent image={{ src: generativeAI, alt: 'Generative AI illustration' }}>
     <Fragment slot="content">
       <p class="mb-1 text-sm uppercase tracking-tight">{t(lang, 'content.ai.section')}</p>
     </Fragment>

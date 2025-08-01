@@ -31,6 +31,7 @@
     }
   },
   "content": {
+    "title": "From creation to delivery: here's what you can do with WhoTeach",
     "lms": {
       "section": "Learning Management System",
       "title": "Manage courses, materials and certifications from a single space",
@@ -448,14 +449,14 @@
       "hero": {
         "title": "Smart, tailored, trackable learning paths",
         "subtitle": "WhoTeach Recommender System guides each user to the right content at the right time. It analyzes skills, interests, and activities to offer tailored, dynamic, and always relevant paths, transforming every learning experience into a truly personal journey.",
-        "imageAlt": "Modern learning environment",
+        "imageAlt": "A robotic hand pointing to an AI hologram, symbolizing smart and tailored learning paths",
         "cta": "Book a demo"
       },
       "content": {
         "title": "WhoTeach Recommender System",
         "section1": {
           "heading": "Transparent and Learning-Oriented Artificial Intelligence",
-          "imageAlt": "Colorful Image",
+          "imageAlt": "A glowing AI chip surrounded by circuits, representing precise and intelligent recommendations",
           "items": [
             {
               "title": "Precise and easily understandable suggestions",
@@ -469,7 +470,7 @@
         },
         "section2": {
           "heading": "Conversational interface. Simple and efficient.",
-          "imageAlt": "Colorful Image",
+          "imageAlt": "A smartphone with a chatbot interface, symbolizing simple and efficient conversational AI",
           "items": [
             {
               "title": "Immediate access to a dynamic library",
@@ -491,7 +492,7 @@
         },
         "section3": {
           "heading": "Intelligent Paths that Evolve with Use",
-          "imageAlt": "Colorful Image",
+          "imageAlt": "A robot with long arms surrounded by icons representing intelligent learning paths and automation",
           "items": [
             {
               "title": "Increasingly effective learning experiences",
@@ -509,7 +510,7 @@
         },
         "section4": {
           "heading": "Solid innovation, designed to last",
-          "imageAlt": "Colorful Image",
+          "imageAlt": "A hand holding a light bulb, symbolizing innovation and creativity",
           "items": [
             {
               "title": "Advanced and unique technology",

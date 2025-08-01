@@ -31,6 +31,7 @@
     }
   },
   "content": {
+    "title": "Dalla creazione all'erogazione: ecco cosa puoi fare con WhoTeach",
     "lms": {
       "section": "Learning Management System",
       "title": "Gestisci corsi, materiali e certificazioni da un unico spazio",
@@ -448,14 +449,14 @@
       "hero": {
         "title": "Percorsi smart, su misura, tracciabili",
         "subtitle": "WhoTeach Recommender System guida ogni utente verso il contenuto giusto, al momento giusto. Analizza competenze, interessi e attività per offrire percorsi su misura, dinamici e sempre rilevanti, trasformando ogni esperienza formativa in un cammino davvero personale.",
-        "imageAlt": "Ambiente di studio moderno",
+        "imageAlt": "Una mano robotica che punta a un ologramma di AI, simbolo di percorsi formativi smart e personalizzati",
         "cta": "Prenota una demo"
       },
       "content": {
         "title": "WhoTeach Recommender System",
         "section1": {
           "heading": "Intelligenza Artificiale Trasparente e Orientata all'Apprendimento",
-          "imageAlt": "Colorful Image",
+          "imageAlt": "Un chip AI luminoso circondato da circuiti, rappresentazione di raccomandazioni precise e intelligenti",
           "items": [
             {
               "title": "Suggerimenti precisi e facilmente comprensibili",
@@ -469,7 +470,7 @@
         },
         "section2": {
           "heading": "Interfaccia conversazionale. Semplice ed efficiente.",
-          "imageAlt": "Colorful Image",
+          "imageAlt": "Uno smartphone con un'interfaccia chatbot, simbolo di AI conversazionale semplice ed efficiente",
           "items": [
             {
               "title": "Accesso immediato a una libreria dinamica",
@@ -491,7 +492,7 @@
         },
         "section3": {
           "heading": "Percorsi Intelligenti che Evolvono con l'uso",
-          "imageAlt": "Colorful Image",
+          "imageAlt": "Un robot con braccia lunghe circondato da icone che rappresentano percorsi formativi intelligenti e automazione",
           "items": [
             {
               "title": "Esperienze formative sempre più efficaci",
@@ -509,7 +510,7 @@
         },
         "section4": {
           "heading": "Innovazione solida, pensata per durare",
-          "imageAlt": "Colorful Image",
+          "imageAlt": "Una mano che tiene una lampadina, simbolo di innovazione e creatività",
           "items": [
             {
               "title": "Tecnologia avanzata e unica",
