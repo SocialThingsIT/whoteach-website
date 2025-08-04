@@ -12,6 +12,9 @@ import { t } from '~/utils/i18n';
 import type { Lang } from '~/utils/i18n';
 import { link } from '~/utils/routes';
 
+import whoWeAre1 from '~/assets/images/whoteach-images/who-we-are-1.jpg';
+import whoWeAre2 from '~/assets/images/whoteach-images/who-we-are-2.jpg';
+
 /**
  * Generate one static page per language
  */
@@ -80,7 +83,7 @@ const partnerPaths = await Astro.glob('/src/assets/images/whoteach-slider-logo-p
   <Content
     isReversed
     image={{
-      src: 'https://images.unsplash.com/photo-1519389950473-47ba0277781c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80',
+      src: whoWeAre1,
       alt: t(lang, 'about.belief.imageAlt'),
     }}
     callToAction={{
@@ -110,7 +113,7 @@ const partnerPaths = await Astro.glob('/src/assets/images/whoteach-slider-logo-p
   <Content
     isAfterContent
     image={{
-      src: 'https://images.unsplash.com/photo-1519389950473-47ba0277781c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80',
+      src: whoWeAre2,
       alt: t(lang, 'about.ecosystem.imageAlt'),
     }}
     callToAction={{

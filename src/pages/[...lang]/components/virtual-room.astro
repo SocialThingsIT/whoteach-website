@@ -1,16 +1,19 @@
 ---
-// filepath: c:\Users\citru\Documents\GitHub\whoteach-website\src\pages\[...lang]\about.astro
 import Layout from '~/layouts/PageLayout.astro';
 import Hero from '~/components/widgets/Hero.astro';
 import Content from '~/components/widgets/Content.astro';
-import Stats from '~/components/widgets/Stats.astro';
+import auleVirtuali from '~/assets/images/whoteach-images/aule-virtuali.jpg';
+import Button from '~/components/ui/Button.astro';
 import Headline from '~/components/ui/Headline.astro';
-import InfiniteSlider from '~/components/custom-react/InfiniteSlider';
 
 // i18n helpers
 import { t } from '~/utils/i18n';
 import type { Lang } from '~/utils/i18n';
 import { link } from '~/utils/routes';
+
+import componentVirtualRoom1 from '~/assets/images/whoteach-images/component-virtual-room-1.jpg';
+import componentVirtualRoom2 from '~/assets/images/whoteach-images/component-virtual-room-2.jpg';
+import componentVirtualRoom3 from '~/assets/images/whoteach-images/component-virtual-room-3.avif';
 
 /**
  * Generate one static page per language
@@ -29,167 +32,119 @@ const { lang } = Astro.params as { lang: Lang };
  * Localised metadata
  */
 const metadata = {
-  title: t(lang, 'about.title'),
+  title: t(lang, 'components.virtualRoom.title'),
 };
-
-const imagePaths = await Astro.glob('/src/assets/images/whoteach-slider-logos/*').then((files) => {
-  return files.map((file) => file.default.src);
-});
-
-const partnerPaths = await Astro.glob('/src/assets/images/whoteach-slider-logo-partners/*').then((files) => {
-  return files.map((file) => file.default.src);
-});
 ---
 
 <Layout metadata={metadata}>
-  <Hero textAlign="center">
-    <Fragment slot="title">{t(lang, 'about.hero.title')}</Fragment>
-  </Hero>
-
-  <Headline
-    classes={{
-      container:
-        'intersect-once intersect-quarter motion-safe:md:opacity-0 motion-safe:md:intersect:animate-fade max-w-5xl px-4 sm:px-6 mx-auto mt-20',
-      title: 'mb-2 text-2xl font-bold tracking-tight text-primary sm:text-4xl',
-      subtitle: 'text-xl text-muted dark:text-slate-400',
-    }}
-  >
-    <Fragment slot="title">
-      <h2 class="mb-2 text-2xl font-bold tracking-tight text-primary sm:text-4xl">
-        {t(lang, 'about.vision.title')}
-      </h2>
-    </Fragment>
-
-    <Fragment slot="subtitle">
-      <div class="mb-2 mt-8 text-lg tracking-tight text-muted dark:text-slate-400">
-        <p>
-          {t(lang, 'about.vision.paragraph1')}
-        </p>
-
-        <p>
-          {t(lang, 'about.vision.paragraph2')}
-        </p>
-
-        <p>
-          {t(lang, 'about.vision.paragraph3')}
-        </p>
-      </div>
-    </Fragment>
-  </Headline>
-
-  <Content
-    isReversed
+  <Hero
+    textAlign="side"
+    title={t(lang, 'components.virtualRoom.hero.title')}
+    subtitle={t(lang, 'components.virtualRoom.hero.subtitle')}
     image={{
-      src: 'https://images.unsplash.com/photo-1519389950473-47ba0277781c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80',
-      alt: t(lang, 'about.belief.imageAlt'),
+      src: auleVirtuali,
+      alt: t(lang, 'components.virtualRoom.hero.imageAlt'),
     }}
     callToAction={{
-      variant: 'secondary',
-      text: t(lang, 'about.belief.cta'),
-      href: link(lang, 'home'),
+      text: t(lang, 'components.virtualRoom.hero.cta'),
+      href: link(lang, 'contact'),
+      variant: 'primary',
     }}
-  >
-    <Fragment slot="bg">
-      <div class="absolute inset-0 bg-section dark:bg-transparent"></div>
-    </Fragment>
-    <Fragment slot="content">
-      <h3 class="mb-2 text-2xl font-bold tracking-tight text-primary sm:text-3xl">
-        {t(lang, 'about.belief.title')}
-      </h3>
-    </Fragment>
-    <Fragment slot="content">
-      <p class="mb-2 mt-8 tracking-tight">
-        {t(lang, 'about.belief.paragraph1')}
-      </p>
-      <p>
-        {t(lang, 'about.belief.paragraph2')}
-      </p>
-    </Fragment>
-  </Content>
-
-  <Content
-    isAfterContent
-    image={{
-      src: 'https://images.unsplash.com/photo-1519389950473-47ba0277781c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80',
-      alt: t(lang, 'about.ecosystem.imageAlt'),
-    }}
-    callToAction={{
-      variant: 'secondary',
-      text: t(lang, 'about.ecosystem.cta'),
-      href: link(lang, 'home'),
-    }}
-  >
-    <Fragment slot="bg">
-      <div class="absolute inset-0 bg-section dark:bg-transparent"></div>
-    </Fragment>
-    <Fragment slot="content">
-      <h3 class="mb-2 text-2xl font-bold tracking-tight text-primary sm:text-3xl">
-        {t(lang, 'about.ecosystem.title')}
-      </h3>
-    </Fragment>
-    <Fragment slot="content">
-      <p class="mb-2 mt-8 tracking-tight">
-        {t(lang, 'about.ecosystem.paragraph1')}
-      </p>
-      <p>
-        {t(lang, 'about.ecosystem.paragraph2')}
-      </p>
-    </Fragment>
-  </Content>
-
-  <Stats
-    title={t(lang, 'about.stats.title')}
-    stats={[
-      { title: t(lang, 'about.stats.items.0.title'), amount: t(lang, 'about.stats.items.0.amount') },
-      { title: t(lang, 'about.stats.items.1.title'), amount: t(lang, 'about.stats.items.1.amount') },
-      { title: t(lang, 'about.stats.items.2.title'), amount: t(lang, 'about.stats.items.2.amount') },
-    ]}
   />
 
-  <Headline
-    classes={{
-      container:
-        'intersect-once intersect-quarter motion-safe:md:opacity-0 motion-safe:md:intersect:animate-fade max-w-5xl px-4 sm:px-6 mx-auto mt-20',
-      title: 'mb-2 text-2xl font-bold tracking-tight text-primary sm:text-4xl',
-      subtitle: 'text-xl text-muted dark:text-slate-400',
+  <Content
+    largeImage
+    title={t(lang, 'components.virtualRoom.content.title')}
+    isReversed
+    image={{
+      src: componentVirtualRoom1,
+      alt: t(lang, 'components.virtualRoom.content.section1.imageAlt'),
     }}
+    items={[
+      {
+        title: t(lang, 'components.virtualRoom.content.section1.items.0.title'),
+        description: t(lang, 'components.virtualRoom.content.section1.items.0.description'),
+      },
+      {
+        title: t(lang, 'components.virtualRoom.content.section1.items.1.title'),
+        description: t(lang, 'components.virtualRoom.content.section1.items.1.description'),
+      },
+      {
+        title: t(lang, 'components.virtualRoom.content.section1.items.2.title'),
+        description: t(lang, 'components.virtualRoom.content.section1.items.2.description'),
+      },
+    ]}
   >
-    <Fragment slot="title">
-      <h2 class="mb-2 text-2xl font-bold tracking-tight text-primary sm:text-4xl">{t(lang, 'about.partners.title')}</h2>
+    <Fragment slot="content">
+      <h3 class="mb-2 text-2xl font-semibold tracking-tight text-primary sm:text-3xl">
+        {t(lang, 'components.virtualRoom.content.section1.heading')}
+      </h3>
     </Fragment>
+  </Content>
 
-    <Fragment slot="subtitle">
-      <div class="mb-2 mt-8 text-lg tracking-tight text-muted dark:text-slate-400">
-        <p>{t(lang, 'about.partners.paragraph1')}</p>
-
-        <p>
-          {t(lang, 'about.partners.paragraph2')}
-        </p>
-      </div>
+  <Content
+    largeImage
+    image={{
+      src: componentVirtualRoom2,
+      alt: t(lang, 'components.virtualRoom.content.section2.imageAlt'),
+    }}
+    items={[
+      {
+        title: t(lang, 'components.virtualRoom.content.section2.items.0.title'),
+        description: t(lang, 'components.virtualRoom.content.section2.items.0.description'),
+      },
+      {
+        title: t(lang, 'components.virtualRoom.content.section2.items.1.title'),
+        description: t(lang, 'components.virtualRoom.content.section2.items.1.description'),
+      },
+    ]}
+  >
+    <Fragment slot="content">
+      <h3 class="mb-2 text-2xl font-semibold tracking-tight text-primary sm:text-3xl">
+        {t(lang, 'components.virtualRoom.content.section2.heading')}
+      </h3>
     </Fragment>
-  </Headline>
+  </Content>
+
+  <Content
+    largeImage
+    isReversed
+    image={{
+      src: componentVirtualRoom3,
+      alt: t(lang, 'components.virtualRoom.content.section3.imageAlt'),
+    }}
+    items={[
+      {
+        title: t(lang, 'components.virtualRoom.content.section3.items.0.title'),
+        description: t(lang, 'components.virtualRoom.content.section3.items.0.description'),
+      },
+      {
+        title: t(lang, 'components.virtualRoom.content.section3.items.1.title'),
+        description: t(lang, 'components.virtualRoom.content.section3.items.1.description'),
+      },
+    ]}
+  >
+    <Fragment slot="content">
+      <h3 class="mb-2 text-2xl font-semibold tracking-tight text-primary sm:text-3xl">
+        {t(lang, 'components.virtualRoom.content.section3.heading')}
+      </h3>
+    </Fragment>
+  </Content>
 
   <div
-    class="intersect-once intercept-no-queue intersect-quarter my-20 motion-safe:md:opacity-0 motion-safe:md:intersect:animate-fade"
+    class="intersect-once intercept-no-queue intersect-quarter mx-auto mb-12 flex w-fit flex-col items-center md:mb-16 motion-safe:md:opacity-0 motion-safe:md:intersect:animate-fade lg:mb-20"
   >
     <Headline
+      title={t(lang, 'components.virtualRoom.cta.title')}
+      subtitle={t(lang, 'components.virtualRoom.cta.subtitle')}
+      textAlign="center"
       classes={{
-        container: 'max-w-5xl px-4 sm:px-6 mx-auto mb-10',
-        title: 'mb-2 text-2xl font-bold tracking-tight text-primary sm:text-3xl',
+        title: 'text-3xl md:text-4xl font-bold tracking-tighter mb-4 font-heading text-primary',
+        subtitle: 'max-w-3xl text-xl text-muted dark:text-slate-400',
       }}
-      title={t(lang, 'about.clients.title')}
     />
-    <InfiniteSlider client:load duration={30} pauseOnHover={false} imagePaths={imagePaths} />
-  </div>
-
-  <div class="my-20">
-    <Headline
-      classes={{
-        container: 'max-w-5xl px-4 sm:px-6 mx-auto mb-10',
-        title: 'mb-20 text-2xl font-bold tracking-tight text-primary sm:text-3xl',
-      }}
-      title={t(lang, 'about.ourPartners.title')}
-    />
-    <InfiniteSlider client:visible duration={12} pauseOnHover={false} imagePaths={partnerPaths} />
+    <Button variant="primary" class="mx-auto w-fit" href={link(lang, 'contact')}>
+      {t(lang, 'components.virtualRoom.cta.button')}
+    </Button>
   </div>
 </Layout>
