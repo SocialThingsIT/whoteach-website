@@ -15,17 +15,17 @@
   "cardContent": {
     "title": "La soluzione di Digital Learning completa per...",
     "hr": {
-      "alt": "Ufficio",
+      "alt": "Una donna che guida una riunione con un tablet, mentre i colleghi lavorano su laptop",
       "title": "Human Resources",
       "description": "Crea percorsi formativi strutturati, traccia tutto in automatico e certifica la crescita reale delle persone"
     },
     "aziende": {
-      "alt": "Sala riunioni",
+      "alt": "Un professionista che presenta un grafico a un gruppo di colleghi in una sala riunioni moderna",
       "title": "Aziende e PMI",
       "description": "Per assolvere gli obblighi normativi, aggiornare le competenze del tuo team e potenziare la produttività della tua realtà"
     },
     "istituti": {
-      "alt": "Insegnante durante una lezione",
+      "alt": "Un relatore che tiene una presentazione davanti a un pubblico in una sala conferenze",
       "title": "Istituti di Formazione",
       "description": "Produci la reportistica richiesta dagli enti finanziatori con un'unica piattaforma conforme e personalizzabile"
     }
@@ -35,22 +35,26 @@
     "lms": {
       "section": "Learning Management System",
       "title": "Gestisci corsi, materiali e certificazioni da un unico spazio",
-      "description": "Organizza i tuoi contenuti formativi in modo flessibile, monitora l'avanzamento degli utenti e rilascia certificati in automatico. Tutto è tracciato, conforme e facilmente personalizzabile, anche con il tuo brand."
+      "description": "Organizza i tuoi contenuti formativi in modo flessibile, monitora l'avanzamento degli utenti e rilascia certificati in automatico. Tutto è tracciato, conforme e facilmente personalizzabile, anche con il tuo brand.",
+      "imageAlt": "Due persone che collaborano su un laptop e un tablet, con documenti e grafici sul tavolo"
     },
     "aule": {
       "section": "Aule virtuali",
       "title": "Tieni lezioni interattive, efficaci e coinvolgenti",
-      "description": "Crea lezioni sincrone efficaci in un ambiente digitale completo, progettato per facilitare l'apprendimento e la collaborazione tra docenti e partecipanti."
+      "description": "Crea lezioni sincrone efficaci in un ambiente digitale completo, progettato per facilitare l'apprendimento e la collaborazione tra docenti e partecipanti.",
+      "imageAlt": "Una persona con cuffie che studia davanti a un laptop in cucina, con un'insalata e un quaderno sul tavolo"
     },
     "recommender": {
       "section": "Recommender System",
       "title": "Per costruire corsi migliori, in meno tempo",
-      "description": "Il sistema di raccomandazione intelligente ti aiuta a trovare rapidamente i contenuti più adatti per ogni corso. Analizza input, preferenze e obiettivi per proporti risorse pertinenti, aggiornate e coerenti."
+      "description": "Il sistema di raccomandazione intelligente ti aiuta a trovare rapidamente i contenuti più adatti per ogni corso. Analizza input, preferenze e obiettivi per proporti risorse pertinenti, aggiornate e coerenti.",
+      "imageAlt": "Una mano robotica che tiene un ologramma di AI, simbolo di intelligenza artificiale avanzata"
     },
     "ai": {
       "section": "Generative AI",
       "title": "Crea lezioni complete in pochi minuti, con l'aiuto dell'AI",
-      "description": "Scrivi un prompt, scegli il formato e ottieni contenuti didattici originali: testi, slide, diagrammi e quiz vengono generati in automatico, pronti per essere usati o personalizzati."
+      "description": "Scrivi un prompt, scegli il formato e ottieni contenuti didattici originali: testi, slide, diagrammi e quiz vengono generati in automatico, pronti per essere usati o personalizzati.",
+      "imageAlt": "Un cubo luminoso su un circuito elettronico, simbolo di tecnologia avanzata e innovazione digitale"
     },
     "cta": "Scopri WhoTeach"
   },
@@ -206,7 +210,7 @@
     "hero": {
       "title": "La piattaforma completa per il tuo Corporate Training",
       "subtitle": "Tutte le attività di formazione in un unico ecosistema personalizzabile",
-      "imageAlt": "Ambiente di studio moderno",
+      "imageAlt": "Biblioteca moderna con studenti che studiano e lavorano su laptop, simbolo di apprendimento collaborativo e accesso alla conoscenza",
       "cta": "Prenota una demo"
     },
     "features": {
@@ -237,14 +241,14 @@
       "label": "GENERATIVE AI",
       "headline": "Crea i tuoi contenuti didattici in pochi click",
       "description": "Genera materiali didattici completi in pochi minuti - testi, slide, quiz, mappe concettuali. Puoi partire dagli obiettivi formativi o dialogare con un'interfaccia conversazionale semplice da usare. Nessuna competenza tecnica richiesta.",
-      "imageAlt": "Immagine colorata di AI generativa",
+      "imageAlt": "Un cubo luminoso su un circuito elettronico, simbolo di tecnologia avanzata e innovazione digitale",
       "cta": "Scopri di più"
     },
     "recommender": {
       "label": "RECOMMENDER SYSTEM",
       "headline": "Per costruire corsi migliori, in meno tempo",
       "description": "Crea lezioni sincrone efficaci in un ambiente digitale completo, progettato per facilitare l'apprendimento e la collaborazione tra docenti e partecipanti.",
-      "imageAlt": "Immagine del sistema di raccomandazione",
+      "imageAlt": "Una mano robotica che tiene un ologramma di AI, simbolo di intelligenza artificiale avanzata",
       "cta": "Scopri di più"
     },
     "modules": {
@@ -283,7 +287,7 @@
     },
     "values": {
       "title": "Il valore che ci distingue",
-      "imageAlt": "Immagine dei valori",
+      "imageAlt": "Dashboard di amministrazione di WhoTeach con panoramica dei corsi e opzioni di ordinamento, simbolo di gestione centralizzata",
       "items": [
         {
           "title": "1 - Personalizzazione totale",
@@ -341,14 +345,14 @@
       "title": "Crediamo che l'apprendimento sia il vantaggio competitivo più solido",
       "paragraph1": "Aiutiamo aziende, enti e formatori a creare ed erogare percorsi didattici di alta qualità, semplificando l'accesso alle opportunità di upskilling e reskilling.",
       "paragraph2": "Per noi, la formazione non è un costo da sostenere, ma un investimento che genera valore nel tempo. Perché quando le persone crescono, le organizzazioni evolvono.",
-      "imageAlt": "Immagine colorata",
+      "imageAlt": "Una persona con cuffie che studia e prende appunti davanti a un laptop, simbolo di apprendimento remoto e produttività",
       "cta": "Scopri di più"
     },
     "ecosystem": {
       "title": "Un ecosistema per chi crede nella crescita continua",
       "paragraph1": "Tecnologia avanzata, sì. Ma al servizio delle persone. Perché crediamo che la vera innovazione sia quella che rende l'apprendimento più semplice, accessibile e motivante, per chi insegna e per chi impara.",
       "paragraph2": "In un mercato che cambia alla velocità delle competenze, l'intelligenza artificiale è per noi la chiave per ridurre il gap, accelerare l'upskilling e trasformare la formazione in un vantaggio competitivo.",
-      "imageAlt": "Immagine colorata",
+      "imageAlt": "Una giovane piantina che cresce su muschio, simbolo di crescita e sviluppo sostenibile",
       "cta": "Scopri di più"
     },
     "stats": {
@@ -386,14 +390,14 @@
       "hero": {
         "title": "Lezioni live tracciate, gestite e sempre fruibili",
         "subtitle": "Le Aule Virtuali di WhoTeach trasformano la formazione sincrona in un'esperienza interattiva, flessibile e sempre sotto controllo. Conduci lezioni live, crea gruppi di lavoro, registra ogni attività e offri a tutti i partecipanti un ambiente coinvolgente, tracciabile e pronto per ogni esigenza.",
-        "imageAlt": "Ambiente di studio moderno",
+        "imageAlt": "Una persona con cuffie che studia davanti a un laptop in cucina, con un'insalata e un quaderno sul tavolo",
         "cta": "Prenota una demo"
       },
       "content": {
         "title": "Aule Virtuali di WhoTeach",
         "section1": {
           "heading": "Lezioni registrate e sempre accessibili in HTML5",
-          "imageAlt": "Lezioni HTML5",
+          "imageAlt": "Una persona con cuffie che segue una lezione online su un laptop, simbolo di apprendimento digitale e formazione a distanza",
           "items": [
             {
               "title": "Formato HTML5 universale",
@@ -411,7 +415,7 @@
         },
         "section2": {
           "heading": "Report intelligenti su presenze, tempi e attività",
-          "imageAlt": "Report presenze",
+          "imageAlt": "Una persona che analizza grafici su un tablet, simbolo di analisi dei dati e produttività",
           "items": [
             {
               "title": "Tutto sotto controllo",
@@ -425,7 +429,7 @@
         },
         "section3": {
           "heading": "Gestione unificata di materiali, gruppi e note live",
-          "imageAlt": "Gestione materiali",
+          "imageAlt": "Una scrivania condivisa con laptop, cuffie e accessori, simbolo di collaborazione e lavoro di squadra",
           "items": [
             {
               "title": "Tutto in un unico posto",
@@ -449,7 +453,7 @@
       "hero": {
         "title": "Percorsi smart, su misura, tracciabili",
         "subtitle": "WhoTeach Recommender System guida ogni utente verso il contenuto giusto, al momento giusto. Analizza competenze, interessi e attività per offrire percorsi su misura, dinamici e sempre rilevanti, trasformando ogni esperienza formativa in un cammino davvero personale.",
-        "imageAlt": "Una mano robotica che punta a un ologramma di AI, simbolo di percorsi formativi smart e personalizzati",
+        "imageAlt": "Una mano robotica che tiene un ologramma di AI, simbolo di intelligenza artificiale avanzata",
         "cta": "Prenota una demo"
       },
       "content": {
@@ -538,14 +542,14 @@
       "hero": {
         "title": "Gestisci, personalizza e certifica la formazione",
         "subtitle": "WhoTeach LMS è la base solida per erogare formazione asincrona scalabile, personalizzabile e conforme. Carica, organizza e gestisci contenuti didattici con la massima libertà, offrendo a ogni utente un'esperienza coinvolgente, tracciabile e certificabile.",
-        "imageAlt": "Ambiente di studio moderno",
+        "imageAlt": "Due persone che collaborano su un laptop e un tablet, con documenti e grafici sul tavolo",
         "cta": "Prenota una demo"
       },
       "content": {
         "title": "WhoTeach LMS",
         "section1": {
           "heading": "Contenuti sempre sotto controllo, in ogni formato",
-          "imageAlt": "Contenuti sotto controllo",
+          "imageAlt": "Un laptop e un libro aperto fianco a fianco, simbolo di apprendimento tradizionale e digitale",
           "items": [
             {
               "title": "Struttura dell'apprendimento precisa e strategica",
@@ -559,7 +563,7 @@
         },
         "section2": {
           "heading": "Personalizzazione avanzata dell'esperienza utente",
-          "imageAlt": "Personalizzazione LMS",
+          "imageAlt": "Uno smartphone con interfaccia utente e grafici interattivi, simbolo di analisi dati e gestione digitale",
           "items": [
             {
               "title": "Adattabilità totale",
@@ -573,7 +577,7 @@
         },
         "section3": {
           "heading": "Dati tracciati, risultati certificati, report pronti all'uso",
-          "imageAlt": "Report LMS",
+          "imageAlt": "Una scrivania con un laptop, una calcolatrice e pile di documenti, simbolo di gestione e organizzazione del lavoro",
           "items": [
             {
               "title": "Monitoraggio e controllo",
@@ -597,14 +601,14 @@
       "hero": {
         "title": "Contenuti didattici di qualità, in pochi minuti",
         "subtitle": "WhoTeach Generative AI è il tuo alleato per creare corsi completi in pochi minuti, con testi, slide e quiz pronti all'uso. Basta una richiesta: l'intelligenza artificiale trasforma le tue idee in contenuti didattici coerenti, coinvolgenti e subito fruibili.",
-        "imageAlt": "Ambiente di studio moderno",
+        "imageAlt": "Un cubo luminoso su un circuito elettronico, simbolo di tecnologia avanzata e innovazione digitale",
         "cta": "Prenota una demo"
       },
       "content": {
         "title": "WhoTeach Generative AI",
         "section1": {
           "heading": "Contenuti didattici completi, generati in un attimo",
-          "imageAlt": "Colorful Image",
+          "imageAlt": "Rappresentazione astratta di particelle luminose che formano una figura fluida su sfondo scuro, simbolo di tecnologia avanzata e innovazione digitale",
           "items": [
             {
               "title": "Creazione rapida di materiali didattici",
@@ -622,7 +626,7 @@
         },
         "section2": {
           "heading": "Repository Integrati, Filtrabili e Sempre Aggiornati",
-          "imageAlt": "Colorful Image",
+          "imageAlt": "Una scrivania con un laptop, una calcolatrice e pile di documenti, simbolo di gestione e organizzazione del lavoro",
           "items": [
             {
               "title": "Accesso immediato a una libreria dinamica",
@@ -644,7 +648,7 @@
         },
         "section3": {
           "heading": "Interfaccia conversazionale. Semplice ed efficiente",
-          "imageAlt": "Colorful Image",
+          "imageAlt": "Uno smartphone con un'interfaccia chatbot, simbolo di AI conversazionale semplice ed efficiente",
           "items": [
             {
               "title": "Progettazione intuitiva di corsi di qualità",
@@ -662,7 +666,7 @@
         },
         "section4": {
           "heading": "Materiali coerenti, Inclusivi e coinvolgenti by Design",
-          "imageAlt": "Colorful Image",
+          "imageAlt": "Tre persone che collaborano su un progetto, simbolo di lavoro di squadra e apprendimento condiviso",
           "items": [
             {
               "title": "Materiali didattici chiari e coinvolgenti",

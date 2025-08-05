@@ -15,17 +15,17 @@
   "cardContent": {
     "title": "The complete Digital Learning solution for...",
     "hr": {
-      "alt": "Office",
+      "alt": "A woman leading a meeting with a tablet, while colleagues work on laptops",
       "title": "Human Resources",
       "description": "Create structured training paths, track everything automatically and certify people's real growth"
     },
     "aziende": {
-      "alt": "Meeting room",
+      "alt": "A professional presenting a chart to a group of colleagues in a modern meeting room",
       "title": "Companies and SMEs",
       "description": "To fulfill regulatory obligations, update your team's skills and enhance your business's productivity"
     },
     "istituti": {
-      "alt": "Teacher during a class",
+      "alt": "A speaker giving a presentation to an audience in a conference room",
       "title": "Training Institutions",
       "description": "Produce the reporting required by funding bodies with a single compliant and customizable platform"
     }
@@ -35,22 +35,26 @@
     "lms": {
       "section": "Learning Management System",
       "title": "Manage courses, materials and certifications from a single space",
-      "description": "Organize your training content flexibly, monitor user progress and automatically issue certificates. Everything is tracked, compliant and easily customizable, even with your brand."
+      "description": "Organize your training content flexibly, monitor user progress and automatically issue certificates. Everything is tracked, compliant and easily customizable, even with your brand.",
+      "imageAlt": "Two people collaborating on a laptop and tablet, with documents and charts on the table"
     },
     "aule": {
       "section": "Virtual classrooms",
       "title": "Hold interactive, effective and engaging lessons",
-      "description": "Create effective synchronous lessons in a complete digital environment, designed to facilitate learning and collaboration between teachers and participants."
+      "description": "Create effective synchronous lessons in a complete digital environment, designed to facilitate learning and collaboration between teachers and participants.",
+      "imageAlt": "A person wearing headphones studying in front of a laptop in the kitchen, with a salad and a notebook on the table"
     },
     "recommender": {
       "section": "Recommender System",
       "title": "To build better courses, in less time",
-      "description": "The intelligent recommendation system helps you quickly find the most suitable content for each course. It analyzes inputs, preferences and objectives to offer you relevant, updated and coherent resources."
+      "description": "The intelligent recommendation system helps you quickly find the most suitable content for each course. It analyzes inputs, preferences and objectives to offer you relevant, updated and coherent resources.",
+      "imageAlt": "A robotic hand holding an AI hologram, symbolizing advanced artificial intelligence"
     },
     "ai": {
       "section": "Generative AI",
       "title": "Create complete lessons in minutes, with AI assistance",
-      "description": "Write a prompt, choose the format and get original educational content: texts, slides, diagrams and quizzes are automatically generated, ready to be used or customized."
+      "description": "Write a prompt, choose the format and get original educational content: texts, slides, diagrams and quizzes are automatically generated, ready to be used or customized.",
+      "imageAlt": "A glowing cube on an electronic circuit, symbolizing advanced technology and digital innovation"
     },
     "cta": "Discover WhoTeach"
   },
@@ -206,7 +210,7 @@
     "hero": {
       "title": "The complete platform for your Corporate Training",
       "subtitle": "All training activities in one customizable ecosystem",
-      "imageAlt": "Modern learning environment",
+      "imageAlt": "Modern library with students studying and working on laptops, symbolizing collaborative learning and access to knowledge",
       "cta": "Book a demo"
     },
     "features": {
@@ -237,14 +241,14 @@
       "label": "GENERATIVE AI",
       "headline": "Create your educational content in a few clicks",
       "description": "Generate complete teaching materials in minutes - texts, slides, quizzes, concept maps. You can start from training objectives or dialogue with a simple-to-use conversational interface. No technical expertise required.",
-      "imageAlt": "Colorful image of generative AI",
+      "imageAlt": "A glowing cube on an electronic circuit, symbolizing advanced technology and digital innovation",
       "cta": "Learn more"
     },
     "recommender": {
       "label": "RECOMMENDER SYSTEM",
       "headline": "To build better courses, in less time",
       "description": "Create effective synchronous lessons in a complete digital environment, designed to facilitate learning and collaboration between teachers and participants.",
-      "imageAlt": "Image of the recommendation system",
+      "imageAlt": "A robotic hand pointing to an AI hologram, symbolizing smart and tailored learning paths",
       "cta": "Learn more"
     },
     "modules": {
@@ -283,7 +287,7 @@
     },
     "values": {
       "title": "The value that distinguishes us",
-      "imageAlt": "Values image",
+      "imageAlt": "WhoTeach admin dashboard with course overview and sorting options, symbolizing centralized management",
       "items": [
         {
           "title": "1 - Total customization",
@@ -341,14 +345,14 @@
       "title": "We believe that learning is the most solid competitive advantage",
       "paragraph1": "We help companies, institutions, and trainers create and deliver high-quality educational paths, simplifying access to upskilling and reskilling opportunities.",
       "paragraph2": "For us, training is not a cost to bear, but an investment that generates value over time. Because when people grow, organizations evolve.",
-      "imageAlt": "Colorful image",
+      "imageAlt": "A person wearing headphones studying and taking notes in front of a laptop, symbolizing remote learning and productivity",
       "cta": "Learn more"
     },
     "ecosystem": {
       "title": "An ecosystem for those who believe in continuous growth",
       "paragraph1": "Advanced technology, yes. But at the service of people. Because we believe that true innovation is what makes learning simpler, more accessible, and motivating, for both teachers and learners.",
       "paragraph2": "In a market that changes at the speed of skills, artificial intelligence is for us the key to reducing the gap, accelerating upskilling, and transforming training into a competitive advantage.",
-      "imageAlt": "Colorful image",
+      "imageAlt": "A young plant growing on moss, symbolizing growth and sustainable development",
       "cta": "Learn more"
     },
     "stats": {
@@ -386,14 +390,14 @@
       "hero": {
         "title": "Live lessons tracked, managed, and always accessible",
         "subtitle": "WhoTeach Virtual Classrooms transform synchronous training into an interactive, flexible, and always controlled experience. Conduct live lessons, create workgroups, record every activity, and offer all participants an engaging, trackable environment ready for any need.",
-        "imageAlt": "Modern learning environment",
+        "imageAlt": "A person wearing headphones studying in front of a laptop in the kitchen, with a salad and a notebook on the table",
         "cta": "Book a demo"
       },
       "content": {
         "title": "WhoTeach Virtual Classrooms",
         "section1": {
           "heading": "Recorded lessons always accessible in HTML5",
-          "imageAlt": "HTML5 Lessons",
+          "imageAlt": "A person wearing headphones attending an online lesson on a laptop, symbolizing digital learning and remote education",
           "items": [
             {
               "title": "Universal HTML5 format",
@@ -411,7 +415,7 @@
         },
         "section2": {
           "heading": "Intelligent reports on attendance, time, and activities",
-          "imageAlt": "Attendance reports",
+          "imageAlt": "A person analyzing charts on a tablet, symbolizing data analysis and productivity",
           "items": [
             {
               "title": "Everything under control",
@@ -425,7 +429,7 @@
         },
         "section3": {
           "heading": "Unified management of materials, groups, and live notes",
-          "imageAlt": "Materials management",
+          "imageAlt": "A shared desk with laptops, headphones, and accessories, symbolizing collaboration and teamwork",
           "items": [
             {
               "title": "Everything in one place",
@@ -538,14 +542,14 @@
       "hero": {
         "title": "Manage, customize, and certify training",
         "subtitle": "WhoTeach LMS is the solid foundation for delivering scalable, customizable, and compliant asynchronous training. Upload, organize, and manage educational content with maximum freedom, offering each user an engaging, trackable, and certifiable experience.",
-        "imageAlt": "Modern learning environment",
+        "imageAlt": "Two people collaborating on a laptop and tablet, with documents and charts on the table",
         "cta": "Book a demo"
       },
       "content": {
         "title": "WhoTeach LMS",
         "section1": {
           "heading": "Content always under control, in any format",
-          "imageAlt": "Content under control",
+          "imageAlt": "A laptop and an open book side by side, symbolizing traditional and digital learning",
           "items": [
             {
               "title": "Precise and strategic learning structure",
@@ -559,7 +563,7 @@
         },
         "section2": {
           "heading": "Advanced customization of the user experience",
-          "imageAlt": "LMS Customization",
+          "imageAlt": "A smartphone with a user interface and interactive charts, symbolizing data analysis and digital management",
           "items": [
             {
               "title": "Total adaptability",
@@ -573,7 +577,7 @@
         },
         "section3": {
           "heading": "Tracked data, certified results, ready-to-use reports",
-          "imageAlt": "LMS Reports",
+          "imageAlt": "A desk with a laptop, a calculator, and stacks of documents, symbolizing work management and organization",
           "items": [
             {
               "title": "Monitoring and control",
@@ -597,14 +601,14 @@
       "hero": {
         "title": "Quality educational content in just minutes",
         "subtitle": "WhoTeach Generative AI is your ally for creating complete courses in just minutes, with ready-to-use texts, slides, and quizzes. Just one request: artificial intelligence transforms your ideas into coherent, engaging, and immediately usable educational content.",
-        "imageAlt": "Modern learning environment",
+        "imageAlt": "A glowing cube on an electronic circuit, symbolizing advanced technology and digital innovation",
         "cta": "Book a demo"
       },
       "content": {
         "title": "WhoTeach Generative AI",
         "section1": {
           "heading": "Complete educational content, generated in an instant",
-          "imageAlt": "Colorful Image",
+          "imageAlt": "Abstract representation of glowing particles forming a fluid shape on a dark background, symbolizing advanced technology and digital innovation",
           "items": [
             {
               "title": "Quick creation of teaching materials",
@@ -622,7 +626,7 @@
         },
         "section2": {
           "heading": "Integrated, Filterable, and Always Updated Repositories",
-          "imageAlt": "Colorful Image",
+          "imageAlt": "A desk with a laptop, a calculator, and stacks of documents, symbolizing work management and organization",
           "items": [
             {
               "title": "Immediate access to a dynamic library",
@@ -644,7 +648,7 @@
         },
         "section3": {
           "heading": "Conversational interface. Simple and efficient",
-          "imageAlt": "Colorful Image",
+          "imageAlt": "A smartphone with a chatbot interface, symbolizing simple and efficient conversational AI",
           "items": [
             {
               "title": "Intuitive design of quality courses",
@@ -662,7 +666,7 @@
         },
         "section4": {
           "heading": "Coherent, Inclusive, and Engaging Materials by Design",
-          "imageAlt": "Colorful Image",
+          "imageAlt": "Three people collaborating on a project, symbolizing teamwork and shared learning",
           "items": [
             {
               "title": "Clear and engaging teaching materials",

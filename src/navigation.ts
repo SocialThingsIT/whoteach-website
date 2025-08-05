@@ -2,7 +2,7 @@ import { getAsset } from './utils/permalinks';
 import { link } from './utils/routes';
 import type { Lang } from './utils/i18n';
 
-import type { Lang } from './i18n';
+// import type { Lang } from './i18n';
 
 /**
  * Creates an URL to switch language while keeping the same page
