@@ -35,18 +35,19 @@ const {
           classes={{
             container: 'mb-8 md:mb-12',
             title: 'text-4xl lg:text-5xl font-bold leading-tight tracking-tight font-heading text-primary',
-            subtitle: 'text-2xl text-muted mt-2 mb-6 font-medium',
+            subtitle: 'text-2xl text-secondary mt-2 mb-6 font-medium',
           }}
         />
 
-        {content && <div class="mb-8 text-lg text-muted dark:text-slate-400" set:html={content} />}
-        {content2 && <div class="text-lg text-muted dark:text-slate-400" set:html={content2} />}
+        {content && <div class="mb-8 text-lg text-secondary dark:text-slate-400" set:html={content} />}
+        {content2 && <div class="text-lg text-secondary dark:text-slate-400" set:html={content2} />}
         <!-- Call to Action Button -->
+
         {
           cta && (
-            <div class="mt-8">
+            <div class="mt-8 hidden md:block">
               {typeof cta === 'object' && cta.href && cta.text && (
-                <Button variant="secondary" class="py-3" href={cta.href} text={cta.text} />
+                <Button variant="secondary" class="w-full py-3 lg:w-fit" href={cta.href} text={cta.text} />
               )}
             </div>
           )
@@ -64,9 +65,18 @@ const {
             panel: 'flex max-w-none',
             icon: 'flex h-7 w-7 items-center justify-center rounded-full bg-green-600 dark:bg-green-700 text-gray-50 p-1',
             title: 'text-lg font-medium leading-6',
-            description: 'text-muted dark:text-slate-400 mt-2',
+            description: 'text-secondary dark:text-slate-400 mt-2',
           }}
         />
+        {
+          cta && (
+            <div class="mt-12 block md:hidden">
+              {typeof cta === 'object' && cta.href && cta.text && (
+                <Button variant="secondary" class="w-full py-3 lg:w-fit" href={cta.href} text={cta.text} />
+              )}
+            </div>
+          )
+        }
       </div>
     </div>
   </div>

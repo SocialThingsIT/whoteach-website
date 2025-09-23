@@ -9,9 +9,9 @@ site:
 # Default SEO metadata
 metadata:
   title:
-    default: WhoTeach
-    template: '%s — AstroWind'
-  description: "\U0001F680 Suitable for Startups, Small Business, Sass Websites, Professional Portfolios, Marketing Websites, Landing Pages & Blogs."
+    default: WhoTeach | Piattaforma AI per Digital Learning B2B
+    template: '%s — WhoTeach'
+  description: 'WhoTeach: piattaforma digital learning B2B con AI che facilita creazione e gestione di corsi online per aziende e istituzioni, ottimizzando tempi e risultati.'
   robots:
     index: true
     follow: true
@@ -28,13 +28,13 @@ metadata:
     cardType: summary_large_image
 
 i18n:
-  language: en
+  language: it
   textDirection: ltr
 
 apps:
   blog:
     isEnabled: true
-    postsPerPage: 6
+    postsPerPage: 3
 
     post:
       isEnabled: true
@@ -69,4 +69,4 @@ analytics:
       id: null # or "G-XXXXXXXXXX"
 
 ui:
-  theme: 'system' # Values: "system" | "light" | "dark" | "light:only" | "dark:only"
+  theme: 'light' # Values: "system" | "light" | "dark" | "light:only" | "dark:only"

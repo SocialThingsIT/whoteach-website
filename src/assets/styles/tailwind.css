@@ -34,7 +34,7 @@
   }
 
   .btn-tertiary {
-    @apply btn border-none text-muted shadow-none hover:text-gray-900 dark:text-gray-400 dark:hover:text-white;
+    @apply btn border-none text-muted shadow-none hover:text-white dark:text-gray-400 dark:hover:text-white;
   }
 }
 

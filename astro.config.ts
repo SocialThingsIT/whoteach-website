@@ -26,6 +26,18 @@ const whenExternalScripts = (items: (() => AstroIntegration) | (() => AstroInteg
 export default defineConfig({
   output: 'static',
 
+  i18n: {
+    defaultLocale: 'it',
+    locales: ['it', 'en'],
+    routing: {
+      prefixDefaultLocale: true,
+    },
+  },
+
+  redirects: {
+    '/': '/it',
+  },
+
   integrations: [
     tailwind({
       applyBaseStyles: false,
@@ -82,10 +94,10 @@ export default defineConfig({
 
   vite: {
     optimizeDeps: {
-      include: ['@toast-ui/editor']
+      include: ['@toast-ui/editor'],
     },
     ssr: {
-      noExternal: ['@toast-ui/editor']
+      noExternal: ['@toast-ui/editor'],
     },
     resolve: {
       alias: {

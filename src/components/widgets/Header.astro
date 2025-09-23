@@ -5,8 +5,10 @@ import ToggleTheme from '~/components/common/ToggleTheme.astro';
 import ToggleMenu from '~/components/common/ToggleMenu.astro';
 import Button from '~/components/ui/Button.astro';
 
-import { getHomePermalink } from '~/utils/permalinks';
+// import { getHomePermalink } from '~/utils/permalinks';
 import { trimSlash, getAsset } from '~/utils/permalinks';
+import { createLanguageSwitchUrl } from '~/navigation.ts';
+
 import type { CallToAction } from '~/types';
 
 interface Link {
@@ -21,6 +23,8 @@ interface MenuLink extends Link {
 }
 
 export interface Props {
+  homeLink?: string;
+  lang?: string;
   id?: string;
   links?: Array<MenuLink>;
   actions?: Array<CallToAction>;
@@ -34,6 +38,8 @@ export interface Props {
 
 const {
   id = 'header',
+  homeLink = '/it',
+  lang = 'it',
   links = [],
   actions = [],
   isSticky = false,
@@ -45,6 +51,9 @@ const {
 } = Astro.props;
 
 const currentPath = `/${trimSlash(new URL(Astro.url).pathname)}`;
+
+const switchToItUrl = createLanguageSwitchUrl(currentPath, 'it');
+const switchToEnUrl = createLanguageSwitchUrl(currentPath, 'en');
 ---
 
 <header
@@ -71,7 +80,7 @@ const currentPath = `/${trimSlash(new URL(Astro.url).pathname)}`;
     ]}
   >
     <div class:list={[{ 'mr-auto rtl:ml-auto rtl:mr-0': position === 'right' }, 'flex justify-between']}>
-      <a class="flex items-center" href={getHomePermalink()}>
+      <a class="flex items-center" href={homeLink}>
         <Logo />
       </a>
       <div class="flex items-center lg:hidden">
@@ -79,7 +88,7 @@ const currentPath = `/${trimSlash(new URL(Astro.url).pathname)}`;
       </div>
     </div>
     <nav
-      class="hidden w-full items-center overflow-y-auto overflow-x-hidden text-default lg:mx-5 lg:flex lg:w-auto lg:justify-self-center lg:overflow-x-auto lg:overflow-y-visible"
+      class="hidden w-full items-center overflow-y-auto overflow-x-hidden text-primary lg:mx-5 lg:flex lg:w-auto lg:justify-self-center lg:overflow-x-auto lg:overflow-y-visible"
       aria-label="Main navigation"
     >
       <ul
@@ -92,7 +101,14 @@ const currentPath = `/${trimSlash(new URL(Astro.url).pathname)}`;
                 <>
                   <button
                     type="button"
-                    class="hover:text-link flex items-center whitespace-nowrap px-4 py-3 dark:hover:text-white"
+                    class:list={[
+                      'flex items-center whitespace-nowrap px-4 py-3',
+                      // Se un link del dropdown è attivo, applica solo sottolineatura e grassetto
+                      {
+                        'font-bold underline': links.some((link) => link.href === currentPath),
+                        'hover:underline': !links.some((link) => link.href === currentPath),
+                      },
+                    ]}
                   >
                     {text}
                     <Icon name="tabler:chevron-down" class="ml-0.5 hidden h-3.5 w-3.5 lg:inline rtl:ml-0 rtl:mr-0.5" />
@@ -102,8 +118,11 @@ const currentPath = `/${trimSlash(new URL(Astro.url).pathname)}`;
                       <li>
                         <a
                           class:list={[
-                            'hover:text-link whitespace-no-wrap block px-5 py-2 first:rounded-t last:rounded-b dark:hover:bg-gray-700 dark:hover:text-white lg:hover:bg-gray-100',
-                            { 'aw-link-active': href2 === currentPath },
+                            'whitespace-no-wrap block px-5 py-2 first:rounded-t last:rounded-b',
+                            // Solo il link attivo ha sfondo colorato, nessun hover
+                            {
+                              'bg-secondary text-white': href2 === currentPath,
+                            },
                           ]}
                           href={href2}
                         >
@@ -116,8 +135,11 @@ const currentPath = `/${trimSlash(new URL(Astro.url).pathname)}`;
               ) : (
                 <a
                   class:list={[
-                    'hover:text-link flex items-center whitespace-nowrap px-4 py-3 dark:hover:text-white',
-                    { 'aw-link-active': href === currentPath },
+                    'flex items-center whitespace-nowrap px-4 py-3',
+                    {
+                      'font-bold underline': href === currentPath,
+                      'hover:underline': href !== currentPath,
+                    },
                   ]}
                   href={href}
                 >
@@ -136,7 +158,7 @@ const currentPath = `/${trimSlash(new URL(Astro.url).pathname)}`;
       ]}
     >
       <div class="flex w-full items-center justify-between lg:w-auto">
-        <div class="flex">
+        <div class="flex items-center">
           {showToggleTheme && <ToggleTheme iconClass="w-6 h-6 lg:w-5 lg:h-5 lg:inline-block" />}
           {
             showRssFeed && (
@@ -149,7 +171,49 @@ const currentPath = `/${trimSlash(new URL(Astro.url).pathname)}`;
               </a>
             )
           }
+
+          <!-- Language Switcher Dropdown -->
+          <div class="dropdown mx-2">
+            <button
+              type="button"
+              class="flex items-center whitespace-nowrap rounded-lg p-2.5 text-sm text-muted hover:bg-gray-100 focus:outline-none focus:ring-4 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-700"
+            >
+              <span class="font-medium uppercase">{lang}</span>
+              <Icon name="tabler:chevron-down" class="ml-0.5 h-3.5 w-3.5 rtl:ml-0 rtl:mr-0.5" />
+            </button>
+            <ul
+              class="dropdown-menu dark:lg:bg-dark rounded font-medium drop-shadow-xl lg:absolute lg:hidden lg:min-w-[100px] lg:bg-white/90 lg:pl-0 lg:backdrop-blur-md"
+            >
+              <li class="text-sm">
+                <a
+                  class:list={[
+                    'whitespace-no-wrap block px-5 py-2 first:rounded-t',
+                    {
+                      'bg-secondary text-white': lang === 'it',
+                    },
+                  ]}
+                  href={switchToItUrl}
+                >
+                  IT
+                </a>
+              </li>
+              <li>
+                <a
+                  class:list={[
+                    'whitespace-no-wrap block px-5 py-2 last:rounded-b',
+                    {
+                      'bg-secondary text-white': lang === 'en',
+                    },
+                  ]}
+                  href={switchToEnUrl}
+                >
+                  EN
+                </a>
+              </li>
+            </ul>
+          </div>
         </div>
+
         {
           actions?.length ? (
             <span class="ml-4 rtl:ml-0 rtl:mr-4">

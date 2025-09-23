@@ -1,0 +1,188 @@
+---
+import Layout from '~/layouts/PageLayout.astro';
+import Hero from '~/components/widgets/Hero.astro';
+import Note from '~/components/widgets/Note.astro';
+import ModulesGrid from '~/components/widgets/ModulesGrid.astro';
+import Whitelabel from '~/components/widgets/Whitelabel.astro';
+import InfiniteSlider from '~/components/custom-react/InfiniteSlider';
+import FAQs from '~/components/widgets/FAQs.astro';
+import BlogLatestPosts from '~/components/widgets/BlogLatestPosts.astro';
+
+// i18n helpers
+import { t } from '~/utils/i18n';
+import type { Lang } from '~/utils/i18n';
+import { link } from '~/utils/routes';
+
+// Images
+import heroPrice from '~/assets/images/whoteach-images/hero-price.png';
+
+/**
+ * 1️⃣  Generate one static page per language
+ */
+export async function getStaticPaths() {
+  const langs: Lang[] = ['it', 'en'];
+  return langs.map((lang) => ({ params: { lang } }));
+}
+
+/**
+ * 2️⃣  Current locale comes from the dynamic segment [lang]
+ */
+const { lang } = Astro.params as { lang: Lang };
+
+/**
+ * 3️⃣  Localised metadata
+ */
+const metadata = {
+  title: t(lang, 'prices.title'),
+};
+
+const imagePaths = await Astro.glob('/src/assets/images/whoteach-slider-logos/*').then((files) => {
+  return files.map((file) => file.default.src);
+});
+---
+
+<Layout metadata={metadata}>
+  <Hero
+    textAlign="side"
+    title={t(lang, 'prices.hero.title')}
+    subtitle={t(lang, 'prices.hero.subtitle')}
+    image={{
+      src: heroPrice,
+      alt: t(lang, 'prices.hero.imageAlt'),
+    }}
+  />
+
+  <Note title={t(lang, 'prices.note.title')} description={t(lang, 'prices.note.description')} />
+
+  <ModulesGrid
+    modules={[
+      {
+        title: t(lang, 'prices.modules.lms.title'),
+        description: t(lang, 'prices.modules.lms.description'),
+        icon: 'tabler:school',
+        features: [
+          t(lang, 'prices.modules.lms.features.0'),
+          t(lang, 'prices.modules.lms.features.1'),
+          t(lang, 'prices.modules.lms.features.2'),
+        ],
+        callToAction: {
+          text: t(lang, 'prices.cta'),
+          href: link(lang, 'contact'),
+          variant: 'secondary',
+        },
+      },
+      {
+        title: t(lang, 'prices.modules.aule.title'),
+        description: t(lang, 'prices.modules.aule.description'),
+        icon: 'tabler:video',
+        features: [
+          t(lang, 'prices.modules.aule.features.0'),
+          t(lang, 'prices.modules.aule.features.1'),
+          t(lang, 'prices.modules.aule.features.2'),
+        ],
+        callToAction: {
+          text: t(lang, 'prices.cta'),
+          href: link(lang, 'contact'),
+          variant: 'secondary',
+        },
+      },
+      {
+        title: t(lang, 'prices.modules.recommender.title'),
+        description: t(lang, 'prices.modules.recommender.description'),
+        icon: 'tabler:bulb',
+        features: [t(lang, 'prices.modules.recommender.features.0')],
+        callToAction: {
+          text: t(lang, 'prices.cta'),
+          href: link(lang, 'contact'),
+          variant: 'secondary',
+        },
+      },
+      {
+        title: t(lang, 'prices.modules.generative.title'),
+        description: t(lang, 'prices.modules.generative.description'),
+        icon: 'tabler:sparkles',
+        features: [t(lang, 'prices.modules.generative.features.0')],
+        callToAction: {
+          text: t(lang, 'prices.cta'),
+          href: link(lang, 'contact'),
+          variant: 'secondary',
+        },
+      },
+    ]}
+  />
+
+  <Whitelabel
+    title={t(lang, 'prices.whitelabel.title')}
+    subtitle={t(lang, 'prices.whitelabel.subtitle')}
+    content={t(lang, 'prices.whitelabel.content')}
+    content2={t(lang, 'prices.whitelabel.content2')}
+    items={[
+      {
+        title: t(lang, 'prices.whitelabel.items.0.title'),
+        description: t(lang, 'prices.whitelabel.items.0.description'),
+      },
+      {
+        title: t(lang, 'prices.whitelabel.items.1.title'),
+        description: t(lang, 'prices.whitelabel.items.1.description'),
+      },
+      {
+        title: t(lang, 'prices.whitelabel.items.2.title'),
+        description: t(lang, 'prices.whitelabel.items.2.description'),
+      },
+      {
+        title: t(lang, 'prices.whitelabel.items.3.title'),
+        description: t(lang, 'prices.whitelabel.items.3.description'),
+      },
+      {
+        title: t(lang, 'prices.whitelabel.items.4.title'),
+        description: t(lang, 'prices.whitelabel.items.4.description'),
+      },
+    ]}
+    cta={{
+      text: t(lang, 'prices.cta'),
+      href: link(lang, 'contact'),
+    }}
+  >
+    <Fragment slot="bg">
+      <div class="absolute inset-0 bg-section dark:bg-transparent"></div>
+    </Fragment>
+  </Whitelabel>
+
+  <div class="my-20">
+    <InfiniteSlider client:visible duration={30} pauseOnHover={false} imagePaths={imagePaths} />
+  </div>
+
+  <FAQs
+    title={t(lang, 'prices.faqs.title')}
+    subtitle={t(lang, 'prices.faqs.subtitle')}
+    tagline={t(lang, 'prices.faqs.tagline')}
+    items={[
+      {
+        title: t(lang, 'prices.faqs.items.0.title'),
+        description: t(lang, 'prices.faqs.items.0.description'),
+      },
+      {
+        title: t(lang, 'prices.faqs.items.1.title'),
+        description: t(lang, 'prices.faqs.items.1.description'),
+      },
+      {
+        title: t(lang, 'prices.faqs.items.2.title'),
+        description: t(lang, 'prices.faqs.items.2.description'),
+      },
+      {
+        title: t(lang, 'prices.faqs.items.3.title'),
+        description: t(lang, 'prices.faqs.items.3.description'),
+      },
+      {
+        title: t(lang, 'prices.faqs.items.4.title'),
+        description: t(lang, 'prices.faqs.items.4.description'),
+      },
+      {
+        title: t(lang, 'prices.faqs.items.5.title'),
+        description: t(lang, 'prices.faqs.items.5.description'),
+      },
+    ]}
+  />
+
+  <BlogLatestPosts id="blog" title={t(lang, 'blog.title')} />
+</Layout>

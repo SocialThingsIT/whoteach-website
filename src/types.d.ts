@@ -264,6 +264,7 @@ export interface Hero extends Omit<Headline, 'classes'>, Omit<Widget, 'isDark' |
   textAlign?: string;
   slider?: React.ReactNode | string;
   callToAction?: CallToAction; // standalone CTA
+  classes?: Record<string, string | Record<string, string>>;
 }
 
 export interface Team extends Omit<Headline, 'classes'>, Widget {

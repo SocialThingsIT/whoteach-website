@@ -16,7 +16,7 @@ import hrImage from '../assets/images/whoteach-images/hr.png';
 import aziendeImage from '../assets/images/whoteach-images/aziende-pmi.png';
 import istitutiImage from '../assets/images/whoteach-images/istituti-di-formazione.png';
 
-import lms from '../assets/images/whoteach-images/lms.png';
+import lms from '../assets/images/whoteach-images/lms.jpg';
 import recommenderSystem from '../assets/images/whoteach-images/recommender-system.jpg';
 import generativeAI from '../assets/images/whoteach-images/gen-ai.jpg';
 import auleVirtuali from '../assets/images/whoteach-images/aule-virtuali.jpg';
@@ -24,8 +24,7 @@ import Button from '~/components/ui/Button.astro';
 import Quote from '~/components/widgets/Quote.astro';
 
 const metadata = {
-  title: 'HOME',
-  ignoreTitleTemplate: true,
+  title: 'Home',
 };
 
 const imagePaths = await Astro.glob('/src/assets/images/whoteach-slider-logos/*').then((files) => {
@@ -53,7 +52,7 @@ const imagePaths = await Astro.glob('/src/assets/images/whoteach-slider-logos/*'
     ]}
   >
     <Fragment slot="title">
-      <div class="mx-a">
+      <div class="">
         La soluzione per la tua <br />
         <RotatingText
           client:visible
@@ -120,7 +119,7 @@ const imagePaths = await Astro.glob('/src/assets/images/whoteach-slider-logos/*'
         },
         title: 'Istituti di Formazione',
         description:
-          'Produci la reportistica richiesta dagli enti finanziatori con un’unica piattaforma conforme e personalizzabile',
+          "Produci la reportistica richiesta dagli enti finanziatori con un'unica piattaforma conforme e personalizzabile",
       },
     ]}
   />
@@ -167,7 +166,7 @@ const imagePaths = await Astro.glob('/src/assets/images/whoteach-slider-logos/*'
 
     <Fragment slot="content">
       <p class="mb-2 mt-6 tracking-tight">
-        Crea lezioni sincrone efficaci in un ambiente digitale completo, progettato per facilitare l’apprendimento e la
+        Crea lezioni sincrone efficaci in un ambiente digitale completo, progettato per facilitare l'apprendimento e la
         collaborazione tra docenti e partecipanti.
       </p>
     </Fragment>
@@ -226,7 +225,7 @@ const imagePaths = await Astro.glob('/src/assets/images/whoteach-slider-logos/*'
 
   <Features2
     title="Come viene usata WhoTeach?"
-    subtitle="WhoTeach è la piattaforma di digital learning B2B sviluppata dal team per aiutare enti e aziende a creare ed erogare corsi online di qualità, con il supporto dell’IA e un uso più efficiente delle risorse."
+    subtitle="WhoTeach è la piattaforma di digital learning B2B sviluppata dal team per aiutare enti e aziende a creare ed erogare corsi online di qualità, con il supporto dell'IA e un uso più efficiente delle risorse."
     centeredIcons={true}
     classes={{
       headline: {

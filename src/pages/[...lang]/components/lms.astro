@@ -1,0 +1,148 @@
+---
+import Layout from '~/layouts/PageLayout.astro';
+import Hero from '~/components/widgets/Hero.astro';
+import Content from '~/components/widgets/Content.astro';
+import Button from '~/components/ui/Button.astro';
+import Headline from '~/components/ui/Headline.astro';
+
+// i18n helpers
+import { t } from '~/utils/i18n';
+import type { Lang } from '~/utils/i18n';
+import { link } from '~/utils/routes';
+
+// Images
+import lms from '~/assets/images/whoteach-images/lms.jpg';
+
+import componentLms1 from '~/assets/images/whoteach-images/component-lms-1.jpg';
+import componentLms2 from '~/assets/images/whoteach-images/component-lms-2.jpg';
+import componentLms3 from '~/assets/images/whoteach-images/component-generative-ai-2.png';
+
+/**
+ * Generate one static page per language
+ */
+export async function getStaticPaths() {
+  const langs: Lang[] = ['it', 'en'];
+  return langs.map((lang) => ({ params: { lang } }));
+}
+
+/**
+ * Current locale comes from the dynamic segment [lang]
+ */
+const { lang } = Astro.params as { lang: Lang };
+
+/**
+ * Localised metadata
+ */
+const metadata = {
+  title: t(lang, 'components.lms.title'),
+};
+---
+
+<Layout metadata={metadata}>
+  <Hero
+    textAlign="side"
+    title={t(lang, 'components.lms.hero.title')}
+    subtitle={t(lang, 'components.lms.hero.subtitle')}
+    image={{
+      src: lms,
+      alt: t(lang, 'components.lms.hero.imageAlt'),
+    }}
+    callToAction={{
+      text: t(lang, 'components.lms.hero.cta'),
+      href: link(lang, 'contact'),
+      variant: 'primary',
+    }}
+  />
+
+  <Content
+    largeImage
+    title={t(lang, 'components.lms.content.title')}
+    isReversed
+    image={{
+      src: componentLms1,
+      alt: t(lang, 'components.lms.content.section1.imageAlt'),
+    }}
+    items={[
+      {
+        title: t(lang, 'components.lms.content.section1.items.0.title'),
+        description: t(lang, 'components.lms.content.section1.items.0.description'),
+      },
+      {
+        title: t(lang, 'components.lms.content.section1.items.1.title'),
+        description: t(lang, 'components.lms.content.section1.items.1.description'),
+      },
+    ]}
+  >
+    <Fragment slot="content">
+      <h3 class="mb-2 text-2xl font-semibold tracking-tight text-primary sm:text-3xl">
+        {t(lang, 'components.lms.content.section1.heading')}
+      </h3>
+    </Fragment>
+  </Content>
+
+  <Content
+    largeImage
+    image={{
+      src: componentLms2,
+      alt: t(lang, 'components.lms.content.section2.imageAlt'),
+    }}
+    items={[
+      {
+        title: t(lang, 'components.lms.content.section2.items.0.title'),
+        description: t(lang, 'components.lms.content.section2.items.0.description'),
+      },
+      {
+        title: t(lang, 'components.lms.content.section2.items.1.title'),
+        description: t(lang, 'components.lms.content.section2.items.1.description'),
+      },
+    ]}
+  >
+    <Fragment slot="content">
+      <h3 class="mb-2 text-2xl font-semibold tracking-tight text-primary sm:text-3xl">
+        {t(lang, 'components.lms.content.section2.heading')}
+      </h3>
+    </Fragment>
+  </Content>
+
+  <Content
+    largeImage
+    isReversed
+    image={{
+      src: componentLms3,
+      alt: t(lang, 'components.lms.content.section3.imageAlt'),
+    }}
+    items={[
+      {
+        title: t(lang, 'components.lms.content.section3.items.0.title'),
+        description: t(lang, 'components.lms.content.section3.items.0.description'),
+      },
+      {
+        title: t(lang, 'components.lms.content.section3.items.1.title'),
+        description: t(lang, 'components.lms.content.section3.items.1.description'),
+      },
+    ]}
+  >
+    <Fragment slot="content">
+      <h3 class="mb-2 text-2xl font-semibold tracking-tight text-primary sm:text-3xl">
+        {t(lang, 'components.lms.content.section3.heading')}
+      </h3>
+    </Fragment>
+  </Content>
+
+  <div
+    class="intersect-once intercept-no-queue intersect-quarter mx-auto mb-12 flex w-fit flex-col items-center md:mb-16 motion-safe:md:opacity-0 motion-safe:md:intersect:animate-fade lg:mb-20"
+  >
+    <Headline
+      title={t(lang, 'components.lms.cta.title')}
+      subtitle={t(lang, 'components.lms.cta.subtitle')}
+      textAlign="center"
+      classes={{
+        title: 'text-3xl md:text-4xl font-bold tracking-tighter mb-4 font-heading text-primary',
+        subtitle: 'max-w-3xl text-xl text-muted dark:text-slate-400',
+      }}
+    />
+    <Button variant="primary" class="mx-auto w-fit" href={link(lang, 'contact')}>
+      {t(lang, 'components.lms.cta.button')}
+    </Button>
+  </div>
+</Layout>

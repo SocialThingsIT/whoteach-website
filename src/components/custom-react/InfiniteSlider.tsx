@@ -7,6 +7,7 @@ type InfiniteSliderProps = {
   pauseOnHover?: boolean;
   blurBorders?: boolean;
   blurBorderColor?: string;
+  toRight?: boolean;
   imagePaths: string[];
 };
 
@@ -16,6 +17,7 @@ const InfiniteSlider = ({
   pauseOnHover = true,
   blurBorders = true,
   blurBorderColor = '#fff',
+  toRight = false,
   imagePaths = [],
 }: InfiniteSliderProps) => {
   const [isClient, setIsClient] = useState(false);
@@ -25,7 +27,7 @@ const InfiniteSlider = ({
   }, []);
 
   if (!isClient) {
-    return <div className="h-24 bg-gray-100 animate-pulse rounded"></div>; // Loading placeholder
+    return <div className="h-24 animate-pulse rounded bg-gray-100"></div>; // Loading placeholder
   }
 
   return (
@@ -35,6 +37,7 @@ const InfiniteSlider = ({
       pauseOnHover={pauseOnHover}
       blurBorders={blurBorders}
       blurBorderColor={blurBorderColor}
+      toRight={toRight}
     >
       {imagePaths.map((src: string, index: number) => (
         <Slider.Slide key={index}>
