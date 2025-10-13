@@ -689,5 +689,19 @@
         "button": "Prenota una demo"
       }
     }
+  },
+  "dashboard": {
+    "title": "Dashboard - WhoTeach",
+    "hero": {
+      "title": "Tieni tutto sotto controllo, in tempo reale",
+      "subtitle": "Monitoraggio, report e insight in un unico spazio. Dalla panoramica generale al dettaglio del singolo corso.",
+      "imageAlt": "Dashboard di analisi con grafici e indicatori di performance su schermo"
+    },
+    "form": {
+      "title": "Accedi alla dashboard",
+      "email": "Email",
+      "password": "Password",
+      "submit": "Accedi"
+    }
   }
 }

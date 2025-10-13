@@ -2,10 +2,10 @@
 import type { Form as Props } from '~/types';
 import Button from '~/components/ui/Button.astro';
 
-const { inputs, textarea, disclaimer, button = 'Contattaci', description = '' } = Astro.props;
+const { inputs, textarea, disclaimer, button = 'Contattaci', description = '', method, action } = Astro.props;
 ---
 
-<form>
+<form method={method ? method : 'POST'} action={action ? action : '/submit'} class="w-full">
   {
     inputs &&
       inputs.map(

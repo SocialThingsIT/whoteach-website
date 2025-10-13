@@ -689,5 +689,19 @@
         "button": "Book a demo"
       }
     }
+  },
+  "dashboard": {
+    "title": "Dashboard - WhoTeach",
+    "hero": {
+      "title": "Keep everything under control, in real time",
+      "subtitle": "Monitoring, reports and insights in one place. From the big picture to the details of each course.",
+      "imageAlt": "Analytics dashboard with charts and performance indicators on screen"
+    },
+    "form": {
+      "title": "Login to the dashboard",
+      "email": "Email",
+      "password": "Password",
+      "submit": "Login"
+    }
   }
 }

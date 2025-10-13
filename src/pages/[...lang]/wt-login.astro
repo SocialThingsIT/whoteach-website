@@ -1,0 +1,63 @@
+---
+// filepath: c:\Users\citru\Documents\GitHub\whoteach-website\src\pages\[...lang]\about.astro
+import Headline from '~/components/ui/Headline.astro';
+import Layout from '~/layouts/PageLayout.astro';
+import Form from '~/components/ui/Form.astro';
+
+// i18n helpers
+import { t } from '~/utils/i18n';
+import type { Lang } from '~/utils/i18n';
+import { link } from '~/utils/routes';
+
+/**
+ * Generate one static page per language
+ */
+export async function getStaticPaths() {
+  const langs: Lang[] = ['it', 'en'];
+  return langs.map((lang) => ({ params: { lang } }));
+}
+
+/**
+ * Current locale comes from the dynamic segment [lang]
+ */
+const { lang } = Astro.params as { lang: Lang };
+
+/**
+ * Localised metadata
+ */
+const metadata = {
+  title: t(lang, 'about.title'),
+};
+---
+
+<Layout metadata={metadata}>
+  <div
+    class="intersect-once intercept-no-queue intersect-quarter mx-auto mb-12 mt-24 flex w-96 flex-col items-center md:mb-16 motion-safe:md:opacity-0 motion-safe:md:intersect:animate-fade lg:mb-20"
+  >
+    <Headline
+      title={t(lang, 'dashboard.form.title')}
+      textAlign="center"
+      classes={{
+        title: 'text-3xl md:text-4xl font-bold tracking-tighter mb-4 font-heading text-primary',
+        subtitle: 'max-w-3xl text-xl text-muted dark:text-slate-400',
+      }}
+    />
+
+    <Form
+      method="POST"
+      action={link(lang, '/dashboard')}
+      inputs={[
+        {
+          type: 'email',
+          name: 'email',
+          label: t(lang, 'dashboard.form.email'),
+        },
+        {
+          type: 'password',
+          name: 'password',
+          label: t(lang, 'dashboard.form.password'),
+        },
+      ]}
+    />
+  </div>
+</Layout>
