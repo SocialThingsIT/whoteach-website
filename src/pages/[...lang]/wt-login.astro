@@ -2,12 +2,12 @@
 // filepath: c:\Users\citru\Documents\GitHub\whoteach-website\src\pages\[...lang]\about.astro
 import Headline from '~/components/ui/Headline.astro';
 import Layout from '~/layouts/PageLayout.astro';
-import Form from '~/components/ui/Form.astro';
 
 // i18n helpers
 import { t } from '~/utils/i18n';
 import type { Lang } from '~/utils/i18n';
 import { link } from '~/utils/routes';
+import AuthSwitch from '~/components/custom-react/AuthSwitch';
 
 /**
  * Generate one static page per language
@@ -43,21 +43,20 @@ const metadata = {
       }}
     />
 
-    <Form
-      method="POST"
-      action={link(lang, '/dashboard')}
-      inputs={[
-        {
-          type: 'email',
-          name: 'email',
-          label: t(lang, 'dashboard.form.email'),
-        },
-        {
-          type: 'password',
-          name: 'password',
-          label: t(lang, 'dashboard.form.password'),
-        },
-      ]}
-    />
+    <div class="w-full">
+      <AuthSwitch
+        client:only="react"
+        initialMode="login"
+        redirectTo={link(lang, '/dashboard')}
+        labels={{
+          email: t(lang, 'dashboard.form.email') || 'Email',
+          password: t(lang, 'dashboard.form.password') || 'Password',
+          submitLogin: t(lang, 'dashboard.form.loginTab') || 'Accedi',
+          submitSignup: t(lang, 'dashboard.form.signupTab') || 'Registrati',
+          tabLogin: t(lang, 'dashboard.form.loginTab') || 'Accedi',
+          tabSignup: t(lang, 'dashboard.form.signupTab') || 'Registrati',
+        }}
+      />
+    </div>
   </div>
 </Layout>

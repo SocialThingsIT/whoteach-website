@@ -698,10 +698,11 @@
       "imageAlt": "Dashboard di analisi con grafici e indicatori di performance su schermo"
     },
     "form": {
+      "loginTab": "Accedi",
+      "signupTab": "Registrati",
       "title": "Accedi alla dashboard",
       "email": "Email",
-      "password": "Password",
-      "submit": "Accedi"
+      "password": "Password"
     }
   }
 }

@@ -698,6 +698,8 @@
       "imageAlt": "Analytics dashboard with charts and performance indicators on screen"
     },
     "form": {
+      "loginTab": "Login",
+      "signupTab": "Sign Up",
       "title": "Login to the dashboard",
       "email": "Email",
       "password": "Password",
