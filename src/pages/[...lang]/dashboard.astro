@@ -8,6 +8,8 @@ import Form from '~/components/ui/Form.astro';
 import { t } from '~/utils/i18n';
 import type { Lang } from '~/utils/i18n';
 import { link } from '~/utils/routes';
+import UsersManager from '~/components/custom-react/UsersManger';
+import ProtectedRoute from '~/components/custom-react/dashboard/ProtectedRoute';
 
 /**
  * Generate one static page per language
@@ -42,6 +44,13 @@ const metadata = {
       }}
     />
 
-    <!-- TODO: implementare la dashboard -->
+    <section class="mx-auto max-w-6xl px-4 py-10">
+      <div>
+        <ProtectedRoute client:only="react" requiredRole="admin">
+          <h1 class="mb-6 text-3xl font-bold">Gestione Utenti</h1>
+          <UsersManager client:only="react" />
+        </ProtectedRoute>
+      </div>
+    </section>
   </div>
 </Layout>

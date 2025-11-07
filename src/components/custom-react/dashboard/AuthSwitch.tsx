@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import AuthForm from '~/components/custom-react/AuthForm';
+import AuthForm from '~/components/custom-react/dashboard/AuthForm';
 
 type Props = {
   initialMode?: 'signup' | 'login';

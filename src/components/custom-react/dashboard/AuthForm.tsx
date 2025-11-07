@@ -1,6 +1,8 @@
 import { useState } from 'react';
 import { createUserWithEmailAndPassword, signInWithEmailAndPassword } from 'firebase/auth';
+import { doc, setDoc, serverTimestamp } from 'firebase/firestore';
 import { auth } from '~/firebase-config';
+import { db } from '../../../firebase-config';
 
 type Props = {
   mode?: 'signup' | 'login';
@@ -21,7 +23,15 @@ const AuthForm = ({ mode = 'signup', redirectTo, labels }: Props) => {
 
     try {
       if (mode === 'signup') {
-        await createUserWithEmailAndPassword(auth, email, password);
+        const userCredential = await createUserWithEmailAndPassword(auth, email, password);
+        const userId = userCredential.user.uid;
+
+        await setDoc(doc(db, 'users', userId), {
+          email,
+          role: 'admin',
+          permissions: [],
+          createdAt: serverTimestamp(),
+        });
       } else {
         await signInWithEmailAndPassword(auth, email, password);
       }

@@ -7,7 +7,7 @@ import Layout from '~/layouts/PageLayout.astro';
 import { t } from '~/utils/i18n';
 import type { Lang } from '~/utils/i18n';
 import { link } from '~/utils/routes';
-import AuthSwitch from '~/components/custom-react/AuthSwitch';
+import AuthSwitch from '~/components/custom-react/dashboard/AuthSwitch';
 
 /**
  * Generate one static page per language
@@ -47,7 +47,7 @@ const metadata = {
       <AuthSwitch
         client:only="react"
         initialMode="login"
-        redirectTo={link(lang, '/dashboard')}
+        redirectTo={link(lang, 'dashboard')}
         labels={{
           email: t(lang, 'dashboard.form.email') || 'Email',
           password: t(lang, 'dashboard.form.password') || 'Password',
