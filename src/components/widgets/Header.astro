@@ -99,20 +99,20 @@ const switchToEnUrl = createLanguageSwitchUrl(currentPath, 'en');
             <li class={links?.length ? 'dropdown' : ''}>
               {links?.length ? (
                 <>
-                  <button
-                    type="button"
+                  <a
+                    href={href}
                     class:list={[
                       'flex items-center whitespace-nowrap px-4 py-3',
                       // Se un link del dropdown è attivo, applica solo sottolineatura e grassetto
                       {
-                        'font-bold underline': links.some((link) => link.href === currentPath),
+                        'font-bold underline': links.some((link) => link.href === currentPath) || href === currentPath,
                         'hover:underline': !links.some((link) => link.href === currentPath),
                       },
                     ]}
                   >
                     {text}
                     <Icon name="tabler:chevron-down" class="ml-0.5 hidden h-3.5 w-3.5 lg:inline rtl:ml-0 rtl:mr-0.5" />
-                  </button>
+                  </a>
                   <ul class="dropdown-menu dark:lg:bg-dark rounded pl-4 font-medium drop-shadow-xl lg:absolute lg:hidden lg:min-w-[200px] lg:bg-white/90 lg:pl-0 lg:backdrop-blur-md">
                     {links.map(({ text: text2, href: href2 }) => (
                       <li>

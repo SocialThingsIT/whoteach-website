@@ -1,0 +1,128 @@
+---
+export interface Props {
+  portalId: string;
+  formId: string;
+  region?: string;
+  containerId?: string;
+}
+
+const { portalId, formId, region = 'na1', containerId = 'hubspot-form' } = Astro.props;
+---
+
+<div id={containerId} class="hubspot-form-container"></div>
+
+<script define:vars={{ portalId, formId, region, containerId }}>
+  (function () {
+    function loadHubSpotScript(callback) {
+      if (typeof window.hbspt !== 'undefined') {
+        callback();
+        return;
+      }
+
+      const existingScript = document.querySelector('script[src*="js.hsforms.net"]');
+
+      if (existingScript) {
+        if (existingScript.hasAttribute('data-loaded')) {
+          callback();
+        } else {
+          existingScript.addEventListener('load', () => {
+            existingScript.setAttribute('data-loaded', 'true');
+            callback();
+          });
+        }
+        return;
+      }
+
+      const script = document.createElement('script');
+      script.src = '//js.hsforms.net/forms/embed/v2.js';
+      script.charset = 'utf-8';
+      script.type = 'text/javascript';
+      script.async = true;
+
+      script.onload = () => {
+        script.setAttribute('data-loaded', 'true');
+        callback();
+      };
+
+      document.head.appendChild(script);
+    }
+
+    function initHubSpotForm() {
+      const container = document.getElementById(containerId);
+
+      // Verifica che il container esista
+      if (!container) {
+        console.warn('HubSpot form container not found:', containerId);
+        return;
+      }
+
+      // Pulisci il container prima di inizializzare (importante per View Transitions)
+      container.innerHTML = '';
+
+      if (typeof window.hbspt !== 'undefined' && window.hbspt.forms) {
+        window.hbspt.forms.create({
+          portalId: portalId,
+          formId: formId,
+          target: `#${containerId}`,
+          region: region,
+        });
+      }
+    }
+
+    function init() {
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', () => {
+          loadHubSpotScript(initHubSpotForm);
+        });
+      } else {
+        loadHubSpotScript(initHubSpotForm);
+      }
+    }
+
+    // Inizializzazione iniziale
+    init();
+
+    // Re-inizializza dopo navigazione Astro (View Transitions)
+    document.addEventListener('astro:page-load', () => {
+      loadHubSpotScript(initHubSpotForm);
+    });
+  })();
+</script>
+
+<style>
+  .hubspot-form-container {
+    max-width: 100%;
+  }
+
+  /* Stile custom per il form HubSpot */
+  .hubspot-form-container :global(.hs-form) {
+    color: white;
+  }
+
+  .hubspot-form-container :global(.hs-input) {
+    background-color: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: white;
+    padding: 0.75rem;
+    border-radius: 0.5rem;
+  }
+
+  .hubspot-form-container :global(.hs-input::placeholder) {
+    color: rgba(255, 255, 255, 0.5);
+  }
+
+  .hubspot-form-container :global(.hs-button) {
+    background-color: #3b82f6;
+    color: white;
+    padding: 0.75rem 1.5rem;
+    border-radius: 0.5rem;
+    font-weight: 600;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.2s;
+  }
+
+  .hubspot-form-container :global(.hs-button:hover) {
+    background-color: #2563eb;
+  }
+</style>
