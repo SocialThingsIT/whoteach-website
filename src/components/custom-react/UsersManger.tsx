@@ -1,11 +1,13 @@
 import { useState, useEffect } from 'react';
 import { collection, getDocs, doc, updateDoc } from 'firebase/firestore';
-import { db } from '~/firebase-config';
+import { auth, db } from '~/firebase-config';
+import { DASHBOARD_ROLES, type DashboardRole } from '~/config/roles';
+import toast, { Toaster } from 'react-hot-toast';
 
 type User = {
   id: string;
   email: string;
-  role: string;
+  role: DashboardRole;
 };
 
 export default function UsersManager() {
@@ -24,38 +26,53 @@ export default function UsersManager() {
     setLoading(false);
   }
 
-  async function changeRole(userId: string, newRole: string) {
-    await updateDoc(doc(db, 'users', userId), { role: newRole });
-    loadUsers(); // ricarica lista
+  async function changeRole(userId: string, newRole: DashboardRole) {
+    setUsers((prev) => prev.map((u) => (u.id === userId ? { ...u, role: newRole } : u)));
+
+    try {
+      await updateDoc(doc(db, 'users', userId), { role: newRole });
+
+      toast.success('Ruolo aggiornato con successo');
+
+      if (auth.currentUser?.uid === userId) {
+        setTimeout(() => {
+          toast.loading('Il tuo ruolo è stato modificato. Ricaricamento...', { duration: 1500 });
+          window.location.reload();
+        }, 1500);
+      }
+    } catch (error) {
+      toast.error(`Errore durante l'aggiornamento: ${(error as Error).message}`);
+    }
   }
 
-  if (loading) return <p>Loading...</p>;
+  if (loading) return <p className="py-10 text-center">Caricamento utenti...</p>;
 
   return (
     <div className="overflow-x-auto">
+      <Toaster position="top-right" />
+
       <table className="w-full text-sm">
         <thead>
           <tr className="border-b text-left">
             <th className="py-2">Email</th>
-            <th>Ruolo</th>
-            <th>Azioni</th>
+            <th className="py-2 text-right">Azioni</th>
           </tr>
         </thead>
         <tbody>
           {users.map((u) => (
             <tr key={u.id} className="border-b">
               <td className="py-2">{u.email}</td>
-              <td>{u.role}</td>
-              <td>
+              <td className="py-2 text-right">
                 <select
                   value={u.role}
-                  onChange={(e) => changeRole(u.id, e.target.value)}
+                  onChange={(e) => changeRole(u.id, e.target.value as DashboardRole)}
                   className="rounded border px-2 py-1 text-xs dark:bg-slate-800"
                 >
-                  <option value="viewer">Viewer</option>
-                  <option value="editor">Editor</option>
-                  <option value="manager">Manager</option>
-                  <option value="admin">Admin</option>
+                  {DASHBOARD_ROLES.map((role) => (
+                    <option key={role} value={role}>
+                      {role}
+                    </option>
+                  ))}
                 </select>
               </td>
             </tr>
