@@ -78,8 +78,8 @@ export function getHeaderData(lang: Lang) {
     actions: [
       {
         text: lang === 'it' ? 'Contatta le vendite' : 'Contact Sales',
-        href: link(lang, 'contact'),
-        // target: '_blank',
+        href: 'https://meetings.hubspot.com/federico-mandelli',
+        target: '_blank',
       },
     ],
   };
