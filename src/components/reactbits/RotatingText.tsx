@@ -180,7 +180,7 @@ const RotatingText = forwardRef<RotatingTextRef, RotatingTextProps>(
 
     return (
       <motion.span
-        className={cn('flex flex-wrap whitespace-pre-wrap relative', mainClassName)}
+        className={cn('relative flex flex-wrap whitespace-pre-wrap', mainClassName)}
         {...rest}
         layout
         transition={transition}
@@ -189,7 +189,7 @@ const RotatingText = forwardRef<RotatingTextRef, RotatingTextProps>(
         <AnimatePresence mode={animatePresenceMode} initial={animatePresenceInitial}>
           <motion.span
             key={currentTextIndex}
-            className={cn(splitBy === 'lines' ? 'flex flex-col w-full' : 'flex flex-wrap whitespace-pre-wrap relative')}
+            className={cn(splitBy === 'lines' ? 'flex w-full flex-col' : 'relative flex flex-wrap whitespace-pre-wrap')}
             layout
             aria-hidden="true"
           >

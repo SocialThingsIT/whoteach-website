@@ -11,6 +11,7 @@ const routes = {
   blog: 'blog',
   privacy: 'privacy',
   terms: 'terms',
+  dashboard: 'dashboard',
 } as const;
 
 // Components routes

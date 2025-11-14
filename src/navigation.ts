@@ -32,7 +32,8 @@ export function getHeaderData(lang: Lang) {
   return {
     links: [
       {
-        text: lang === 'it' ? 'Componenti' : 'Components',
+        text: lang === 'it' ? 'Piattaforma' : 'Platform',
+        href: link(lang, 'the-platform'),
         links: [
           {
             text: 'Recommender System',
@@ -52,15 +53,14 @@ export function getHeaderData(lang: Lang) {
           },
         ],
       },
-
       {
         text: lang === 'it' ? 'Prezzi' : 'Pricing',
         href: link(lang, 'prices'),
       },
-      {
-        text: lang === 'it' ? 'Piattaforma' : 'Platform',
-        href: link(lang, 'the-platform'),
-      },
+      // {
+      //   text: lang === 'it' ? 'Piattaforma' : 'Platform',
+      //   href: link(lang, 'the-platform'),
+      // },
       {
         text: lang === 'it' ? 'Chi siamo' : 'About Us',
         href: link(lang, 'who-we-are'),
@@ -77,8 +77,8 @@ export function getHeaderData(lang: Lang) {
     ],
     actions: [
       {
-        text: lang === 'it' ? 'Accedi' : 'Login',
-        href: 'https://platform.whoteach.it',
+        text: lang === 'it' ? 'Contatta le vendite' : 'Contact Sales',
+        href: 'https://meetings.hubspot.com/federico-mandelli',
         target: '_blank',
       },
     ],

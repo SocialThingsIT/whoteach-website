@@ -65,8 +65,8 @@ const imagePaths = await Astro.glob('/src/assets/images/whoteach-slider-logos/*'
     }}
   />
 
-  <div class="my-20">
-    <VideoPlayer client:visible src="https://youtu.be/z_1_FwE3V4E" playing={true} muted={true} controls={true} />
+  <div class="my-20" data-astro-transition-persist="video-player">
+    <VideoPlayer src="https://youtu.be/z_1_FwE3V4E" playing={true} muted={true} controls={true} />
   </div>
 
   <Features
@@ -285,6 +285,6 @@ const imagePaths = await Astro.glob('/src/assets/images/whoteach-slider-logos/*'
   />
 
   <div class="mx-auto max-w-7xl pb-16 pt-12">
-    <InfiniteSlider client:visible duration={30} pauseOnHover={false} imagePaths={imagePaths} />
+    <InfiniteSlider client:load duration={30} pauseOnHover={false} imagePaths={imagePaths} />
   </div>
 </Layout>

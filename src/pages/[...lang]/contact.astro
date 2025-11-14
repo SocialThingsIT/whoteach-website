@@ -8,7 +8,7 @@ import InfiniteSlider from '~/components/custom-react/InfiniteSlider';
 // i18n helpers
 import { t } from '~/utils/i18n';
 import type { Lang } from '~/utils/i18n';
-import { link } from '~/utils/routes';
+// import { link } from '~/utils/routes';
 
 // Images
 import heroContact from '~/assets/images/whoteach-images/hero-demo-contatto.png';
@@ -79,6 +79,6 @@ const imagePaths = await Astro.glob('/src/assets/images/whoteach-slider-logos/*'
   />
 
   <div class="mb-20 mt-10">
-    <InfiniteSlider client:visible duration={30} pauseOnHover={false} imagePaths={imagePaths} />
+    <InfiniteSlider client:load duration={30} pauseOnHover={false} imagePaths={imagePaths} />
   </div>
 </Layout>

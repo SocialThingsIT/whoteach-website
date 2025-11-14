@@ -2,6 +2,7 @@
 import { Icon } from 'astro-icon/components';
 import { SITE } from 'astrowind:config';
 import { getHomePermalink } from '~/utils/permalinks';
+import HubSpotForm from '~/components/widgets/HubSpotForm.astro';
 
 interface Link {
   text?: string;
@@ -26,86 +27,137 @@ export interface Props {
 const { socialLinks = [], secondaryLinks = [], links = [], footNote = '', theme = 'light' } = Astro.props;
 ---
 
+<!-- Sezione Newsletter (sopra il footer) -->
+<section
+  class="border-default/20 intersect-once intersect-quarter border-t bg-section transition dark:border-slate-800 dark:bg-slate-900 motion-safe:md:opacity-0 motion-safe:md:intersect:animate-fade"
+>
+  <div class="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:py-16">
+    <div class="grid gap-8 lg:grid-cols-2 lg:items-center">
+      <!-- Contenuto sinistra -->
+      <div>
+        <p class="mb-2 text-sm font-semibold uppercase tracking-wider text-secondary">Iscriviti alla newsletter</p>
+        <h2 class="mb-4 text-3xl font-bold text-primary dark:text-white lg:text-4xl">
+          Porta l'innovazione nei tuoi corsi, un'email alla volta
+        </h2>
+        <ul class="space-y-2 text-secondary dark:text-slate-400">
+          <li class="flex items-start">
+            <Icon name="tabler:arrow-badge-right" class="mr-2 mt-1 h-5 w-5 flex-shrink-0 text-primary" />
+            <span>Articoli, risorse e strumenti per semplificare il tuo lavoro</span>
+          </li>
+          <li class="flex items-start">
+            <Icon name="tabler:arrow-badge-right" class="mr-2 mt-1 h-5 w-5 flex-shrink-0 text-primary" />
+            <span>Scopri le ultime opportunità per sviluppare e finanziare le tue iniziative</span>
+          </li>
+          <li class="flex items-start">
+            <Icon name="tabler:arrow-badge-right" class="mr-2 mt-1 h-5 w-5 flex-shrink-0 text-primary" />
+            <span>Solo ciò che ti serve, quando ti serve: niente fronzoli, niente spam</span>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Form HubSpot destra -->
+      <div class="rounded-lg p-8">
+        <HubSpotForm
+          portalId="6721537"
+          formId="07c5824a-6999-4bb7-91d5-2e801d188702"
+          region="na1"
+          containerId="footer-newsletter-form"
+        />
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Footer principale -->
 <footer
   class:list={[
     { dark: theme === 'dark' },
-    'not-prose relative border-t border-gray-200 bg-white dark:border-slate-800',
+    'not-prose border-default/20 relative border-t bg-white dark:border-slate-800 dark:bg-slate-950',
   ]}
 >
   <div class="pointer-events-none absolute inset-0" aria-hidden="true"></div>
-  <div
-    class="intersect-once intersect-quarter intercept-no-queue relative mx-auto max-w-7xl px-4 dark:text-slate-300 sm:px-6 motion-safe:md:opacity-0 motion-safe:md:intersect:animate-fade"
-  >
-    <div
-      class="grid grid-cols-12 gap-4 gap-y-8 py-8 sm:gap-8 md:py-12 lg:grid-cols-[3fr_auto_auto_auto] lg:justify-between"
-    >
-      <div class="col-span-12 lg:col-span-1">
-        <div class="mb-2">
-          <a class="inline-block text-xl font-bold" href={getHomePermalink()}>{SITE?.name}</a>
+  <div class="relative mx-auto max-w-7xl px-4 py-8 dark:text-slate-300 sm:px-6 md:py-12">
+    <!-- Layout: Logo sinistra, colonne link destra -->
+    <div class="mb-8 grid grid-cols-1 gap-8 lg:grid-cols-12">
+      <!-- Logo e secondary links (sinistra) -->
+      <div class="lg:col-span-3">
+        <div class="mb-4">
+          <a class="inline-block text-2xl font-bold text-default dark:text-white" href={getHomePermalink()}>
+            {SITE?.name}
+          </a>
         </div>
-        <div class="flex gap-1 text-sm text-muted">
-          {
-            secondaryLinks.map(({ text, href }, index) => (
-              <>
-                {index !== 0 ? ' · ' : ''}
+        {
+          secondaryLinks?.length > 0 && (
+            <div class="flex flex-col gap-2 text-sm">
+              {secondaryLinks.map(({ text, href }) => (
                 <a
-                  class="text-muted transition duration-150 ease-in-out hover:text-gray-700 hover:underline dark:text-gray-400"
+                  class="text-default transition duration-150 ease-in-out hover:text-primary hover:underline dark:text-gray-400 dark:hover:text-primary"
                   href={href}
                   set:html={text}
                 />
-              </>
-            ))
-          }
-        </div>
+              ))}
+            </div>
+          )
+        }
       </div>
-      {
-        links.map(({ title, links }) => (
-          <div class="col-span-12 sm:col-span-6 md:col-span-3 lg:col-span-1">
-            <div class="mb-3 text-base font-medium dark:text-gray-300">{title}</div>
-            {links && Array.isArray(links) && links.length > 0 && (
-              <ul class="space-y-2 text-sm">
-                {links.map(({ text, href, ariaLabel }) => (
-                  <li>
-                    <a
-                      class="text-muted transition duration-150 ease-in-out hover:text-gray-700 hover:underline dark:text-gray-400"
-                      href={href}
-                      aria-label={ariaLabel}
-                    >
-                      <Fragment set:html={text} />
-                    </a>
-                  </li>
-                ))}
-              </ul>
-            )}
-          </div>
-        ))
-      }
+
+      <!-- Colonne link (destra) -->
+      <div class="grid grid-cols-2 gap-8 sm:grid-cols-3 lg:col-span-9">
+        {
+          links.map(({ title, links }) => (
+            <div>
+              <div class="mb-3 text-base font-semibold text-default dark:text-white">{title}</div>
+              {links && Array.isArray(links) && links.length > 0 && (
+                <ul class="space-y-2 text-sm">
+                  {links.map(({ text, href, ariaLabel }) => (
+                    <li>
+                      <a
+                        class="text-default transition duration-150 ease-in-out hover:text-primary hover:underline dark:text-gray-400 dark:hover:text-primary"
+                        href={href}
+                        aria-label={ariaLabel}
+                      >
+                        <Fragment set:html={text} />
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+              )}
+            </div>
+          ))
+        }
+      </div>
     </div>
-    <div class="py-6 md:flex md:items-center md:justify-between md:py-8">
+
+    <!-- Divider -->
+    <div class="border-default/20 border-t dark:border-slate-800"></div>
+
+    <!-- Riga inferiore: copyright sinistra, social destra -->
+    <div class="flex flex-col items-center justify-between gap-4 py-6 md:flex-row">
+      <!-- Copyright -->
+      <div class="text-center text-sm text-muted md:text-left">
+        <Fragment set:html={footNote} />
+      </div>
+
+      <!-- Social links -->
       {
-        socialLinks?.length ? (
-          <ul class="-ml-2 mb-4 flex md:order-1 md:mb-0 md:ml-4 rtl:-mr-2 rtl:ml-0 rtl:md:ml-0 rtl:md:mr-4">
-            {socialLinks.map(({ ariaLabel, href, text, icon }) => (
+        socialLinks?.length > 0 && (
+          <ul class="flex items-center gap-1">
+            {socialLinks.map(({ ariaLabel, href, icon }) => (
               <li>
                 <a
-                  class="inline-flex items-center rounded-lg p-2.5 text-sm text-muted hover:bg-gray-100 focus:outline-none focus:ring-4 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-700"
+                  class="inline-flex items-center rounded-lg p-2.5 text-default transition hover:bg-section hover:text-primary dark:text-slate-400 dark:hover:bg-slate-800 dark:hover:text-white"
                   aria-label={ariaLabel}
                   href={href}
+                  target="_blank"
+                  rel="noopener noreferrer"
                 >
                   {icon && <Icon name={icon} class="h-5 w-5" />}
-                  <Fragment set:html={text} />
                 </a>
               </li>
             ))}
           </ul>
-        ) : (
-          ''
         )
       }
-
-      <div class="mr-4 text-sm dark:text-muted">
-        <Fragment set:html={footNote} />
-      </div>
     </div>
   </div>
 </footer>

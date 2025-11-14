@@ -149,7 +149,7 @@ const imagePaths = await Astro.glob('/src/assets/images/whoteach-slider-logos/*'
   </Whitelabel>
 
   <div class="my-20">
-    <InfiniteSlider client:visible duration={30} pauseOnHover={false} imagePaths={imagePaths} />
+    <InfiniteSlider client:load duration={30} pauseOnHover={false} imagePaths={imagePaths} />
   </div>
 
   <FAQs
