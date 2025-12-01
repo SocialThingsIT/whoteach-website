@@ -67,8 +67,8 @@ export function getHeaderData(lang: Lang) {
       },
       {
         text: 'Blog',
-        // href: link(lang, 'blog'),
-        href: '/blog',
+        // href: '/blog', VECCHIO VALORE
+        href: link(lang, 'blog'),
       },
       {
         text: lang === 'it' ? 'Contatti' : 'Contact',

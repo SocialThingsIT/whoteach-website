@@ -39,7 +39,7 @@ export const getCanonical = (path = ''): string | URL => {
 };
 
 /** */
-export const getPermalink = (slug = '', type = 'page'): string => {
+export const getPermalink = (slug = '', type = 'page', lang = 'it'): string => {
   let permalink: string;
 
   if (
@@ -58,23 +58,24 @@ export const getPermalink = (slug = '', type = 'page'): string => {
       break;
 
     case 'blog':
-      permalink = getBlogPermalink();
+      // permalink = getBlogPermalink();
+      permalink = `/${lang}/${BLOG_BASE}`;
       break;
 
     case 'asset':
       permalink = getAsset(slug);
       break;
 
+    case 'post':
+      permalink = `/${lang}/${slug}`; // AGGIUNGI: prefisso lingua
+      break;
+
     case 'category':
-      permalink = createPath(CATEGORY_BASE, trimSlash(slug));
+      permalink = `/${lang}/category/${slug}`; // AGGIUNGI: prefisso lingua
       break;
 
     case 'tag':
-      permalink = createPath(TAG_BASE, trimSlash(slug));
-      break;
-
-    case 'post':
-      permalink = createPath(trimSlash(slug));
+      permalink = `/${lang}/tag/${slug}`; // AGGIUNGI: prefisso lingua
       break;
 
     case 'page':
@@ -90,7 +91,7 @@ export const getPermalink = (slug = '', type = 'page'): string => {
 export const getHomePermalink = (): string => getPermalink('/');
 
 /** */
-export const getBlogPermalink = (): string => getPermalink(BLOG_BASE);
+export const getBlogPermalink = (lang = 'it'): string => getPermalink('', 'blog', lang);
 
 /** */
 export const getAsset = (path: string): string =>

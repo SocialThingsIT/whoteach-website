@@ -1,4 +1,5 @@
 ---
+// filepath: c:\Users\AndreaMauriello\Documents\GitHub\whoteach-website\src\pages\[...lang]\[...blog]\index.astro
 import type { InferGetStaticPropsType, GetStaticPaths } from 'astro';
 
 import merge from 'lodash.merge';
@@ -7,7 +8,7 @@ import Layout from '~/layouts/PageLayout.astro';
 import SinglePost from '~/components/blog/SinglePost.astro';
 import ToBlogLink from '~/components/blog/ToBlogLink.astro';
 
-import { getCanonical, getPermalink } from '~/utils/permalinks';
+import { getCanonical } from '~/utils/permalinks';
 import { getStaticPathsBlogPost, blogPostRobots } from '~/utils/blog';
 import { findImage } from '~/utils/images';
 import type { MetaData } from '~/types';
@@ -22,8 +23,10 @@ export const getStaticPaths = (async () => {
 type Props = InferGetStaticPropsType<typeof getStaticPaths>;
 
 const { post } = Astro.props as Props;
+const { lang } = Astro.params; // AGGIUNGI: Estrai lang dai params
 
-const url = getCanonical(getPermalink(post.permalink, 'post'));
+// MODIFICA: Costruisci URL con prefisso lingua
+const url = getCanonical(`/${lang}/blog/${post.permalink}`);
 const image = (await findImage(post.image)) as ImageMetadata | string | undefined;
 
 const metadata = merge(

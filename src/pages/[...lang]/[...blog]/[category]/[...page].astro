@@ -1,11 +1,13 @@
 ---
+// filepath: c:\Users\AndreaMauriello\Documents\GitHub\whoteach-website\src\pages\[...lang]\[...blog]\[category]\[...page].astro
 import type { InferGetStaticPropsType, GetStaticPaths } from 'astro';
-import { blogCategoryRobots, getStaticPathsBlogCategory } from '~/utils/blog';
 
 import Layout from '~/layouts/PageLayout.astro';
 import BlogList from '~/components/blog/List.astro';
 import Headline from '~/components/blog/Headline.astro';
 import Pagination from '~/components/blog/Pagination.astro';
+
+import { blogCategoryRobots, getStaticPathsBlogCategory } from '~/utils/blog';
 
 export const prerender = true;
 
@@ -13,24 +15,30 @@ export const getStaticPaths = (async ({ paginate }) => {
   return await getStaticPathsBlogCategory({ paginate });
 }) satisfies GetStaticPaths;
 
-type Props = InferGetStaticPropsType<typeof getStaticPaths> & { category: Record<string, string> };
+type Props = InferGetStaticPropsType<typeof getStaticPaths>;
 
 const { page, category } = Astro.props as Props;
+const { lang } = Astro.params; // AGGIUNGI: Estrai lang dai params
 
 const currentPage = page.currentPage ?? 1;
 
 const metadata = {
-  title: `Category '${category.title}' ${currentPage > 1 ? ` — Page ${currentPage}` : ''}`,
+  title: `Category: ${category.title}${currentPage > 1 ? ` — Page ${currentPage}` : ''}`,
   robots: {
-    index: blogCategoryRobots?.index,
+    index: blogCategoryRobots?.index && currentPage === 1,
     follow: blogCategoryRobots?.follow,
   },
 };
 ---
 
 <Layout metadata={metadata}>
-  <section class="px-4 md:px-6 py-12 sm:py-16 lg:py-20 mx-auto max-w-4xl">
-    <Headline>{category.title}</Headline>
+  <section class="mx-auto max-w-4xl px-6 py-12 sm:px-6 sm:py-16 lg:py-20">
+    <Headline>
+      Category: {category.title}
+      <span slot="subtitle">
+        Explore articles in the <strong>{category.title}</strong> category
+      </span>
+    </Headline>
     <BlogList posts={page.data} />
     <Pagination prevUrl={page.url.prev} nextUrl={page.url.next} />
   </section>
