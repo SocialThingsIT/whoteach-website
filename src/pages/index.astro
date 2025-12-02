@@ -7,7 +7,7 @@ import BlogLatestPosts from '~/components/widgets/BlogLatestPosts.astro';
 import Features2 from '~/components/widgets/Features2.astro';
 import Stats from '~/components/widgets/Stats.astro';
 import RotatingText from '~/components/reactbits/RotatingText';
-import CircularText from '~/components/reactbits/CircularText';
+// import CircularText from '~/components/reactbits/CircularText';
 import InfiniteSlider from '~/components/custom-react/InfiniteSlider';
 import CardContent from '~/components/widgets/CardContent.astro';
 // import Testimonials from '~/components/widgets/Testimonials.astro';
@@ -52,8 +52,8 @@ const imagePaths = await Astro.glob('/src/assets/images/whoteach-slider-logos/*'
     ]}
   >
     <Fragment slot="title">
-      <div class="">
-        La soluzione per la tua <br />
+      <div>
+        La soluzione per la tua
         <RotatingText
           client:visible
           texts={['formazione', 'crescita', 'innovazione', 'carriera', 'organizzazione', 'evoluzione']}
@@ -68,13 +68,13 @@ const imagePaths = await Astro.glob('/src/assets/images/whoteach-slider-logos/*'
           rotationInterval={2000}
         />
       </div>
-      <CircularText
+      <!-- <CircularText
         client:visible
         text="BENVENUTO*SU*WHOTEACH*"
         onHover="pause"
         spinDuration={20}
         className="absolute -right-20 -top-20 hidden text-primary xl:block"
-      />
+      /> -->
     </Fragment>
 
     <Fragment slot="subtitle">

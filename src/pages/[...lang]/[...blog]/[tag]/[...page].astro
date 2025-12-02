@@ -39,7 +39,7 @@ const metadata = {
         Explore all articles with the tag <strong>{tag.title}</strong>
       </span>
     </Headline>
-    <BlogList posts={page.data} />
+    <BlogList posts={page.data} lang={lang} />
     <Pagination prevUrl={page.url.prev} nextUrl={page.url.next} />
   </section>
 </Layout>

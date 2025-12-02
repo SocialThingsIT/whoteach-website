@@ -84,7 +84,7 @@ export default defineConfig({
   ],
 
   image: {
-    domains: ['cdn.pixabay.com'],
+    domains: ['www.whoteach.it'],
   },
 
   markdown: {

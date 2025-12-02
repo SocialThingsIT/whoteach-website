@@ -12,7 +12,7 @@ import BlogLatestPosts from '~/components/widgets/BlogLatestPosts.astro';
 import Features2 from '~/components/widgets/Features2.astro';
 import Stats from '~/components/widgets/Stats.astro';
 import RotatingText from '~/components/reactbits/RotatingText';
-import CircularText from '~/components/reactbits/CircularText';
+// import CircularText from '~/components/reactbits/CircularText';
 import InfiniteSlider from '~/components/custom-react/InfiniteSlider';
 import CardContent from '~/components/widgets/CardContent.astro';
 import Button from '~/components/ui/Button.astro';
@@ -111,13 +111,13 @@ console.log(link(lang, 'prices'));
           rotationInterval={2000}
         />
       </div>
-      <CircularText
+      <!-- <CircularText
         client:visible
         text={t(lang, 'hero.circularText')}
         onHover="pause"
         spinDuration={20}
         className="absolute -right-20 -top-20 hidden text-primary xl:block"
-      />
+      /> -->
     </Fragment>
 
     <Fragment slot="subtitle">{t(lang, 'hero.subtitle')}</Fragment>

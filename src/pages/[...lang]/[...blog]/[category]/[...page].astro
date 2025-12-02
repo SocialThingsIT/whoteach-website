@@ -8,6 +8,7 @@ import Headline from '~/components/blog/Headline.astro';
 import Pagination from '~/components/blog/Pagination.astro';
 
 import { blogCategoryRobots, getStaticPathsBlogCategory } from '~/utils/blog';
+import { late } from 'astro:schema';
 
 export const prerender = true;
 
@@ -39,7 +40,7 @@ const metadata = {
         Explore articles in the <strong>{category.title}</strong> category
       </span>
     </Headline>
-    <BlogList posts={page.data} />
+    <BlogList posts={page.data} lang={lang} />
     <Pagination prevUrl={page.url.prev} nextUrl={page.url.next} />
   </section>
 </Layout>

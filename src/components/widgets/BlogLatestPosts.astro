@@ -8,6 +8,7 @@ import { findLatestPosts } from '~/utils/blog';
 import WidgetWrapper from '~/components/ui/WidgetWrapper.astro';
 import type { Widget } from '~/types';
 import Button from '~/components/ui/Button.astro';
+import type { Lang } from '~/utils/i18n';
 
 export interface Props extends Widget {
   title?: string;
@@ -30,7 +31,9 @@ const {
   bg = await Astro.slots.render('bg'),
 } = Astro.props;
 
-const posts = APP_BLOG.isEnabled ? await findLatestPosts({ count }) : [];
+const { lang } = Astro.params as { lang: Lang };
+
+const posts = APP_BLOG.isEnabled ? await findLatestPosts({ count, lang }) : [];
 ---
 
 {
