@@ -12,6 +12,7 @@
     "start": "astro dev --host",
     "build": "astro build",
     "preview": "astro preview",
+    "deploy": "astro deploy",
     "astro": "astro",
     "check": "npm run check:astro && npm run check:eslint && npm run check:prettier",
     "check:astro": "astro check",
