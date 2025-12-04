@@ -85,7 +85,31 @@
   ],
   "blog": {
     "title": "Blog - WhoTeach",
-    "description": "Rimani aggiornato con le ultime notizie, tutorial e risorse sull'apprendimento digitale e la formazione aziendale"
+    "description": "Rimani aggiornato con le ultime notizie, tutorial e risorse sull'apprendimento digitale e la formazione aziendale",
+    "categories": {
+      "events": "Eventi",
+      "learningInnovation": "Innovazione nella Formazione",
+      "platforms": "Piattaforme e Tecnologie",
+      "contentCreation": "Creazione Contenuti",
+      "engagement": "Engagement e Interattività",
+      "businessTraining": "Formazione per il Business"
+    },
+    "tags": {
+      "artificialIntelligence": "Intelligenza Artificiale",
+      "automation": "Automazione",
+      "contentStrategy": "Strategia dei Contenuti",
+      "training": "Formazione",
+      "eLearning": "E-learning",
+      "lms": "LMS",
+      "engagement": "Engagement",
+      "userExperience": "User Experience",
+      "learningExperience": "Learning Experience",
+      "customerEducation": "Customer Education",
+      "innovation": "Innovazione",
+      "digitalTransformation": "Trasformazione Digitale",
+      "personalization": "Personalizzazione",
+      "microlearning": "Microlearning"
+    }
   },
   "prices": {
     "title": "Prezzi - WhoTeach",

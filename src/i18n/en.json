@@ -85,7 +85,31 @@
   ],
   "blog": {
     "title": "Blog - WhoTeach",
-    "description": "Stay updated with the latest news, tutorials, and resources on digital learning and corporate training"
+    "description": "Stay updated with the latest news, tutorials, and resources on digital learning and corporate training",
+    "categories": {
+      "events": "Events",
+      "learningInnovation": "Learning Innovation",
+      "platforms": "Platforms & Technologies",
+      "contentCreation": "Content Creation",
+      "engagement": "Engagement & Interactivity",
+      "businessTraining": "Business Training"
+    },
+    "tags": {
+      "artificialIntelligence": "Artificial Intelligence",
+      "automation": "Automation",
+      "contentStrategy": "Content Strategy",
+      "training": "Training",
+      "eLearning": "E-learning",
+      "lms": "LMS",
+      "engagement": "Engagement",
+      "userExperience": "User Experience",
+      "learningExperience": "Learning Experience",
+      "customerEducation": "Customer Education",
+      "innovation": "Innovation",
+      "digitalTransformation": "Digital Transformation",
+      "personalization": "Personalization",
+      "microlearning": "Microlearning"
+    }
   },
   "prices": {
     "title": "Pricing - WhoTeach",

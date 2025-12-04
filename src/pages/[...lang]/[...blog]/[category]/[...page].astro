@@ -8,7 +8,7 @@ import Pagination from '~/components/blog/Pagination.astro';
 
 import { blogCategoryRobots, getStaticPathsBlogCategory } from '~/utils/blog';
 import type { Post } from '~/types';
-import type { Lang } from '~/utils/i18n';
+import { t, type Lang } from '~/utils/i18n';
 
 export const prerender = true;
 
@@ -29,7 +29,7 @@ const { lang } = Astro.params as { lang: Lang };
 const currentPage = page.currentPage ?? 1;
 
 const metadata = {
-  title: `Category: ${category.title}${currentPage > 1 ? ` — Page ${currentPage}` : ''}`,
+  title: `Category: ${t(lang, `blog.categories.${category.title}`)}${currentPage > 1 ? ` — Page ${currentPage}` : ''}`,
   robots: {
     index: blogCategoryRobots?.index && currentPage === 1,
     follow: blogCategoryRobots?.follow,
@@ -40,9 +40,9 @@ const metadata = {
 <Layout metadata={metadata}>
   <section class="mx-auto max-w-6xl px-6 py-12 sm:px-6 sm:py-16 lg:py-12">
     <Headline>
-      Category: {category.title}
+      Category: {t(lang, `blog.categories.${category.title}`)}
       <span slot="subtitle">
-        Explore articles in the <strong>{category.title}</strong> category
+        Explore articles in the <strong>{t(lang, `blog.categories.${category.title}`)}</strong> category
       </span>
     </Headline>
     <BlogList posts={page.data} lang={lang} />
