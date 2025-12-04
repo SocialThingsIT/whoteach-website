@@ -104,11 +104,8 @@ const getNormalizedPost = async (post: CollectionEntry<'post'>, lang = 'it'): Pr
 
 const load = async function (lang = 'it'): Promise<Array<Post>> {
   const posts = await getCollection('post', ({ id }) => {
-    console.log('Post ID:', id, 'Lang:', lang, 'Starts with:', id.startsWith(`${lang}/`)); // DEBUG
     return id.startsWith(`${lang}/`);
   });
-
-  console.log('Loaded posts for', lang, ':', posts.length); // DEBUG
 
   const normalizedPosts = posts.map(async (post) => await getNormalizedPost(post, lang));
 
