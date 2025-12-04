@@ -1,6 +1,5 @@
 ---
-// filepath: c:\Users\AndreaMauriello\Documents\GitHub\whoteach-website\src\pages\[...lang]\[...blog]\[category]\[...page].astro
-import type { InferGetStaticPropsType, GetStaticPaths } from 'astro';
+import type { Page, GetStaticPaths } from 'astro';
 
 import Layout from '~/layouts/PageLayout.astro';
 import BlogList from '~/components/blog/List.astro';
@@ -8,7 +7,8 @@ import Headline from '~/components/blog/Headline.astro';
 import Pagination from '~/components/blog/Pagination.astro';
 
 import { blogCategoryRobots, getStaticPathsBlogCategory } from '~/utils/blog';
-import { late } from 'astro:schema';
+import type { Post } from '~/types';
+import { t, type Lang } from '~/utils/i18n';
 
 export const prerender = true;
 
@@ -16,15 +16,20 @@ export const getStaticPaths = (async ({ paginate }) => {
   return await getStaticPathsBlogCategory({ paginate });
 }) satisfies GetStaticPaths;
 
-type Props = InferGetStaticPropsType<typeof getStaticPaths>;
-
-const { page, category } = Astro.props as Props;
-const { lang } = Astro.params; // AGGIUNGI: Estrai lang dai params
+interface Props {
+  page: Page<Post>;
+  category: {
+    slug: string;
+    title: string;
+  };
+}
+const { page, category } = Astro.props as unknown as Props;
+const { lang } = Astro.params as { lang: Lang };
 
 const currentPage = page.currentPage ?? 1;
 
 const metadata = {
-  title: `Category: ${category.title}${currentPage > 1 ? ` — Page ${currentPage}` : ''}`,
+  title: `Category: ${t(lang, `blog.categories.${category.title}`)}${currentPage > 1 ? ` — Page ${currentPage}` : ''}`,
   robots: {
     index: blogCategoryRobots?.index && currentPage === 1,
     follow: blogCategoryRobots?.follow,
@@ -33,11 +38,11 @@ const metadata = {
 ---
 
 <Layout metadata={metadata}>
-  <section class="mx-auto max-w-4xl px-6 py-12 sm:px-6 sm:py-16 lg:py-20">
+  <section class="mx-auto max-w-6xl px-6 py-12 sm:px-6 sm:py-16 lg:py-12">
     <Headline>
-      Category: {category.title}
+      Category: {t(lang, `blog.categories.${category.title}`)}
       <span slot="subtitle">
-        Explore articles in the <strong>{category.title}</strong> category
+        Explore articles in the <strong>{t(lang, `blog.categories.${category.title}`)}</strong> category
       </span>
     </Headline>
     <BlogList posts={page.data} lang={lang} />
