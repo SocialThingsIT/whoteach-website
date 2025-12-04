@@ -1,4 +1,4 @@
-import type { PaginateFunction } from 'astro';
+import type { PaginateFunction, GetStaticPathsResult } from 'astro';
 import { getCollection, render } from 'astro:content';
 import type { CollectionEntry } from 'astro:content';
 import type { Post } from '~/types';
@@ -10,13 +10,11 @@ const generatePermalink = async ({
   slug,
   publishDate,
   category,
-  lang = 'it',
 }: {
   id: string;
   slug: string;
   publishDate: Date;
   category: string | undefined;
-  lang?: string;
 }) => {
   const year = String(publishDate.getFullYear()).padStart(4, '0');
   const month = String(publishDate.getMonth() + 1).padStart(2, '0');
@@ -78,15 +76,10 @@ const getNormalizedPost = async (post: CollectionEntry<'post'>, lang = 'it'): Pr
     title: tag,
   }));
 
-  console.log(
-    'Post permalink:',
-    await generatePermalink({ id: cleanId, slug, publishDate, category: category?.slug, lang })
-  ); // DEBUG
-
   return {
     id: id,
     slug: slug,
-    permalink: await generatePermalink({ id: cleanId, slug, publishDate, category: category?.slug, lang }),
+    permalink: await generatePermalink({ id: cleanId, slug, publishDate, category: category?.slug }),
 
     publishDate: publishDate,
     updateDate: updateDate,
@@ -197,11 +190,15 @@ export const findLatestPosts = async ({
 };
 
 /** */
-export const getStaticPathsBlogList = async ({ paginate }: { paginate: PaginateFunction }) => {
+export const getStaticPathsBlogList = async ({
+  paginate,
+}: {
+  paginate: PaginateFunction;
+}): Promise<GetStaticPathsResult> => {
   if (!isBlogEnabled || !isBlogListRouteEnabled) return [];
 
-  const langs = ['it', 'en'];
-  const allPaths: any[] = [];
+  const langs: Array<'it' | 'en'> = ['it', 'en'];
+  const allPaths: GetStaticPathsResult = [];
 
   for (const lang of langs) {
     const posts = await fetchPosts(lang);
@@ -216,11 +213,11 @@ export const getStaticPathsBlogList = async ({ paginate }: { paginate: PaginateF
 };
 
 /** */
-export const getStaticPathsBlogPost = async () => {
+export const getStaticPathsBlogPost = async (): Promise<GetStaticPathsResult> => {
   if (!isBlogEnabled || !isBlogPostRouteEnabled) return [];
 
-  const langs = ['it', 'en'];
-  const allPaths: any[] = [];
+  const langs: Array<'it' | 'en'> = ['it', 'en'];
+  const allPaths: GetStaticPathsResult = [];
 
   for (const lang of langs) {
     const posts = await fetchPosts(lang);
@@ -238,15 +235,19 @@ export const getStaticPathsBlogPost = async () => {
 };
 
 /** */
-export const getStaticPathsBlogCategory = async ({ paginate }: { paginate: PaginateFunction }) => {
+export const getStaticPathsBlogCategory = async ({
+  paginate,
+}: {
+  paginate: PaginateFunction;
+}): Promise<GetStaticPathsResult> => {
   if (!isBlogEnabled || !isBlogCategoryRouteEnabled) return [];
 
-  const langs = ['it', 'en'];
-  const allPaths: any[] = [];
+  const langs: Array<'it' | 'en'> = ['it', 'en'];
+  const allPaths: GetStaticPathsResult = [];
 
   for (const lang of langs) {
     const posts = await fetchPosts(lang);
-    const categories: Record<string, any> = {};
+    const categories: Record<string, { slug: string; title: string }> = {};
 
     posts.forEach((post) => {
       if (post.category?.slug) {
@@ -272,15 +273,19 @@ export const getStaticPathsBlogCategory = async ({ paginate }: { paginate: Pagin
 };
 
 /** */
-export const getStaticPathsBlogTag = async ({ paginate }: { paginate: PaginateFunction }) => {
+export const getStaticPathsBlogTag = async ({
+  paginate,
+}: {
+  paginate: PaginateFunction;
+}): Promise<GetStaticPathsResult> => {
   if (!isBlogEnabled || !isBlogTagRouteEnabled) return [];
 
-  const langs = ['it', 'en'];
-  const allPaths: any[] = [];
+  const langs: Array<'it' | 'en'> = ['it', 'en'];
+  const allPaths: GetStaticPathsResult = [];
 
   for (const lang of langs) {
     const posts = await fetchPosts(lang);
-    const tags: Record<string, any> = {};
+    const tags: Record<string, { slug: string; title: string }> = {};
 
     posts.forEach((post) => {
       if (Array.isArray(post.tags)) {

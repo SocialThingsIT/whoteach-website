@@ -1,6 +1,7 @@
 ---
 // filepath: c:\Users\AndreaMauriello\Documents\GitHub\whoteach-website\src\pages\[...lang]\[...blog]\[...page].astro
-import type { InferGetStaticPropsType, GetStaticPaths } from 'astro';
+import type { GetStaticPaths, Page } from 'astro';
+import type { Lang } from '~/utils/i18n'; // AGGIUNGI: importa Lang
 
 import Layout from '~/layouts/PageLayout.astro';
 import BlogList from '~/components/blog/List.astro';
@@ -9,6 +10,7 @@ import Pagination from '~/components/blog/Pagination.astro';
 import { t } from '~/utils/i18n';
 
 import { blogListRobots, getStaticPathsBlogList } from '~/utils/blog';
+import type { Post } from '~/types';
 
 export const prerender = true;
 
@@ -16,10 +18,12 @@ export const getStaticPaths = (async ({ paginate }) => {
   return await getStaticPathsBlogList({ paginate });
 }) satisfies GetStaticPaths;
 
-type Props = InferGetStaticPropsType<typeof getStaticPaths>;
+interface Props {
+  page: Page<Post>;
+}
 
-const { page } = Astro.props as Props;
-const { lang } = Astro.params; // AGGIUNGI: Estrai lang dai params
+const { page } = Astro.props as unknown as Props;
+const { lang } = Astro.params as { lang: Lang };
 
 const currentPage = page.currentPage ?? 1;
 
@@ -36,7 +40,7 @@ const metadata = {
 ---
 
 <Layout metadata={metadata}>
-  <section class="mx-auto max-w-4xl px-6 py-12 sm:px-6 sm:py-16 lg:py-20">
+  <section class="mx-auto max-w-6xl px-6 py-12 sm:px-6 sm:py-16 lg:py-12">
     <Headline subtitle={t(lang, 'blog.description')}>
       {t(lang, 'blog.title')}
     </Headline>
