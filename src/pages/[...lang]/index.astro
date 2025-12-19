@@ -20,6 +20,8 @@ import Quote from '~/components/widgets/Quote.astro';
 // import Testimonials from '~/components/widgets/Testimonials.astro';
 
 // Images
+import hero from '~/assets/images/whoteach-images/hero.jpg';
+
 import hrImage from '~/assets/images/whoteach-images/hr.png';
 import aziendeImage from '~/assets/images/whoteach-images/aziende-pmi.png';
 import istitutiImage from '~/assets/images/whoteach-images/istituti-di-formazione.png';
@@ -76,7 +78,12 @@ const stats = t<Stat[]>(lang, 'stats');
 
 <Layout metadata={metadata}>
   <!--  ⭐ HERO  ******************************************************************* -->
+
   <Hero
+    image={{
+      src: hero,
+      alt: t(lang, 'hero.imageAlt'),
+    }}
     actions={[
       {
         variant: 'primary',
@@ -94,7 +101,6 @@ const stats = t<Stat[]>(lang, 'stats');
     <Fragment slot="title">
       <div>
         {t(lang, 'hero.title')}
-        <br />
         <RotatingText
           client:visible
           texts={t(lang, 'hero.rotatingTexts')}
@@ -109,13 +115,6 @@ const stats = t<Stat[]>(lang, 'stats');
           rotationInterval={2000}
         />
       </div>
-      <!-- <CircularText
-        client:visible
-        text={t(lang, 'hero.circularText')}
-        onHover="pause"
-        spinDuration={20}
-        className="absolute -right-20 -top-20 hidden text-primary xl:block"
-      /> -->
     </Fragment>
 
     <Fragment slot="subtitle">{t(lang, 'hero.subtitle')}</Fragment>
