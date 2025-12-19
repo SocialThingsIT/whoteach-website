@@ -3,14 +3,15 @@
     "title": "WhoTeach - Piattaforma di Digital Learning"
   },
   "hero": {
-    "title": "La soluzione per la tua ",
+    "title": "Un'unica piattaforma per tutta la tua ",
     "rotatingTexts": ["formazione", "crescita", "innovazione", "carriera", "organizzazione", "evoluzione"],
     "circularText": "BENVENUTO*SU*WHOTEACH*",
     "subtitle": "Una piattaforma pensata per enti di formazione e aziende che vogliono gestire corsi, docenti e studenti in modo semplice, centralizzato e accessibile da ogni dispositivo.",
     "action": {
       "primary": "Scarica la brochure",
       "secondary": "Guarda come funziona"
-    }
+    },
+    "imageAlt": "Due colleghi, un uomo e una donna, ridono insieme mentre lavorano al computer portatile a un tavolo in un ufficio moderno e luminoso."
   },
   "cardContent": {
     "title": "La soluzione di Digital Learning completa per...",
@@ -21,7 +22,7 @@
     },
     "aziende": {
       "alt": "Un professionista che presenta un grafico a un gruppo di colleghi in una sala riunioni moderna",
-      "title": "Aziende e PMI",
+      "title": "Scuole",
       "description": "Per assolvere gli obblighi normativi, aggiornare le competenze del tuo team e potenziare la produttività della tua realtà"
     },
     "istituti": {
